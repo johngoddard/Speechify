@@ -1,0 +1,17 @@
+# Speechify
+
+Link to project goes here
+
+## Minimum Viable Product
+
+
+Speechify is an audio-streaming web application inspired by Spotify built using React/Redux in conjunction with a Ruby on Rails server.  By the end of Week 9, this app will, at a minimum, support the following functionality with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
+
+- [ ] Hosting on Heroku
+- [ ] New account creation, login, and guest/demo login
+- [ ] Audio track creation, deletion, and updating
+- [ ] Playlist creation, deletion, and updating
+- [ ] Playlist sharing
+- [ ] Continuous audio streaming while navigating the site
+- [ ] Following other users
+- [ ] Production README
