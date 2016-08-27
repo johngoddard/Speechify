@@ -32,10 +32,6 @@
 **TracksIndexItemContainer**
  - TracksIndexItem
 
-**TracksIndexItem**
- - Playbutton
- - AddTrackToPlaylistContainer
-
 **AddTrackToPlaylistFromContainer**
  - AddTrackToPlaylistForm
 
@@ -49,9 +45,8 @@
 
 **PlaylistDetailContainer**
  - PlaylistDetail
- - PlaylistFormContainer
- - PlaylistTracksIndex
- - PlaylistToolsCotainer
+  + PlaylistTracksIndex
+  + PlaylistToolsCotainer
   + PlaylistTracksIndexItemContainer
 
 **PlayListToolsContainer**
@@ -64,7 +59,7 @@
 **PlaylistTracksIndexItemContainer**
  - PlaylistTracksIndexItem
  
-##Follow**
+##Follow
 
 **AppContainer**
 - FollowNav
@@ -78,10 +73,8 @@
  
 **UserDetailContainer**
  - UserDetail
- - UserToolsCotainer
- - EditUserButton
- - UserFormContainer
- - PlaylistIndex
+  + UserToolsCotainer
+  + PlaylistIndex
 
 **UserToolsContainer**
  - EditUserButton
@@ -94,12 +87,15 @@
 **PlayContainer**
  - CurrentTrackDisplay
  - CurrentTrackControlsContainer
- - CurrentTrackProgressBar
+ - CurrentTrackProgressBarContainer
  
 **CurrentTrackControlsContainer**
  - PlayButton
  - ForwardButton
  - BackButton
+
+**CurrentTrackProgressBarContainer**
+  - CurrentTrackProgressBa
 
 
 ## Routes
