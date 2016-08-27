@@ -1,97 +1,131 @@
 ## Component Heirarchy
 
-**AuthFormContainer**
- - AuthForm
+**OverallApp**
 
 **AppContainer**
  - Sidebar
-  + Sidbar Items
- - TracksContainer
-  + TrackIndex
-   - TrackIndexItem
- - PlaylistsContainer
-  + PlaylistIndex
-   - PlaylistIndexItem
- - UserContainer
- - PlaylistDetailContainer
+  + SidebarItems
+  + SidebarPlaylistIndexContainer
+  + SignedOutContentContainer
+ - PlayContainer
  
+**SignedOutContentContainer**
+ - AuthFormContainer
+ 
+**AuthFormContainer**
+ - AuthForm
+ 
+**SidebarPlaylistIndexContainer**
+ - SidbarIndex
+  + SidebarPlaylistLinks
+ - AddPlaylistButtonContainer
+  + AddPlaylistButton
+
+**CreatePlaylistFormContainer**
+ - CreatePlaylistForm
+
+**Browse**
+
+**AppContainer**
+ -BrowseNav
+
+**TracksIndex**
+ - TracksIndexItemContainer
+
+**TracksIndexItemContainer**
+ - TracksIndexItem
+
+**TracksIndexItem**
+ - AddTrackToPlaylistContainer
+
+**AddTrackToPlaylistContainer**
+ - AddTrackToPlaylist
+
+**PlaylistIndex**
+ - PlaylistIndexItemContainer
+
+**PlaylistIndexItemContainer**
+ - PlaylistIndexItem
+
+**View Playlist**
+
+**PlaylistDetailContainer**
+ - PlaylistDetail
+ - PlaylistFormContainer
+ - PlaylistTracksIndex
+ - PlaylistToolsCotainer
+  + PlaylistTracksIndexItemContainer
+
+**PlayListToolsContainer**
+ - EditPlaylistButton
+ - DeletePlaylistButton
+ 
+**PlaylistFormContainer**
+ - PlayistForm
+ 
+**PlaylistTracksIndexItemContainer**
+ - PlaylistTracksIndexItem
+ 
+**Follow**
+
+**AppContainer**
+- FollowNav
+- UserIndex
+ + UserIndexItemCotainer
+
+**UserIndexItemContainer**
+ - UserIndexItem
+
+**Account / View User**
+ 
+**UserDetailContainer**
+ - UserDetail
+ - UserToolsCotainer
+ - EditUserButton
+ - UserFormContainer
+ - PlaylistIndex
+
+**UserToolsContainer**
+ - EditUserButton
+ 
+**UserFormContainer**
+ - UserForm
+
+**Playing Tracks**
+
 **PlayContainer**
-  -Playbar
-    + TrackDisplay
-    + PlayButtons
-    + PlayTrackBar
-    + CurrentSong
+ - CurrentTrackDisplay
+ - CurrentTrackControlsContainer
+ - CurrentTrackProgressBar
+ - CurrentTrackContainer
 
-  
-  
-**UserContainer**
-  - UserDetailView
-  - UserEditContainer
-  - PlaylistIndex
+**CurrentTrackContainer**
+ - CurrentTrack
+ 
+**CurrentTrackControlsContainer**
+ - PlayButton
+ - ForwardButton
+ - BackButton
 
-**UserEditContainer**
-  - UserEditForm
-
-**NotesContainer**
- - NotesHeader
-  * NoteIndex
-
-**NotebookContainer**
- - NotebookHeader
-  + NoteIndex
-
-**SearchResultsContainer**
- - Search
- - NoteIndex
-             
-**TagContainer**
- - NotebookHeader
-  + NoteIndex
-
-**NoteIndex**
- - NoteIndexItem
-  + NoteDetail
-   * NoteTools
-    - NotebookSearch
-    - Tags
-     + Tag
-    * Note
-
-**NewNoteContainer**
- - NewNote
-  - RTETools
-  - NewNoteButton
-
-**Search**
-
-**NewNotebook**
- - NewNotebook
-
-**NewTag**
- - NewTag
-
-**NotebookSearch**
- + AutoSearch
- * AutoSearchResults
-
-**TagsSearch**
- + AutoSearch
- * AutoSearchResults
 
 ## Routes
 
 |Path   | Component   | 
 |-------|-------------|
-| "/sign-up" | "AuthFormContainer" |
-| "/sign-in" | "AuthFormContainer" |
-| "/home" | "HomeContainer" |
-| "/home/note/:noteId" | "NotesContainer" |
-| "/home/notebook/:notebookId/note/:noteId" | "NotebookContainer" |
-| "/home/tag/:tagId/note/:notedId" | "TagContainer" |
-| "/home/search-results" | "SearchResultsContainer"
-| "/new-note" | "NewNoteContainer" |
-| "/search" | "Search" |
-| "/new-notebook" | "NewNotebook" |
-| "/new-tag" | "NewTag" |
-| "/tag-search" | "TagSearch" |
-| "/notebook-search" | "NotebookSearch" |
+| "/" | "SplashPage" |
+| "/app" | "AppContainer" |
+| "/app/sign-up" | "AuthFormContainer" |
+| "/app/sign-in" | "AuthFormContainer" |
+| "/app/discover/tracks" | "TracksIndex" |
+| "/app/discover/playlists" | "PlaylistsIndex" |
+| "/app/follow/friends" | "UserIndex" |
+| "/app/follow/find-friends" | "UserIndex" |
+| "/app/users/:user_id" | "UserDetailContainer" |
+| "/app/users/:user_id/edit" | "UserDetailsFormContainer" |
+| "/app/your-tracks" | "TracksIndex" |
+| "/app/your-tracks/new" | "TrackFormContainer" |
+| "/app/playlist/:playlist_id" | "PlaylistDetailContainer" |
+| "/app/playlist/:playlist_id/edit" | "PlaylistFormContainer" |
+| "/app/playlist/new" | "NewPlaylistFormContainer" |
+
+
