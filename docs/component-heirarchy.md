@@ -6,11 +6,8 @@
  - Sidebar
   + SidebarItems
   + SidebarPlaylistIndexContainer
-  + SignedOutContentContainer
+  + SignedOutContent
  - PlayContainer
- 
-**SignedOutContentContainer**
- - AuthFormContainer
  
 **AuthFormContainer**
  - AuthForm
