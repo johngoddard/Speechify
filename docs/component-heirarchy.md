@@ -1,6 +1,6 @@
-## Component Heirarchy
+# Component Heirarchy
 
-**App level cobrowse**
+## App level
 
 **AppContainer**
  - Sidebar
@@ -24,7 +24,7 @@
 **CreatePlaylistFormContainer**
  - CreatePlaylistForm
 
-**Browse**
+##Browse
 
 **AppContainer**
  -BrowseNav
@@ -48,7 +48,7 @@
 **PlaylistIndexItemContainer**
  - PlaylistIndexItem
 
-**View Playlist**
+##View Playlist**
 
 **PlaylistDetailContainer**
  - PlaylistDetail
@@ -67,7 +67,7 @@
 **PlaylistTracksIndexItemContainer**
  - PlaylistTracksIndexItem
  
-**Follow**
+##Follow**
 
 **AppContainer**
 - FollowNav
@@ -77,7 +77,7 @@
 **UserIndexItemContainer**
  - UserIndexItem
 
-**Account / View User**
+##Account / View User
  
 **UserDetailContainer**
  - UserDetail
@@ -92,7 +92,7 @@
 **UserFormContainer**
  - UserForm
 
-**Playing Tracks**
+##Playing Tracks
 
 **PlayContainer**
  - CurrentTrackDisplay
