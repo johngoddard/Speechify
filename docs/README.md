@@ -26,7 +26,7 @@ Speechify is an audio-streaming web application inspired by Spotify built using 
 
 [wireframes]: wireframes
 [components]: component-heirarchy.md
-[redux-structure]: docs/redux-structure.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[redux-structure]: redux-structure.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
