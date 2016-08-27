@@ -10,7 +10,8 @@
  - PlayContainer
  
 **AuthFormContainer**
- - AuthForm
+ - SignupForm
+ - SigninForm
  
 **SidebarPlaylistIndexContainer**
  - SidbarIndex
@@ -31,6 +32,11 @@
 
 **TracksIndexItemContainer**
  - TracksIndexItem
+ - TrackToolsContainer
+ 
+**TrackTools
+ - Edit track button 
+ - Delete track button
 
 **AddTrackToPlaylistFromContainer**
  - AddTrackToPlaylistForm
@@ -69,12 +75,21 @@
 **UserIndexItemContainer**
  - UserIndexItem
 
+##Your Tracks 
+
+**TracksIndex**
+ - TracksIndexItemContainer
+
+**TracksIndexItemContainer**
+ - TracksIndexItem
+
 ##Account / View User
  
 **UserDetailContainer**
  - UserDetail
   + UserToolsCotainer
   + PlaylistIndex
+  + SignoutButton
 
 **UserToolsContainer**
  - EditUserButton
