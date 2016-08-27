@@ -18,8 +18,8 @@
  - AddPlaylistButtonContainer
   + AddPlaylistButton
 
-**CreatePlaylistFormContainer**
- - CreatePlaylistForm
+**PlaylistFormContainer**
+ - PlaylistForm
 
 ##Browse
 
