@@ -41,7 +41,7 @@
 **PlaylistIndexItemContainer**
  - PlaylistIndexItem
 
-##View Playlist**
+##View Playlist
 
 **PlaylistDetailContainer**
  - PlaylistDetail
