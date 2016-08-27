@@ -1,6 +1,6 @@
 ## Component Heirarchy
 
-**OverallApp**
+**App level cobrowse**
 
 **AppContainer**
  - Sidebar
@@ -36,10 +36,11 @@
  - TracksIndexItem
 
 **TracksIndexItem**
+ - Playbutton
  - AddTrackToPlaylistContainer
 
-**AddTrackToPlaylistContainer**
- - AddTrackToPlaylist
+**AddTrackToPlaylistFromContainer**
+ - AddTrackToPlaylistForm
 
 **PlaylistIndex**
  - PlaylistIndexItemContainer
@@ -97,10 +98,6 @@
  - CurrentTrackDisplay
  - CurrentTrackControlsContainer
  - CurrentTrackProgressBar
- - CurrentTrackContainer
-
-**CurrentTrackContainer**
- - CurrentTrack
  
 **CurrentTrackControlsContainer**
  - PlayButton
@@ -113,19 +110,18 @@
 |Path   | Component   | 
 |-------|-------------|
 | "/" | "SplashPage" |
-| "/app" | "AppContainer" |
-| "/app/sign-up" | "AuthFormContainer" |
-| "/app/sign-in" | "AuthFormContainer" |
-| "/app/discover/tracks" | "TracksIndex" |
-| "/app/discover/playlists" | "PlaylistsIndex" |
-| "/app/follow/friends" | "UserIndex" |
-| "/app/follow/find-friends" | "UserIndex" |
-| "/app/users/:user_id" | "UserDetailContainer" |
-| "/app/users/:user_id/edit" | "UserDetailsFormContainer" |
-| "/app/your-tracks" | "TracksIndex" |
-| "/app/your-tracks/new" | "TrackFormContainer" |
-| "/app/playlist/:playlist_id" | "PlaylistDetailContainer" |
-| "/app/playlist/:playlist_id/edit" | "PlaylistFormContainer" |
-| "/app/playlist/new" | "NewPlaylistFormContainer" |
+| "/sign-up" | "AuthFormContainer" |
+| "/sign-in" | "AuthFormContainer" |
+| "/browse/tracks" | "TracksIndex" |
+| "/browse/playlists" | "PlaylistsIndex" |
+| "/follow/friends" | "UserIndex" |
+| "/follow/find-friends" | "UserIndex" |
+| "/users/:user_id" | "UserDetailContainer" |
+| "/users/:user_id/edit" | "UserDetailsFormContainer" |
+| "/your-tracks" | "TracksIndex" |
+| "/your-tracks/new" | "TrackFormContainer" |
+| "/playlist/:playlist_id" | "PlaylistDetailContainer" |
+| "/playlist/:playlist_id/edit" | "PlaylistFormContainer" |
+| "/playlist/new" | "NewPlaylistFormContainer" |
 
 
