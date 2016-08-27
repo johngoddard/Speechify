@@ -87,22 +87,10 @@
         user_id: 3, 
         description: 'description', 
         follows: false, 
-        coverUrl: 'http:/path/to/cover'
+        coverUrl: 'http:/path/to/cover', 
+        dateCreated: 'August 13th, 2016'
       }
     ]
-  ],
-  playListDetail: {
-    title: "Playlist title", 
-    description: "playlist description", 
-    Tracks: [
-       {
-        title: "Redux",
-        user_id: 3, 
-        description: 'description', 
-        coverUrl: 'http://path/to/cover', 
-        audioUrl: 'http://path/to/audio
-      }
-    ]
-  }
+  ]
 }
 ```
