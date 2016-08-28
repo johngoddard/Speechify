@@ -122,8 +122,6 @@
 |Path   | Component   | 
 |-------|-------------|
 | "/" | "SplashPage" |
-| "/sign-up" | "AuthFormContainer" |
-| "/sign-in" | "AuthFormContainer" |
 | "/browse/tracks" | "TracksIndex" |
 | "/browse/playlists" | "PlaylistsIndex" |
 | "/follow/friends" | "UserIndex" |
