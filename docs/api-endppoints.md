@@ -21,7 +21,7 @@
 
 ### Tracks
 
-- `GET /api/notes`
+- `GET /api/tracks`
   - accepts `user_id` query param to get tracks that belong to user
   - accepts limit/pagination params if I get there
 - `POST /api/tracks`
@@ -32,6 +32,7 @@
 
 - `GET /api/playlists`
   - accepts `user_id` query param to get playlists that belong to user
+  - accepts limit/pagination params if I get there
 - `POST /api/playlists`
 - `GET /api/playlists/:id`
 - `DELETE /api/playlists/:id`
