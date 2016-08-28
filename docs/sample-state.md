@@ -140,7 +140,7 @@
       1: {
           id: 1
           title: "Redux",
-          user_id: 3,
+          userId: 3,
           description: "description",
           coverUrl: "http:/path/to/cover"
       }
