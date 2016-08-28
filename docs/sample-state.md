@@ -13,6 +13,7 @@
     playlist: {},
     user: {}
   },
+  //the current user's created and follewed playlists (displayed in the sidebar)
   currentPlaylists: { 
     createdPlaylists: {
       3: {
@@ -56,6 +57,7 @@
       }
     }
   },
+  //information about the currently playing track
   currentTrack: {
     track:  {
         id: 3
@@ -70,7 +72,9 @@
     trackPosition: 2000,
     playing: true
   },
+  // loading spinner status
   loading: false,
+  // browse playlists
   playlists: [
      {
         id: 5,
@@ -80,6 +84,7 @@
         coverUrl: "http:/path/to/cover"
       }
   ],
+  //vieweing a playlist page
   playlistDetail: {
     id: 1,
     title: "Redux",
@@ -98,6 +103,7 @@
         }
     ]
   },
+  //browse tracks
   tracks: {
     1:  {
           id: 1,
@@ -109,6 +115,7 @@
           playlist_track_id: 1
         }
   },
+  //user index
   users: {
     3: {
         id: 3,
@@ -119,7 +126,8 @@
         profileImageUrl: "http:/path/to/cover"
       }
   },
-  userDetail: { //viewing a single user page
+  //viewing a single user page
+  userDetail: { 
     user:  {
         id: 3
         username: "username",
