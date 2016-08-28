@@ -2,14 +2,55 @@
 {
   currentUser: {
     id: 1,
-    email: "test@gmail.com", 
     username: "nauticaljack", 
-    playlists: [
-      {
+    playlists: {
+      3: {
+          id: 3
+          title: "Redux",
+          userId: 3, 
+          description: 'description', 
+          coverUrl: 'http:/path/to/cover', 
+          tracks: [
+            {
+              id: 1
+              title: "Redux",
+              userId: 3, 
+              description: "description", 
+              coverUrl: "http://path/to/cover", 
+              audioUrl: "http://path/to/audio", 
+              playlistTrackId: 5
+            }
+          ]
+        }
+    {, 
+    followedPlaylists: {
+      1:  {
+        id: 1
         title: "Redux",
-        user_id: 3
+        userId: 3, 
+        description: "description", 
+        playlistFollowId: 3, 
+        coverUrl: "http:/path/to/cover", 
+         tracks: [
+          {
+            title: "Redux",
+            user_id: 3, 
+            description: "description", 
+            coverUrl: "http://path/to/cover", 
+            audioUrl: "http://path/to/audio", 
+            playlist_track_id: 5
+          }
+        ]
       }
-    ]
+    }
+    followedUsers: {
+      1: {
+        id: 1, 
+        username: "CoreyScult", 
+        profileImageUrl: "http://path/to/audio", 
+        description: "user description"
+      }
+    }
   },
   forms: {
     signUp: {errors: []},
@@ -20,80 +61,83 @@
   },
   currentTrack: {
     track:  {
+        id: 3
         title: "Redux",
-        user_id: 3, 
-        description: 'description', 
-        coverUrl: 'http://path/to/cover', 
-        audioUrl: 'http://path/to/audio
+        userId: 3, 
+        description: "description", 
+        coverUrl: "http://path/to/cover", 
+        audioUrl: "http://path/to/audio", 
       }
     trackQueue: [track1, track2, track3], 
     previousTracks: [track4, track5],
-    trackPosition: 2000],
+    trackPosition: 2000,
     playing: true
   },
   loading: false, 
-  playlistDetail: {
-    id: 1,
-    title: "Redux",
-    description: 'lorem ipsum descritption',
-    user_id: 4, 
-    tracks: [
-      {
-        title: "Redux",
-        user_id: 3, 
-        description: 'description', 
-        coverUrl: 'http://path/to/cover', 
-        audioUrl: 'http://path/to/audio
-      }
-    ]
-  }, 
   playlists: [
      {
         title: "Redux",
         user_id: 3, 
-        description: 'description', 
-        follows: false, 
-        coverUrl: 'http:/path/to/cover'
+        description: "description", 
+        coverUrl: "http:/path/to/cover"
       }
   ], 
-  tracks: [
-     {
-        title: "Redux",
-        user_id: 3, 
-        description: 'description', 
-        coverUrl: 'http://path/to/cover', 
-        audioUrl: 'http://path/to/audio, 
-        playlist_track_id: 1
-      }
-  ],
-  users: [
-     {
+  playlistDetail: {
+    id: 1,
+    title: "Redux",
+    description: "lorem ipsum descritption",
+    playlistFollowId: 3,
+    userId: 4, 
+    tracks: [
+       1:  {
+          id: 1,
+          title: "Redux",
+          user_id: 3, 
+          description: 'description', 
+          coverUrl: 'http://path/to/cover', 
+          audioUrl: 'http://path/to/audio, 
+          playlist_track_id: 1
+        }
+    ]
+  }, 
+  tracks: {
+    1:  {
+          id: 1,
+          title: "Redux",
+          user_id: 3, 
+          description: 'description', 
+          coverUrl: 'http://path/to/cover', 
+          audioUrl: 'http://path/to/audio, 
+          playlist_track_id: 1
+        }
+  },
+  users: {
+    3: {
+        id: 3,
         username: "username", 
         bio: "bio", 
         user_id: 3, 
         user_follow_id: 16, 
         profileImageUrl: 'http:/path/to/cover', 
       }
-  ], 
-  userDetail: [
+  }, 
+  userDetail: {
     user:  {
         username: "username", 
         bio: "bio", 
         user_id: 3, 
-        follows: false, 
         profileImageUrl: 'http:/path/to/cover', 
       }, 
-    playlists: [
-       {
-        title: "Redux",
-        user_id: 3, 
-        description: 'description', 
-        follows: false, 
-        coverUrl: 'http:/path/to/cover', 
-        dateCreated: 'August 13th, 2016'
+    playlists: {
+      1: {
+          playlist_id: 1
+          title: "Redux",
+          user_id: 3, 
+          description: 'description', 
+          coverUrl: 'http:/path/to/cover'
       }
-    ]
-  ]
+    }
+  }
 }
 
 ```
