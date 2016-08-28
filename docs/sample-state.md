@@ -1,4 +1,4 @@
-```json
+
 {
   currentUser: {
     id: 1,
@@ -62,7 +62,8 @@
         user_id: 3, 
         description: 'description', 
         coverUrl: 'http://path/to/cover', 
-        audioUrl: 'http://path/to/audio
+        audioUrl: 'http://path/to/audio, 
+        playlist_track_id: 1
       }
   ],
   users: [
@@ -70,7 +71,7 @@
         username: "username", 
         bio: "bio", 
         user_id: 3, 
-        follows: false, 
+        user_follow_id: 16, 
         profileImageUrl: 'http:/path/to/cover', 
       }
   ], 
@@ -94,4 +95,4 @@
     ]
   ]
 }
-```
+
