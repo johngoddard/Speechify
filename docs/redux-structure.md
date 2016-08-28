@@ -178,12 +178,12 @@ Redux structure, you'll need to do the same.
 * `followUser`
   0. invoked from `UserIndexItem` follow button
   0. `POST /api/user_follows` is called 
-  0. `addUserFollow` is set as the success callback.
+  0. `toggleUserFollow` is set as the success callback.
   
 * `unfollowUser`
   0. invoked from `PlaylistTracksIndexItem` unfollow button
-  0. `DELETE /api/playlist_songs/:id` is called 
-  0. `removePlaylistTrack` is set as the success callback.
+  0. `DELETE /api/user_follows/:id` is called 
+  0. `toggleUserFollow` is set as the success callback.
   
 ### Follows API Response Actions
 
