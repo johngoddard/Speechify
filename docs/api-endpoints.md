@@ -12,6 +12,8 @@
 
 - `POST /api/users`
 - `PATCH /api/users`
+- `GET /api/users/:id/follow`: custom route to create a user follow between the current user (follower) & specified user (followee)
+- `GET /api/users/:id/unfollow`: custom route to destroy the user follow for the current user & specified user
 
 ### Session
 
@@ -36,14 +38,6 @@
 - `POST /api/playlists`
 - `GET /api/playlists/:id`
 - `DELETE /api/playlists/:id`
+- `GET /api/playlists/:id/follow`: custom route to create a playlist follow for the current user & specified playlist
+- `GET /api/playlists/:id/unfollow`: custom route to destroy the playlist follow for the current user & specified playlist
 
-### UserFollows
-
-- `POST /api/users/:user_id/follows`: add a follow from the current user to the user with :user_id
-- `DELETE /api/notes/:user_id/follows/:follow_id`: remove current user's follow
-  name
-
-### PlaylistTracks
-
-- `POST /api/playlists/:playlist_id/tracks`: add a track to the given playlist
-- `DELETE /api/playlists/:playlist_id/tracks/:playlist_track_id`: remove a track from the playlist
