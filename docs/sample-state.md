@@ -103,7 +103,7 @@
         }
     ]
   },
-  //browse tracks
+  //browse tracks or viewing created tracks
   tracks: {
     1:  {
           id: 1,
@@ -147,5 +147,3 @@
     }
   }
 }
-
-```
