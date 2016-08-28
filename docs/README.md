@@ -5,7 +5,7 @@ Link to project goes here
 ## Minimum Viable Product
 
 
-Speechify is an audio-streaming web application inspired by Spotify built using React/Redux in conjunction with a Ruby on Rails server.  By the end of Week 9, this app will, at a minimum, support the following functionality with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
+Speechify is an audio-streaming web application inspired by Spotify and built using React/Redux in conjunction with a Ruby on Rails server.  By the end of Week 9, this app will, at a minimum, support the following functionality with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
