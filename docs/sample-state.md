@@ -1,8 +1,19 @@
 ```json
 {
-  currentUser: {
+  currentUser: { 
     id: 1,
     username: "nauticaljack",
+    description: "current user description",
+    profileImageUrl: "path/to/prof/image"
+  },
+  forms: { 
+    signUp: {errors: []},
+    signIn: {errors: []},
+    createTrack: {errors: ["title can't be blank"]},
+    playlist: {},
+    user: {}
+  },
+  currentPlaylists: { 
     playlists: {
       3: {
           id: 3
@@ -19,38 +30,30 @@
               coverUrl: "http://path/to/cover",
               audioUrl: "http://path/to/audio",
               playlistTrackId: 5
-            }
-          ]
-        }
-      },
-      followedPlaylists: {
-        1:  {
-          id: 1
-          title: "Redux",
-          userId: 3,
-          description: "description",
-          playlistFollowId: 3,
-          coverUrl: "http:/path/to/cover",
-           tracks: [
-            {
-              title: "Redux",
-              user_id: 3,
-              description: "description",
-              coverUrl: "http://path/to/cover",
-              audioUrl: "http://path/to/audio",
-              playlist_track_id: 5
-            }
-          ]
-        }
+          }
+        ]
+       }
+    },
+    followedPlaylists: {
+      1:  {
+        id: 1
+        title: "Redux",
+        userId: 3,
+        description: "description",
+        playlistFollowId: 3,
+        coverUrl: "http:/path/to/cover",
+         tracks: [
+          {
+            title: "Redux",
+            user_id: 3,
+            description: "description",
+            coverUrl: "http://path/to/cover",
+            audioUrl: "http://path/to/audio",
+            playlist_track_id: 5
+          }
+        ]
       }
     }
-  },
-  forms: {
-    signUp: {errors: []},
-    signIn: {errors: []},
-    createTrack: {errors: ["title can't be blank"]},
-    playlist: {},
-    user: {}
   },
   currentTrack: {
     track:  {
