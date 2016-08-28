@@ -5,7 +5,6 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
-email           | string    | not null, indexed, unique
 bio             | text      | 
 profile_image_url   | string    | 
 password_digest | string    | not null
