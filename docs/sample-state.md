@@ -1,12 +1,12 @@
 ```json
 {
-  currentUser: { 
+  currentUser: {
     id: 1,
     username: "nauticaljack",
     description: "current user description",
     profileImageUrl: "path/to/prof/image"
   },
-  forms: { 
+  forms: {
     signUp: {errors: []},
     signIn: {errors: []},
     createTrack: {errors: ["title can't be blank"]},
@@ -14,7 +14,7 @@
     user: {}
   },
   //the current user's created and follewed playlists (displayed in the sidebar)
-  currentPlaylists: { 
+  currentPlaylists: {
     createdPlaylists: {
       3: {
           id: 3
@@ -45,7 +45,7 @@
         coverUrl: "http:/path/to/cover",
          tracks: [
           {
-            id: 1, 
+            id: 1,
             title: "Redux",
             user_id: 3,
             description: "description",
@@ -127,7 +127,7 @@
       }
   },
   //viewing a single user page
-  userDetail: { 
+  userDetail: {
     user:  {
         id: 3
         username: "username",

@@ -122,7 +122,6 @@
 **CurrentTrackProgressBarContainer**
   - CurrentTrackProgressBar
 
-
 ## Routes
 
 |Path   | Component   |
