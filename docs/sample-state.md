@@ -27,9 +27,9 @@
         audioUrl: 'http://path/to/audio
       }
     trackQueue: [track1, track2, track3], 
-    trackPosition: 2000]
+    trackPosition: 2000],
+    playing: true
   },
-  playing: true, 
   loading: false, 
   playlistDetail: {
     id: 1,
