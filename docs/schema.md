@@ -30,6 +30,14 @@ description | text      | not null
 user_id     | integer   | not null, foreign key (references users), indexed
 playlist_image_url   | string    | 
 
+## playlist_follows
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer    | not null, foreign key (references users), indexed
+playlist_id | integer   | not null, foreign key (references playlists), indexed
+
+
 ## user_follows
 column name | data type | details
 ------------|-----------|-----------------------
