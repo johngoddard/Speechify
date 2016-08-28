@@ -29,7 +29,7 @@ Redux structure, you'll need to do the same.
 * `fetchCurrentUser`
   0. invoked from `App` in `didMount`
   0. `GET /api/session` is called.
-  0. `receiveCurrentUser` is set as the success callback.
+  0. `receiveCurrentUser` and `fetchCurrentPlaylists` are set as success callbacks.
 
 ### Session API Response Actions
 
@@ -88,8 +88,54 @@ Redux structure, you'll need to do the same.
   0. invoked from an API callback
   0. the `TrackReducer` removes `tracks[id]` from the application's state.
 
-## Playlist Cycles
+## Current Playlist Cycles
+### Current Playlist API Request Actions
 
+* `fetchCurrentPlaylists`
+  0. invoked from as a callback to `fetchCurrentUser`
+  0. `GET /api/playlists` is called (with currentUser parameter set to true)
+  0. `receiveCurrentPlaylists` is set as the success callback
+
+* `createPlaylist`
+  0. invoked from new playlist button `onClick`
+  0. `POST /api/playlists` is called.
+  0. `receiveCurrentPlaylist` and is set as the callback.
+
+* `destroyPlaylist`
+  0. invoked from delete playlist button `onClick`
+  0. `DELETE /api/playlists/:id` is called.
+  0. `removeCurrentPlaylist` is set as the success callback.
+
+* `followPlaylist`
+  0. invoked from playlist follow button `onClick`
+  0. `POST /api/playlists_follows` is called.
+  0. `receiveCurrentPlaylist` and is set as the callback.
+
+* `unfollowPlaylist`
+  0. invoked from playlist follow button `onClick`
+  0. `DELETE /api/playlists_follows/:id` is called.
+  0. `removeCurrentPlaylist` and is set as the callback.
+
+### Current Playlist API Response Actions
+
+* `receiveCurrentPlaylists`
+  0. invoked from an API callback.
+  0. The `CurrentPlaylists` reducer updates `currentPlaylists` in the application's state.
+
+* `receiveCreatedPlaylist`
+  0. invoked from an API callback.
+  0. The `CurrentPlaylist` reducer updates `createdPlaylists[id]` in the application's state.
+
+* `removeCurrentPlaylist`
+  0. invoked from API callback
+  0. The `CurrentPlaylist` reducer removes the deleted playlist
+
+* `updatePlaylist`
+  0. invoked from `PlaylistForm` `onSubmit`
+  0. `POST /api/playlists` is called.
+  0. `receiveSinglePlaylist` is set as the success callback.
+
+## Playlist Cycles
 ### Playlists API Request Actions
 
 * `fetchAllPlaylists`
@@ -97,57 +143,43 @@ Redux structure, you'll need to do the same.
   0. `GET /api/playlists` is called (with optional user parameter)
   0. `receiveAllPlaylists` is set as the success callback.
 
-* `createPlaylist`
-  0. invoked from new playlist button `onClick`
-  0. `POST /api/playlists` is called.
-  0. `receiveSinglePlaylist` is set as the callback.
-
 * `fetchSinglePlaylist`
-  0. invoked from `PlaylistDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/playlists/:id` is called.
+  0.  invoked from `PlaylistDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/playlists/:id` is called if the playlist does not belong to the current user (else just grab it from  the currentPlaylists)
   0. `receiveSinglePlaylist` is set as the success callback.
 
-* `updatePlaylist`
-  0. invoked from `PlaylistForm` `onSubmit`
-  0. `POST /api/playlists` is called.
-  0. `receiveSinglePlaylist` is set as the success callback.
 
-* `destroyPlaylist`
-  0. invoked from delete playlist button `onClick`
-  0. `DELETE /api/playlists/:id` is called.
-  0. `removePlaylist` is set as the success callback.
+### Playlist API Response Actions
 
-### Playlists API Response Actions
-
-* `receiveAllPlaylist`
+* `receiveAllPlaylists`
   0. invoked from an API callback.
-  0. The `Playist` reducer updates `playists` in the application's state.
+  0. The `Playlist` reducer updates `playlists` in the application's state.
 
 * `receiveSinglePlaylist`
   0. invoked from an API callback.
   0. The `Playlist` reducer updates `playlists[id]` in the application's state.
 
-* `removePlaylist`
-  0. invoked from an API callback.
-  0. The `Playlist` reducer removes `playlists[id]` from the application's state.
-  0. The `CurrentUser` reducer removes `playlists[id]` from the list of the current User's playlists
-  
 ## Edit playlist tracks cycles
 
 * `addSongtoPlaylist`
   0. invoked from `AddTrackToPlaylistForm` add button
-  0. `POST /api/playlist_songs` is called 
-  
+  0. `POST /api/playlist_songs` is called
+  0. `addPlaylistTrack` is set as the success callback.
+
 * `removeSongFromPlaylist`
   0. invoked from `PlaylistTracksIndexItem` remove button
-  0. `DELETE /api/playlist_songs/:id` is called 
+  0. `DELETE /api/playlist_songs/:id` is called
   0. `removePlaylistTrack` is set as the success callback.
-  
+
 ### EditPlayistTracks API Response Actions
 
 * `removePlaylistTrack`
   0. invoked from the API callback
-  0. `The PlayistDetails` reducer removes the appropriate track from the current playlist. 
+  0. the `CurrentPlaylist` reducer removes the appropriate track from the playlist.
+
+* `removePlaylistTrack`
+  0. invoked from the API callback
+  0. the `CurrentPlaylist` reducer adds the appropriate track from the playlist.
 
 ## User Cycles
 
@@ -177,20 +209,20 @@ Redux structure, you'll need to do the same.
 
 * `followUser`
   0. invoked from `UserIndexItem` follow button
-  0. `POST /api/user_follows` is called 
+  0. `POST /api/user_follows` is called
   0. `toggleUserFollow` is set as the success callback.
-  
+
 * `unfollowUser`
   0. invoked from `PlaylistTracksIndexItem` unfollow button
-  0. `DELETE /api/user_follows/:id` is called 
+  0. `DELETE /api/user_follows/:id` is called
   0. `toggleUserFollow` is set as the success callback.
-  
+
 ### Follows API Response Actions
 
 * `toggleUserFollow`
   0. invoked from the API callback
-  0. The `Users` reducer updates the follow status for the appropriate user, potentially hiding the user from the page. 
-  
+  0. The `Users` reducer updates the follow status for the appropriate user, potentially hiding the user from the page.
+
 ## Current Track Cycles
 
 `updateCurrentTrack`
@@ -208,9 +240,3 @@ Redux structure, you'll need to do the same.
 `goBackTrack`
   0. invoked from the rewind button in the 'PlayTrackController'
   0. Restarts the current track, or goes back to the last played track depending on the currentTrack position
-
-
-
-
-
-
