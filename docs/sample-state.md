@@ -22,33 +22,26 @@
             }
           ]
         }
-    {,
-    followedPlaylists: {
-      1:  {
-        id: 1
-        title: "Redux",
-        userId: 3,
-        description: "description",
-        playlistFollowId: 3,
-        coverUrl: "http:/path/to/cover",
-         tracks: [
-          {
-            title: "Redux",
-            user_id: 3,
-            description: "description",
-            coverUrl: "http://path/to/cover",
-            audioUrl: "http://path/to/audio",
-            playlist_track_id: 5
-          }
-        ]
-      }
-    }
-    followedUsers: {
-      1: {
-        id: 1,
-        username: "CoreyScult",
-        profileImageUrl: "http://path/to/audio",
-        description: "user description"
+      },
+      followedPlaylists: {
+        1:  {
+          id: 1
+          title: "Redux",
+          userId: 3,
+          description: "description",
+          playlistFollowId: 3,
+          coverUrl: "http:/path/to/cover",
+           tracks: [
+            {
+              title: "Redux",
+              user_id: 3,
+              description: "description",
+              coverUrl: "http://path/to/cover",
+              audioUrl: "http://path/to/audio",
+              playlist_track_id: 5
+            }
+          ]
+        }
       }
     }
   },
@@ -76,6 +69,7 @@
   loading: false,
   playlists: [
      {
+        id: 5,
         title: "Redux",
         user_id: 3,
         description: "description",
@@ -116,21 +110,23 @@
         id: 3,
         username: "username",
         bio: "bio",
-        user_id: 3,
-        user_follow_id: 16,
-        profileImageUrl: "http:/path/to/cover",
+        userId: 3,
+        userFollowId: 7,
+        profileImageUrl: "http:/path/to/cover"
       }
   },
   userDetail: {
     user:  {
+        id: 3
         username: "username",
         bio: "bio",
         user_id: 3,
-        profileImageUrl: "http:/path/to/cover",
+        userFollowId: 8,
+        profileImageUrl: "http:/path/to/cover"
       },
     playlists: {
       1: {
-          playlist_id: 1
+          id: 1
           title: "Redux",
           user_id: 3,
           description: "description",
