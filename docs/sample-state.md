@@ -27,6 +27,7 @@
         audioUrl: 'http://path/to/audio
       }
     trackQueue: [track1, track2, track3], 
+    previousTracks: [track4, track5],
     trackPosition: 2000],
     playing: true
   },
