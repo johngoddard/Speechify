@@ -8,11 +8,11 @@
   + SidebarPlaylistIndexContainer
   + SignedOutContent
  - PlayContainer
- 
+
 **AuthFormContainer**
  - SignupForm
  - SigninForm
- 
+
 **SidebarPlaylistIndexContainer**
  - SidbarIndex
   + SidebarPlaylistLinks
@@ -33,9 +33,9 @@
 **TracksIndexItemContainer**
  - TracksIndexItem
  - TrackToolsContainer
- 
+
 **TrackTools**
- - Edit track button 
+ - Edit track button
  - Delete track button
 
 **AddTrackToPlaylistFromContainer**
@@ -54,18 +54,18 @@
   + PlaylistTracksIndex
    *  PlaylistTracksIndexItemContainer
   + PlaylistToolsCotainer
- 
+
 
 **PlayListToolsContainer**
  - EditPlaylistButton
  - DeletePlaylistButton
- 
+
 **PlaylistFormContainer**
  - PlayistForm
- 
+
 **PlaylistTracksIndexItemContainer**
  - PlaylistTracksIndexItem
- 
+
 ##Follow
 
 **AppContainer**
@@ -76,7 +76,7 @@
 **UserIndexItemContainer**
  - UserIndexItem
 
-##Your Tracks 
+##Your Tracks
 
 **TracksIndex**
  - TracksIndexItemContainer
@@ -93,8 +93,8 @@
 **AppContainer**
  - UserDetailContainer
  - PlaylistIndex
- 
- 
+
+
 **UserDetailContainer**
  - UserDetail
   + UserToolsCotainer
@@ -102,29 +102,30 @@
 
 **UserToolsContainer**
  - EditUserButton
- 
+
 **UserFormContainer**
  - UserForm
 
 ##Playing Tracks
 
-**PlayContainer**
- - CurrentTrackDisplay
- - CurrentTrackControlsContainer
- - CurrentTrackProgressBarContainer
- 
+**PlayBarContainer**
+ - PlayBar
+   + CurrentTrackDisplay
+   + CurrentTrackControlsContainer
+   + CurrentTrackProgressBarContainer
+
 **CurrentTrackControlsContainer**
  - PlayButton
  - ForwardButton
  - BackButton
 
 **CurrentTrackProgressBarContainer**
-  - CurrentTrackProgressBa
+  - CurrentTrackProgressBar
 
 
 ## Routes
 
-|Path   | Component   | 
+|Path   | Component   |
 |-------|-------------|
 | "/" | "SplashPage" |
 | "/browse/tracks" | "TracksIndex" |
@@ -138,5 +139,3 @@
 | "/playlist/:playlist_id" | "PlaylistDetailContainer" |
 | "/playlist/:playlist_id/edit" | "PlaylistFormContainer" |
 | "/playlist/new" | "NewPlaylistFormContainer" |
-
-

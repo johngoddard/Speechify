@@ -34,7 +34,8 @@
 ### Playlists
 
 - `GET /api/playlists`
-  - accepts `user_id` query param to get playlists that belong to user
+  - accepts `user_id` query param to get playlists that belong to user_id
+  - takes an optional `with_tracks` param to get playlists with track information (for current user playlists)
   - accepts limit/pagination params if I get there
 - `POST /api/playlists`
 - `GET /api/playlists/:id`

@@ -1,16 +1,10 @@
 # Redux Structure
 
-The application's state is organized by data type. Under each data type, there
-may be sub-states. Each action is listed with the sequence of events that
-results from its invocation, ending with the API or a reducer. Subscribed
-components, i.e. containers, are listed at the end.
-
-Using this document, you should be able to trace an **action** starting with
-where it was invoked, through the **API**/**reducer** involved, and finally to
-the **components** that update as a result. Once you start implementing your
-Redux structure, you'll need to do the same.
-
 ## Auth Cycles
+
+The following cycles are responsible for creating, signin in and signing out users.
+Components that update based on these cycles:
+--Sidebar
 
 ### Session API Request Actions
 
@@ -42,6 +36,8 @@ Redux structure, you'll need to do the same.
 
 ## Error Cycles
 
+The following cycles are responsible for displaying error messages.
+
 ### Error API Response Actions
 * `setErrors`
   0. invoked from API callbacks on error for actions that generate POST requests
@@ -50,7 +46,25 @@ Redux structure, you'll need to do the same.
   0. invoked from API callbacks on success for actions that generate POST requests
   0. the `ErrorReducer` removes `errors` for a given `form` in the application's state.
 
+## Loading Cycles
+
+### Loading actions
+
+* `startLoading`
+  0. invoked immediately after an AJAX request is sent.
+  0. the `LoadingReducer` sets `loading` in the state to `true`.
+
+* `stopLoading`
+  0. invoked in the success & error callbacks to AJAX requests.
+  0. the `LoadingReducer` sets `loading` in the state to `false`.
+
 ## Track Cycles
+
+The following cycles are used for displaying, creating, updating, and deleting tracks.
+
+These actions could update the following components:
+- TracksIndex
+- TracksIndexItem
 
 ### Tracks API Request Actions
 
@@ -86,14 +100,24 @@ Redux structure, you'll need to do the same.
 
 * `removeTrack`
   0. invoked from an API callback
-  0. the `TrackReducer` removes `tracks[id]` from the application's state.
+  0. the `TracksReducer` removes `tracks[id]` from the application's state.
+  0. the `CurrentPlaylistsReducer` removes the track from any of the current playlists as needed
 
 ## Current Playlist Cycles
+
+The following actions are used for fetching and updating a user's current playlists (displayed in the sidebar)
+
+These actions could update the following components:
+- PlaylistsIndex
+- SidebarPlaylistIndex
+- PlaylistDetail
+- Follow/Unfollow buttons
+
 ### Current Playlist API Request Actions
 
 * `fetchCurrentPlaylists`
   0. invoked from as a callback to `fetchCurrentUser`
-  0. `GET /api/playlists` is called (with currentUser parameter set to true)
+  0. `GET /api/playlists` is called (with `with_tracks` parameter set to true)
   0. `receiveCurrentPlaylists` is set as the success callback
 
 * `createPlaylist`
@@ -136,6 +160,13 @@ Redux structure, you'll need to do the same.
   0. `receiveSinglePlaylist` is set as the success callback.
 
 ## Playlist Cycles
+
+These actions are responsible for fetching playlists when browsing playlists, viewing users, or viewing a single playlists.
+
+These actions could update the following components:
+- PlaylistIndex
+- PlaylistDetail
+
 ### Playlists API Request Actions
 
 * `fetchAllPlaylists`
@@ -159,7 +190,14 @@ Redux structure, you'll need to do the same.
   0. invoked from an API callback.
   0. The `Playlist` reducer updates `playlists[id]` in the application's state.
 
-## Edit playlist tracks cycles
+## Playlist tracks cycles
+These cycles are responsible for adding and removing playlists from tracks.
+
+These actions could update the following components:
+-PlaylistTracksIndex
+-AddTrackToPlaylistForm
+
+### Playist Tracks API Response Actions
 
 * `addSongtoPlaylist`
   0. invoked from `AddTrackToPlaylistForm` add button
@@ -171,7 +209,7 @@ Redux structure, you'll need to do the same.
   0. `DELETE /api/playlist_songs/:id` is called
   0. `removePlaylistTrack` is set as the success callback.
 
-### EditPlayistTracks API Response Actions
+### Playlist Tracks API Response Actions
 
 * `removePlaylistTrack`
   0. invoked from the API callback
@@ -182,6 +220,13 @@ Redux structure, you'll need to do the same.
   0. the `CurrentPlaylist` reducer adds the appropriate track from the playlist.
 
 ## User Cycles
+
+These cycles are responsible for updating the current user, browsing users, and viewing followed users,
+
+These actions could update the following components:
+-UsersIndex
+-UserIndexItem
+-UserDetail
 
 ### Users API Request Actions
 
@@ -195,7 +240,7 @@ Redux structure, you'll need to do the same.
   0. `PATCH /api/users/:id` is called.
   0. `updateCurrentUser` is set as the success callback.
 
-### Tracks API Response Actions
+### Users API Response Actions
 
 * `receiveAllUsers`
   0. invoked from an API callback
@@ -206,6 +251,14 @@ Redux structure, you'll need to do the same.
   0. the `CurrentUserReducer` updates the currentUser information in the application's state.
 
 ## Follows cycles
+
+These cycles are responsible for following / unfollowing users.
+
+These actions could update the following components:
+-UserIndexItem
+-UserDetail
+
+### Follow user API request actions
 
 * `followUser`
   0. invoked from `UserIndexItem` follow button
@@ -225,7 +278,14 @@ Redux structure, you'll need to do the same.
 
 ## Current Track Cycles
 
-`updateCurrentTrack`
+These cycles are responsible for controlling the current track.
+
+These actions could update the following components:
+- CurrentTrackDisplay
+- CurrentTrackControls
+- CurrentTrackProgressBar
+
+`changeCurrentTrack`
   0. invoked from play buttons on TrackIndexItems or PlaylistTrackIndexItems
   0. The `CurrentTrack` reducer updates the current track in the state, as well as the playing the property as necessary
 
@@ -237,6 +297,6 @@ Redux structure, you'll need to do the same.
   0. invoked from the play/pause button in the 'PlayTrackController'
   0. The `CurrentTrack` reducer toggles the `playing` boolean
 
-`goPrevTrack`
+`getPrevTrack`
   0. invoked from the rewind button in the 'PlayTrackController'
   0. Restarts the current track, or goes back to the last played track depending on the currentTrack position
