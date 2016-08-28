@@ -14,7 +14,7 @@
     user: {}
   },
   currentPlaylists: { 
-    playlists: {
+    createdPlaylists: {
       3: {
           id: 3
           title: "Redux",
@@ -32,8 +32,8 @@
               playlistTrackId: 5
           }
         ]
-       }
-    },
+      }
+    }
     followedPlaylists: {
       1:  {
         id: 1
@@ -44,6 +44,7 @@
         coverUrl: "http:/path/to/cover",
          tracks: [
           {
+            id: 1, 
             title: "Redux",
             user_id: 3,
             description: "description",
@@ -118,7 +119,7 @@
         profileImageUrl: "http:/path/to/cover"
       }
   },
-  userDetail: {
+  userDetail: { //viewing a single user page
     user:  {
         id: 3
         username: "username",
@@ -126,7 +127,7 @@
         user_id: 3,
         userFollowId: 8,
         profileImageUrl: "http:/path/to/cover"
-      },
+    },
     playlists: {
       1: {
           id: 1
