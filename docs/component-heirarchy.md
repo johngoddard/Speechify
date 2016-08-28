@@ -34,7 +34,7 @@
  - TracksIndexItem
  - TrackToolsContainer
  
-**TrackTools
+**TrackTools**
  - Edit track button 
  - Delete track button
 
@@ -52,8 +52,9 @@
 **PlaylistDetailContainer**
  - PlaylistDetail
   + PlaylistTracksIndex
+   *  PlaylistTracksIndexItemContainer
   + PlaylistToolsCotainer
-  + PlaylistTracksIndexItemContainer
+ 
 
 **PlayListToolsContainer**
  - EditPlaylistButton
@@ -88,11 +89,15 @@
  - TracksIndexItem
 
 ##Account / View User
+
+**AppContainer**
+ - UserDetailContainer
+ - PlaylistIndex
+ 
  
 **UserDetailContainer**
  - UserDetail
   + UserToolsCotainer
-  + PlaylistIndex
   + SignoutButton
 
 **UserToolsContainer**
