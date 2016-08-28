@@ -177,7 +177,7 @@ Redux structure, you'll need to do the same.
   0. invoked from the API callback
   0. the `CurrentPlaylist` reducer removes the appropriate track from the playlist.
 
-* `removePlaylistTrack`
+* `addPlaylistTrack`
   0. invoked from the API callback
   0. the `CurrentPlaylist` reducer adds the appropriate track from the playlist.
 
@@ -192,7 +192,7 @@ Redux structure, you'll need to do the same.
 
 * `updateUser`
   0. invoked from `UserForm` `onSubmit`
-  0. `POST /api/users` is called.
+  0. `PATCH /api/users/:id` is called.
   0. `updateCurrentUser` is set as the success callback.
 
 ### Tracks API Response Actions
@@ -203,7 +203,7 @@ Redux structure, you'll need to do the same.
 
 * `updateCurrentUser`
   0. invoked from an API callback
-  0. the CurrentUserReducer` updates the currentUser information in the application's state.
+  0. the `CurrentUserReducer` updates the currentUser information in the application's state.
 
 ## Follows cycles
 
@@ -221,7 +221,7 @@ Redux structure, you'll need to do the same.
 
 * `toggleUserFollow`
   0. invoked from the API callback
-  0. The `Users` reducer updates the follow status for the appropriate user, potentially hiding the user from the page.
+  0. The `Users` reducer updates the `user_follow_id` field for the appropriate user  
 
 ## Current Track Cycles
 
@@ -237,6 +237,6 @@ Redux structure, you'll need to do the same.
   0. invoked from the play/pause button in the 'PlayTrackController'
   0. The `CurrentTrack` reducer toggles the `playing` boolean
 
-`goBackTrack`
+`goPrevTrack`
   0. invoked from the rewind button in the 'PlayTrackController'
   0. Restarts the current track, or goes back to the last played track depending on the currentTrack position
