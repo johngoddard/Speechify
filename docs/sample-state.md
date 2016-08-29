@@ -13,8 +13,8 @@
     playlist: {},
     user: {}
   },
-  //the current user's created and follewed playlists (displayed in the sidebar)
-  currentPlaylists: {
+  playlists: {
+    //the current user's created playlists
     createdPlaylists: {
       3: {
           id: 3
@@ -35,6 +35,7 @@
         ]
       }
     }
+    //the current user's followed playlists
     followedPlaylists: {
       1:  {
         id: 1
@@ -55,7 +56,36 @@
           }
         ]
       }
-    }
+    },
+    // index of playlists for browsing
+    playlists: {
+       5: {
+            id: 5,
+            title: "Redux",
+            user_id: 3,
+            description: "description",
+            coverUrl: "http:/path/to/cover"
+          }
+    },
+    //vieweing a playlist details page (include all tracks)
+    playlistDetail: {
+      id: 1,
+      title: "Redux",
+      description: "lorem ipsum descritption",
+      playlistFollowId: 3,
+      userId: 4,
+      tracks: [
+         1:  {
+            id: 1,
+            title: "Redux",
+            user_id: 3,
+            description: "description",
+            coverUrl: "http://path/to/cover",
+            audioUrl: "http://path/to/audio",
+            playlist_track_id: 1
+          }
+      ]
+    },
   },
   //information about the currently playing track
   currentTrack: {
@@ -74,35 +104,6 @@
   },
   // loading spinner status
   loading: false,
-  // browse playlists
-  playlists: [
-     {
-        id: 5,
-        title: "Redux",
-        user_id: 3,
-        description: "description",
-        coverUrl: "http:/path/to/cover"
-      }
-  ],
-  //vieweing a playlist page
-  playlistDetail: {
-    id: 1,
-    title: "Redux",
-    description: "lorem ipsum descritption",
-    playlistFollowId: 3,
-    userId: 4,
-    tracks: [
-       1:  {
-          id: 1,
-          title: "Redux",
-          user_id: 3,
-          description: "description",
-          coverUrl: "http://path/to/cover",
-          audioUrl: "http://path/to/audio",
-          playlist_track_id: 1
-        }
-    ]
-  },
   //browse tracks or viewing created tracks
   tracks: {
     1:  {
@@ -115,34 +116,36 @@
           playlist_track_id: 1
         }
   },
-  //user index
-  users: {
-    3: {
-        id: 3,
-        username: "username",
-        bio: "bio",
-        userId: 3,
-        userFollowId: 7,
-        profileImageUrl: "http:/path/to/cover"
-      }
-  },
-  //viewing a single user page
-  userDetail: {
-    user:  {
-        id: 3
-        username: "username",
-        bio: "bio",
-        user_id: 3,
-        userFollowId: 8,
-        profileImageUrl: "http:/path/to/cover"
-    },
-    playlists: {
-      1: {
-          id: 1
-          title: "Redux",
+  users {
+    //user index for viewing followed users or users to follow
+    allUsers: {
+      3: {
+          id: 3,
+          username: "username",
+          bio: "bio",
           userId: 3,
-          description: "description",
-          coverUrl: "http:/path/to/cover"
+          userFollowId: 7,
+          profileImageUrl: "http:/path/to/cover"
+        }
+    },
+    //viewing a single user page (includes index of that user's playlists)
+    userDetail: {
+      user:  {
+          id: 3
+          username: "username",
+          bio: "bio",
+          user_id: 3,
+          userFollowId: 8,
+          profileImageUrl: "http:/path/to/cover"
+      },
+      playlists: {
+        1: {
+            id: 1
+            title: "Redux",
+            userId: 3,
+            description: "description",
+            coverUrl: "http:/path/to/cover"
+        }
       }
     }
   }

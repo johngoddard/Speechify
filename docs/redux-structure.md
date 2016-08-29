@@ -105,7 +105,7 @@ These actions could update the following components:
 
 ## Current Playlist Cycles
 
-The following actions are used for fetching and updating a user's current playlists (displayed in the sidebar)
+The following actions are used for fetching and updating a user's current playlists (displayed in the sidebar), fetching the all playlists for browsing, fetching a single playlist for playlist details, and following/unfollowing another user's playlists. 
 
 These actions could update the following components:
 - PlaylistsIndex
@@ -115,9 +115,9 @@ These actions could update the following components:
 
 ### Current Playlist API Request Actions
 
-* `fetchCurrentPlaylists`
+* `fetchCurrentUserPlaylists`
   0. invoked from as a callback to `fetchCurrentUser`
-  0. `GET /api/playlists` is called (with `with_tracks` parameter set to true)
+  0. `GET /api/playlists` is called (with `with_tracks` and `current_user` parameters set to true to get all info for the current user's created and shared playlists)
   0. `receiveCurrentPlaylists` is set as the success callback
 
 * `createPlaylist`
@@ -140,6 +140,16 @@ These actions could update the following components:
   0. `DELETE /api/playlists_follows/:id` is called.
   0. `removeCurrentPlaylist` and is set as the callback.
 
+* `fetchAllPlaylists`
+  0. invoked from `PlaylistIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/playlists` is called (with optional user parameter)
+  0. `receiveAllPlaylists` is set as the success callback.
+
+* `fetchSinglePlaylist`
+  0.  invoked from `PlaylistDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/playlists/:id` is called if the playlist does not belong to the current user (else just grab it from  the currentPlaylists)
+  0. `receiveSinglePlaylist` is set as the success callback.
+
 ### Current Playlist API Response Actions
 
 * `receiveCurrentPlaylists`
@@ -159,34 +169,11 @@ These actions could update the following components:
   0. `POST /api/playlists` is called.
   0. `receiveSinglePlaylist` is set as the success callback.
 
-## Playlist Cycles
-
-These actions are responsible for fetching playlists when browsing playlists, viewing users, or viewing a single playlists.
-
-These actions could update the following components:
-- PlaylistIndex
-- PlaylistDetail
-
-### Playlists API Request Actions
-
-* `fetchAllPlaylists`
-  0. invoked from `PlaylstsIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/playlists` is called (with optional user parameter)
-  0. `receiveAllPlaylists` is set as the success callback.
-
-* `fetchSinglePlaylist`
-  0.  invoked from `PlaylistDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/playlists/:id` is called if the playlist does not belong to the current user (else just grab it from  the currentPlaylists)
-  0. `receiveSinglePlaylist` is set as the success callback.
-
-
-### Playlist API Response Actions
-
-* `receiveAllPlaylists`
+  * `receiveAllPlaylists`
   0. invoked from an API callback.
   0. The `Playlist` reducer updates `playlists` in the application's state.
 
-* `receiveSinglePlaylist`
+  * `receiveSinglePlaylist`
   0. invoked from an API callback.
   0. The `Playlist` reducer updates `playlists[id]` in the application's state.
 

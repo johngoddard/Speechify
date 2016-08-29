@@ -102,7 +102,7 @@ the API.
 ### Phase 4: Streaming audio (2 days)
 
 **Objective:** Audio can be streamed Continuously while navigating the site
-
+- [ ] Research streaming Audio
 - [ ] Current track Redux cycles and reducer
 - [ ] Current track components
   - [ ] `PlayBar`
@@ -128,6 +128,7 @@ the API.
 - [ ] Demo user login
 - [ ] Splash screen
 - [ ] Search for songs and playlists on search tab
+- [ ] Mobile responsive 
 - [ ] Playlist and/or track categorization
 - [ ] Multiple sessions
 - [ ] Browse tracks by location
