@@ -21,7 +21,7 @@ artist      | string    | not null
 track_image_url   | string    |
 image_file_type | string |
 image_file_size | string |
-track_audio_url   | string    | not null
+audio_url   | string    | not null
 user_id     | integer   | not null, foreign key (references users), indexed
 
 
