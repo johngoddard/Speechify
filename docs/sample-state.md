@@ -13,6 +13,23 @@
     playlist: {},
     user: {}
   },
+  // loading spinner status
+  loading: false,
+  //information about the currently playing track
+  currentTrack: {
+    track:  {
+      id: 3
+      title: "Redux",
+      userId: 3,
+      description: "description",
+      coverUrl: "http://path/to/cover",
+      audioUrl: "http://path/to/audio",
+    }
+    trackQueue: [track1, track2, track3],
+    previousTracks: [track4, track5],
+    trackPosition: 2000,
+    playing: true
+  },
   playlists: {
     //the current user's created playlists, fetched on sign-in
     createdPlaylists: {
@@ -87,23 +104,6 @@
       ]
     },
   },
-  //information about the currently playing track
-  currentTrack: {
-    track:  {
-        id: 3
-        title: "Redux",
-        userId: 3,
-        description: "description",
-        coverUrl: "http://path/to/cover",
-        audioUrl: "http://path/to/audio",
-      }
-    trackQueue: [track1, track2, track3],
-    previousTracks: [track4, track5],
-    trackPosition: 2000,
-    playing: true
-  },
-  // loading spinner status
-  loading: false,
   //index of tracks, fetched when browsing tracks or viewing created tracks
   tracks: {
     1:  {
