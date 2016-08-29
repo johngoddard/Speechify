@@ -100,12 +100,12 @@ These actions could update the following components:
 
 * `removeTrack`
   0. invoked from an API callback
-  0. the `TracksReducer` removes `tracks[id]` from the application's state.
-  0. the `CurrentPlaylistsReducer` removes the track from any of the current playlists as needed
+  0. the `TrackReducer` removes `tracks[id]` from the application's state.
+  0. the `PlaylistReducer` removes the track from any of the current playlists as needed
 
-## Current Playlist Cycles
+## Playlist Cycles
 
-The following actions are used for fetching and updating a user's current playlists (displayed in the sidebar), fetching the all playlists for browsing, fetching a single playlist for playlist details, and following/unfollowing another user's playlists. 
+The following actions are used for fetching and updating a user's current playlists (displayed in the sidebar), fetching the all playlists for browsing, fetching a single playlist for playlist details, and following/unfollowing another user's playlists.
 
 These actions could update the following components:
 - PlaylistsIndex
@@ -113,7 +113,7 @@ These actions could update the following components:
 - PlaylistDetail
 - Follow/Unfollow buttons
 
-### Current Playlist API Request Actions
+### Playlist API Request Actions
 
 * `fetchCurrentUserPlaylists`
   0. invoked from as a callback to `fetchCurrentUser`
@@ -154,15 +154,15 @@ These actions could update the following components:
 
 * `receiveCurrentPlaylists`
   0. invoked from an API callback.
-  0. The `CurrentPlaylists` reducer updates `currentPlaylists` in the application's state.
+  0. The `PlaylistReducer` updates `currentPlaylists` in the application's state.
 
 * `receiveCreatedPlaylist`
   0. invoked from an API callback.
-  0. The `CurrentPlaylist` reducer updates `createdPlaylists[id]` in the application's state.
+  0. The `PlaylistReducer` updates `createdPlaylists[id]` in the application's state.
 
 * `removeCurrentPlaylist`
   0. invoked from API callback
-  0. The `CurrentPlaylist` reducer removes the deleted playlist
+  0. The `PlaylistReducer` removes the deleted playlist
 
 * `updatePlaylist`
   0. invoked from `PlaylistForm` `onSubmit`
@@ -171,11 +171,11 @@ These actions could update the following components:
 
   * `receiveAllPlaylists`
   0. invoked from an API callback.
-  0. The `Playlist` reducer updates `playlists` in the application's state.
+  0. The `PlaylistReducer` updates `playlists` in the application's state.
 
   * `receiveSinglePlaylist`
   0. invoked from an API callback.
-  0. The `Playlist` reducer updates `playlists[id]` in the application's state.
+  0. The `PlaylistReducer` updates `playlists[id]` in the application's state.
 
 ## Playlist tracks cycles
 These cycles are responsible for adding and removing playlists from tracks.
@@ -198,13 +198,13 @@ These actions could update the following components:
 
 ### Playlist Tracks API Response Actions
 
-* `removePlaylistTrack`
-  0. invoked from the API callback
-  0. the `CurrentPlaylist` reducer removes the appropriate track from the playlist.
-
 * `addPlaylistTrack`
-  0. invoked from the API callback
-  0. the `CurrentPlaylist` reducer adds the appropriate track from the playlist.
+0. invoked from the API callback
+0. the `PlaylistReducer` adds the appropriate track from the playlist.
+
+* `removePlaylistTrack`
+0. invoked from the API callback
+0. the `PlaylistReducer` removes the appropriate track from the playlist.
 
 ## User Cycles
 
