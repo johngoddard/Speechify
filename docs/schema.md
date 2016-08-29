@@ -7,6 +7,8 @@ id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
 description     | text      |
 profile_image_url   | string    |
+image_file_type | string |
+image_file_size | string |
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
@@ -17,6 +19,9 @@ id          | integer   | not null, primary key
 title       | string    | not null
 artist      | string    | not null
 track_image_url   | string    |
+image_file_type | string |
+image_file_size | string |
+track_audio_url   | string    | not null
 user_id     | integer   | not null, foreign key (references users), indexed
 
 
@@ -28,6 +33,8 @@ title       | string    | not null,
 description | text      | not null
 user_id     | integer   | not null, foreign key (references users), indexed
 playlist_image_url   | string    |
+image_file_type | string |
+image_file_size | string |
 
 ## playlist_follows
 column name | data type | details
