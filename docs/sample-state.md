@@ -31,7 +31,7 @@
     playing: true
   },
   playlists: {
-    //the current user's created playlists, fetched on sign-in
+    //the current user's created playlists, fetched on sign-in. Songs including to facilitate the AddTrackToPlaylistForm having adequate information.
     createdPlaylists: {
       3: {
           id: 3
@@ -52,7 +52,7 @@
         ]
       }
     }
-    //the current user's followed playlists, fetched on sign-in
+    //the current user's followed playlists, fetched on sign-in to display in the Sidebar
     followedPlaylists: {
       1:  {
         id: 1
@@ -61,17 +61,6 @@
         description: "description",
         playlistFollowId: 3,
         coverUrl: "http:/path/to/cover",
-         tracks: [
-          {
-            id: 1,
-            title: "Redux",
-            user_id: 3,
-            description: "description",
-            coverUrl: "http://path/to/cover",
-            audioUrl: "http://path/to/audio",
-            playlist_track_id: 5
-          }
-        ]
       }
     },
     // index of playlists, fetched on browse page
