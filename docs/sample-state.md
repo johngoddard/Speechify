@@ -14,7 +14,7 @@
     user: {}
   },
   playlists: {
-    //the current user's created playlists
+    //the current user's created playlists, fetched on sign-in
     createdPlaylists: {
       3: {
           id: 3
@@ -35,7 +35,7 @@
         ]
       }
     }
-    //the current user's followed playlists
+    //the current user's followed playlists, fetched on sign-in
     followedPlaylists: {
       1:  {
         id: 1
@@ -57,7 +57,7 @@
         ]
       }
     },
-    // index of playlists for browsing
+    // index of playlists, fetched on browse page
     playlists: {
        5: {
             id: 5,
@@ -104,7 +104,7 @@
   },
   // loading spinner status
   loading: false,
-  //browse tracks or viewing created tracks
+  //index of tracks, fetched when browsing tracks or viewing created tracks
   tracks: {
     1:  {
           id: 1,
@@ -117,8 +117,8 @@
         }
   },
   users {
-    //user index for viewing followed users or users to follow
-    allUsers: {
+    //user index, fetched when viewing followed users or users to follow
+    users: {
       3: {
           id: 3,
           username: "username",
