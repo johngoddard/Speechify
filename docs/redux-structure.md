@@ -30,6 +30,7 @@ Components that update based on these cycles:
 * `receiveCurrentUser`
   0. invoked from an API callback
   0. the `SessionReducer` stores `currentUser` in the application's state.
+
 * `removeCurrentUser`
   0. invoked from an API callback
   0. the `SessionReducer` removes `currentUser` from the application's state.
@@ -150,7 +151,7 @@ These actions could update the following components:
   0. `GET /api/playlists/:id` is called if the playlist does not belong to the current user (else just grab it from  the currentPlaylists)
   0. `receiveSinglePlaylist` is set as the success callback.
 
-### Current Playlist API Response Actions
+### Playlist API Response Actions
 
 * `receiveCurrentPlaylists`
   0. invoked from an API callback.
@@ -175,7 +176,7 @@ These actions could update the following components:
 
   * `receiveSinglePlaylist`
   0. invoked from an API callback.
-  0. The `PlaylistReducer` updates `playlists[id]` in the application's state.
+  0. The `PlaylistReducer` updates `playlistDetail` in the application's state.
 
 ## Playlist tracks cycles
 These cycles are responsible for adding and removing playlists from tracks.
@@ -227,6 +228,11 @@ These actions could update the following components:
   0. `PATCH /api/users/:id` is called.
   0. `updateCurrentUser` is set as the success callback.
 
+* `fetchUser`
+  0. invoked from `UserDetial` `didMount`/`willReceiveProps`
+  0. `GET /api/users/:id` is called
+  0. `receiveUserDetail` is set as the success callback.
+
 ### Users API Response Actions
 
 * `receiveAllUsers`
@@ -236,6 +242,10 @@ These actions could update the following components:
 * `updateCurrentUser`
   0. invoked from an API callback
   0. the `CurrentUserReducer` updates the currentUser information in the application's state.
+
+* `receiveUserDetail`
+  0. invoked from an API callback
+  0. the `UserReducer` updates the UserDetail
 
 ## Follows cycles
 
