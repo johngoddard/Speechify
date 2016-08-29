@@ -75,7 +75,7 @@
       }
     },
     // index of playlists, fetched on browse page
-    playlists: {
+    allPlaylists: {
        5: {
             id: 5,
             title: "Redux",
@@ -118,7 +118,7 @@
   },
   users {
     //user index, fetched when viewing followed users or users to follow
-    users: {
+    allUsers: {
       3: {
           id: 3,
           username: "username",
