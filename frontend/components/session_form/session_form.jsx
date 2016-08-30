@@ -23,6 +23,7 @@ class SessionForm extends React.Component {
   startUsernameAnimation(){
     const demoName = 'demo';
     let usernameID = setInterval(() => {
+      document.getElementById('username').focus();
       let currLength = this.state.username.length;
 
       if(currLength < demoName.length){
@@ -31,12 +32,13 @@ class SessionForm extends React.Component {
         clearInterval(usernameID);
         this.startPasswordAnimation();
       }
-    }, 50);
+    }, 100);
   }
 
   startPasswordAnimation(){
     const demoPassword = 'password';
     let passwordID = setInterval(() => {
+      document.getElementById('password').focus();
       let currLength = this.state.password.length;
 
       if(currLength < demoPassword.length){
@@ -45,7 +47,7 @@ class SessionForm extends React.Component {
         clearInterval(passwordID);
         this.props.processForm(this.state);
       }
-    }, 50);
+    }, 100);
   }
 
   componentWillReceiveProps(nextProps){
@@ -56,6 +58,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    this.props.clearErrors();
     this.props.processForm(this.state);
   }
 
@@ -70,11 +73,11 @@ class SessionForm extends React.Component {
 
   getAltText(){
     if (this.props.formType === 'login'){
-      return (<div>Dont have an account?
+      return (<div className='other-pop-text'>Dont have an account?
                 <a onClick={this.toggle}>Sign up</a>
               </div>)
     } else {
-      return (<div>Already have an account?
+      return (<div className='other-pop-text'>Already have an account?
                 <a onClick={this.toggle}>Sign in</a>
               </div>)
     }
@@ -82,38 +85,52 @@ class SessionForm extends React.Component {
 
   getErrors(){
     if(this.props.errors){
-      return (
-        <ul>
-          {this.props.errors.map(e => <li key={e}>{e}</li>)}
-        </ul>
-      );
+      let errorsObj = {};
+      this.props.errors.forEach(err => {
+        if(err.split(" ").includes("Username")){
+          errorsObj['username'] = err;
+        } else if(err.split(" ").includes("Password")){
+          errorsObj['password'] = err;
+        } else{
+          errorsObj['credentials'] = err;
+        }
+      })
+
+      return errorsObj;
     }
   }
 
   render(){
-    const formTitle = (this.props.formType === 'login') ? 'Sign In!' : 'Sign Up!';
+    const formTitle = (this.props.formType === 'login') ? 'Sign In' : 'Create Account';
+    const errors = this.getErrors();
 
     return (
       <div className='session-form-div'>
-        <h3 className='form-title'>{formTitle}</h3>
+        <div className='form-title'>{formTitle}</div>
         <form onSubmit={this.handleSubmit.bind(this)}>
-            {this.getErrors()}
+            {errors['credentials'] ? (<div className='error'>{errors['credentials']}</div>) : ''}
             <label htmlFor='username'>Username:</label>
             <input type='text'
+                   id='username'
+                   className={(errors && errors['username']) ? 'input-error' : ''}
                    name='username'
                    value={this.state.username}
                    onChange={this.update('username')} />
 
+          {errors['username'] ? (<div className='error'>{errors['username']}</div>) : ''}
           <label htmlFor='password'>Password:</label>
           <input type='password'
+                 id='password'
+                 className={(errors && errors['password']) ? 'input-error' : ''}
                  name='password'
                  value={this.state.password}
                  onChange={this.update('password')} />
 
-          <button>Submit</button>
+          {errors['password'] ? (<div className='error'>{errors['password']}</div>) : ''}
+               <a className='session-button' onClick={this.handleSubmit.bind(this)}>Submit</a>
+          {this.getAltText()}
         </form>
 
-        {this.getAltText()}
       </div>
     );
   }

@@ -1,9 +1,9 @@
 import React from 'react';
-import Sidebar from './sidebar/sidebar.jsx';
-import HeaderContainer from './header//header_container.js';
+import Sidebar from '../sidebar/sidebar.jsx';
+import HeaderContainer from '../header//header_container.js';
 import Modal from 'react-modal';
-import {authModalStyle} from '../util/modal_styles.js';
-import SessionFormContainer from './session_form/session_form_container.js';
+import {authModalStyle} from '../../util/modal_styles.js';
+import SessionFormContainer from '../session_form/session_form_container.js';
 
 document.addEventListener("DOMContentLoaded", function(){
   Modal.setAppElement(document.body);
@@ -33,7 +33,8 @@ class App extends React.Component {
   }
 
   closeModal(){
-    this.setState({authModel: false});
+    this.props.clearSessionErrors()
+    this.setState({authModel: false, demo: false});
   }
 
   toggleForm(){
@@ -76,5 +77,28 @@ class App extends React.Component {
     );
   };
 }
+
+const authModalStyle2 = {
+  overlay : {
+   position        : 'fixed',
+   top             : 0,
+   left            : 0,
+   right           : 0,
+   bottom          : 0,
+   backgroundColor : 'rgba(255, 255, 255, 0.75)',
+   zIndex          : 10
+ },
+ content : {
+   position        : 'fixed',
+   top             : '80px',
+   width           : '330px',
+   height          : '370px',
+   borderRadius    : '20px',
+   padding         : 0,
+   margin          : '0 auto',
+   zIndex          : 11
+ }
+};
+
 
 export default App;
