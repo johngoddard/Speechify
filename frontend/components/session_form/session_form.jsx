@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
     this.getAltText = this.getAltText.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -30,26 +31,41 @@ class SessionForm extends React.Component {
     return (e) => {this.setState({[key]: e.target.value});};
   }
 
+  toggle(){
+    this.props.clearErrors();
+    this.props.toggleForm();
+  }
+
   getAltText(){
     if (this.props.formType === 'login'){
       return (<div>Dont have an account?
-                <a onClick={this.props.toggleForm}>Sign up</a>
+                <a onClick={this.toggle}>Sign up</a>
               </div>)
     } else {
       return (<div>Already have an account?
-                <a onClick={this.props.toggleForm}>Sign in</a>
+                <a onClick={this.toggle}>Sign in</a>
               </div>)
+    }
+  }
+
+  getErrors(){
+    if(this.props.errors){
+      return (
+        <ul>
+          {this.props.errors.map(e => <li key={e}>{e}</li>)}
+        </ul>
+      );
     }
   }
 
   render(){
     const formTitle = (this.props.formType === 'login') ? 'Sign In!' : 'Sign Up!';
-    const altText = this.getAltText();
 
     return (
       <div className='session-form-div'>
         <h3 className='form-title'>{formTitle}</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
+            {this.getErrors()}
             <label htmlFor='username'>Username:</label>
             <input type='text'
                    name='username'
@@ -65,7 +81,7 @@ class SessionForm extends React.Component {
           <button>Submit</button>
         </form>
 
-        {altText}
+        {this.getAltText()}
       </div>
     );
   }

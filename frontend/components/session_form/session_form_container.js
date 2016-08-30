@@ -1,21 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SessionForm from './session_form.jsx';
-import * as ACTIONS from '../../actions/session_actions.js';
+import * as SESSION_ACTIONS from '../../actions/session_actions.js';
+import * as FORM_ACTIONS from '../../actions/form_actions.js';
+
 
 
 const mapStateToProps = (state, ownProps) =>({
   formType: ownProps.formType,
-  loggedIn: Boolean(state.session.currentUser)
+  loggedIn: Boolean(state.session.currentUser),
+  errors: state.forms.session.errors
 });
 
 const mapDispatchToProps = (dispatch, ownProps)=> {
-  const processForm = (ownProps.formType === 'login') ? ACTIONS.login : ACTIONS.signup;
+  const processForm = (ownProps.formType === 'login') ? SESSION_ACTIONS.login : SESSION_ACTIONS.signup;
 
   return {
     processForm: user => dispatch(processForm(user)),
     closeModal: () => ownProps.closeModal(),
-    toggleForm: () => ownProps.toggleForm()
+    toggleForm: () => ownProps.toggleForm(),
+    clearErrors: () => dispatch(FORM_ACTIONS.clearSessionErrors())
   };
 };
 

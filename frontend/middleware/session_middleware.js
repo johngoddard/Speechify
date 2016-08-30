@@ -1,12 +1,13 @@
 import { SessionConstants } from '../actions/session_actions.js';
-import * as ACTIONS from '../actions/session_actions.js';
+import * as SESSION_ACTIONS from '../actions/session_actions.js';
+import * as FORM_ACTIONS from '../actions/form_actions.js';
 import * as UTIL from '../util/session_api_util.js';
 
 
 
 const SessionMiddleware = ({getState, dispatch}) => next => action => {
-  const success = user => dispatch(ACTIONS.receiveCurrentUser(user));
-  const error = errors => dispatch(ACTIONS.receiveErrors(errors));
+  const success = user => dispatch(SESSION_ACTIONS.receiveCurrentUser(user));
+  const error = errors => dispatch(FORM_ACTIONS.receiveSessionErrors(errors));
 
   switch (action.type) {
     case SessionConstants.LOGIN:

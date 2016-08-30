@@ -47,9 +47,9 @@ class App extends React.Component {
          style={authModalStyle}>
 
          <SessionFormContainer
-          formType={this.state.formType}
-          closeModal={this.closeModal.bind(this)}
-          toggleForm={this.toggleForm.bind(this)}
+            formType={this.state.formType}
+            closeModal={this.closeModal.bind(this)}
+            toggleForm={this.toggleForm.bind(this)}
           />
        </Modal>)
     }
