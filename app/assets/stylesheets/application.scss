@@ -60,6 +60,12 @@
  	quotes: "" "";
  }
 
+ img {
+   display: block;
+   width: 100%;
+   height: auto;
+ }
+
 .body{
     background: rgb(248,248,248);
 }
@@ -127,7 +133,7 @@
 }
 
 .signed-out-marketing{
-  padding: 20px;
+  padding: 30px 20px;
   font-size: 14px;
   text-align: center;
   background: #eee;
@@ -138,7 +144,7 @@
   display: block;
   font-family: 'Open Sans', sans-serif;
   color: #00ace6;
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 15px;
 }
 
@@ -172,11 +178,11 @@
   border-radius: 3px;
   color: white;
   display: inline-block;
-  margin: 20px auto 10px auto;
+  margin: 20px auto 0 auto;
 }
 
 .session-form-div form{
-  padding: 20px;
+  padding: 15px 20px;
   color: #555;
   font-family: 'Roboto', sans-serif;
 }
@@ -184,6 +190,7 @@
 .form-title {
   font-family: 'Open Sans', sans-serif;
   font-size: 24px;
+  font-weight: 300;
   padding: 20px;
   display: block;
   color: #00ace6;
@@ -301,6 +308,60 @@ a:hover{
   font-size: 14px;
 }
 
+.account-info{
+  display: flex;
+  margin-top: 30px;
+}
+
+.account-info .profile-picture {
+  height: 200px;
+  width: 200px;
+  margin: 0 19px;
+  border: solid 1px #ccc;
+}
+
+.profile-info{
+  border-left: 1px solid #ccc;
+}
+.content-area{
+  height: calc(100% - 54px);
+  display: flex;
+}
+
+.account-info h3{
+  display: block;
+  font-size: 24px;
+  color: #00ace6;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+.account-info h4{
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.account-info h4:first-child{
+  margin-top: 0px;
+}
+
+.account-info a {
+  font-size: 13px;
+  color: #0077A9;
+}
+
+.account-info a:hover {
+  color: #005376;
+}
+
+.profile-info{
+  width: 560px;
+  padding: 0 20px;
+}
 
 .group:after{
   content: '';

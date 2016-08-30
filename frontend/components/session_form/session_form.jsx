@@ -21,7 +21,7 @@ class SessionForm extends React.Component {
   }
 
   startUsernameAnimation(){
-    const demoName = 'demo';
+    const demoName = 'DemoUser';
     let usernameID = setInterval(() => {
       document.getElementById('username').focus();
       let currLength = this.state.username.length;
@@ -109,7 +109,7 @@ class SessionForm extends React.Component {
         <div className='form-title'>{formTitle}</div>
         <form onSubmit={this.handleSubmit.bind(this)}>
             {errors['credentials'] ? (<div className='error'>{errors['credentials']}</div>) : ''}
-            <label htmlFor='username'>Username:</label>
+            <label htmlFor='username'>Username</label>
             <input type='text'
                    id='username'
                    className={(errors && errors['username']) ? 'input-error' : ''}
@@ -118,7 +118,7 @@ class SessionForm extends React.Component {
                    onChange={this.update('username')} />
 
           {errors['username'] ? (<div className='error'>{errors['username']}</div>) : ''}
-          <label htmlFor='password'>Password:</label>
+          <label htmlFor='password'>Password</label>
           <input type='password'
                  id='password'
                  className={(errors && errors['password']) ? 'input-error' : ''}

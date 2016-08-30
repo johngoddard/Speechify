@@ -12,7 +12,7 @@ export const authModalStyle = {
    position        : 'fixed',
    top             : '80px',
    width           : '330px',
-   height          : '365px',
+   height          : '355px',
    borderRadius    : '20px',
    padding         : 0,
    margin          : '0 auto',
