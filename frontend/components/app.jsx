@@ -15,15 +15,21 @@ class App extends React.Component {
     super(props);
     this.state = {
       authModel: false,
-      formType: ''
+      formType: '',
+      demo: false
     };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.openDemoModal = this.openDemoModal.bind(this);
   }
 
   openModal(){
-    this.setState({authModel: true, formType: 'signup'});
+    this.setState({authModel: true, formType: 'signup', demo: false});
+  }
+
+  openDemoModal(){
+    this.setState({authModel: true, formType: 'login', demo: true});
   }
 
   closeModal(){
@@ -50,13 +56,16 @@ class App extends React.Component {
             formType={this.state.formType}
             closeModal={this.closeModal.bind(this)}
             toggleForm={this.toggleForm.bind(this)}
+            demo={this.state.demo}
           />
        </Modal>)
     }
 
     return (
       <main className='App group'>
-        <HeaderContainer openModal={this.openModal.bind(this)}/>
+        <HeaderContainer
+          openModal={this.openModal.bind(this)}
+          openDemoModal={this.openDemoModal.bind(this)}/>
 
         <Sidebar />
         {modal}

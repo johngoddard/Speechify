@@ -14,6 +14,38 @@ class SessionForm extends React.Component {
     this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
     this.getAltText = this.getAltText.bind(this);
     this.toggle = this.toggle.bind(this);
+
+    if(this.props.demo){
+      this.startUsernameAnimation();
+    }
+  }
+
+  startUsernameAnimation(){
+    const demoName = 'demo';
+    let usernameID = setInterval(() => {
+      let currLength = this.state.username.length;
+
+      if(currLength < demoName.length){
+        this.setState({username: this.state.username + demoName.slice(currLength, currLength + 1)});
+      } else{
+        clearInterval(usernameID);
+        this.startPasswordAnimation();
+      }
+    }, 50);
+  }
+
+  startPasswordAnimation(){
+    const demoPassword = 'password';
+    let passwordID = setInterval(() => {
+      let currLength = this.state.password.length;
+
+      if(currLength < demoPassword.length){
+        this.setState({password: this.state.password + demoPassword.slice(currLength, currLength + 1)});
+      } else{
+        clearInterval(passwordID);
+        this.props.processForm(this.state);
+      }
+    }, 50);
   }
 
   componentWillReceiveProps(nextProps){

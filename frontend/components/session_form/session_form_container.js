@@ -9,7 +9,8 @@ import * as FORM_ACTIONS from '../../actions/form_actions.js';
 const mapStateToProps = (state, ownProps) =>({
   formType: ownProps.formType,
   loggedIn: Boolean(state.session.currentUser),
-  errors: state.forms.session.errors
+  errors: state.forms.session.errors,
+  demo: ownProps.demo
 });
 
 const mapDispatchToProps = (dispatch, ownProps)=> {

@@ -19,7 +19,7 @@ class Header extends React.Component {
       return (
         <div className='button-bar'>
           <a className='sign-up-button' onClick={this.props.openModal}>Sign Up</a>
-          <a className='demo-button' onClick={this.props.openModal}>Demo</a>
+          <a className='demo-button' onClick={this.props.openDemoModal}>Demo</a>
         </div>
       )
     }

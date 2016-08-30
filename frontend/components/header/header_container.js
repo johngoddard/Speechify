@@ -4,7 +4,8 @@ import { logout } from '../../actions/session_actions.js';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  openModal: ownProps.openModal
+  openModal: ownProps.openModal,
+  openDemoModal: ownProps.openDemoModal
 });
 
 const mapDispatchToProps = dispatch => ({
