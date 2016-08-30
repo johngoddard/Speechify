@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../sidebar/sidebar.jsx';
+import SidebarContainer from '../sidebar/sidebar_container.js';
 import HeaderContainer from '../header//header_container.js';
 import Modal from 'react-modal';
 import {authModalStyle} from '../../util/modal_styles.js';
@@ -24,8 +24,8 @@ class App extends React.Component {
     this.openDemoModal = this.openDemoModal.bind(this);
   }
 
-  openModal(){
-    this.setState({authModel: true, formType: 'signup', demo: false});
+  openModal(type){
+    this.setState({authModel: true, formType: type, demo: false});
   }
 
   openDemoModal(){
@@ -65,10 +65,10 @@ class App extends React.Component {
     return (
       <main className='App group'>
         <HeaderContainer
-          openModal={this.openModal.bind(this)}
-          openDemoModal={this.openDemoModal.bind(this)}/>
+          openLoginModal={this.openModal.bind(this, 'login')}
+          openSignupModal={this.openModal.bind(this, 'signup')}/>
 
-        <Sidebar />
+        <SidebarContainer openDemoModal={this.openDemoModal.bind(this)}/>
         {modal}
         <section className='content-area'>
           {this.props.children}

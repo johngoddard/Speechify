@@ -12,14 +12,14 @@ class Header extends React.Component {
       return (
         <div className='welcome-area'>
           <div className='welcome-message'>Welcome, {this.props.currentUser.username}!</div>
-          <a className='demo-button' onClick={this.props.logout}>Sign Out</a>
+          <a className='sign-out-link' onClick={this.props.logout}>Sign Out</a>
         </div>
       )
     } else {
       return (
         <div className='button-bar'>
-          <a className='sign-up-button' onClick={this.props.openModal}>Sign Up</a>
-          <a className='demo-button' onClick={this.props.openDemoModal}>Demo</a>
+          <a className='sign-in-link' onClick={this.props.openLoginModal}>Sign In</a>
+          <a className='sign-up-link' onClick={this.props.openSignupModal}>Sign Up</a>
         </div>
       )
     }

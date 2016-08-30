@@ -61,7 +61,7 @@
  }
 
 .body{
-  background: #eee;
+    background: rgb(248,248,248);
 }
 
 #root{
@@ -79,8 +79,9 @@
   left: 0;
   right: 0;
   position: absolute;
-  background: #eee;
+  background: rgb(248,248,248);
 }
+
 
 .sidebar {
   width: 200px;
@@ -90,6 +91,11 @@
   background: white;
   border-right: 1px solid #ccc;
   float: left;
+}
+
+.sidebar-buttons{
+  display: flex;
+  justify-content: space-between;
 }
 
 .sidebar-section{
@@ -120,7 +126,21 @@
   padding-left: 50px;
 }
 
+.signed-out-marketing{
+  padding: 20px;
+  font-size: 14px;
+  text-align: center;
+  background: #eee;
+}
 
+.marketing-text-header{
+  padding-bottom: 5px;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  color: #00ace6;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
 
 .header{
   width: 100%;
@@ -147,12 +167,12 @@
   background-color:  #e6f9ff
 }
 
-.header a{
+.sidebar-buttons a{
   padding: 8px 15px;
   border-radius: 3px;
   color: white;
-  margin-left: 20px;
   display: inline-block;
+  margin: 20px auto 10px auto;
 }
 
 .session-form-div form{
@@ -244,26 +264,30 @@ a:hover{
   font-size: 13px;
 }
 
-.sign-up-button{
-  background-color: #5cb85c;
+.header a{
+  color: white;
+  margin-left: 20px;
+  font-size: 14px;
 }
 
-.sign-up-button:hover{
-  background-color: #449d44;
+.header a:hover {
+  color: #ccc;
 }
+
+
 
 .demo-button{
-  background-color: #337ab7;
+  background-color: #0099cd;
 }
 
 .demo-button:hover{
-  background-color: #286090;
+  background-color: #0086b4;
 }
 
 .welcome-area{
   margin: auto 0;
   margin-right: 35px;
-  font-size: 13px;
+  font-size: 14px;
   display: flex;
   justify-content: space-between;
   align-content: center;

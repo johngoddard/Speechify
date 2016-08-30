@@ -36,18 +36,18 @@ Speechify is an audio-streaming web application inspired by Spotify and built us
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [ ] New Rails project
-- [ ] `User` model/migration
-- [ ] Back end authentication (session/password)
-- [ ] `StaticPages` controller and root view
-- [ ] Webpack & react/redux modules
-- [ ] `APIUtil` to interact with the API
-- [ ] Redux cycle for frontend authentication
-- [ ] Sidebar component (signed out content only)
-- [ ] User signup/signin components
+- [x] New Rails project
+- [x] `User` model/migration
+- [x] Back end authentication (session/password)
+- [x] `StaticPages` controller and root view
+- [x] Webpack & react/redux modules
+- [x] `APIUtil` to interact with the API
+- [x] Redux cycle for frontend authentication
+- [x] Sidebar component (signed out content only)
+- [x] User signup/signin components
 - Landing component after signup/signin
   - [ ] UserDetail component for currentUser on account tab
-- [ ] Style signup/signin components
+- [x] Style signup/signin components
 - [ ] Seed users
 - [ ] Review phase 1
 
@@ -128,7 +128,7 @@ the API.
 - [ ] Demo user login
 - [ ] Splash screen
 - [ ] Search for songs and playlists on search tab
-- [ ] Mobile responsive 
+- [ ] Mobile responsive
 - [ ] Playlist and/or track categorization
 - [ ] Multiple sessions
 - [ ] Browse tracks by location
