@@ -12,11 +12,12 @@ class SessionForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
+    this.getAltText = this.getAltText.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
     if(nextProps.loggedIn){
-      this.props.router.push('/');
+      this.props.closeModal();
     }
   }
 
@@ -29,31 +30,42 @@ class SessionForm extends React.Component {
     return (e) => {this.setState({[key]: e.target.value});};
   }
 
+  getAltText(){
+    if (this.props.formType === 'login'){
+      return (<div>Dont have an account?
+                <a onClick={this.props.toggleForm}>Sign up</a>
+              </div>)
+    } else {
+      return (<div>Already have an account?
+                <a onClick={this.props.toggleForm}>Sign in</a>
+              </div>)
+    }
+  }
+
   render(){
     const formTitle = (this.props.formType === 'login') ? 'Sign In!' : 'Sign Up!';
-    const altText = (this.props.formType === 'login') ? 'Sign Up' : 'Sign In';
-    const altLink = (this.props.formType === 'login') ? 'signup' : 'login';
+    const altText = this.getAltText();
 
     return (
       <div className='session-form-div'>
-        <h2>{formTitle}</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label>Username:
+        <h3 className='form-title'>{formTitle}</h3>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+            <label htmlFor='username'>Username:</label>
             <input type='text'
+                   name='username'
                    value={this.state.username}
                    onChange={this.update('username')} />
-          </label>
 
-          <label>Password:
-            <input type='password'
-                   value={this.state.password}
-                   onChange={this.update('password')} />
-          </label>
+          <label htmlFor='password'>Password:</label>
+          <input type='password'
+                 name='password'
+                 value={this.state.password}
+                 onChange={this.update('password')} />
 
           <button>Submit</button>
         </form>
 
-        <a href={`#/${altLink}`}>{altText}</a>
+        {altText}
       </div>
     );
   }

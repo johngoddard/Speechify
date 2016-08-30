@@ -9,7 +9,7 @@ const Sidebar = () => (
 const testContent = (<ul className='nav-list'>
   <li className='sidebar-section'>
     <ul><span>DISCOVER</span>
-      <li>Speeches</li>
+      <li className='selected'>Speeches</li>
       <li>Playlists</li>
     </ul>
   </li>
@@ -21,7 +21,7 @@ const testContent = (<ul className='nav-list'>
   </li>
   <li className='sidebar-section'>
     <ul><span>PLAYLISTS</span>
-      <li className='selected'>Playlist 1</li>
+      <li>Playlist 1</li>
       <li>Playlist 2</li>
       <li>Playlist 3</li>
     </ul>
