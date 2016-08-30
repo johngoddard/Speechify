@@ -32,6 +32,7 @@ id          | integer   | not null, primary key
 title       | string    | not null,
 description | text      | not null
 user_id     | integer   | not null, foreign key (references users), indexed
+public      | boolean   | not null, default: false
 playlist_image_url   | string    |
 image_file_type | string |
 image_file_size | string |

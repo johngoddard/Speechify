@@ -15,6 +15,9 @@
    - accepts limit/pagination params if I get there
 - `POST /api/users`
 - `PATCH /api/users`
+- `GET /api/user/:id`
+- `POST /api/users/:id/follow`: add a follow from the current user to the user with :user_id
+- `POST /api/users/:id/unfollow`: remove a follow from the current user to the user with :user_id
 
 ### Session
 
@@ -40,21 +43,9 @@
 - `POST /api/playlists`
 - `GET /api/playlists/:id`
 - `DELETE /api/playlists/:id`
-
-### UserFollows
-
-- `POST /api/user_follows`: add a follow from the current user to the user with :user_id
-  - accepts 'followee_id' as a param to specify the user the current user will follow
-- `DELETE /api/user_follows/:user_follow_id`
-
-### PlaylistFollows
-
-- `POST /api/playlist_follows`: create a follow from the current user to the specified playlist
-  - accepts 'playlist_id' as a param
-- `DELETE /api/playlist_follows/:playlist_follow_id`
-
-### PlaylistTracks
-
-- `POST /api/playlist_tracks`: add a track to the given playlist
-  - accepts 'playlist_id' and 'track_id' as params
-- `DELETE /api/playlist_tracks/:playlist_track_id`: remove a track from the playlist
+- `POST /api/playlist/:id/follow`: create a follow from the current user to the specified playlist
+- `POST /api/playlist/:id/unfollow`: remove a follow from the current user to the specified playlist
+- `POST /api/playlist/:id/add_track`: add a track to the given playlist
+  - Takes in a track_id param to specify the track to add
+- `POST /api/playlist/:id/remove_track`: remove a track from a playlist
+  - Takes in a track_id param to specify the track to remove

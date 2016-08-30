@@ -45,9 +45,9 @@
               title: "Redux",
               userId: 3,
               description: "description",
+              follows: false,
               coverUrl: "http://path/to/cover",
-              audioUrl: "http://path/to/audio",
-              playlistTrackId: 5
+              audioUrl: "http://path/to/audio"
           }
         ]
       }
@@ -59,7 +59,7 @@
         title: "Redux",
         userId: 3,
         description: "description",
-        playlistFollowId: 3,
+        follows: true,
         coverUrl: "http:/path/to/cover",
       }
     },
@@ -69,6 +69,7 @@
             id: 5,
             title: "Redux",
             user_id: 3,
+            follows: false
             description: "description",
             coverUrl: "http:/path/to/cover"
           }
@@ -78,7 +79,7 @@
       id: 1,
       title: "Redux",
       description: "lorem ipsum descritption",
-      playlistFollowId: 3,
+      follows: true,
       userId: 4,
       tracks: [
          1:  {
@@ -88,13 +89,12 @@
             description: "description",
             coverUrl: "http://path/to/cover",
             audioUrl: "http://path/to/audio",
-            playlist_track_id: 1
           }
       ]
     },
   },
   //index of tracks, fetched when browsing tracks or viewing created tracks
-  tracks: {
+  allTracks: {
     1:  {
           id: 1,
           title: "Redux",
@@ -102,7 +102,6 @@
           description: "description",
           coverUrl: "http://path/to/cover",
           audioUrl: "http://path/to/audio",
-          playlist_track_id: 1
         }
   },
   users {
@@ -113,7 +112,7 @@
           username: "username",
           bio: "bio",
           userId: 3,
-          userFollowId: 7,
+          follows: true
           profileImageUrl: "http:/path/to/cover"
         }
     },
@@ -124,7 +123,7 @@
           username: "username",
           bio: "bio",
           user_id: 3,
-          userFollowId: 8,
+          follows: true
           profileImageUrl: "http:/path/to/cover"
       },
       playlists: {
@@ -132,6 +131,7 @@
             id: 1
             title: "Redux",
             userId: 3,
+            follows: false
             description: "description",
             coverUrl: "http:/path/to/cover"
         }
