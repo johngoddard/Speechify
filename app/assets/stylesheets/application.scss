@@ -1,0 +1,190 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, font, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td {
+ 	margin: 0;
+ 	padding: 0;
+ 	border: 0;
+ 	outline: 0;
+ 	font-weight: inherit;
+ 	font-style: inherit;
+ 	font-size: 100%;
+ 	font-family: inherit;
+ 	vertical-align: baseline;
+ }
+ /* remember to define focus styles! */
+ :focus {
+ 	outline: 0;
+ }
+ body {
+ 	line-height: 1;
+ 	color: black;
+ 	background: white;
+ }
+ ol, ul {
+ 	list-style: none;
+ }
+ /* tables still need 'cellspacing="0"' in the markup */
+ table {
+ 	border-collapse: separate;
+ 	border-spacing: 0;
+ }
+ caption, th, td {
+ 	text-align: left;
+ 	font-weight: normal;
+ }
+ blockquote:before, blockquote:after,
+ q:before, q:after {
+ 	content: "";
+ }
+ blockquote, q {
+ 	quotes: "" "";
+ }
+
+.body{
+  background: #eee;
+}
+
+#root{
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+.App {
+  font-family: 'Roboto', sans-serif;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background: #eee;
+}
+
+.sidebar {
+  width: 200px;
+  background: white;
+  height: calc(100% - 54px);
+  color: #555;
+  background: white;
+  border-right: 1px solid #ccc;
+  float: left;
+}
+
+.sidebar-section{
+  margin: 20px 0;
+  font-size: 13px;
+}
+
+.nav-list {
+  margin-top: 30px;
+  display: block;
+}
+
+.sidebar-section span{
+  margin-left: 30px;
+  padding-bottom: 5px;
+  display: block;
+}
+
+.selected {
+  background-color: #e0f8ff;
+  border-right: #33ccff 3px solid;
+  font-weight: bold;
+}
+
+.sidebar-section li{
+  font-size: 16px;
+  padding: 10px;
+  padding-left: 50px;
+}
+
+
+
+.header{
+  width: 100%;
+  justify-content: space-between;
+  height: 55px;
+  background: white;
+  border-bottom: #33ccff 3px solid;
+  background: #222;
+  display: flex;
+  align-items: center;
+}
+
+.header h3 {
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  padding: 15px 15px;
+  margin: 0 20px;
+  display: inline-block;
+  color: white;
+}
+
+.sidebar-section li:hover{
+  background-color:  #e6f9ff
+}
+
+.header a{
+  padding: 8px 15px;
+  border-radius: 3px;
+  color: white;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+.header .button-bar{
+  margin: auto 0;
+  margin-right: 35px;
+  font-size: 13px;
+}
+
+.sign-up-button{
+  background-color: #5cb85c;
+}
+
+.sign-up-button:hover{
+  background-color: #449d44;
+}
+
+.demo-button{
+  background-color: #337ab7;
+}
+
+.demo-button:hover{
+  background-color: #286090;
+}
+
+
+
+.group:after{
+  content: '';
+  clear: both;
+  display: block;
+}

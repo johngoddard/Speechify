@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
     const altLink = (this.props.formType === 'login') ? 'signup' : 'login';
 
     return (
-      <div className='bench-form-div'>
+      <div className='session-form-div'>
         <h2>{formTitle}</h2>
         <form onSubmit={this.handleSubmit}>
           <label>Username:
