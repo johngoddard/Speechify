@@ -11,13 +11,11 @@ class Header extends React.Component {
   }
 
   handleLogout(){
-    this.props.logout();
-    console.log('logged out');
     this.props.router.push('/');
+    this.props.logout();
   }
 
   goToAccount(){
-    console.log('to the account');
     this.props.router.push('/account');
   }
 

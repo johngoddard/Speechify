@@ -49,7 +49,7 @@ class Sidebar extends React.Component {
               Learn how you can create playlists, upload audio, connect with friends, and more!
               <div className='sidebar-buttons'>
                 <a className='demo-button'
-                   onClick={this.props.openDemoModal}>Demo</a>
+                   onClick={this.props.openDemoModal}>Demo Account</a>
               </div>
             </div>
           </div>

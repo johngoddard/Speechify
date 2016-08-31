@@ -5,6 +5,7 @@ import SessionFormContainer from './session_form/session_form_container.js';
 import Account from './account/account.jsx';
 import { connect } from 'react-redux';
 class AppRouter extends React.Component{
+
   constructor(props){
     super(props);
     this._redirectUnlessLoggedIn = this._redirectUnlessLoggedIn.bind(this);
