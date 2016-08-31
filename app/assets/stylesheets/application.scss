@@ -66,8 +66,13 @@
    height: auto;
  }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .body{
-    background: rgb(248,248,248);
+    background: rgb(245,245,245);
 }
 
 #root{
@@ -85,7 +90,7 @@
   left: 0;
   right: 0;
   position: absolute;
-  background: rgb(248,248,248);
+  background: rgb(245,245,245);
 }
 
 
@@ -136,7 +141,7 @@
   padding: 30px 20px;
   font-size: 14px;
   text-align: center;
-  background: #eee;
+  background: #ecf0f7;
 }
 
 .marketing-text-header{
@@ -368,7 +373,7 @@ a:hover{
 }
 
 .bio-area textarea{
-  height: 130px;
+  height: 110px;
   font-size: 14px;
 }
 
@@ -397,4 +402,11 @@ textarea:focus, input:focus {
 }
 .welcome-message:hover .header-drop-down{
   display: block;
+}
+
+.info-container{
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
 }

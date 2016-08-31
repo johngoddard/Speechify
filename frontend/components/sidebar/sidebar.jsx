@@ -1,10 +1,52 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router';
 
 
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.getRightContent = this.getRightContent.bind(this);
+    this.selectLink = this.selectLink.bind(this);
+    this.resetSelected = this.resetSelected.bind(this);
+    this.initializeSelected = this.initializeSelected.bind(this);
+  }
+
+  componentDidMount(){
+    this.initializeSelected();
+  }
+
+  initializeSelected(){
+    let location = window.location.hash;
+    location = location.split('?')[0];
+    switch (location) {
+      case '#/':
+        const li = document.querySelector('.default');
+        li.className='nav-item selected';
+        break;
+      default:
+        break;
+
+    }
+  }
+
+  selectLink(e){
+    this.resetSelected();
+    this.props.enterSidebar();
+    e.currentTarget.className='nav-item selected';
+
+  }
+
+  resetSelected(){
+    let li = document.querySelector('.selected');
+    if(li){
+      li.classList.remove('selected');
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(!nextProps.inSidebar){
+      this.resetSelected();
+    }
   }
 
   getRightContent(){
@@ -13,7 +55,7 @@ class Sidebar extends React.Component {
       <ul className='nav-list'>
         <li className='sidebar-section'>
           <ul><span>DISCOVER</span>
-            <li className='selected'>Speeches</li>
+            <Link to={'/'}><li className='nav-item default' onClick={this.selectLink}>Speeches</li></Link>
             <li>Playlists</li>
           </ul>
         </li>
@@ -36,7 +78,7 @@ class Sidebar extends React.Component {
         <ul className='nav-list'>
           <li className='sidebar-section'>
             <ul><span>DISCOVER</span>
-              <li className='selected'>Speeches</li>
+              <li className='default'>Speeches</li>
               <li>Playlists</li>
             </ul>
           </li>
@@ -67,4 +109,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);

@@ -1,4 +1,12 @@
 class Api::UsersController < ApplicationController
+  USER_ATTRS = [
+    :username,
+    :password,
+    :description,
+    :profile_image_url,
+    :image_file_type,
+    :image_file_size
+  ]
 
   def create
     @user = User.new(user_params);
@@ -24,6 +32,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :description)
+    params.require(:user).permit(*USER_ATTRS)
   end
 end

@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { withRouter} from 'react-router';
+import { withRouter, Link} from 'react-router';
 
 
 class Header extends React.Component {
@@ -24,7 +24,7 @@ class Header extends React.Component {
       return (
         <div className='welcome-area'>
           <div className='welcome-message'>Welcome, {this.props.currentUser.username}!</div>
-          <a className='account-link' onClick={this.goToAccount}>Account</a>
+          <a className='account-link' onClick={this.props.exitSidebar}><Link to={'/account'}>Account</Link></a>
           <a className='sign-out-link' onClick={this.handleLogout}>Sign Out</a>
         </div>
       )

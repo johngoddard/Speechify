@@ -3,7 +3,8 @@ import { merge } from 'lodash';
 
 const _default = {
   session: {errors: []},
-  user: {errors: []}
+  user: {errors: []},
+  track: {errors: []}
 };
 
 const FormReducer = (state=_default, action) => {
@@ -16,6 +17,10 @@ const FormReducer = (state=_default, action) => {
       return merge({}, state, {user: {errors: action.errors.responseJSON}});
     case FormConstants.CLEAR_USER_ERRORS:
       return Object.assign({}, state, {user: {errors: []}});
+    case FormConstants.RECEIVE_TRACK_ERRORS:
+      return merge({}, state, {track: {errors: action.errors.responseJSON}});
+    case FormConstants.CLEAR_TRACK_ERRORS:
+      return Object.assign({}, state, {track: {errors: []}});
     default:
     return state;
   }

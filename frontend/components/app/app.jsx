@@ -18,12 +18,23 @@ class App extends React.Component {
     this.state = {
       authModel: false,
       formType: '',
-      demo: false
+      inSidebar: true
     };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openDemoModal = this.openDemoModal.bind(this);
+    this.exitSidebar = this.exitSidebar.bind(this);
+    this.enterSidebar = this.enterSidebar.bind(this);
+  }
+
+  exitSidebar() {
+    console.log('exiting sidebar')
+    this.setState({inSidebar: false});
+  }
+
+  enterSidebar() {
+    this.setState({inSidebar: true});
   }
 
   openModal(type){
@@ -68,9 +79,14 @@ class App extends React.Component {
       <main className='App group'>
         <HeaderContainer
           openLoginModal={this.openModal.bind(this, 'login')}
-          openSignupModal={this.openModal.bind(this, 'signup')}/>
+          openSignupModal={this.openModal.bind(this, 'signup')}
+          exitSidebar={this.exitSidebar.bind(this)}
+        />
 
-        <SidebarContainer openDemoModal={this.openDemoModal.bind(this)}/>
+        <SidebarContainer openDemoModal={this.openDemoModal.bind(this)}
+                          inSidebar={this.state.inSidebar}
+                          enterSidebar={this.enterSidebar.bind(this)}
+          />
         {modal}
         <section className='content-area'>
           {this.props.children}

@@ -46,9 +46,14 @@ class Account extends React.Component {
           <img src='http://a1.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzNzYwMjg2MjIw.jpg'/>
         </section>
         <section className='profile-info'>
-          <h3>{this.props.currentUser.username}</h3>
-          {this.getBioContent()}
-          <h4>Playlists</h4>
+          <div className='info-container'>
+            <h3>{this.props.currentUser.username}</h3>
+            {this.getBioContent()}
+          </div>
+
+          <div className='info-container'>
+            <h4>Playlists</h4>
+          </div>
         </section>
       </div>
     );

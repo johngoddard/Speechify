@@ -47,7 +47,7 @@ Speechify is an audio-streaming web application inspired by Spotify and built us
 - [x] User signup/signin components
 - [x] UserDetail component for currentUser on account tab
 - [x] Style signup/signin components
-- [ ] Seed users
+- [x] Seed users
 - [ ] Review phase 1
 
 ### Phase 2: Tracks Model, API, and components (2 days)
@@ -55,11 +55,11 @@ Speechify is an audio-streaming web application inspired by Spotify and built us
 **Objective:** Tracks can be created, read, edited and destroyed through
 the API.
 
-- [ ] `Track` model
+- [x] `Track` model
 - [ ] Audio file hosting (AWS?)
 - [ ] Image file hosting (AWS?)
-- [ ] Seed database with a small amount of test data
-- [ ] CRUD API for tracks (`TracksController`)
+- [x] Seed database with a small amount of test data
+- [x] CRUD API for tracks (`TracksController`)
 - [ ] Create track form allows for uploading images and audio files
 - [ ] JBuilder views for tracks
 - Track components and respective Redux loops
