@@ -19,6 +19,10 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
     case SessionConstants.LOGOUT:
       UTIL.logout();
       return next(action);
+    case SessionConstants.UPDATE_CURRENT_USER:
+      const error2 = errors => dispatch(FORM_ACTIONS.receiveUserErrors);
+      UTIL.updateCurrentUser(action.user, success, error2);
+      return next(action);
     default:
       next(action);
   }

@@ -1,12 +1,43 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import BioForm from './description_form.jsx';
 
 class Account extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      edit: false
+    }
+
+    this.toggleEdit = this.toggleEdit.bind(this);
   }
 
+  getBioContent(){
+    if(this.state.edit){
+      return (
+        <div className='bio-area'>
+          <h4>User Bio</h4>
+          <BioForm toggleForm={this.toggleEdit}/>
+        </div>
+      )
+    } else {
+      return (
+        <div className='bio-area'>
+          <h4>User Bio</h4>
+          <a onClick={this.toggleEdit}>edit</a>
+          <div>{this.props.currentUser.description}</div>
+        </div>
+      )
+    }
+  }
 
+  toggleEdit(){
+    if(this.state.edit){
+      this.setState({edit: false})
+    } else {
+      this.setState({edit: true})
+    }
+  }
 
   render() {
     return (
@@ -16,9 +47,7 @@ class Account extends React.Component {
         </section>
         <section className='profile-info'>
           <h3>{this.props.currentUser.username}</h3>
-          <h4>User Bio</h4>
-          <a>edit</a>
-          <div>{this.props.currentUser.description}</div>
+          {this.getBioContent()}
           <h4>Playlists</h4>
         </section>
       </div>

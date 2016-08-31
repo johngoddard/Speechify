@@ -4,6 +4,8 @@ import HeaderContainer from '../header//header_container.js';
 import Modal from 'react-modal';
 import {authModalStyle} from '../../util/modal_styles.js';
 import SessionFormContainer from '../session_form/session_form_container.js';
+import {withRouter} from 'react-router'
+
 
 document.addEventListener("DOMContentLoaded", function(){
   Modal.setAppElement(document.body);
@@ -101,4 +103,4 @@ const authModalStyle2 = {
 };
 
 
-export default App;
+export default withRouter(App);

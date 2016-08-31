@@ -27,3 +27,13 @@ export const logout = (success, error) => {
     error: error
   });
 };
+
+export const updateCurrentUser = (user, success, error) => {
+  $.ajax({
+   method: 'PATCH',
+   url: `/api/users/${user.id}/`,
+   data: {user: user},
+   success,
+   error
+ });
+};
