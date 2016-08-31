@@ -3,10 +3,11 @@ import {Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 import AppContainer from './app/app_container.js';
 import SessionFormContainer from './session_form/session_form_container.js';
 import Account from './account/account.jsx';
+import { connect } from 'react-redux';
 class AppRouter extends React.Component{
 
   _redirectUnlessLoggedIn(nextState, replace){
-    if (!window.currentUser) {
+    if (!this.props.currentUser) {
       replace('/');
     }
   }
@@ -17,7 +18,6 @@ class AppRouter extends React.Component{
       <Router history={ hashHistory }>
         <Route path='/'
           component={ AppContainer } >
-
           <Route path='/account'
                  component={ Account }
                  onEnter={this._redirectUnlessLoggedIn} />
@@ -27,4 +27,9 @@ class AppRouter extends React.Component{
   }
 }
 
-export default AppRouter;
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser
+});
+
+
+export default connect(mapStateToProps)(AppRouter);
