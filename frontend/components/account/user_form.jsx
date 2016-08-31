@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as SESSION_ACTIONS from '../../actions/session_actions.js';
 
-class BioForm extends React.Component{
+class UserForm extends React.Component{
 
   constructor(props) {
     super(props)
@@ -31,11 +31,13 @@ class BioForm extends React.Component{
 
   render(){
     return (
-      <form className="bioForm">
+      <form className="bioForm" onSubmit={this.handleSubmit}>
         <textArea className='bio-edit'
                   value={this.state.newBio}
                   onChange={this.updateBio}></textArea>
-        <a onClick={this.handleSubmit}>Submit Changes</a>
+                <input type='submit'
+                       className='form-button'
+                       value='Submit Changes'/>
       </form>
     );
   }
@@ -49,4 +51,4 @@ const mapDispatchToProps = dispatch => ({
   updateUser: user => dispatch(SESSION_ACTIONS.updateCurrentUser(user))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(BioForm);
+export default connect(mapStateToProps, mapDispatchToProps)(UserForm);

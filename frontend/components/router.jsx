@@ -11,10 +11,13 @@ class AppRouter extends React.Component{
     }
   }
 
+
   render(){
     return (
       <Router history={ hashHistory }>
-        <Route path='/' component={ AppContainer } >
+        <Route path='/'
+          component={ AppContainer } >
+
           <Route path='/account'
                  component={ Account }
                  onEnter={this._redirectUnlessLoggedIn} />

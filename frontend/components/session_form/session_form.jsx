@@ -127,7 +127,10 @@ class SessionForm extends React.Component {
                  onChange={this.update('password')} />
 
           {errors['password'] ? (<div className='error'>{errors['password']}</div>) : ''}
-               <a className='session-button' onClick={this.handleSubmit.bind(this)}>Submit</a>
+               <input type="submit"
+                      className='form-button'
+                      onClick={this.handleSubmit.bind(this)}
+                      value='Submit' />
           {this.getAltText()}
         </form>
 

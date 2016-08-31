@@ -7,6 +7,7 @@ class Header extends React.Component {
   constructor(props){
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
+    this.goToAccount = this.goToAccount.bind(this);
   }
 
   handleLogout(){
@@ -14,11 +15,16 @@ class Header extends React.Component {
     this.props.router.push('/');
   }
 
+  goToAccount(){
+    this.props.router.push('/account');
+  }
+
   getRightContent(){
     if(this.props.currentUser){
       return (
         <div className='welcome-area'>
           <div className='welcome-message'>Welcome, {this.props.currentUser.username}!</div>
+          <a className='account-link' onClick={this.goToAccount}>Account</a>
           <a className='sign-out-link' onClick={this.handleLogout}>Sign Out</a>
         </div>
       )

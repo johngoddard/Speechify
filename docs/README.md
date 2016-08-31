@@ -45,8 +45,7 @@ Speechify is an audio-streaming web application inspired by Spotify and built us
 - [x] Redux cycle for frontend authentication
 - [x] Sidebar component (signed out content only)
 - [x] User signup/signin components
-- Landing component after signup/signin
-  - [ ] UserDetail component for currentUser on account tab
+- [x] UserDetail component for currentUser on account tab
 - [x] Style signup/signin components
 - [ ] Seed users
 - [ ] Review phase 1
@@ -120,7 +119,7 @@ the API.
 - Related components
   - [ ] `UserIndex`
   - [ ] `UserDetail`
-  - [ ] `UserForm`
+  - [x] `UserForm`
 - Styling for components
 
 

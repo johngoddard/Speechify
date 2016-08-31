@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import BioForm from './description_form.jsx';
+import UserForm from './user_form.jsx';
 
 class Account extends React.Component {
   constructor(props){
@@ -17,7 +17,7 @@ class Account extends React.Component {
       return (
         <div className='bio-area'>
           <h4>User Bio</h4>
-          <BioForm toggleForm={this.toggleEdit}/>
+          <UserForm toggleForm={this.toggleEdit}/>
         </div>
       )
     } else {
@@ -25,7 +25,7 @@ class Account extends React.Component {
         <div className='bio-area'>
           <h4>User Bio</h4>
           <a onClick={this.toggleEdit}>edit</a>
-          <div>{this.props.currentUser.description}</div>
+          <div className='user-desc'>{this.props.currentUser.description}</div>
         </div>
       )
     }
