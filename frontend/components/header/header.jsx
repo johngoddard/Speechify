@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { withRouter } from 'react-router';
+import { withRouter} from 'react-router';
 
 
 class Header extends React.Component {
@@ -12,10 +12,12 @@ class Header extends React.Component {
 
   handleLogout(){
     this.props.logout();
+    console.log('logged out');
     this.props.router.push('/');
   }
 
   goToAccount(){
+    console.log('to the account');
     this.props.router.push('/account');
   }
 
