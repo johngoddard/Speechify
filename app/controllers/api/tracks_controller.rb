@@ -53,6 +53,10 @@ class Api::TracksController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   def destroy
     if !current_user || @track.user_id != current_user.id
       render json: ["You can not delete that track"], status: 422

@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 4, allow_nil: true }
 
   has_many :tracks, inverse_of: :user
+  has_many :playlists, inverse_of: :user
 
   attr_reader :password
 

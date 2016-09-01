@@ -19,5 +19,7 @@ class Track < ActiveRecord::Base
   validates :title, :artist, :user, presence: true
 
   belongs_to :user, inverse_of: :tracks
+  has_many :playlist_tracks, dependent: :destroy
+  has_many :playlists, through: :playlist_tracks, source: :playlist
 
 end

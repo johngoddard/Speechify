@@ -6,9 +6,9 @@ https://speechify.herokuapp.com/
 
 Speechify is an audio-streaming web application inspired by Spotify and built using React/Redux in conjunction with a Ruby on Rails server.  By the end of Week 9, this app will, at a minimum, support the following functionality with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Audio track creation, deletion, and updating
+- [x] Hosting on Heroku
+- [x] New account creation, login, and guest/demo login
+- [x] Audio track creation, deletion, and updating
 - [ ] Playlist creation, deletion, and updating
 - [ ] Following playlists
 - [ ] Continuous audio streaming while navigating the site
@@ -56,8 +56,8 @@ Speechify is an audio-streaming web application inspired by Spotify and built us
 the API.
 
 - [x] `Track` model
-- [ ] Audio file hosting (AWS?)
-- [ ] Image file hosting (AWS?)
+- [x] Audio file hosting (AWS?)
+- [x] Image file hosting (AWS?)
 - [x] Seed database with a small amount of test data
 - [x] CRUD API for tracks (`TracksController`)
 - [x] Create track form allows for uploading images and audio files
@@ -65,11 +65,11 @@ the API.
 - Track components and respective Redux loops
   - [x] `Sidebar`
   - [x] `TracksIndex`
-  - [ ] `TrackIndexItem`
+  - [x] `TrackIndexItem`
   - [x] `TrackForm`
-    + [ ] Uploading audio files
-    + [ ] Uploading image files
-- [ ] Style tracks components
+    + [x] Uploading audio files
+    + [x] Uploading image files
+- [x] Style tracks components
 - [ ] Seed tracks
 
 ### Phase 3: Playlists and playlist follows (2 day)
