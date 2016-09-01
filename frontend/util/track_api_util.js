@@ -22,7 +22,7 @@ export const updateTrack = (track, success, error) => {
   $.ajax({
     method: "PATCH",
     url: `/api/tracks/${track.id}`,
-    data: {track: {artist: track.artist, title: track.title}},
+    data: {track: track},
     success,
     error
   });

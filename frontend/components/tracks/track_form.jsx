@@ -1,4 +1,8 @@
 import React from 'react';
+import UploadImageButton from '../buttons/upload_image_button.jsx';
+import UploadAudioButton from '../buttons/upload_audio_button.jsx';
+
+const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
 
 class TrackForm extends React.Component {
   constructor(props) {
@@ -6,7 +10,10 @@ class TrackForm extends React.Component {
     this.state = {
       artist: '',
       title: '',
-      id: null
+      id: null,
+      track_image_url: '',
+      audio_url: '',
+      track_file_name: ''
     };
     this.update = this.update.bind(this);
     this.getErrors = this.getErrors.bind(this);
@@ -14,8 +21,28 @@ class TrackForm extends React.Component {
 
   componentDidMount(){
     if(this.props.type === 'edit'){
-      this.setState({artist: this.props.track.artist, title: this.props.track.title, id: this.props.track.id});
+      this.setState({
+        artist: this.props.track.artist,
+        title: this.props.track.title,
+        id: this.props.track.id,
+        track_image_url: this.props.track.track_image_url,
+        audio_url: this.props.track.audio_url,
+        track_file_name: this.props.track.track_file_name
+      });
     }
+  }
+
+  updateImage(results){
+    this.setState({track_image_url: results[0].url});
+    document.querySelector('.curr-image img').src = results[0].url;
+  }
+
+
+  updateTrack(results){
+    this.setState({audio_url: results[0].url, track_file_name: results[0].original_filename});
+    const fileName = results[0].original_filename;
+    const fileDisplay = fileName.length > 26 ? `${fileName.slice(0,23)}...` : fileName;
+    document.querySelector('.audio-uploader span').innerHTML = fileDisplay;
   }
 
   handleSubmit(e){
@@ -34,7 +61,7 @@ class TrackForm extends React.Component {
         } else if(err.split(" ").includes("Artist")){
           errorsObj['artist'] = "Speaker can not be blank";
         }
-      })
+      });
     }
     return errorsObj;
   }
@@ -55,7 +82,8 @@ class TrackForm extends React.Component {
           <div className='form-content' >
             <div className='image-upload'>
               <div className='curr-image'>
-                <input type="file"  />
+                <img src={this.state.track_image_url ? this.state.track_image_url : DEFAULT_IMAGE} />
+                <UploadImageButton uploadImage={this.updateImage.bind(this)}/>
               </div>
             </div>
             <div className="none-image">
@@ -76,7 +104,9 @@ class TrackForm extends React.Component {
                       onChange={this.update('title')} />
               {errors['title'] ? (<div className='error'>{errors['title']}</div>) : ''}
               <label htmlFor='title'>Speech Audio</label>
-              <input type="file" />
+              <UploadAudioButton uploadAudio={this.updateTrack.bind(this)}
+                                 track={this.props.track}
+              />
             </div>
           </div>
           <input type="submit"

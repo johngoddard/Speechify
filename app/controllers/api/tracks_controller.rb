@@ -7,7 +7,8 @@ class Api::TracksController < ApplicationController
     :track_image_url,
     :image_file_type,
     :image_file_size,
-    :audio_url
+    :audio_url,
+    :track_file_name
   ]
 
   before_action :find_track, only: [:update, :destroy]
@@ -22,8 +23,6 @@ class Api::TracksController < ApplicationController
       end
     else
       @tracks = Track.all
-      puts @tracks
-      puts @tracks.first.title
       render 'api/tracks/index'
     end
 

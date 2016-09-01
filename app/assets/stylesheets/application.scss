@@ -320,6 +320,7 @@ a:hover{
   width: 200px;
   margin: 0 19px;
   border: solid 1px #ccc;
+  position: relative;
 }
 
 .profile-info{
@@ -481,9 +482,9 @@ textarea:focus, input:focus {
 }
 
 .track-item-container {
-  flex: 0 0 200px;
-  width: 170px;
+  flex: 0 0 190px;
   margin: 0px 20px 40px 20px;
+  padding: 20px;
 
   &:empty {
     height: 0;
@@ -497,8 +498,8 @@ textarea:focus, input:focus {
 }
 
 .track-image{
-  height: 130px;
-  width: 160px;
+  height: 150px;
+  width: 150px;
   border: 1px #ccc solid;
   margin: 0 auto 10px auto;
 }
@@ -522,6 +523,7 @@ input[type='file']{
   margin-bottom: 10px;
   border: 1px solid #ccc;
   margin: 0 auto;
+  position: relative;
 }
 
 .none-image{
@@ -534,7 +536,29 @@ input[type='file']{
   margin: 20px 0;
 }
 
-.curr-image input[type='file']{
+
+.upload-btn{
+  font-size: 12px;
+  margin: 0 auto;
+  display: inline-block;
+  color: white;
+  background-color: #444;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+
+.upload-img-btn{
   position: absolute;
-  top: 260px;
+  top: 165px;
+  left: 52px;
+}
+
+.upload-btn:hover{
+  background-color: #333;
+}
+
+.file-name{
+  font-size: 13px;
+  display: inline-block;
+  margin-left: 10px;
 }

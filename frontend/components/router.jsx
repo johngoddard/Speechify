@@ -13,6 +13,20 @@ class AppRouter extends React.Component{
     this._redirectUnlessLoggedIn = this._redirectUnlessLoggedIn.bind(this);
     this.requestAllTracksOnEnter = this.requestAllTracksOnEnter.bind(this);
     this.requestUserTracksOnEnter = this.requestUserTracksOnEnter.bind(this);
+    this.routes =  (<Router history={ hashHistory }>
+        <Route path='/' component={ AppContainer } >
+          <IndexRoute component={ TracksIndexContainer }
+                      onEnter={this.requestAllTracksOnEnter}
+          />
+          <Route path='/account'
+                 component={ Account }
+                 onEnter={this._redirectUnlessLoggedIn}/>
+          <Route path='/your-speeches'
+                component={ TracksIndexContainer }
+                onEnter={this.requestUserTracksOnEnter}
+          />
+        </Route>
+      </Router>);
   }
 
   _redirectUnlessLoggedIn(nextState, replace){
@@ -34,21 +48,9 @@ class AppRouter extends React.Component{
   }
 
   render(){
+    const routes = this.routes;
     return (
-      <Router history={ hashHistory }>
-        <Route path='/' component={ AppContainer } >
-          <IndexRoute component={ TracksIndexContainer }
-                      onEnter={this.requestAllTracksOnEnter}
-          />
-          <Route path='/account'
-                 component={ Account }
-                 onEnter={this._redirectUnlessLoggedIn}/>
-          <Route path='/your-speeches'
-                component={ TracksIndexContainer }
-                onEnter={this.requestUserTracksOnEnter}
-          />
-        </Route>
-      </Router>
+      routes
     );
   }
 }

@@ -78,7 +78,7 @@ class Sidebar extends React.Component {
           <ul><span>YOUR AUDIO</span>
             <Link to={'/your-speeches'}>
               <li className='nav-item your-speeches' onClick={this.selectLink}>
-                Speechces
+                Your Speechces
               </li>
             </Link>
           </ul>

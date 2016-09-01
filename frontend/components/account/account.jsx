@@ -1,6 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {updateCurrentUser} from '../../actions/session_actions.js'
 import UserForm from './user_form.jsx';
+import UploadImageButton from '../buttons/upload_image_button.jsx';
+
+const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472753244/images/ikpgc0g6ecz8fdz1lrda.png';
+
 
 class Account extends React.Component {
   constructor(props){
@@ -10,6 +15,7 @@ class Account extends React.Component {
     }
 
     this.toggleEdit = this.toggleEdit.bind(this);
+    this.updateImage = this.updateImage.bind(this);
   }
 
   getBioContent(){
@@ -39,11 +45,19 @@ class Account extends React.Component {
     }
   }
 
+  updateImage(results){
+    this.props.updateUser({profile_image_url: results[0].url, id: this.props.currentUser.id})
+    document.querySelector('.profile-picture img').src = results[0].url;
+  }
+
   render() {
+    const image = this.props.currentUser.profile_image_url ? this.props.currentUser.profile_image_url : DEFAULT_IMAGE
+
     return (
       <div className='account-info'>
         <section className='profile-picture'>
-          <img src='http://a1.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzNzYwMjg2MjIw.jpg'/>
+          <img src={image}/>
+          <UploadImageButton uploadImage={this.updateImage.bind(this)} />
         </section>
         <section className='profile-info'>
           <div className='info-container'>
@@ -64,4 +78,8 @@ const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
 
-export default connect(mapStateToProps)(Account);
+const mapDispatchToProps = dispatch => ({
+  updateUser: user => dispatch(updateCurrentUser(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Account);

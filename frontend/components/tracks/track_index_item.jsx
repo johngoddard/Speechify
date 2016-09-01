@@ -1,4 +1,6 @@
 import React from 'react';
+const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
+
 
 class TrackIndexItem extends React.Component {
   constructor(props) {
@@ -27,12 +29,12 @@ class TrackIndexItem extends React.Component {
     );
 
     let title;
-
+    const imageSource = this.props.track.track_image_url ? this.props.track.track_image_url : DEFAULT_IMAGE;
 
     return(
       <div className='track-item-container info-container'>
         <div className='track-image'>
-          <img src='http://thetoastrack.club/wp-content/uploads/2015/09/obama-speech-624x421.jpg'/>
+          <img src={imageSource}/>
         </div>
         <span className='track-artist'>{this.getShortened(this.props.track.artist)}</span>
         <span className='track-title'>{this.getShortened(this.props.track.title)}</span>
