@@ -105,7 +105,7 @@ class SessionForm extends React.Component {
     const errors = this.getErrors();
 
     return (
-      <div className='session-form-div'>
+      <div className='session-form-div modal-form'>
         <div className='form-title'>{formTitle}</div>
         <form onSubmit={this.handleSubmit.bind(this)}>
             {errors['credentials'] ? (<div className='error'>{errors['credentials']}</div>) : ''}

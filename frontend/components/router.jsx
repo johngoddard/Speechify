@@ -12,28 +12,41 @@ class AppRouter extends React.Component{
     super(props);
     this._redirectUnlessLoggedIn = this._redirectUnlessLoggedIn.bind(this);
     this.requestAllTracksOnEnter = this.requestAllTracksOnEnter.bind(this);
+    this.requestUserTracksOnEnter = this.requestUserTracksOnEnter.bind(this);
   }
 
   _redirectUnlessLoggedIn(nextState, replace){
     if (!this.props.currentUser) {
       replace('/');
+      return true;
     }
+    return false;
   }
 
   requestAllTracksOnEnter(){
     this.props.requestAllTracks();
   }
 
+  requestUserTracksOnEnter(nextState, replace){
+    if(!this._redirectUnlessLoggedIn(nextState, replace)){
+      this.props.requestUserTracks();
+    }
+  }
 
   render(){
     return (
       <Router history={ hashHistory }>
         <Route path='/' component={ AppContainer } >
           <IndexRoute component={ TracksIndexContainer }
-                      onEnter={this.requestAllTracksOnEnter}/>
+                      onEnter={this.requestAllTracksOnEnter}
+          />
           <Route path='/account'
                  component={ Account }
                  onEnter={this._redirectUnlessLoggedIn}/>
+          <Route path='/your-speeches'
+                component={ TracksIndexContainer }
+                onEnter={this.requestUserTracksOnEnter}
+          />
         </Route>
       </Router>
     );
@@ -45,7 +58,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestAllTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks())
+  requestAllTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(false)),
+  requestUserTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(true))
 });
 
 

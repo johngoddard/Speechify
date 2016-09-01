@@ -10,7 +10,8 @@ const TrackMiddleWare = ({getState, dispatch}) => next => action => {
   switch (action.type) {
     case TrackConstants.FETCH_ALL_TRACKS:
       success = tracks => dispatch(ACTIONS.receiveAllTracks(tracks));
-      UTIL.fetchAllTracks(success, error);
+      const filter = action.currUser ? 'true' : '';
+      UTIL.fetchAllTracks(filter, success, error);
       return next(action);
     case TrackConstants.CREATE_TRACK:
       UTIL.createTrack(action.track, success, error);
@@ -20,7 +21,7 @@ const TrackMiddleWare = ({getState, dispatch}) => next => action => {
       return next(action);
     case TrackConstants.DESTROY_TRACK:
       success = track => dispatch(ACTIONS.removeTrack(track));
-      UTIL.updateTrack(action.track, success, error);
+      UTIL.destroyTrack(action.track, success, error);
       return next(action);
     default:
       next(action);

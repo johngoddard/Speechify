@@ -24,15 +24,19 @@ class Header extends React.Component {
       return (
         <div className='welcome-area'>
           <div className='welcome-message'>Welcome, {this.props.currentUser.username}!</div>
-          <a className='account-link' onClick={this.props.exitSidebar}><Link to={'/account'}>Account</Link></a>
-          <a className='sign-out-link' onClick={this.handleLogout}>Sign Out</a>
+            <ul className='header-links'>
+              <li className='account-link' onClick={this.props.exitSidebar}><Link to={'/account'}>Account</Link></li>
+              <li className='sign-out-link' onClick={this.handleLogout}>Sign Out</li>
+            </ul>
         </div>
       )
     } else {
       return (
         <div className='button-bar'>
-          <a className='sign-in-link' onClick={this.props.openLoginModal}>Sign In</a>
-          <a className='sign-up-link' onClick={this.props.openSignupModal}>Sign Up</a>
+          <ul className='header-links'>
+            <li className='sign-in-link' onClick={this.props.openLoginModal}>Sign In</li>
+            <li className='sign-up-link' onClick={this.props.openSignupModal}>Sign Up</li>
+          </ul>
         </div>
       )
     }

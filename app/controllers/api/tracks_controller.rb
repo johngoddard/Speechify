@@ -13,7 +13,7 @@ class Api::TracksController < ApplicationController
   before_action :find_track, only: [:update, :destroy]
 
   def index
-    if params[:user] == 'curr_user'
+    if params[:user] == 'true'
       if !current_user
         render json: ["You must be signed in to view these tracks"], status: 401
       else
@@ -37,7 +37,7 @@ class Api::TracksController < ApplicationController
       if @track.save
         render 'api/tracks/show'
       else
-        render json: @track.errrors.full_messages, status: 422
+        render json: @track.errors.full_messages, status: 422
       end
     end
   end
@@ -49,7 +49,7 @@ class Api::TracksController < ApplicationController
       if @track.update(track_params)
         render 'api/tracks/show'
       else
-        render json: @track.errrors.full_messages, status: 422
+        render json: @track.errors.full_messages, status: 422
       end
     end
   end
@@ -73,6 +73,6 @@ class Api::TracksController < ApplicationController
   end
 
   def find_track
-    @track = current_user.tracks.new(track_params)
+    @track = Track.find_by(id: params[:id])
   end
 end

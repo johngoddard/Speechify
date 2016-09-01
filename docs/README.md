@@ -60,13 +60,13 @@ the API.
 - [ ] Image file hosting (AWS?)
 - [x] Seed database with a small amount of test data
 - [x] CRUD API for tracks (`TracksController`)
-- [ ] Create track form allows for uploading images and audio files
-- [ ] JBuilder views for tracks
+- [x] Create track form allows for uploading images and audio files
+- [x] JBuilder views for tracks
 - Track components and respective Redux loops
-  - [ ] `Sidebar`
-  - [ ] `TracksIndex`
+  - [x] `Sidebar`
+  - [x] `TracksIndex`
   - [ ] `TrackIndexItem`
-  - [ ] `TrackForm`
+  - [x] `TrackForm`
     + [ ] Uploading audio files
     + [ ] Uploading image files
 - [ ] Style tracks components

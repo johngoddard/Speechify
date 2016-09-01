@@ -34,7 +34,7 @@ export const receiveAllTracks = tracks => ({
 });
 
 export const receiveSingleTrack = track => ({
-  type: TrackConstants.RECEIVE_SINGLE_TRACKS,
+  type: TrackConstants.RECEIVE_SINGLE_TRACK,
   track
 });
 

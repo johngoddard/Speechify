@@ -125,6 +125,16 @@ a {
   display: block;
 }
 
+.header-links li {
+  float: left;
+  color: white;
+  margin-left: 20px;
+}
+
+.header-links li:hover{
+  color: #ccc;
+}
+
 .selected {
   background-color: #e0f8ff;
   border-right: #33ccff 3px solid;
@@ -132,7 +142,7 @@ a {
 }
 
 .sidebar-section li{
-  font-size: 16px;
+  font-size: 15px;
   padding: 10px;
   padding-left: 50px;
 }
@@ -186,7 +196,7 @@ a {
   margin: 20px auto 0 auto;
 }
 
-.session-form-div form{
+.modal-form form{
   padding: 15px 20px;
   color: #555;
   font-family: 'Roboto', sans-serif;
@@ -202,22 +212,24 @@ a {
   border-bottom: 1px solid #ccc;
 }
 
-.session-form-div label {
+.modal-form label {
   display: block;
   font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  color: #555;
   margin-bottom: 5px;
   margin-top: 15px;
 }
 
-.session-form-div input{
+.modal-form input{
   line-height: 20px;
 }
 
-.session-form-div input:focus{
+.modal-form input:focus{
   border: 1px solid #00ace6;
 }
 
-.session-form-div .input-error{
+.modal-form .input-error{
   border: 1px solid red;
 }
 
@@ -249,7 +261,7 @@ a {
   border-style: none;
 }
 
-.session-form-div .error{
+.modal-form .error{
   color: red;
   font-size: 12px;
   margin-top: 5px;
@@ -270,15 +282,6 @@ a:hover{
   font-size: 13px;
 }
 
-.header a{
-  color: white;
-  margin-left: 20px;
-  font-size: 14px;
-}
-
-.header a:hover {
-  color: #ccc;
-}
 
 
 
@@ -325,6 +328,7 @@ a:hover{
 .content-area{
   height: calc(100% - 54px);
   display: flex;
+  overflow: auto;
 }
 
 .account-info h3{
@@ -409,4 +413,98 @@ textarea:focus, input:focus {
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
+}
+
+.track-item-container{
+  width: 180px;
+}
+
+.track-item-container span{
+  font-size: 14px;
+  display: block;
+}
+
+.track-artist{
+  font-weight: bold;
+}
+
+.track-idx-button{
+  margin-top: 5px;
+}
+
+.track-idx-button a{
+  font-size: 12px;
+  color: #0077A9;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.track-idx-button a:hover{
+  color: #005376
+}
+
+.content-area h3 {
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 20px 30px;
+  font-weight: 300;
+  color: #00ace6;
+  display: inline-block;
+}
+
+.add-track-button{
+  padding: 8px 15px;
+  border-radius: 3px;
+  font-size: 14px;
+  color: white;
+  display: inline-block;
+  margin: 15px 30px;
+  background-color: #0099cd;
+  float: right;
+}
+
+.add-track-button:hover{
+  background-color: #0086b4;
+}
+
+.tracks-index-page{
+  width: 100%;
+}
+
+.tracks-index-cont{
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.track-item-container {
+  flex: 0 0 200px;
+  width: 170px;
+  margin: 20px;
+
+  &:empty {
+    height: 0;
+  };
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+.track-image{
+  height: 130px;
+  width: 160px;
+  border: 1px #ccc solid;
+  margin: 0 auto 10px auto;
+}
+
+.track-image img{
+  height: 100%;
+}
+
+.track-artist{
+  margin-bottom: 5px;
 }

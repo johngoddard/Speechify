@@ -17,10 +17,15 @@ class Sidebar extends React.Component {
 
   initializeSelected(){
     let location = window.location.hash;
+    let li;
     location = location.split('?')[0];
     switch (location) {
       case '#/':
-        const li = document.querySelector('.default');
+        li = document.querySelector('.default');
+        li.className='nav-item selected';
+        break;
+      case '#/your-speeches':
+        li = document.querySelector('.your-speeches');
         li.className='nav-item selected';
         break;
       default:
@@ -55,7 +60,11 @@ class Sidebar extends React.Component {
       <ul className='nav-list'>
         <li className='sidebar-section'>
           <ul><span>DISCOVER</span>
-            <Link to={'/'}><li className='nav-item default' onClick={this.selectLink}>Speeches</li></Link>
+            <Link to={'/'}>
+              <li className='nav-item default' onClick={this.selectLink}>
+                Speeches
+              </li>
+            </Link>
             <li>Playlists</li>
           </ul>
         </li>
@@ -63,6 +72,15 @@ class Sidebar extends React.Component {
           <ul><span>CONNECT</span>
             <li>You Follow</li>
             <li>Find Friends</li>
+          </ul>
+        </li>
+        <li className='sidebar-section'>
+          <ul><span>YOUR AUDIO</span>
+            <Link to={'/your-speeches'}>
+              <li className='nav-item your-speeches' onClick={this.selectLink}>
+                Speechces
+              </li>
+            </Link>
           </ul>
         </li>
         <li className='sidebar-section'>

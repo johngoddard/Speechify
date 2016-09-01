@@ -13,7 +13,7 @@ const TrackReducer = (state = _default, action) => {
       return newState;
     case TrackConstants.RECEIVE_SINGLE_TRACK:
       return merge({}, state, {[action.track.id]: action.track});
-    case  TrackConstants.removeTrack:
+    case  TrackConstants.REMOVE_TRACK:
       let toReturn = merge({}, state);
       delete toReturn[action.track.id];
       return toReturn;
