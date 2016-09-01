@@ -52,26 +52,37 @@ class TrackForm extends React.Component {
       <div className='track-form-div modal-form'>
         <div className='form-title'>{title}</div>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <label htmlFor='artist'>Speaker</label>
-          <input type='text'
-                 id='artist'
-                 className={(errors && errors['artist']) ? 'input-error' : ''}
-                 name='artist'
-                 value={this.state.artist}
-                 onChange={this.update('artist')} />
-          {errors['artist'] ? (<div className='error'>{errors['artist']}</div>) : ''}
-           <label htmlFor='title'>Event</label>
-           <input type='text'
-                  id='title'
-                  name='title'
-                  className={(errors && errors['title']) ? 'input-error' : ''}
-                  value={this.state.title}
-                  onChange={this.update('title')} />
-          {errors['title'] ? (<div className='error'>{errors['title']}</div>) : ''}
+          <div className='form-content' >
+            <div className='image-upload'>
+              <div className='curr-image'>
+                <input type="file"  />
+              </div>
+            </div>
+            <div className="none-image">
+              <label htmlFor='artist'>Speaker</label>
+              <input type='text'
+                     id='artist'
+                     className={(errors && errors['artist']) ? 'input-error' : ''}
+                     name='artist'
+                     value={this.state.artist}
+                     onChange={this.update('artist')} />
+              {errors['artist'] ? (<div className='error'>{errors['artist']}</div>) : ''}
+               <label htmlFor='title'>Event</label>
+               <input type='text'
+                      id='title'
+                      name='title'
+                      className={(errors && errors['title']) ? 'input-error' : ''}
+                      value={this.state.title}
+                      onChange={this.update('title')} />
+              {errors['title'] ? (<div className='error'>{errors['title']}</div>) : ''}
+              <label htmlFor='title'>Speech Audio</label>
+              <input type="file" />
+            </div>
+          </div>
           <input type="submit"
-                 className='form-button'
-                 onClick={this.handleSubmit.bind(this)}
-                 value='Submit' />
+            className='form-button'
+            onClick={this.handleSubmit.bind(this)}
+            value='Submit' />
         </form>
       </div>
     );

@@ -33,8 +33,8 @@ export const trackModalStyle = {
  content : {
    position        : 'fixed',
    top             : '80px',
-   width           : '330px',
-   height          : '330px',
+   width           : '580px',
+   height          : '420px',
    borderRadius    : '20px',
    padding         : 0,
    margin          : '0 auto',
