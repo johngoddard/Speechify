@@ -13,10 +13,10 @@ class TrackIndexItem extends React.Component {
     if(!text){
       return null;
     }
-    else if (text.length < 23){
+    else if (text.length < 24){
       return text;
     } else{
-      return `${text.slice(0,21)}...`;
+      return `${text.slice(0,22)}...`;
     }
   }
 
