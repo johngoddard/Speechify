@@ -16,14 +16,14 @@ class Account extends React.Component {
     if(this.state.edit){
       return (
         <div className='bio-area'>
-          <h4>User Bio</h4>
+          <h5>User Bio</h5>
           <UserForm toggleForm={this.toggleEdit}/>
         </div>
       )
     } else {
       return (
         <div className='bio-area'>
-          <h4>User Bio</h4>
+          <h5>User Bio</h5>
           <a onClick={this.toggleEdit}>edit</a>
           <div className='user-desc'>{this.props.currentUser.description}</div>
         </div>
@@ -47,12 +47,12 @@ class Account extends React.Component {
         </section>
         <section className='profile-info'>
           <div className='info-container'>
-            <h3>{this.props.currentUser.username}</h3>
+            <h4>{this.props.currentUser.username}</h4>
             {this.getBioContent()}
           </div>
 
           <div className='info-container'>
-            <h4>Playlists</h4>
+            <h5>Playlists</h5>
           </div>
         </section>
       </div>

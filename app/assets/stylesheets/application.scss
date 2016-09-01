@@ -151,7 +151,7 @@ a {
   padding: 30px 20px;
   font-size: 14px;
   text-align: center;
-  background: #ecf0f7;
+  background: #e9f3f6;
 }
 
 .marketing-text-header{
@@ -331,7 +331,7 @@ a:hover{
   overflow: auto;
 }
 
-.account-info h3{
+.account-info h4{
   display: block;
   font-size: 24px;
   color: #00ace6;
@@ -339,7 +339,7 @@ a:hover{
   font-weight: 300;
 }
 
-.account-info h4{
+.account-info h5{
   display: inline-block;
   font-size: 16px;
   margin-bottom: 10px;
@@ -348,7 +348,7 @@ a:hover{
   margin-top: 20px;
 }
 
-.account-info h4:first-child{
+.account-info h5:first-child{
   margin-top: 0px;
 }
 
@@ -414,6 +414,8 @@ textarea:focus, input:focus {
   padding: 20px;
   margin-bottom: 20px;
 }
+
+
 
 .track-item-container{
   width: 180px;
@@ -481,7 +483,7 @@ textarea:focus, input:focus {
 .track-item-container {
   flex: 0 0 200px;
   width: 170px;
-  margin: 20px;
+  margin: 0px 20px 40px 20px;
 
   &:empty {
     height: 0;
