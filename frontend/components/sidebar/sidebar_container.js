@@ -4,7 +4,9 @@ import { logout } from '../../actions/session_actions.js';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  openDemoModal: ownProps.openDemoModal
+  createdPlaylists: state.playlists.createdPlaylists,
+  openDemoModal: ownProps.openDemoModal,
+  playlists: state.playlists
 });
 
 

@@ -285,11 +285,11 @@ a:hover{
 
 
 
-.demo-button{
+.nav-bar-btn{
   background-color: #0099cd;
 }
 
-.demo-button:hover{
+.nav-bar-btn:hover{
   background-color: #0086b4;
 }
 
@@ -565,4 +565,8 @@ input[type='file']{
 
 .track-item-container .track-title{
   font-size: 13px;
+}
+
+.modal-form textarea {
+  height: 75px;
 }

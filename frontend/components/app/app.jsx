@@ -4,7 +4,7 @@ import HeaderContainer from '../header//header_container.js';
 import Modal from 'react-modal';
 import {authModalStyle} from '../../util/modal_styles.js';
 import SessionFormContainer from '../session_form/session_form_container.js';
-import {withRouter} from 'react-router'
+import {withRouter} from 'react-router';
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -28,8 +28,13 @@ class App extends React.Component {
     this.enterSidebar = this.enterSidebar.bind(this);
   }
 
+  componentDidMount(){
+    if(this.props.currentUser){
+      this.props.fetchCurrentUserPlaylists(this.props.currentUser);
+    }
+  }
+
   exitSidebar() {
-    console.log('exiting sidebar')
     this.setState({inSidebar: false});
   }
 

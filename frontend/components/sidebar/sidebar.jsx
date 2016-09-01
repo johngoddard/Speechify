@@ -1,14 +1,23 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import { playlistModalStyle } from '../../util/modal_styles.js';
+import PlaylistFormContainer from '../../components/playlist/playlist_form_container.js';
+import Modal from 'react-modal';
 
 
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      playlistModel: false
+    };
+
     this.getRightContent = this.getRightContent.bind(this);
     this.selectLink = this.selectLink.bind(this);
     this.resetSelected = this.resetSelected.bind(this);
     this.initializeSelected = this.initializeSelected.bind(this);
+    this.getCreatedPlaylists = this.getCreatedPlaylists.bind(this);
+    this.openPlaylistModal = this.openPlaylistModal.bind(this);
   }
 
   componentDidMount(){
@@ -34,6 +43,11 @@ class Sidebar extends React.Component {
     }
   }
 
+  openPlaylistModal(){
+    this.setState({playlistModal: true});
+  }
+
+
   selectLink(e){
     this.resetSelected();
     this.props.enterSidebar();
@@ -49,9 +63,17 @@ class Sidebar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
+    this.closeModal();
     if(!nextProps.inSidebar){
       this.resetSelected();
     }
+  }
+
+  getCreatedPlaylists(){
+    const createdPlaylists = this.props.createdPlaylists;
+    return Object.keys(createdPlaylists).map((id, idx) => (
+      <li className='nav-item' key={`${id}${idx}`}>{createdPlaylists[id].title}</li>
+    ));
   }
 
   getRightContent(){
@@ -85,10 +107,11 @@ class Sidebar extends React.Component {
         </li>
         <li className='sidebar-section'>
           <ul><span>PLAYLISTS</span>
-            <li>Playlist 1</li>
-            <li>Playlist 2</li>
-            <li>Playlist 3</li>
+            {this.getCreatedPlaylists()}
           </ul>
+          <div className='sidebar-buttons'>
+            <a className='nav-bar-btn' onClick={this.openPlaylistModal.bind(this)}>+ Add Playlist</a>
+          </div>
         </li>
       </ul>);
     } else {
@@ -108,7 +131,7 @@ class Sidebar extends React.Component {
             <div className='marketing-text-content'>
               Learn how you can create playlists, upload audio, connect with friends, and more!
               <div className='sidebar-buttons'>
-                <a className='demo-button'
+                <a className='nav-bar-btn'
                    onClick={this.props.openDemoModal}>Demo Account</a>
               </div>
             </div>
@@ -117,10 +140,25 @@ class Sidebar extends React.Component {
     }
   }
 
+  closeModal(){
+    this.setState({playlistModal: false});
+  }
+
   render(){
     const content = this.getRightContent();
+    let modal;
+    if(this.state.playlistModal){
+      modal = (<Modal
+         isOpen={true}
+         onRequestClose={this.closeModal.bind(this)}
+         style={playlistModalStyle}>
+         <PlaylistFormContainer />
+       </Modal>)
+    }
+
     return (
       <section className='sidebar'>
+        {modal}
         {content}
       </section>
     );

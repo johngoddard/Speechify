@@ -2,7 +2,7 @@ class Api::PlaylistsController < ApplicationController
 
   PLAYLIST_ATTRS = [
     :title,
-    :descrition,
+    :description,
     :user_id,
     :playlist_image_url
   ]

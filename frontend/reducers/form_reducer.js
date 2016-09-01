@@ -4,7 +4,8 @@ import { merge } from 'lodash';
 const _default = {
   session: {errors: []},
   user: {errors: []},
-  track: {errors: []}
+  track: {errors: []},
+  playlist: {errors: []}
 };
 
 const FormReducer = (state=_default, action) => {
@@ -21,6 +22,10 @@ const FormReducer = (state=_default, action) => {
       return merge({}, state, {track: {errors: action.errors.responseJSON}});
     case FormConstants.CLEAR_TRACK_ERRORS:
       return Object.assign({}, state, {track: {errors: []}});
+    case FormConstants.RECEIVE_PLAYLIST_ERRORS:
+      return merge({}, state, {playlist: {errors: action.errors.responseJSON}});
+    case FormConstants.CLEAR_PLAYLIST_ERRORS:
+      return Object.assign({}, state, {playlist: {errors: []}});
     default:
     return state;
   }

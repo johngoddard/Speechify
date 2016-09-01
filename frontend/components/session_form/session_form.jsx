@@ -51,8 +51,9 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.loggedIn){
+    if(nextProps.currentUser){
       this.props.closeModal();
+      this.props.fetchCurrentUserPlaylists(nextProps.currentUser);
     }
   }
 

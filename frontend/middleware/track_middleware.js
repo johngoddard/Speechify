@@ -1,4 +1,4 @@
-import { TrackConstants }from '../actions/track_actions.js';
+import { TrackConstants } from '../actions/track_actions.js';
 import * as ACTIONS from '../actions/track_actions.js';
 import * as UTIL from '../util/track_api_util.js';
 import * as FORM_ACTIONS from '../actions/form_actions.js';
