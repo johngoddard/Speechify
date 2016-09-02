@@ -38,8 +38,8 @@ class AppRouter extends React.Component{
 
 
   requestPlaylistDetail(nextState){
-    if(this.props.playlists.createdPlaylists[nextState.params.playlistId]){
-
+    if(this.props.createdPlaylists[nextState.params.playlistId]){
+      this.props.receivePlaylistDetail(this.props.createdPlaylists[nextState.params.playlistId]);
     }
     this.props.requestPlaylistDetail(nextState.params.playlistId);
   }
@@ -78,8 +78,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   requestAllTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(false)),
   requestUserTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(true)),
-  requestPlaylistDetail: id => dispatch(PLAYLIST_ACTIONS.fetchPlaylistDetail(id))
-  receivePlaylistDetail: playlist => dispatch(PLAYLIST_ACTIONS.receivePlaylistDetail(playlist));
+  requestPlaylistDetail: id => dispatch(PLAYLIST_ACTIONS.fetchPlaylistDetail(id)),
+  receivePlaylistDetail: playlist => dispatch(PLAYLIST_ACTIONS.receivePlaylistDetail(playlist))
 });
 
 
