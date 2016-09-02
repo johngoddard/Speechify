@@ -18,7 +18,23 @@ class PlaylistForm extends React.Component {
     return (e) => {this.setState({[key]: e.target.value});};
   }
 
+  getErrors(){
+    if(this.props.errors){
+      let errorsObj = {};
+      this.props.errors.forEach(err => {
+        if(err.split(" ").includes("Title")){
+          errorsObj['title'] = err;
+        } else if(err.split(" ").includes("Description")){
+          errorsObj['description'] = err;
+        }
+      });
+      return errorsObj;
+    }
+  }
+
   render(){
+    const errors = this.getErrors();
+
     return (
       <div className='playlist-form-div modal-form'>
         <div className='form-title'>Add Playlist</div>
@@ -27,14 +43,17 @@ class PlaylistForm extends React.Component {
           <input type='text'
                  id='title'
                  name='title'
+                 className={(errors && errors['title']) ? 'input-error' : ''}
                  value={this.state.title}
                  onChange={this.update('title')} />
-
+          {errors['title'] ? (<div className='error'>{errors['title']}</div>) : ''}
           <label htmlFor='description'>Description</label>
           <textarea onChange={this.update('description')}
+                    className={(errors && errors['description']) ? 'input-error' : ''}
                     id='description'
                     value={this.state.description}>
           </textarea>
+          {errors['description'] ? (<div className='error'>{errors['description']}</div>) : ''}
           <input type="submit"
                  className='form-button'
                  value='Submit' />

@@ -61,7 +61,7 @@ class Api::PlaylistsController < ApplicationController
 
   def show
     @playlist = Playlist.where(id: params[:id]).includes(:tracks)[0]
-    render 'api/playlists/show'
+    render 'api/playlists/detail_show'
   end
 
   private

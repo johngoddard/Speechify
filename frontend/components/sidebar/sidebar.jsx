@@ -72,7 +72,11 @@ class Sidebar extends React.Component {
   getCreatedPlaylists(){
     const createdPlaylists = this.props.createdPlaylists;
     return Object.keys(createdPlaylists).map((id, idx) => (
-      <li className='nav-item' key={`${id}${idx}`}>{createdPlaylists[id].title}</li>
+      <Link to={`/playlist/${id}`} key={`${id}${idx}`}>
+        <li className='nav-item' onClick={this.selectLink} >
+          {createdPlaylists[id].title}
+        </li>
+      </Link>
     ));
   }
 
@@ -100,7 +104,7 @@ class Sidebar extends React.Component {
           <ul><span>YOUR AUDIO</span>
             <Link to={'/your-speeches'}>
               <li className='nav-item your-speeches' onClick={this.selectLink}>
-                Your Speechces
+                Your Speeches
               </li>
             </Link>
           </ul>
@@ -142,6 +146,7 @@ class Sidebar extends React.Component {
 
   closeModal(){
     this.setState({playlistModal: false});
+    this.props.clearPlaylistErrors();
   }
 
   render(){

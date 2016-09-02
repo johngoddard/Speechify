@@ -37,10 +37,10 @@ export const clearTrackErrors = () => ({
 });
 
 export const receivePlaylistErrors = errors => ({
-  type: FormConstants.RECEIVE_TRACK_ERRORS,
+  type: FormConstants.RECEIVE_PLAYLIST_ERRORS,
   errors
 });
 
 export const clearPlaylistErrors = () => ({
-  type: FormConstants.CLEAR_TRACK_ERRORS
+  type: FormConstants.CLEAR_PLAYLIST_ERRORS
 });

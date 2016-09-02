@@ -5,7 +5,9 @@ import SessionFormContainer from './session_form/session_form_container.js';
 import Account from './account/account.jsx';
 import { connect } from 'react-redux';
 import TracksIndexContainer from './tracks/tracks_index_container.js';
+import PlaylistDetailContainer from './playlist/playlist_detail_container.js';
 import * as TRACK_ACTIONS from '../actions/track_actions.js';
+import * as PLAYLIST_ACTIONS from '../actions/playlist_actions.js';
 class AppRouter extends React.Component{
 
   constructor(props){
@@ -13,6 +15,8 @@ class AppRouter extends React.Component{
     this._redirectUnlessLoggedIn = this._redirectUnlessLoggedIn.bind(this);
     this.requestAllTracksOnEnter = this.requestAllTracksOnEnter.bind(this);
     this.requestUserTracksOnEnter = this.requestUserTracksOnEnter.bind(this);
+    this.requestPlaylistDetail = this.requestPlaylistDetail.bind(this);
+
     this.routes =  (<Router history={ hashHistory }>
         <Route path='/' component={ AppContainer } >
           <IndexRoute component={ TracksIndexContainer }
@@ -25,8 +29,16 @@ class AppRouter extends React.Component{
                 component={ TracksIndexContainer }
                 onEnter={this.requestUserTracksOnEnter}
           />
+          <Route 	path="playlist/:playlistId"
+  								component={PlaylistDetailContainer}
+                  onEnter={this.requestPlaylistDetail} />
         </Route>
       </Router>);
+  }
+
+
+  requestPlaylistDetail(nextState){
+    this.props.requestPlaylistDetail(nextState.params.playlistId);
   }
 
   _redirectUnlessLoggedIn(nextState, replace){
@@ -61,7 +73,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestAllTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(false)),
-  requestUserTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(true))
+  requestUserTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(true)),
+  requestPlaylistDetail: id => dispatch(PLAYLIST_ACTIONS.fetchPlaylistDetail(id))
 });
 
 

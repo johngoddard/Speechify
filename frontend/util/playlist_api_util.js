@@ -36,3 +36,12 @@ export const createPlaylist = (playlist, success, error) => {
     error
   });
 };
+
+export const fetchPlaylistDetail = (id, success, error) => {
+  $.ajax({
+    method: "GET",
+    url: `/api/playlists/${id}`,
+    success,
+    error
+  });
+}

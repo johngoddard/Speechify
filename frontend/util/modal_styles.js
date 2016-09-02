@@ -34,7 +34,7 @@ export const playlistModalStyle = {
    position        : 'fixed',
    top             : '80px',
    width           : '330px',
-   height          : '355px',
+   height          : '365px',
    borderRadius    : '20px',
    padding         : 0,
    margin          : '0 auto',

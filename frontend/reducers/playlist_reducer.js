@@ -4,7 +4,8 @@ import { merge } from 'lodash';
 
 const _default = {
   createdPlaylists: {},
-  allPlaylists: {}
+  allPlaylists: {},
+  playlistDetail: {}
 };
 
 const PlaylistReducer = (state = _default, action) => {
@@ -17,6 +18,8 @@ const PlaylistReducer = (state = _default, action) => {
       let newCreated = merge({}, state.createdPlaylists);
       newCreated[action.playlist.id] = action.playlist;
       return merge({}, state, {createdPlaylists: newCreated});
+    case PlaylistConstants.RECEIVE_PLAYLIST_DETAIL:
+      return Object.assign({}, state, {playlistDetail: action.playlist});
     default:
       return state;
   }

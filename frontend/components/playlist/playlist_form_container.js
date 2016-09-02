@@ -4,7 +4,8 @@ import * as PLAYLIST_ACTIONS from '../../actions/playlist_actions.js';
 
 
 const mapStateToProps = state => ({
-  createdPlaylists: state.createdPlaylists
+  createdPlaylists: state.createdPlaylists,
+  errors: state.forms.playlist.errors
 });
 
 const mapDispatchToProps = dispatch => ({

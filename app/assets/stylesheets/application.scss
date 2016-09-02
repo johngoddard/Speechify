@@ -310,12 +310,13 @@ a:hover{
   font-size: 14px;
 }
 
-.account-info{
+
+.detail-info-container{
   display: flex;
   margin-top: 30px;
 }
 
-.account-info .profile-picture {
+.detail-info-container .profile-picture {
   height: 200px;
   width: 200px;
   margin: 0 19px;
@@ -323,8 +324,9 @@ a:hover{
   position: relative;
 }
 
-.profile-info{
+.main-info{
   border-left: 1px solid #ccc;
+  padding: 0 20px;
 }
 .content-area{
   height: calc(100% - 54px);
@@ -332,7 +334,7 @@ a:hover{
   overflow: auto;
 }
 
-.account-info h4{
+.info-container h4, .playlist-info-container h4{
   display: block;
   font-size: 24px;
   color: #00ace6;
@@ -340,7 +342,7 @@ a:hover{
   font-weight: 300;
 }
 
-.account-info h5{
+.info-container h5{
   display: inline-block;
   font-size: 16px;
   margin-bottom: 10px;
@@ -364,7 +366,6 @@ a:hover{
 
 .profile-info{
   width: 540px;
-  padding: 0 20px;
 }
 
 .group:after{
@@ -373,9 +374,6 @@ a:hover{
   display: block;
 }
 
-.bio-area{
-  margin-top: 20px;
-}
 
 .bio-area textarea{
   height: 110px;
@@ -557,6 +555,10 @@ input[type='file']{
   background-color: #333;
 }
 
+.playlist-desc{
+  margin: 20px 0;
+}
+
 .file-name{
   font-size: 13px;
   display: inline-block;
@@ -569,4 +571,42 @@ input[type='file']{
 
 .modal-form textarea {
   height: 75px;
+}
+
+#tracks-header{
+  font-size: 20px;
+  color: #00ace6;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  margin: 10px 0 20px 0;
+}
+
+.playlist-info{
+  width: 660px;
+}
+
+.play-track-idx-item{
+  width: 100%;
+  padding: 20px;
+  border-top: 1px #ccc solid;
+  display: flex;
+  align-items: center;
+}
+
+.play-track-idx-item:hover{
+  background-color:  #e6f9ff
+}
+
+.play-track-idx-item:last-child{
+  border-bottom: 1px #ccc solid;
+  margin-bottom: 20px;
+}
+
+.track-img-thumb{
+  height: 60px;
+  width: 60px;
+}
+
+.track-info{
+  margin-left: 30px;
 }
