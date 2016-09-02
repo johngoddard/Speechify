@@ -4,7 +4,6 @@ import UserForm from './user_form.jsx';
 import UploadImageButton from '../buttons/upload_image_button.jsx';
 import {updateCurrentUser} from '../../actions/session_actions.js'
 
-
 const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472753244/images/ikpgc0g6ecz8fdz1lrda.png';
 
 

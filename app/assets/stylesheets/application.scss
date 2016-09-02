@@ -467,7 +467,7 @@ textarea:focus, input:focus {
   background-color: #0086b4;
 }
 
-.tracks-index-page{
+.index-page{
   width: 100%;
 }
 
@@ -624,4 +624,42 @@ input[type='file']{
 }
 .playlist-info a:hover{
   color: #005376;
+}
+
+.playlist-idx-container{
+  width: 780px;
+  margin-left: 30px;
+  display: flex;
+}
+
+.playlist-idx-container:hover{
+
+}
+
+
+.playlist-cover{
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+
+.playlist-idx-info > a > h4{
+  font-size: 20px;
+  display: block;
+}
+
+.playlist-idx-info > a > h4:hover{
+  color: #0099cd;
+  text-decoration: underline;
+}
+
+.playlist-idx-info{
+  margin-left: 30px;
+  width: 500px;
+}
+
+.track-count {
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 15px;
 }

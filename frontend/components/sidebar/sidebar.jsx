@@ -30,16 +30,19 @@ class Sidebar extends React.Component {
     location = location.split('?')[0];
     switch (location) {
       case '#/':
-        li = document.querySelector('.default');
+        li = document.querySelector('#speeches');
         li.className='nav-item selected';
         break;
       case '#/your-speeches':
-        li = document.querySelector('.your-speeches');
+        li = document.querySelector('#your-speeches');
+        li.className='nav-item selected';
+        break;
+      case '#/playlists':
+        li = document.querySelector('#browse-playlists');
         li.className='nav-item selected';
         break;
       default:
         break;
-
     }
   }
 
@@ -70,11 +73,14 @@ class Sidebar extends React.Component {
     }
   }
 
+
   getCreatedPlaylists(){
     const createdPlaylists = this.props.createdPlaylists;
     return Object.keys(createdPlaylists).map((id, idx) => (
       <Link to={`/playlist/${id}`} key={`${id}${idx}`}>
-        <li className='nav-item' onClick={this.selectLink} >
+        <li className='nav-item'
+            onClick={this.selectLink}
+            id={`playlist-${id}`}>
           {createdPlaylists[id].title}
         </li>
       </Link>
@@ -88,11 +94,15 @@ class Sidebar extends React.Component {
         <li className='sidebar-section'>
           <ul><span>DISCOVER</span>
             <Link to={'/'}>
-              <li className='nav-item default' onClick={this.selectLink}>
+              <li className='nav-item' id='speeches' onClick={this.selectLink}>
                 Speeches
               </li>
             </Link>
-            <li>Playlists</li>
+            <Link to={'/playlists'}>
+              <li id='browse-playlists' className='nav-item' onClick={this.selectLink}>
+                Playlists
+              </li>
+            </Link>
           </ul>
         </li>
         <li className='sidebar-section'>
@@ -104,7 +114,7 @@ class Sidebar extends React.Component {
         <li className='sidebar-section'>
           <ul><span>YOUR AUDIO</span>
             <Link to={'/your-speeches'}>
-              <li className='nav-item your-speeches' onClick={this.selectLink}>
+              <li className='nav-item' id='your-speeches' onClick={this.selectLink}>
                 Your Speeches
               </li>
             </Link>
@@ -124,8 +134,16 @@ class Sidebar extends React.Component {
         <ul className='nav-list'>
           <li className='sidebar-section'>
             <ul><span>DISCOVER</span>
-              <li className='default'>Speeches</li>
-              <li>Playlists</li>
+              <Link to={'/'}>
+                <li className='nav-item' id='speeches' onClick={this.selectLink}>
+                  Speeches
+                </li>
+              </Link>
+              <Link to={'/playlists'}>
+                <li className='nav-item' id='browse-playlists' onClick={this.selectLink}>
+                  Playlists
+                </li>
+              </Link>
             </ul>
           </li>
 

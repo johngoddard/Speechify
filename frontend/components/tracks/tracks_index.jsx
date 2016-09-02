@@ -73,7 +73,7 @@ class TracksIndex extends React.Component {
     );
 
     return (
-      <section className='tracks-index-page'>
+      <section className='tracks-index-page index-page'>
         {modal}
         <h3>{pageTitle}</h3>
         {userTracks ? (<a className='add-track-button' onClick={this.openNewModal}>+ Add Speech</a>) : ''}

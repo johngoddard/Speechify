@@ -4,7 +4,7 @@ import { merge } from 'lodash';
 
 const _default = {
   createdPlaylists: {},
-  allPlaylists: {},
+  allPlaylists: [],
   playlistDetail: {}
 };
 

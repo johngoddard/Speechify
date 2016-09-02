@@ -14,10 +14,10 @@ class Api::PlaylistsController < ApplicationController
       @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks)
       render 'api/playlists/index_detail'
     elsif params[:user_id]
-      @playlists = Playlist.where(user_id: params[:user_id].to_i)
+      @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks)
       render 'api/playlists/index'
     else
-      @playlists = Playlist.all
+      @playlists = Playlist.all.includes(:tracks)
       render 'api/playlists/index'
     end
   end
