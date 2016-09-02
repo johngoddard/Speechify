@@ -248,6 +248,7 @@ a {
 }
 
 .form-button {
+  font-family: 'Roboto', sans-serif;
   margin-top: 15px;
   background: #00ace6;
   display: block;
@@ -675,4 +676,57 @@ input[type='file']{
 
 .track-image:hover .add-playlist-btn{
   display: inline-block;
+}
+
+.playlist-track-form{
+  padding: 0px 20px;
+}
+
+.playlist-list-item:first-child{
+  margin-top: 20px;
+}
+
+.playlist-list-item:last-child{
+  border-bottom: none;
+}
+
+.playlist-list-item{
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+  align-items: center;
+}
+
+.playlist-list-item:hover{
+  background-color: #e6f9ff;
+}
+
+.track-btn{
+  font-size: 12px;
+  display: inline-block;
+  color: white;
+  background-color: #5cb85c;
+  padding: 8px 10px;
+  border-radius: 3px;
+  width: 70px;
+  text-align: center;
+}
+
+.add{
+  background-color: #5cb85c;
+}
+
+.add:hover{
+  background-color: #449d44;
+}
+
+.remove{
+  background-color: #d9534f;
+}
+
+.remove:hover{
+  background-color: #c12e2a;
 }

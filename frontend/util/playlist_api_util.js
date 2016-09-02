@@ -56,7 +56,7 @@ export const updatePlaylist = (playlist, success, error) => {
   });
 };
 
-export const addPlaylistTrack = (playlist, track, success, error) => {
+export const addPlaylistTrack = (playlistId, trackId, success, error) => {
   $.ajax({
     method: "POST",
     url: `/api/playlists/${playlistId}/add_track`,
@@ -68,8 +68,8 @@ export const addPlaylistTrack = (playlist, track, success, error) => {
 
 export const deletePlaylistTrack = (playlistId, trackId, success, error) => {
   $.ajax({
-    method: "POST",
-    url: `/api/playlists/${playlistId}/delete_track`,
+    method: "DELETE",
+    url: `/api/playlists/${playlistId}/remove_track`,
     data: {track_id: trackId},
     success,
     error
