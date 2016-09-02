@@ -64,7 +64,9 @@ class TracksIndex extends React.Component {
       <TrackIndexItemContainer key={`${tracks[id]}${idx}`}
                                track={tracks[id]}
                                className='track-index-item'
-                               editable={userTracks}
+                               editable={location === '#/your-speeches' &&
+                                         this.props.currentUser &&
+                                         this.props.currentUser.id === tracks[id].user_id}
                                openEditModal={this.openEditModal.bind(this, tracks[id])}
       />
     )

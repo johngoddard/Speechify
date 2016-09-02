@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import TracksIndex from './tracks_index.jsx';
-import { clearTrackErrors } from '../../actions/form_actions.js'
+import { clearTrackErrors } from '../../actions/form_actions.js';
 
 const mapStateToProps = state => ({
-  tracks: state.tracks
+  tracks: state.tracks,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
