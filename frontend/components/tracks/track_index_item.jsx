@@ -1,10 +1,10 @@
 import React from 'react';
 const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
 
-
 class TrackIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
 
     this.getShortened = this.getShortened.bind(this);
   }
@@ -35,6 +35,10 @@ class TrackIndexItem extends React.Component {
       <div className='track-item-container info-container'>
         <div className='track-image'>
           <img src={imageSource}/>
+          <a className='add-playlist-btn upload-btn'
+             onClick={this.props.openPlaylistModal}>
+             Add to Playlist
+          </a>
         </div>
         <span className='track-artist'>{this.getShortened(this.props.track.artist)}</span>
         <span className='track-title'>{this.getShortened(this.props.track.title)}</span>

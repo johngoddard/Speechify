@@ -55,3 +55,23 @@ export const updatePlaylist = (playlist, success, error) => {
     error
   });
 };
+
+export const addPlaylistTrack = (playlist, track, success, error) => {
+  $.ajax({
+    method: "POST",
+    url: `/api/playlists/${playlistId}/add_track`,
+    data: {track_id: trackId},
+    success,
+    error
+  });
+};
+
+export const deletePlaylistTrack = (playlistId, trackId, success, error) => {
+  $.ajax({
+    method: "POST",
+    url: `/api/playlists/${playlistId}/delete_track`,
+    data: {track_id: trackId},
+    success,
+    error
+  });
+};

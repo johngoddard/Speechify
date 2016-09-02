@@ -425,6 +425,8 @@ textarea:focus, input:focus {
 }
 
 .track-artist{
+  display: inline-block;
+  margin-top: 10px;
   font-weight: bold;
 }
 
@@ -498,7 +500,7 @@ textarea:focus, input:focus {
   height: 150px;
   width: 150px;
   border: 1px #ccc solid;
-  margin: 0 auto 10px auto;
+  margin: 0 auto;
 }
 
 .track-image img{
@@ -662,4 +664,15 @@ input[type='file']{
   font-size: 12px;
   display: inline-block;
   margin-bottom: 15px;
+}
+
+.add-playlist-btn{
+  position: relative;
+  bottom: 30px;
+  left: 28px;
+  display: none;
+}
+
+.track-image:hover .add-playlist-btn{
+  display: inline-block;
 }

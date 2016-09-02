@@ -10,7 +10,9 @@ export const PlaylistConstants = {
   RECEIVE_CURR_USER_PLAYLISTS: "RECEIVE_CURR_USER_PLAYLISTS",
   RECEIVE_PLAYLIST_DETAIL: "RECEIVE_PLAYLIST_DETAIL",
   RECEIVE_CURR_PLAYLIST: "RECEIVE_CURR_PLAYLIST",
-  REMOVE_PLAYLIST: "REMOVE_PLAYLIST"
+  REMOVE_PLAYLIST: "REMOVE_PLAYLIST",
+  ADD_PLAYLIST_TRACK: "ADD_PLAYLIST_TRACK",
+  DELETE_PLAYLIST_TRACK: "DELETE_PLAYLIST_TRACK"
 };
 
 export const fetchAllPlaylists = () => ({
@@ -55,4 +57,16 @@ export const receivePlaylistDetail = playlist => ({
 export const updatePlaylist = playlist => ({
   type: PlaylistConstants.UPDATE_PLAYLIST,
   playlist
+});
+
+export const addPlaylistTrack = (playlistId, trackId) => ({
+  type: PlaylistConstants.ADD_PLAYLIST_TRACK,
+  playlistId,
+  trackId
+});
+
+export const deletePlaylistTrack = (playlistId, trackId) => ({
+  type: PlaylistConstants.DELETE_PLAYLIST_TRACK,
+  playlistId,
+  trackId
 });

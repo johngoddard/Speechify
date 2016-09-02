@@ -7,7 +7,7 @@ class Api::PlaylistsController < ApplicationController
     :playlist_image_url
   ]
 
-  before_action :find_playlist, only: [:update, :destroy]
+  before_action :find_playlist, only: [:update, :destroy, :add_track, :remove_track]
 
   def index
     if params[:user_id] && params[:with_tracks] == 'true'
@@ -62,6 +62,29 @@ class Api::PlaylistsController < ApplicationController
   def show
     @playlist = Playlist.where(id: params[:id]).includes(:tracks)[0]
     render 'api/playlists/detail_show'
+  end
+
+  def add_track
+    track = Track.find_by(id: params[:track_id]);
+    if track && PlaylistTrack.create(playlist_id: @playlist.id, track_id: track.id)
+      render 'api/playlists/detail_show'
+    else
+      render json: ["Could not add track to playlist"], status: 422
+    end
+  end
+
+  def remove_track
+    track = Track.find_by(id: params[:track_id]);
+    if track && @playlist.tracks.include?(track) && @playlist.user_id == current_user.id
+      playlist_track = PlaylistTrack.find_by(playlist_id: @playlist.id, track_id: track.id)
+      if playlist_track.destroy()
+        render 'api/playlists/detail_show'
+      else
+        render json: ["Could not remove track from playlist"], status: 422
+      end
+    else
+      render json: ["Could not remove track from playlist"], status: 422
+    end
   end
 
   private

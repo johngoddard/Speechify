@@ -3,6 +3,8 @@ import TrackIndexItemContainer from './track_index_item_container.js';
 import Modal from 'react-modal';
 import {trackModalStyle} from '../../util/modal_styles.js';
 import TrackFormContainer from './track_form_container.js';
+import PlaylistTrackFormContainer from '../playlist_tracks/playlist_track_form_cotainer.js';
+import {addTrackModalStyle} from '../../util/modal_styles.js';
 
 document.addEventListener("DOMContentLoaded", function(){
   Modal.setAppElement(document.body);
@@ -14,9 +16,10 @@ class TracksIndex extends React.Component {
     super(props);
     this.state = {
       trackModal: false,
+      playlistModal: false,
       formType: '',
       toEdit: null
-    }
+    };
 
     this.openNewModal = this.openNewModal.bind(this);
     this.openEditModal = this.openEditModal.bind(this);
@@ -26,10 +29,12 @@ class TracksIndex extends React.Component {
     this.closeModal();
   }
 
-
-
   openNewModal(){
     this.setState({trackModal: true, formType: 'new'});
+  }
+
+  openPlaylistModal(track){
+    this.setState({trackModal: false, playlistModal: true, toEdit: track});
   }
 
   openEditModal(track){
@@ -37,14 +42,14 @@ class TracksIndex extends React.Component {
   }
 
   closeModal(){
-    this.setState({trackModal: false, formType: '', toEdit: null});
+    this.setState({trackModal: false, playlistModal: false, formType: '', toEdit: null});
     this.props.clearTrackErrors();
   }
 
   render(){
     let location = window.location.hash.split('?')[0];
     let userTracks = (location === '#/your-speeches') ? true : false;
-    let pageTitle = (location === '#/your-speeches') ? "Your Speeches" : "Browse Speeches"
+    let pageTitle = (location === '#/your-speeches') ? "Your Speeches" : "Browse Speeches";
     let modal;
 
     if(this.state.trackModal){
@@ -55,7 +60,16 @@ class TracksIndex extends React.Component {
                                     track={this.state.toEdit}
                                     closeModal={this.closeModal.bind(this)}
                 />
-              </Modal>)
+            </Modal>);
+    } else if (this.state.playlistModal){
+      modal = (<Modal isOpen={true}
+                      onRequestClose={this.closeModal.bind(this)}
+                      style={addTrackModalStyle}>
+                <PlaylistTrackFormContainer type={this.state.formType}
+                                    track={this.state.toEdit}
+                                    closeModal={this.closeModal.bind(this)}
+                />
+              </Modal>);
     }
 
 
@@ -68,6 +82,7 @@ class TracksIndex extends React.Component {
                                          this.props.currentUser &&
                                          this.props.currentUser.id === tracks[id].user_id}
                                openEditModal={this.openEditModal.bind(this, tracks[id])}
+                               openPlaylistModal={this.openPlaylistModal.bind(this, tracks[id])}
       />
     )
     );
