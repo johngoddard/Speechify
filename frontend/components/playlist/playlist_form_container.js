@@ -1,6 +1,6 @@
 import PlaylistForm from './playlist_form.jsx';
 import {connect} from 'react-redux';
-import * as PLAYLIST_ACTIONS from '../../actions/playlist_actions.js';
+import * as ACTIONS from '../../actions/playlist_actions.js';
 
 
 const mapStateToProps = state => ({
@@ -8,9 +8,13 @@ const mapStateToProps = state => ({
   errors: state.forms.playlist.errors
 });
 
-const mapDispatchToProps = dispatch => ({
-  processForm: playlist => dispatch(PLAYLIST_ACTIONS.createPlaylist(playlist))
-});
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const processForm = (ownProps.type === 'edit') ? ACTIONS.updatePlaylist : ACTIONS.createPlaylist
+
+  return {
+    processForm: playlist => dispatch(processForm(playlist))
+  }
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistForm);

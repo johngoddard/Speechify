@@ -1,5 +1,6 @@
 import React from 'react';
-import PlaylistTracksIndex from './playlist_tracks_index.jsx'
+import PlaylistTracksIndex from './playlist_tracks_index.jsx';
+import PlaylistFormContainer from './playlist_form_container.js';
 
 const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
 
@@ -8,6 +9,44 @@ class PlaylistDetail extends React.Component {
     super(props);
     this.getPlaylistImage = this.getPlaylistImage.bind(this);
     this.trackRendering = this.trackRendering.bind(this);
+
+    this.state = {
+      edit: false
+    }
+
+    this.toggleEdit = this.toggleEdit.bind(this);
+  }
+
+  componentWillReceiveProps(){
+    this.setState({edit: false});
+  }
+
+  toggleEdit(){
+    if(this.state.edit){
+      this.setState({edit: false});
+    } else {
+      this.setState({edit: true});
+    }
+  }
+
+  getInfoContent(){
+    if(this.state.edit){
+      return (
+        <div className='info-container'>
+          <PlaylistFormContainer type='edit'
+                                 playlist={this.props.playlistDetail}/>
+        </div>
+      );
+    } else {
+      return (
+        <div className='info-container'>
+          <h4>{this.props.playlistDetail.title}</h4>
+          <div className='playlist-desc'>
+            <p>{this.props.playlistDetail.description}</p>
+          </div>
+        </div>
+      );
+    }
   }
 
   getPlaylistImage(){
@@ -37,12 +76,10 @@ class PlaylistDetail extends React.Component {
           <img src={this.getPlaylistImage()} />
         </section>
         <section className='main-info playlist-info'>
-          <div className='info-container'>
-            <h4>{this.props.playlistDetail.title}</h4>
-            <div className='playlist-desc'>
-              <p>{this.props.playlistDetail.description}</p>
-            </div>
-          </div>
+          <a onClick={this.toggleEdit}>
+            {this.state.edit ? 'Cancel' : 'Edit info'}
+          </a>
+          {this.getInfoContent()}
           {this.trackRendering()}
         </section>
       </div>

@@ -44,4 +44,14 @@ export const fetchPlaylistDetail = (id, success, error) => {
     success,
     error
   });
-}
+};
+
+export const updatePlaylist = (playlist, success, error) => {
+  $.ajax({
+    method: "PATCH",
+    url: `/api/playlists/${playlist.id}`,
+    data: {playlist: playlist},
+    success,
+    error
+  });
+};

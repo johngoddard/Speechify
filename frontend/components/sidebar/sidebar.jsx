@@ -44,6 +44,7 @@ class Sidebar extends React.Component {
   }
 
   openPlaylistModal(){
+    this.props.clearPlaylistErrors();
     this.setState({playlistModal: true});
   }
 
@@ -157,7 +158,7 @@ class Sidebar extends React.Component {
          isOpen={true}
          onRequestClose={this.closeModal.bind(this)}
          style={playlistModalStyle}>
-         <PlaylistFormContainer />
+         <PlaylistFormContainer type='new' />
        </Modal>)
     }
 

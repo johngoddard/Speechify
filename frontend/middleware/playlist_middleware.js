@@ -24,6 +24,13 @@ const PlaylistMiddleware = ({getState, dispatch}) => next => action => {
       success = playlist => dispatch(ACTIONS.receivePlaylistDetail(playlist));
       UTIL.fetchPlaylistDetail(action.id, success, error);
       return next(action);
+    case PlaylistConstants.UPDATE_PLAYLIST:
+      success = playlist => {
+        dispatch(ACTIONS.receiveCurrPlaylist(playlist));
+        dispatch(ACTIONS.receivePlaylistDetail(playlist));
+      }
+      UTIL.updatePlaylist(action.playlist, success, error);
+      return next(action);
     default:
       return next(action);
   }

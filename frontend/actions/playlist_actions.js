@@ -50,4 +50,9 @@ export const fetchPlaylistDetail = (id) => ({
 export const receivePlaylistDetail = playlist => ({
   type: PlaylistConstants.RECEIVE_PLAYLIST_DETAIL,
   playlist
-})
+});
+
+export const updatePlaylist = playlist => ({
+  type: PlaylistConstants.UPDATE_PLAYLIST,
+  playlist
+});

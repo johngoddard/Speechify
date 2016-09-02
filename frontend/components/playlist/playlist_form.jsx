@@ -7,11 +7,24 @@ class PlaylistForm extends React.Component {
       title: '',
       description: ''
     };
+
+    this.getTitle = this.getTitle.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.processForm(this.state);
+    const id = this.props.playlist ? this.props.playlist.id : '';
+    const toSubmit = Object.assign({}, this.state, {id: id});
+    this.props.processForm(toSubmit);
+  }
+
+  componentDidMount(){
+    if(this.props.type === 'edit'){
+      this.setState({
+        description: this.props.playlist.description,
+        title: this.props.playlist.title
+      });
+    }
   }
 
   update(key){
@@ -32,13 +45,21 @@ class PlaylistForm extends React.Component {
     }
   }
 
+  getTitle(){
+    if(this.props.type === 'new'){
+      return (<div className='form-title'>Add Playlist</div>);
+    }
+  }
+
   render(){
     const errors = this.getErrors();
-
     return (
-      <div className='playlist-form-div modal-form'>
-        <div className='form-title'>Add Playlist</div>
+      <div className={
+          (this.props.type === 'edit') ? 'inline-form playlist-edit' :
+           'playlist-form-div modal-form'}>
+        {this.getTitle()}
         <form onSubmit={this.handleSubmit.bind(this)}>
+
           <label htmlFor='title'>Title</label>
           <input type='text'
                  id='title'

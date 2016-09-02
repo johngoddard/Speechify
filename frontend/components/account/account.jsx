@@ -16,7 +16,7 @@ class Account extends React.Component {
     if(this.state.edit){
       return (
         <div className='bio-area'>
-          <h5>User Bio</h5>
+          <h5>User Bio</h5><a onClick={this.toggleEdit}>cancel</a>
           <UserForm toggleForm={this.toggleEdit}/>
         </div>
       )
@@ -33,9 +33,9 @@ class Account extends React.Component {
 
   toggleEdit(){
     if(this.state.edit){
-      this.setState({edit: false})
+      this.setState({edit: false});
     } else {
-      this.setState({edit: true})
+      this.setState({edit: true});
     }
   }
 
