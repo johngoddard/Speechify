@@ -34,12 +34,6 @@ class App extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps){
-    if(nextProps.currentUser){
-      nextProps.fetchCurrentUserPlaylists(nextProps.currentUser);
-    }
-  }
-
   exitSidebar() {
     this.setState({inSidebar: false});
   }

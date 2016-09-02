@@ -45,8 +45,9 @@ class AppRouter extends React.Component{
   requestPlaylistDetail(nextState){
     if(this.props.createdPlaylists[nextState.params.playlistId]){
       this.props.receivePlaylistDetail(this.props.createdPlaylists[nextState.params.playlistId]);
+    } else{
+      this.props.requestPlaylistDetail(nextState.params.playlistId);
     }
-    this.props.requestPlaylistDetail(nextState.params.playlistId);
   }
 
   _redirectUnlessLoggedIn(nextState, replace){

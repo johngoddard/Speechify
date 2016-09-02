@@ -11,7 +11,7 @@ class Api::PlaylistsController < ApplicationController
 
   def index
     if params[:user_id] && params[:with_tracks] == 'true'
-      @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks)
+      @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks, :playlist_tracks)
       render 'api/playlists/index_detail'
     elsif params[:user_id]
       @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks)
@@ -60,13 +60,15 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.where(id: params[:id]).includes(:tracks)[0]
+    @playlist = Playlist.where(id: params[:id]).includes(:tracks, :playlist_tracks)[0]
     render 'api/playlists/detail_show'
   end
 
   def add_track
-    track = Track.find_by(id: params[:track_id]);
-    if track && PlaylistTrack.create(playlist_id: @playlist.id, track_id: track.id)
+    track = Track.find_by(id: params[:track_id])
+    ord = @playlist.max_track ? @playlist.max_track + 1 : 0
+
+    if track && PlaylistTrack.create(playlist_id: @playlist.id, track_id: track.id, order: ord)
       render 'api/playlists/detail_show'
     else
       render json: ["Could not add track to playlist"], status: 422

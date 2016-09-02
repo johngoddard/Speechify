@@ -4,7 +4,9 @@ import * as ACTIONS from '../../actions/track_actions.js';
 
 const mapStateToProps = (state, ownProps) => ({
   track: ownProps.track,
-  editable: ownProps.editable
+  editable: ownProps.editable,
+  playlists: state.playlists.createdPlaylists,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

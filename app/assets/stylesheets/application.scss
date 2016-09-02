@@ -730,3 +730,29 @@ input[type='file']{
 .remove:hover{
   background-color: #c12e2a;
 }
+
+.playlist-track-form > ul {
+  overflow: scroll;
+  height: 269px;
+}
+
+.playlist-control-btn{
+  padding: 8px 15px;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  margin: 15px auto;
+  font-size: 13px;
+}
+
+.delete-btn{
+  background-color:  #d9534f;
+}
+
+.delete-btn:hover{
+  background-color: #c12e2a;
+}
+
+.left-info{
+  text-align: center;
+}

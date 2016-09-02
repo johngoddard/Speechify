@@ -5,8 +5,8 @@ class TrackIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.getShortened = this.getShortened.bind(this);
+    this.getAddButton = this.getAddButton.bind(this);
   }
 
   getShortened(text){
@@ -17,6 +17,17 @@ class TrackIndexItem extends React.Component {
       return text;
     } else{
       return `${text.slice(0,22)}...`;
+    }
+  }
+
+  getAddButton(){
+    if(this.props.currentUser && Object.keys(this.props.playlists).length > 0){
+      return(
+        <a className='add-playlist-btn upload-btn'
+           onClick={this.props.openPlaylistModal}>
+           Add to Playlist
+        </a>
+      )
     }
   }
 
@@ -35,10 +46,7 @@ class TrackIndexItem extends React.Component {
       <div className='track-item-container info-container'>
         <div className='track-image'>
           <img src={imageSource}/>
-          <a className='add-playlist-btn upload-btn'
-             onClick={this.props.openPlaylistModal}>
-             Add to Playlist
-          </a>
+          {this.getAddButton()}
         </div>
         <span className='track-artist'>{this.getShortened(this.props.track.artist)}</span>
         <span className='track-title'>{this.getShortened(this.props.track.title)}</span>

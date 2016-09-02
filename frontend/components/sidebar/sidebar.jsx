@@ -56,7 +56,6 @@ class Sidebar extends React.Component {
     this.resetSelected();
     this.props.enterSidebar();
     e.currentTarget.className='nav-item selected';
-
   }
 
   resetSelected(){
@@ -68,9 +67,10 @@ class Sidebar extends React.Component {
 
   componentWillReceiveProps(nextProps){
     this.closeModal();
-    if(!nextProps.inSidebar){
+    if(!nextProps.inSidebar || !nextProps.currentUser){
       this.resetSelected();
     }
+    this.initializeSelected();
   }
 
 

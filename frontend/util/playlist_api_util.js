@@ -75,3 +75,12 @@ export const deletePlaylistTrack = (playlistId, trackId, success, error) => {
     error
   });
 };
+
+export const removePlaylist = (playlistId, success, error) => {
+  $.ajax({
+    method: "DELETE",
+    url: `/api/playlists/${playlistId}`,
+    success,
+    error
+  });
+};

@@ -11,6 +11,7 @@ export const PlaylistConstants = {
   RECEIVE_PLAYLIST_DETAIL: "RECEIVE_PLAYLIST_DETAIL",
   RECEIVE_CURR_PLAYLIST: "RECEIVE_CURR_PLAYLIST",
   REMOVE_PLAYLIST: "REMOVE_PLAYLIST",
+  REMOVE_CURR_PLAYLIST: "REMOVE_CURR_PLAYLIST",
   ADD_PLAYLIST_TRACK: "ADD_PLAYLIST_TRACK",
   DELETE_PLAYLIST_TRACK: "DELETE_PLAYLIST_TRACK"
 };
@@ -69,4 +70,14 @@ export const deletePlaylistTrack = (playlistId, trackId) => ({
   type: PlaylistConstants.DELETE_PLAYLIST_TRACK,
   playlistId,
   trackId
+});
+
+export const removePlaylist = playlistId => ({
+  type: PlaylistConstants.REMOVE_PLAYLIST,
+  playlistId
+});
+
+export const removeCurrPlaylist = playlistId => ({
+  type: PlaylistConstants.REMOVE_CURR_PLAYLIST,
+  playlistId
 });

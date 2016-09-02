@@ -1,6 +1,7 @@
 import React from 'react';
 import PlaylistTracksIndex from './playlist_tracks_index.jsx';
 import PlaylistFormContainer from './playlist_form_container.js';
+import { withRouter, browserHistory} from 'react-router';
 
 const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
 
@@ -12,7 +13,7 @@ class PlaylistDetail extends React.Component {
 
     this.state = {
       edit: false
-    }
+    };
 
     this.toggleEdit = this.toggleEdit.bind(this);
   }
@@ -69,16 +70,42 @@ class PlaylistDetail extends React.Component {
     }
   }
 
+  getEditLink(){
+    if(this.props.playlistDetail.user_id === this.props.currentUser.id){
+      return (
+        <a onClick={this.toggleEdit}>
+          {this.state.edit ? 'Cancel' : 'Edit info'}
+        </a>
+      );
+    }
+  }
+
+  deletePlaylist(){
+    this.props.deletePlaylist(this.props.playlistDetail.id);
+    this.props.router.goBack();
+  }
+
+  getControlButton(){
+    if(this.props.playlistDetail.user_id === this.props.currentUser.id){
+      return(
+        <a className='playlist-control-btn delete-btn' onClick={this.deletePlaylist.bind(this)}>
+          Delete Playlist
+        </a>
+      )
+    }
+  }
+
   render(){
     return (
       <div className='detail-info-container'>
-        <section className='playlist-picture profile-picture'>
-          <img src={this.getPlaylistImage()} />
+        <section className='left-info'>
+          <div className='playlist-picture profile-picture'>
+            <img src={this.getPlaylistImage()} />
+            {this.getControlButton()}
+          </div>
         </section>
         <section className='main-info playlist-info'>
-          <a onClick={this.toggleEdit}>
-            {this.state.edit ? 'Cancel' : 'Edit info'}
-          </a>
+          {this.getEditLink ()}
           {this.getInfoContent()}
           {this.trackRendering()}
         </section>
@@ -87,4 +114,4 @@ class PlaylistDetail extends React.Component {
   }
 }
 
-export default PlaylistDetail;
+export default withRouter(PlaylistDetail);
