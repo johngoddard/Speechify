@@ -13,7 +13,7 @@ const PlaylistReducer = (state = _default, action) => {
     case PlaylistConstants.RECEIVE_ALL_PLAYLISTS:
       return merge({}, state, {allPlaylists: action.playlists});
     case PlaylistConstants.RECEIVE_CURR_USER_PLAYLISTS:
-      return merge({}, state, {createdPlaylists: arrayToObject(action.playlists)});
+      return Object.assign({}, state, {createdPlaylists: arrayToObject(action.playlists)});
     case PlaylistConstants.RECEIVE_CURR_PLAYLIST:
       let newCreated = merge({}, state.createdPlaylists);
       newCreated[action.playlist.id] = action.playlist;

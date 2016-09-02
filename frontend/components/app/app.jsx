@@ -28,9 +28,9 @@ class App extends React.Component {
     this.enterSidebar = this.enterSidebar.bind(this);
   }
 
-  componentDidMount(){
-    if(this.props.currentUser){
-      this.props.fetchCurrentUserPlaylists(this.props.currentUser);
+  componentWillReceiveProps(nextProps){
+    if(nextProps.currentUser){
+      nextProps.fetchCurrentUserPlaylists(nextProps.currentUser);
     }
   }
 
