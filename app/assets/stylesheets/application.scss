@@ -593,6 +593,7 @@ input[type='file']{
   border-top: 1px #ccc solid;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .play-track-idx-item:hover{
@@ -755,4 +756,23 @@ input[type='file']{
 
 .left-info{
   text-align: center;
+}
+
+h6 {
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+
+}
+
+.idx-rm-link{
+  position: absolute;
+  right: 20px;
+  color: #0077A9;
+  font-size: 13px;
+}
+
+.idx-rm-link:hover{
+  color: #005376;
+  cursor: pointer;
 }

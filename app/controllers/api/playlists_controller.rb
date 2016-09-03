@@ -11,13 +11,13 @@ class Api::PlaylistsController < ApplicationController
 
   def index
     if params[:user_id] && params[:with_tracks] == 'true'
-      @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks, :playlist_tracks)
+      @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks, :playlist_tracks, :user)
       render 'api/playlists/index_detail'
     elsif params[:user_id]
-      @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks)
+      @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks).includes(:user)
       render 'api/playlists/index'
     else
-      @playlists = Playlist.all.includes(:tracks)
+      @playlists = Playlist.all.includes(:tracks).includes(:user)
       render 'api/playlists/index'
     end
   end
@@ -60,8 +60,12 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.where(id: params[:id]).includes(:tracks, :playlist_tracks)[0]
-    render 'api/playlists/detail_show'
+    @playlist = Playlist.where(id: params[:id]).includes(:tracks, :playlist_tracks, :user)[0]
+    if @playlist
+      render 'api/playlists/detail_show'
+    else
+      render ["Playlist not found"], status: 404
+    end
   end
 
   def add_track

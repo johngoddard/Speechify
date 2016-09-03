@@ -4,11 +4,13 @@ import * as ACTIONS from '../../actions/playlist_actions.js';
 
 const mapStateToProps = state => ({
   playlistDetail: state.playlists.playlistDetail,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  createdPlaylists: state.playlists.createdPlaylists
 });
 
 const mapDispatchToProps = dispatch => ({
-  deletePlaylist: playlistId => dispatch(ACTIONS.removePlaylist(playlistId))
+  deletePlaylist: playlistId => dispatch(ACTIONS.removePlaylist(playlistId)),
+  updatePlaylist: playlist => dispatch(ACTIONS.receivePlaylistDetail(playlist))
 });
 
 

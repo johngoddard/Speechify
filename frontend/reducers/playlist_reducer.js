@@ -31,7 +31,7 @@ const PlaylistReducer = (state = _default, action) => {
     case PlaylistConstants.REMOVE_CURR_PLAYLIST:
       let currPlaylists = merge({}, state.createdPlaylists);
       delete currPlaylists[action.playlistId];
-      return Object.assign({}, state, currPlaylists);
+      return Object.assign({}, state, {createdPlaylists: currPlaylists});
     default:
       return state;
   }

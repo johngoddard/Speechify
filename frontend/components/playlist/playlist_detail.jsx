@@ -35,13 +35,15 @@ class PlaylistDetail extends React.Component {
       return (
         <div className='info-container'>
           <PlaylistFormContainer type='edit'
-                                 playlist={this.props.playlistDetail}/>
+            playlist={this.props.playlistDetail}/>
         </div>
       );
     } else {
       return (
         <div className='info-container'>
           <h4>{this.props.playlistDetail.title}</h4>
+          {this.props.currentUser.id === this.props.playlistDetail.user_id ? '' :
+          <h6>{this.props.playlistDetail.username}</h6>}
           <div className='playlist-desc'>
             <p>{this.props.playlistDetail.description}</p>
           </div>
@@ -64,7 +66,8 @@ class PlaylistDetail extends React.Component {
     if(this.props.playlistDetail.tracks){
       return (
         <div className='info-container'>
-          <PlaylistTracksIndex tracks={this.props.playlistDetail.tracks} />
+          <PlaylistTracksIndex tracks={this.props.playlistDetail.tracks}
+                               editable={this.props.playlistDetail.user_id === this.props.currentUser.id} />
         </div>
       );
     }
@@ -85,6 +88,8 @@ class PlaylistDetail extends React.Component {
     this.props.router.goBack();
   }
 
+
+
   getControlButton(){
     if(this.props.playlistDetail.user_id === this.props.currentUser.id){
       return(
@@ -92,6 +97,12 @@ class PlaylistDetail extends React.Component {
           Delete Playlist
         </a>
       )
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.createdPlaylists[this.props.playlistDetail.id]){
+      this.props.updatePlaylist(nextProps.createdPlaylists[this.props.playlistDetail.id]);
     }
   }
 

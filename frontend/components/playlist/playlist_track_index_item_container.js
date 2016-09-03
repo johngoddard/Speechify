@@ -1,4 +1,13 @@
 import PlaylistTracksIndexItem from './playlist_track_index_item.jsx';
 import { connect } from 'react-redux';
+import * as ACTIONS from '../../actions/playlist_actions.js';
 
-export default connect(null)(PlaylistTracksIndexItem);
+const mapStateToProps = state => ({
+  playlistId: state.playlists.playlistDetail.id
+});
+
+const mapDispatchToProps = dispatch => ({
+  removeFromPlaylist: (playlistId, trackId) => dispatch(ACTIONS.deletePlaylistTrack(playlistId, trackId))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistTracksIndexItem);
