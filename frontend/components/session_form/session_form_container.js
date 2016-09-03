@@ -22,6 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps)=> {
     closeModal: () => ownProps.closeModal(),
     toggleForm: () => ownProps.toggleForm(),
     fetchCurrentUserPlaylists: user => dispatch(PLAYLIST_ACTIONS.fetchCurrentUserPlaylists(user)),
+    fetchFollowedPlaylists: userId => dispatch(PLAYLIST_ACTIONS.fetchFollowedPlaylists(userId)),
     clearErrors: () => dispatch(FORM_ACTIONS.clearSessionErrors())
   };
 };

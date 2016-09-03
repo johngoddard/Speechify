@@ -631,7 +631,7 @@ input[type='file']{
 }
 
 .playlist-idx-container{
-  width: 780px;
+  width: 680px;
   margin-left: 30px;
   display: flex;
 }
@@ -775,4 +775,24 @@ h6 {
 .idx-rm-link:hover{
   color: #005376;
   cursor: pointer;
+}
+
+.follow-btn{
+  background-color:  #5cb85c;
+}
+
+.follow-btn:hover{
+  background-color: #449d44;
+}
+
+.playlist-follow-link {
+  font-size: 13px;
+  color: #0077A9;
+  float: right;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.playlist-follow-link:hover{
+  color: #005376
 }

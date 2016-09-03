@@ -7,7 +7,7 @@ class Api::PlaylistsController < ApplicationController
     :playlist_image_url
   ]
 
-  before_action :find_playlist, only: [:update, :destroy, :add_track, :remove_track]
+  before_action :find_playlist, only: [:update, :destroy, :add_track, :remove_track, :follow, :unfollow]
 
   def index
     if params[:user_id] && params[:with_tracks] == 'true'
@@ -16,6 +16,9 @@ class Api::PlaylistsController < ApplicationController
     elsif params[:user_id]
       @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks).includes(:user)
       render 'api/playlists/index'
+    elsif params[:followed] == 'true'
+      @playlists = current_user.followed_playlists.includes(:playlist_follows);
+      render 'api/playlists/follow_index'
     else
       @playlists = Playlist.all.includes(:tracks).includes(:user)
       render 'api/playlists/index'
@@ -90,6 +93,31 @@ class Api::PlaylistsController < ApplicationController
       end
     else
       render json: ["Could not remove track from playlist"], status: 422
+    end
+  end
+
+  def follow
+    user = current_user
+
+    if user && PlaylistFollow.create(user_id: user.id, playlist_id: params[:id])
+      render 'api/playlists/show'
+    else
+      render json: ["Could not add track to playlist"], status: 422
+    end
+  end
+
+  def unfollow
+    user = current_user
+    if user
+      playlist_follow = PlaylistFollow.find_by(user_id: user.id, playlist_id: params[:id])
+
+      if playlist_follow.destroy
+        render 'api/playlists/show'
+      else
+        render json: ["Could unfollow playlist"], status: 422
+      end
+    else
+      render json: ["Could unfollow playlist"], status: 422
     end
   end
 

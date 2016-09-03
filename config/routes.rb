@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       member do
         post 'add_track'
         delete 'remove_track'
+        post 'follow'
+        delete 'unfollow'
       end
     end
   end

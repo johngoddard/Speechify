@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   clearSessionErrors: () => dispatch(clearSessionErrors()),
   fetchCurrentUserPlaylists: user => dispatch(PLAYLIST_ACTIONS.fetchCurrentUserPlaylists(user)),
+  fetchFollowedPlaylists: userId => dispatch(PLAYLIST_ACTIONS.fetchFollowedPlaylists(userId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

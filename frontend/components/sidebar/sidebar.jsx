@@ -17,6 +17,7 @@ class Sidebar extends React.Component {
     this.resetSelected = this.resetSelected.bind(this);
     this.initializeSelected = this.initializeSelected.bind(this);
     this.getCreatedPlaylists = this.getCreatedPlaylists.bind(this);
+    this.getFollowedPlaylists = this.getFollowedPlaylists.bind(this);
     this.openPlaylistModal = this.openPlaylistModal.bind(this);
   }
 
@@ -87,6 +88,20 @@ class Sidebar extends React.Component {
     ));
   }
 
+  getFollowedPlaylists(){
+    const followedPlaylists = this.props.followedPlaylists;
+
+    return followedPlaylists.map((playlist, idx) => (
+      <Link to={`/playlist/${playlist.id}`} key={`${playlist.id}${idx}`}>
+        <li className='nav-item'
+            onClick={this.selectLink}
+            id={`playlist-${playlist.id}`}>
+          {playlist.title}
+        </li>
+      </Link>
+    ));
+  }
+
   getRightContent(){
     if(this.props.currentUser){
       return (
@@ -121,8 +136,13 @@ class Sidebar extends React.Component {
           </ul>
         </li>
         <li className='sidebar-section'>
-          <ul><span>PLAYLISTS</span>
+          <ul><span>YOUR PLAYLISTS</span>
             {this.getCreatedPlaylists()}
+          </ul>
+        </li>
+        <li className='sidebar-section'>
+          <ul><span>FOLLOWED PLAYLISTS</span>
+            {this.getFollowedPlaylists()}
           </ul>
           <div className='sidebar-buttons'>
             <a className='nav-bar-btn' onClick={this.openPlaylistModal.bind(this)}>+ Add Playlist</a>

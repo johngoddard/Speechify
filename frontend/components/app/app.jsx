@@ -31,6 +31,7 @@ class App extends React.Component {
   componentDidMount(){
     if(this.props.currentUser){
       this.props.fetchCurrentUserPlaylists(this.props.currentUser);
+      this.props.fetchFollowedPlaylists(this.props.currentUser.id);
     }
   }
 

@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
   has_many :tracks, inverse_of: :user
   has_many :playlists, inverse_of: :user
 
+  has_many :playlist_follows
+
+  has_many :followed_playlists, through: :playlist_follows, source: :playlist
+
   attr_reader :password
 
   after_initialize :ensure_session_token

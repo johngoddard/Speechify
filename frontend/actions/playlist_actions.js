@@ -14,7 +14,13 @@ export const PlaylistConstants = {
   REMOVE_CURR_PLAYLIST: "REMOVE_CURR_PLAYLIST",
   ADD_PLAYLIST_TRACK: "ADD_PLAYLIST_TRACK",
   DELETE_PLAYLIST_TRACK: "DELETE_PLAYLIST_TRACK",
-  REMOVE_PLAYLIST_DETAIL_TRACK: "REMOVE_PLAYLIST_DETAIL_TRACK"
+  REMOVE_PLAYLIST_DETAIL_TRACK: "REMOVE_PLAYLIST_DETAIL_TRACK",
+  RECEIVE_FOLLOWED_PLAYLISTS: "RECEIVE_FOLLOWED_PLAYLISTS",
+  FETCH_FOLLOWED_PLAYLISTS: "FETCH_FOLLOWED_PLAYLISTS",
+  FOLLOW_PLAYLIST: "FOLLOW_PLAYLIST",
+  RECEIVE_FOLLOWED_PLAYLIST: "RECEIVE_FOLLOWED_PLAYLIST",
+  UNFOLLOW_PLAYLIST: "UNFOLLOW_PLAYLIST",
+  REMOVE_FOLLOWED_PLAYLIST: "REMOVE_FOLLOWED_PLAYLIST"
 };
 
 export const fetchAllPlaylists = () => ({
@@ -86,4 +92,34 @@ export const removeCurrPlaylist = playlistId => ({
 export const removeDetailTrack = trackId => ({
   type: PlaylistConstants.REMOVE_PLAYLIST_DETAIL_TRACK,
   trackId
+});
+
+export const fetchFollowedPlaylists = userId => ({
+  type: PlaylistConstants.FETCH_FOLLOWED_PLAYLISTS,
+  userId
+});
+
+export const receiveFollowedPlaylists = playlists => ({
+  type: PlaylistConstants.RECEIVE_FOLLOWED_PLAYLISTS,
+  playlists
+});
+
+export const followPlaylist = playlistId => ({
+  type: PlaylistConstants.FOLLOW_PLAYLIST,
+  playlistId
+});
+
+export const receiveFollowedPlaylist = playlist => ({
+  type: PlaylistConstants.RECEIVE_FOLLOWED_PLAYLIST,
+  playlist
+});
+
+export const unfollowPlaylist = playlistId => ({
+  type: PlaylistConstants.UNFOLLOW_PLAYLIST,
+  playlistId
+});
+
+export const removeFollowedPlaylist = playlist => ({
+  type: PlaylistConstants.REMOVE_FOLLOWED_PLAYLIST,
+  playlist
 });

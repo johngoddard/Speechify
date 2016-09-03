@@ -43,6 +43,18 @@ const PlaylistMiddleware = ({getState, dispatch}) => next => action => {
       success = playlist => dispatch(ACTIONS.removeCurrPlaylist(playlist.id));
       UTIL.removePlaylist(action.playlistId, success, error);
       return next(action);
+    case PlaylistConstants.FETCH_FOLLOWED_PLAYLISTS:
+      success = playlists => dispatch(ACTIONS.receiveFollowedPlaylists(playlists));
+      UTIL.fetchFollowedPlaylists(action.userId, success, error);
+      return next(action);
+    case PlaylistConstants.FOLLOW_PLAYLIST:
+      success = playlist => dispatch(ACTIONS.receiveFollowedPlaylist(playlist));
+      UTIL.followPlaylist(action.playlistId, success, error);
+      return next(action);
+    case PlaylistConstants.UNFOLLOW_PLAYLIST:
+      success = playlist => dispatch(ACTIONS.removeFollowedPlaylist(playlist));
+      UTIL.unfollowPlaylist(action.playlistId, success, error);
+      return next(action);
     default:
       return next(action);
   }

@@ -6,7 +6,8 @@ import { merge } from 'lodash';
 const _default = {
   createdPlaylists: {},
   allPlaylists: [],
-  playlistDetail: {}
+  playlistDetail: {},
+  followedPlaylists: []
 };
 
 const PlaylistReducer = (state = _default, action) => {
@@ -36,6 +37,17 @@ const PlaylistReducer = (state = _default, action) => {
       let currDetail = merge({}, state.playlistDetail);
       currDetail.tracks = currDetail.tracks.filter(track => track.id !== action.trackId);
       return Object.assign({}, state, {playlistDetail: currDetail});
+    case PlaylistConstants.RECEIVE_FOLLOWED_PLAYLISTS:
+      let followed = action.playlists.sort((p1, p2) => {
+        Date.parse(p1) - Date.parse(p2);
+      });
+      return Object.assign({}, state, {followedPlaylists: followed});
+    case PlaylistConstants.REMOVE_FOLLOWED_PLAYLIST:
+      let newFollowed = state.followedPlaylists.filter(playlist => playlist.id !== action.playlist.id);
+      return Object.assign({}, state, {followedPlaylists: newFollowed});
+    case PlaylistConstants.RECEIVE_FOLLOWED_PLAYLIST:
+      let addedFollowed = [...state.followedPlaylists, action.playlist];
+      return Object.assign({}, state, {followedPlaylists: addedFollowed});
     default:
       return state;
   }

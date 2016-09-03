@@ -7,6 +7,31 @@ class PlaylistsIndexItem extends React.Component{
     super(props);
   }
 
+  getFollowLink(){
+    let view = this;
+    let ids = this.props.followedPlaylists.map(p => p.id)
+
+    if(this.props.playlist.id !== this.props.currentUser.id){
+      console.log(this.props.followedPlaylists);
+      console.log(view.props.playlist.id);
+      if(ids.includes(view.props.playlist.id)){
+        return (
+          <a className='playlist-follow-link'
+             onClick={this.props.unfollowPlaylist.bind(this, this.props.playlist.id)}>
+            Unfollow
+          </a>
+        );
+      } else{
+        return (
+          <a className='playlist-follow-link'
+             onClick={this.props.followPlaylist.bind(this, this.props.playlist.id)}>
+            Follow
+          </a>
+        );
+      }
+    }
+  }
+
   render(){
     return(
       <div className='info-container playlist-idx-container'>
@@ -14,6 +39,7 @@ class PlaylistsIndexItem extends React.Component{
           <img src={this.props.playlist.playlist_cover_url ? this.props.playlist.playlist_cover_url : DEFAULT_IMAGE } />
         </div>
         <div className='playlist-idx-info'>
+          {this.getFollowLink()}
           <Link to={`/playlist/${this.props.playlist.id}`} >
             <h4 className='playlist-title'>
               {this.props.playlist.title}

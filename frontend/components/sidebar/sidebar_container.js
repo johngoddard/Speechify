@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import Sidebar from './sidebar.jsx';
 import { logout } from '../../actions/session_actions.js';
-import * as FORM_ACTIONS from '../../actions/form_actions.js'
+import * as FORM_ACTIONS from '../../actions/form_actions.js';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
   createdPlaylists: state.playlists.createdPlaylists,
+  followedPlaylists: state.playlists.followedPlaylists,
   openDemoModal: ownProps.openDemoModal,
   playlists: state.playlists
 });

@@ -54,6 +54,7 @@ class SessionForm extends React.Component {
     if(nextProps.currentUser){
       this.props.closeModal();
       this.props.fetchCurrentUserPlaylists(nextProps.currentUser);
+      this.props.fetchFollowedPlaylists(nextProps.currentUser.id);
     }
   }
 

@@ -84,3 +84,31 @@ export const removePlaylist = (playlistId, success, error) => {
     error
   });
 };
+
+export const fetchFollowedPlaylists = (userId, success, error) => {
+  $.ajax({
+    method: "GET",
+    url: "/api/playlists",
+    data: {followed: 'true'},
+    success,
+    error
+  });
+};
+
+export const followPlaylist = (playlistId, success, error) => {
+  $.ajax({
+    method: "POST",
+    url: `/api/playlists/${playlistId}/follow`,
+    success,
+    error
+  });
+};
+
+export const unfollowPlaylist = (playlistId, success, error) => {
+  $.ajax({
+    method: "DELETE",
+    url: `/api/playlists/${playlistId}/unfollow`,
+    success,
+    error
+  });
+};

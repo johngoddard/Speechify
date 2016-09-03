@@ -18,6 +18,8 @@ class Playlist < ActiveRecord::Base
   belongs_to :user
   has_many :playlist_tracks, dependent: :destroy
   has_many :tracks, through: :playlist_tracks, source: :track
+  has_many :playlist_follows
+  has_many :followers, through: :playlist_follows, source: :user
 
   def max_track
     if self.playlist_tracks.length > 0

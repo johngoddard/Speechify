@@ -88,15 +88,36 @@ class PlaylistDetail extends React.Component {
     this.props.router.goBack();
   }
 
+  followPlaylist(){
+    this.props.followPlaylist(this.props.playlistDetail.id);
+  }
+
+  unfollowPlaylist(){
+    this.props.unfollowPlaylist(this.props.playlistDetail.id);
+  }
+
 
 
   getControlButton(){
-    if(this.props.playlistDetail.user_id === this.props.currentUser.id){
+    let playlistDetail = this.props.playlistDetail;
+    if(playlistDetail.user_id === this.props.currentUser.id){
       return(
         <a className='playlist-control-btn delete-btn' onClick={this.deletePlaylist.bind(this)}>
           Delete Playlist
         </a>
-      )
+      );
+    } else if(this.props.followedPlaylists.map(playlist => playlist.id).includes(playlistDetail.id)){
+      return(
+        <a className='playlist-control-btn delete-btn' onClick={this.unfollowPlaylist.bind(this)}>
+          Unfollow Playlist
+        </a>
+      );
+    } else if(playlistDetail.user_id !== this.props.currentUser.id) {
+      return (
+        <a className='playlist-control-btn follow-btn' onClick={this.followPlaylist.bind(this)}>
+          Follow Playlist
+        </a>
+      );
     }
   }
 
