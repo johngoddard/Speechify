@@ -1,0 +1,74 @@
+.modal-form form{
+  padding: 15px 20px;
+  color: #555;
+  font-family: $body-font;
+}
+
+.form-title {
+  font-family: $title-font;
+  font-size: 24px;
+  font-weight: 300;
+  padding: 20px;
+  display: block;
+  color: $title-blue;
+  border-bottom: 1px solid #ccc;
+}
+
+.modal-form label, .inline-form label {
+  display: block;
+  font-size: 13px;
+  font-family: $body-font;
+  color: $base-text;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+.modal-form input{
+  line-height: 20px;
+}
+
+.modal-form input:focus{
+  border: 1px solid $title-blue;
+}
+
+.input-error{
+  border: 1px solid red;
+}
+
+.other-pop-text {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.other-pop-text a {
+  color: $link;
+  margin-left: 5px;
+}
+
+.other-pop-text a:hover {
+  color: $link-hover;
+}
+
+.form-button {
+  font-family: $body-font;
+  margin-top: 15px;
+  background: $title-blue;
+  display: block;
+  color: white;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 10px 18px;
+  border-radius: 5px;
+  text-align: center;
+  border-style: none;
+}
+
+.error{
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.form-button:hover{
+  background: $blue-btn;
+}

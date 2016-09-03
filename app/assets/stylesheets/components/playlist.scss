@@ -1,0 +1,163 @@
+.playlist-edit textarea {
+  height: 75px;
+}
+
+.playlist-info a{
+  font-size: 13px;
+  color: $link;
+  float: right;
+  display: inline-block;
+  margin-top: 25px;
+  margin-right: 30px;
+}
+.playlist-info a:hover{
+  color: $link-hover;
+}
+
+.playlist-idx-container{
+  width: 720px;
+  margin-left: 30px;
+  display: flex;
+}
+
+.playlist-idx-container:hover{
+
+}
+
+
+.playlist-cover{
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+
+.playlist-idx-info > a > h4{
+  font-size: 20px;
+  display: inline-block;
+}
+
+.playlist-idx-info > a > h4:hover{
+  color: $blue-btn;
+  text-decoration: underline;
+}
+
+.playlist-idx-info{
+  margin-left: 30px;
+  width: 95%;
+}
+
+.track-count {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.add-playlist-btn{
+  position: relative;
+  bottom: 30px;
+  left: 28px;
+  display: none;
+}
+
+.track-image:hover .add-playlist-btn{
+  display: inline-block;
+}
+
+.playlist-track-form{
+  padding: 0px 20px;
+}
+
+.playlist-list-item:first-child{
+  margin-top: 20px;
+}
+
+.playlist-list-item:last-child{
+  border-bottom: none;
+}
+
+.playlist-list-item{
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $border;
+  font-family: $body-font;
+  line-height: 1;
+  align-items: center;
+}
+
+.playlist-list-item:hover{
+  background-color: $hover-color;
+}
+
+.track-btn{
+  font-size: 12px;
+  display: inline-block;
+  color: white;
+  background-color: $green-btn;
+  padding: 8px 10px;
+  border-radius: 3px;
+  width: 70px;
+  text-align: center;
+}
+
+.add{
+  background-color: $green-btn;
+}
+
+.add:hover{
+  background-color: $green-btn-hover;
+}
+
+.remove{
+  background-color: $red-btn;
+}
+
+.remove:hover{
+  background-color: $red-btn-hover;
+}
+
+.playlist-track-form > ul {
+  overflow: scroll;
+  height: 269px;
+}
+
+.playlist-control-btn{
+  padding: 8px 15px;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  margin: 15px auto;
+  font-size: 13px;
+}
+
+.idx-rm-link{
+  position: absolute;
+  right: 20px;
+  color: $link;
+  font-size: 13px;
+}
+
+.idx-rm-link:hover{
+  color: $link-hover;
+  cursor: pointer;
+}
+
+.follow-btn{
+  background-color:  $green-btn;
+}
+
+.follow-btn:hover{
+  background-color: $green-btn-hover;
+}
+
+.playlist-follow-link {
+  font-size: 13px;
+  color: $link;
+  float: right;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.playlist-follow-link:hover{
+  color: $link-hover
+}

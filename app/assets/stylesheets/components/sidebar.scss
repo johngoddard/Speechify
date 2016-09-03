@@ -1,0 +1,81 @@
+.sidebar {
+  width: 200px;
+  background: white;
+  height: calc(100% - 54px);
+  color: #666;
+  background: white;
+  border-right: 1px solid $border;
+  float: left;
+  overflow: scroll;
+}
+
+.sidebar-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar-section{
+  margin: 20px 0;
+  font-size: 13px;
+}
+
+.nav-list {
+  margin-top: 30px;
+  display: block;
+}
+
+.sidebar-section span{
+  margin-left: 30px;
+  padding-bottom: 5px;
+  display: block;
+}
+
+.header-links li {
+  float: left;
+  color: white;
+  margin-left: 20px;
+}
+
+.header-links li:hover{
+  color: $border;
+}
+
+.selected {
+  background-color: $selected-color;
+  border-right: $header-border 3px solid;
+  font-weight: bold;
+}
+
+.sidebar-section li{
+  font-size: 14px;
+  padding: 10px;
+  padding-left: 50px;
+}
+
+.signed-out-marketing{
+  padding: 30px 20px;
+  font-size: 14px;
+  text-align: center;
+  background: #e9f3f6;
+}
+
+.marketing-text-header{
+  padding-bottom: 5px;
+  display: block;
+  font-family: $title-font;
+  color: $title-blue;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.sidebar-section li:hover{
+  background-color:  $hover-color;
+}
+
+.sidebar-buttons a{
+  padding: 8px 15px;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  margin: 20px auto 0 auto;
+}

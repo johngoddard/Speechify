@@ -1,0 +1,197 @@
+.track-item-container{
+  width: 180px;
+}
+
+.track-item-container span{
+  font-size: 14px;
+  display: block;
+}
+
+.track-artist{
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.track-idx-button{
+  margin-top: 5px;
+}
+
+.track-idx-button a{
+  font-size: 12px;
+  color: #0077A9;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.track-idx-button a:hover{
+  color: #005376
+}
+
+.content-area h3 {
+  font-size: 24px;
+  font-family: $title-font;
+  padding: 20px 30px;
+  font-weight: 300;
+  color: #00ace6;
+  display: inline-block;
+}
+
+.add-track-button{
+  padding: 8px 15px;
+  border-radius: 3px;
+  font-size: 14px;
+  color: white;
+  display: inline-block;
+  margin: 15px 30px;
+  background-color: #0099cd;
+  float: right;
+}
+
+.add-track-button:hover{
+  background-color: #0086b4;
+}
+
+.index-page{
+  width: 100%;
+}
+
+.tracks-index-cont{
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.track-item-container {
+  flex: 0 0 190px;
+  margin: 0px 20px 40px 20px;
+  padding: 20px;
+
+  &:empty {
+    height: 0;
+  };
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+.track-image{
+  height: 150px;
+  width: 150px;
+  border: 1px $border solid;
+  margin: 0 auto;
+}
+
+.track-image img{
+  height: 100%;
+}
+
+.track-artist{
+  margin-bottom: 5px;
+}
+
+input[type='file']{
+  border: none;
+  width: 200px;
+}
+
+.curr-image{
+  height: 200px;
+  width: 200px;
+  margin-bottom: 10px;
+  border: 1px solid $border;
+  margin: 0 auto;
+  position: relative;
+}
+
+.none-image{
+  width: 250px;
+}
+
+.form-content{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+
+.upload-btn{
+  font-size: 12px;
+  margin: 0 auto;
+  display: inline-block;
+  color: white;
+  background-color: #444;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+
+.upload-img-btn{
+  position: absolute;
+  top: 165px;
+  left: 52px;
+}
+
+.upload-btn:hover{
+  background-color: #333;
+}
+
+.playlist-desc{
+  margin: 20px 0;
+}
+
+.file-name{
+  font-size: 13px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.track-item-container .track-title{
+  font-size: 13px;
+}
+
+.modal-form textarea {
+  height: 75px;
+}
+
+#tracks-header{
+  font-size: 20px;
+  color: $title-blue;
+  font-family: $title-font;
+  font-weight: 300;
+  margin: 10px 0 20px 0;
+}
+
+.playlist-info{
+  width: 660px;
+}
+
+.play-track-idx-item{
+  width: 100%;
+  padding: 20px;
+  border-top: 1px $border solid;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.play-track-idx-item:hover{
+  background-color:  #e6f9ff
+}
+
+.play-track-idx-item:last-child{
+  border-bottom: 1px $border solid;
+  margin-bottom: 20px;
+}
+
+.track-img-thumb{
+  height: 60px;
+  width: 60px;
+}
+
+.track-info{
+  margin-left: 30px;
+}

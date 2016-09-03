@@ -121,5 +121,9 @@ class Api::PlaylistsController < ApplicationController
 
   def find_playlist
     @playlist = Playlist.find_by(id: params[:id])
+    unless @playlist
+      render json: ["Playlist not found"], status: 404
+    end
+    @playlist
   end
 end
