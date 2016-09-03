@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
+  def ensure_current_user
+    unless current_user
+      render json: ["You must be signed in to make changes"], status: 422
+    end
+  end
 end

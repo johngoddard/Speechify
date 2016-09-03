@@ -8,6 +8,7 @@ class Api::PlaylistsController < ApplicationController
   ]
 
   before_action :find_playlist, only: [:update, :destroy, :add_track, :remove_track, :follow, :unfollow]
+  before_action :ensure_current_user, only: [:unfollow, :follow, :update, :create, :destroy]
 
   def index
     if params[:user_id] && params[:with_tracks] == 'true'
@@ -26,20 +27,16 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def create
-    if !current_user
-      render json: ["You must be signed in to create playlists"], status: 401
+    @playlist = current_user.playlists.new(playlist_params)
+    if @playlist.save
+      render 'api/playlists/detail_show'
     else
-      @playlist = current_user.playlists.new(playlist_params)
-      if @playlist.save
-        render 'api/playlists/detail_show'
-      else
-        render json: @playlist.errors.full_messages, status: 422
-      end
+      render json: @playlist.errors.full_messages, status: 422
     end
   end
 
   def update
-    if !current_user || @playlist.user_id != current_user.id
+    if @playlist.user_id != current_user.id
       render json: ["You can not edit that track"], status: 422
     else
       if @playlist.update(playlist_params)
@@ -51,7 +48,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def destroy
-    if !current_user || @playlist.user_id != current_user.id
+    if @playlist.user_id != current_user.id
       render json: ["You can not delete that playlist"], status: 422
     else
       if @playlist.destroy
@@ -84,8 +81,10 @@ class Api::PlaylistsController < ApplicationController
 
   def remove_track
     track = Track.find_by(id: params[:track_id]);
+
     if track && @playlist.tracks.include?(track) && @playlist.user_id == current_user.id
       playlist_track = PlaylistTrack.find_by(playlist_id: @playlist.id, track_id: track.id)
+
       if playlist_track.destroy()
         render 'api/playlists/detail_show'
       else
@@ -97,9 +96,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def follow
-    user = current_user
-
-    if user && PlaylistFollow.create(user_id: user.id, playlist_id: params[:id])
+    if PlaylistFollow.create(user_id: current_user.id, playlist_id: params[:id])
       render 'api/playlists/show'
     else
       render json: ["Could not add track to playlist"], status: 422
@@ -107,15 +104,9 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def unfollow
-    user = current_user
-    if user
-      playlist_follow = PlaylistFollow.find_by(user_id: user.id, playlist_id: params[:id])
-
-      if playlist_follow.destroy
-        render 'api/playlists/show'
-      else
-        render json: ["Could unfollow playlist"], status: 422
-      end
+    playlist_follow = PlaylistFollow.find_by(user_id: current_user.id, playlist_id: params[:id])
+    if playlist_follow.destroy
+      render 'api/playlists/show'
     else
       render json: ["Could unfollow playlist"], status: 422
     end

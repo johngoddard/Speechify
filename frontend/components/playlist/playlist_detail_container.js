@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as ACTIONS from '../../actions/playlist_actions.js';
 
 const mapStateToProps = state => ({
-  playlistDetail: state.playlists.playlistDetail,
+  playlistDetail: state.playlistDetail,
   followedPlaylists: state.playlists.followedPlaylists,
   currentUser: state.session.currentUser
 });

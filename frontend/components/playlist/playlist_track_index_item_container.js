@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as ACTIONS from '../../actions/playlist_actions.js';
 
 const mapStateToProps = state => ({
-  playlistId: state.playlists.playlistDetail.id
+  playlistId: state.playlistDetail.id
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -20,17 +20,6 @@ const PlaylistMiddleware = ({getState, dispatch}) => next => action => {
       success = playlist => dispatch(ACTIONS.receiveCurrPlaylist(playlist));
       UTIL.createPlaylist(action.playlist, success, error);
       return next(action);
-    case PlaylistConstants.FETCH_PLAYLIST_DETAIL:
-      success = playlist => dispatch(ACTIONS.receivePlaylistDetail(playlist));
-      UTIL.fetchPlaylistDetail(action.id, success, error);
-      return next(action);
-    case PlaylistConstants.UPDATE_PLAYLIST:
-      success = playlist => {
-        dispatch(ACTIONS.receiveCurrPlaylist(playlist));
-        dispatch(ACTIONS.receivePlaylistDetail(playlist));
-      };
-      UTIL.updatePlaylist(action.playlist, success, error);
-      return next(action);
     case PlaylistConstants.ADD_PLAYLIST_TRACK:
       success = playlist => dispatch(ACTIONS.receiveCurrPlaylist(playlist));
       UTIL.addPlaylistTrack(action.playlistId, action.trackId, success, error);

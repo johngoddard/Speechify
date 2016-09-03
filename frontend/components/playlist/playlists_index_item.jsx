@@ -12,8 +12,6 @@ class PlaylistsIndexItem extends React.Component{
     let ids = this.props.followedPlaylists.map(p => p.id)
 
     if(this.props.playlist.id !== this.props.currentUser.id){
-      console.log(this.props.followedPlaylists);
-      console.log(view.props.playlist.id);
       if(ids.includes(view.props.playlist.id)){
         return (
           <a className='playlist-follow-link'

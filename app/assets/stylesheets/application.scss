@@ -649,7 +649,7 @@ input[type='file']{
 
 .playlist-idx-info > a > h4{
   font-size: 20px;
-  display: block;
+  display: inline-block;
 }
 
 .playlist-idx-info > a > h4:hover{
@@ -664,7 +664,7 @@ input[type='file']{
 
 .track-count {
   font-size: 12px;
-  display: inline-block;
+  display: block;
   margin-bottom: 15px;
 }
 
