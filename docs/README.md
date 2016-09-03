@@ -9,8 +9,8 @@ Speechify is an audio-streaming web application inspired by Spotify and built us
 - [x] Hosting on Heroku
 - [x] New account creation, login, and guest/demo login
 - [x] Audio track creation, deletion, and updating
-- [ ] Playlist creation, deletion, and updating
-- [ ] Following playlists
+- [x] Playlist creation, deletion, and updating
+- [x] Following playlists
 - [ ] Continuous audio streaming while navigating the site
 - [ ] Following other users
 - [ ] Production README
@@ -48,7 +48,7 @@ Speechify is an audio-streaming web application inspired by Spotify and built us
 - [x] UserDetail component for currentUser on account tab
 - [x] Style signup/signin components
 - [x] Seed users
-- [ ] Review phase 1
+- [x] Review phase 1
 
 ### Phase 2: Tracks Model, API, and components (2 days)
 
@@ -70,33 +70,32 @@ the API.
     + [x] Uploading audio files
     + [x] Uploading image files
 - [x] Style tracks components
-- [ ] Seed tracks
+- [x] Seed tracks
 
 ### Phase 3: Playlists and playlist follows (2 day)
 
 **Objective:** Playlists can be created, destroyed, followed, and unfollowed. Tracks can be added to and removed from playlists.
 
-- [ ] `Playlist` model
-- [ ] Seed database with a small amount of test data
-- [ ] CRUD API for playlists (`PlaylistsController`)
-- [ ] JBuilder views for playlists
-- [ ] Fetching playlists for the current user
-- [ ] Adding and removing tracks from playlists
+- [x] `Playlist` model
+- [x] Seed database with a small amount of test data
+- [x] CRUD API for playlists (`PlaylistsController`)
+- [x] JBuilder views for playlists
+- [x] Fetching playlists for the current user
+- [x] Adding and removing tracks from playlists
 - Playlist components and respective Redux loops
-  - [ ] `PlaylistIndex`
-  - [ ] `PlaylistIndexItem`
-  - [ ] `SidebarPlaylistIndex`
-  - [ ] `PlaylistTracksIndex`
-  - [ ] `PlaylistTracksIndexItem`
-  - [ ] `PlaylistForm `
-  - [ ] `PlaylistDetail `
-  - [ ] `AddTrackToPlaylist form `
-- [ ] Style playlist components
+  - [x] `PlaylistIndex`
+  - [x] `PlaylistIndexItem`
+  - [x] `PlaylistTracksIndex`
+  - [x] `PlaylistTracksIndexItem`
+  - [x] `PlaylistForm `
+  - [x] `PlaylistDetail `
+  - [x] `AddTrackToPlaylist form `
+- [x] Style playlist components
 - [ ] Seed playlists
-- [ ] `PlaylistFollow` model
-- [ ] Seed database with a small amount of test data
-- [ ] Create destroy API for playlists (`PlaylistsController`)
-- [ ] Add buttons for following / unfollowing playlists
+- [x] `PlaylistFollow` model
+- [x] Seed database with a small amount of test data
+- [x] Create destroy API for playlists (`PlaylistsController`)
+- [x] Add buttons for following / unfollowing playlists
 
 ### Phase 4: Streaming audio (2 days)
 
@@ -124,7 +123,6 @@ the API.
 
 
 ### Bonus Features (TBD)
-- [ ] Demo user login
 - [ ] Splash screen
 - [ ] Search for songs and playlists on search tab
 - [ ] Mobile responsive
