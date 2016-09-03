@@ -13,7 +13,8 @@ export const PlaylistConstants = {
   REMOVE_PLAYLIST: "REMOVE_PLAYLIST",
   REMOVE_CURR_PLAYLIST: "REMOVE_CURR_PLAYLIST",
   ADD_PLAYLIST_TRACK: "ADD_PLAYLIST_TRACK",
-  DELETE_PLAYLIST_TRACK: "DELETE_PLAYLIST_TRACK"
+  DELETE_PLAYLIST_TRACK: "DELETE_PLAYLIST_TRACK",
+  REMOVE_PLAYLIST_DETAIL_TRACK: "REMOVE_PLAYLIST_DETAIL_TRACK"
 };
 
 export const fetchAllPlaylists = () => ({
@@ -80,4 +81,9 @@ export const removePlaylist = playlistId => ({
 export const removeCurrPlaylist = playlistId => ({
   type: PlaylistConstants.REMOVE_CURR_PLAYLIST,
   playlistId
+});
+
+export const removeDetailTrack = trackId => ({
+  type: PlaylistConstants.REMOVE_PLAYLIST_DETAIL_TRACK,
+  trackId
 });

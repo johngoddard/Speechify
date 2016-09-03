@@ -8,9 +8,8 @@ class PlaylistTracksIndexItem extends React.Component {
   }
 
   removeTrack(){
-    console.log(this.props);
-    console.log(this);
     this.props.removeFromPlaylist(this.props.playlistId, this.props.track.id);
+    this.props.updatePlaylist(this.props.track.id);
   }
 
 

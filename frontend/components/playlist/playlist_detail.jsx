@@ -100,12 +100,6 @@ class PlaylistDetail extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps){
-    if(nextProps.createdPlaylists[this.props.playlistDetail.id]){
-      this.props.updatePlaylist(nextProps.createdPlaylists[this.props.playlistDetail.id]);
-    }
-  }
-
   render(){
     return (
       <div className='detail-info-container'>

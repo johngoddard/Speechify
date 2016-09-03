@@ -7,7 +7,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeFromPlaylist: (playlistId, trackId) => dispatch(ACTIONS.deletePlaylistTrack(playlistId, trackId))
+  removeFromPlaylist: (playlistId, trackId) => dispatch(ACTIONS.deletePlaylistTrack(playlistId, trackId)),
+  updatePlaylist: (trackId) => dispatch(ACTIONS.removeDetailTrack(trackId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistTracksIndexItem);

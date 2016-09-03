@@ -7,7 +7,6 @@ class PlaylistTrackForm extends React.Component {
   }
 
   add(playlistId, trackId){
-    console.log(playlistId, trackId);
     this.props.addToPlaylist(playlistId, trackId);
   }
 
