@@ -16,8 +16,7 @@ class Sidebar extends React.Component {
     this.selectLink = this.selectLink.bind(this);
     this.resetSelected = this.resetSelected.bind(this);
     this.initializeSelected = this.initializeSelected.bind(this);
-    this.getCreatedPlaylists = this.getCreatedPlaylists.bind(this);
-    this.getFollowedPlaylists = this.getFollowedPlaylists.bind(this);
+    this.getPlaylists = this.getPlaylists.bind(this);
     this.openPlaylistModal = this.openPlaylistModal.bind(this);
   }
 
@@ -75,23 +74,44 @@ class Sidebar extends React.Component {
   }
 
 
-  getCreatedPlaylists(){
-    const createdPlaylists = this.props.createdPlaylists;
-    return Object.keys(createdPlaylists).map((id, idx) => (
-      <Link to={`/playlist/${id}`} key={`${id}${idx}`}>
-        <li className='nav-item'
-            onClick={this.selectLink}
-            id={`playlist-${id}`}>
-          {createdPlaylists[id].title}
-        </li>
-      </Link>
-    ));
-  }
+  // getCreatedPlaylists(){
+  //   const createdPlaylists = this.props.createdPlaylists;
+  //   return Object.keys(createdPlaylists).map((id, idx) => (
+  //     <Link to={`/playlist/${id}`} key={`${id}${idx}`}>
+  //       <li className='nav-item'
+  //           onClick={this.selectLink}
+  //           id={`playlist-${id}`}>
+  //         {createdPlaylists[id].title}
+  //       </li>
+  //     </Link>
+  //   ));
+  // }
+  //
+  // getFollowedPlaylists(){
+  //   const followedPlaylists = this.props.followedPlaylists;
+  //
+  //   return followedPlaylists.map((playlist, idx) => (
+  //     <Link to={`/playlist/${playlist.id}`} key={`${playlist.id}${idx}`}>
+  //       <li className='nav-item'
+  //           onClick={this.selectLink}
+  //           id={`playlist-${playlist.id}`}>
+  //         {playlist.title}
+  //       </li>
+  //     </Link>
+  //   ));
+  // }
 
-  getFollowedPlaylists(){
-    const followedPlaylists = this.props.followedPlaylists;
+  getPlaylists(){
+    const createdPlaylists = Object.keys(this.props.createdPlaylists).map(id => {
+      return this.props.createdPlaylists[id];
+    });
+    const userPlaylists = this.props.followedPlaylists.concat(createdPlaylists);
+    let sorted = userPlaylists.sort((p1, p2) => {
+      return Date.parse(p2.user_playlist_date) - Date.parse(p1.user_playlist_date);
+    });
 
-    return followedPlaylists.map((playlist, idx) => (
+
+    return sorted.map((playlist, idx) => (
       <Link to={`/playlist/${playlist.id}`} key={`${playlist.id}${idx}`}>
         <li className='nav-item'
             onClick={this.selectLink}
@@ -137,12 +157,7 @@ class Sidebar extends React.Component {
         </li>
         <li className='sidebar-section'>
           <ul><span>YOUR PLAYLISTS</span>
-            {this.getCreatedPlaylists()}
-          </ul>
-        </li>
-        <li className='sidebar-section'>
-          <ul><span>FOLLOWED PLAYLISTS</span>
-            {this.getFollowedPlaylists()}
+            {this.getPlaylists()}
           </ul>
           <div className='sidebar-buttons'>
             <a className='nav-bar-btn' onClick={this.openPlaylistModal.bind(this)}>+ Add Playlist</a>

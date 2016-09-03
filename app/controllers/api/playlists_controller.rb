@@ -18,6 +18,7 @@ class Api::PlaylistsController < ApplicationController
       @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks).includes(:user)
       render 'api/playlists/index'
     elsif params[:followed] == 'true'
+      puts '------------------------------------------------------------------'
       @playlists = current_user.followed_playlists.includes(:playlist_follows);
       render 'api/playlists/follow_index'
     else
@@ -97,7 +98,7 @@ class Api::PlaylistsController < ApplicationController
 
   def follow
     if PlaylistFollow.create(user_id: current_user.id, playlist_id: params[:id])
-      render 'api/playlists/show'
+      render 'api/playlists/follow_show'
     else
       render json: ["Could not add track to playlist"], status: 422
     end

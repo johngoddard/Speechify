@@ -30,10 +30,7 @@ const PlaylistReducer = (state = _default, action) => {
       delete currPlaylists[action.playlistId];
       return Object.assign({}, state, {createdPlaylists: currPlaylists});
     case PlaylistConstants.RECEIVE_FOLLOWED_PLAYLISTS:
-      let followed = action.playlists.sort((p1, p2) => {
-        Date.parse(p1) - Date.parse(p2);
-      });
-      return Object.assign({}, state, {followedPlaylists: followed});
+      return Object.assign({}, state, {followedPlaylists: action.playlists});
     case PlaylistConstants.REMOVE_FOLLOWED_PLAYLIST:
       let newFollowed = state.followedPlaylists.filter(playlist => playlist.id !== action.playlist.id);
       return Object.assign({}, state, {followedPlaylists: newFollowed});

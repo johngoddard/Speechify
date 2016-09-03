@@ -14,3 +14,4 @@ json.order order_hash
 json.username playlist.user.username
 
 json.created_at playlist.created_at
+json.user_playlist_date playlist.created_at
