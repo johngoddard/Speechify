@@ -14,10 +14,10 @@ class Api::UsersController < ApplicationController
 
   def index
     if current_user && params[:curr_user] == 'true'
-      @users = current_user.followees
-      render 'api/users/index'
+      @users = current_user.followees.includes(:user_followed_bys, :playlists, :tracks)
+      render 'api/users/follow_index'
     else
-      @users = User.all
+      @users = User.all.includes(:user_followed_bys, :playlists, :tracks)
       render 'api/users/index'
     end
   end
@@ -42,7 +42,8 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    rener 'api/users/show'
+    @user = User.find_by(id: params[:id]).with(:playlists)
+    rener 'api/users/show_detail'
   end
 
   def follow

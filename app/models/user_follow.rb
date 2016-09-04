@@ -11,6 +11,7 @@
 
 class UserFollow < ActiveRecord::Base
   validates :follower_id, :follower_id, presence: true
+  validates :follower_id, uniqueness: {scope: :followee_id}
 
   belongs_to :follower,
     primary_key: :id,

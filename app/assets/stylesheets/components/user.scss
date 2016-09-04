@@ -1,0 +1,75 @@
+.users-list{
+  margin: 0px 30px;
+  min-width: 720px;
+}
+
+.user-thumb{
+  height: 100px;
+  width: 100px;
+  float: left;
+}
+
+.user-idx-item{
+  display: inline-block;
+  margin: auto 0;
+  width: 84%;
+}
+
+.user-li{
+  padding: 20px;
+  border-bottom: 1px solid $border;
+  min-width: 680px;
+  position: relative;
+}
+
+.user-li:first-child{
+  border-top: 1px solid $border;
+}
+
+.user-idx-name{
+  color: $title-blue;
+  font-family: $title-font;
+  font-weight: 300;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.user-stats{
+  display: block;
+  font-size: 13px;
+  margin-left: 20px;
+  color: #999;
+}
+
+.user-li:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.user-bio{
+  margin-top: 15px;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.user-idx-header{
+  margin-bottom: 10px;
+}
+
+.user-li:hover{
+  background: $hover-color;
+}
+
+.user-follow-link{
+  position: absolute;
+  right: 15px;
+  top: 22px;
+  display: inline-block;
+  font-size: 13px;
+  color: $link;
+}
+
+.user-follow-link:hover{
+  color: $link-hover;
+}

@@ -9,6 +9,8 @@ import PlaylistsIndexContainer from './playlist/playlists_index_container.js';
 import PlaylistDetailContainer from './playlist/playlist_detail_container.js';
 import * as TRACK_ACTIONS from '../actions/track_actions.js';
 import * as PLAYLIST_ACTIONS from '../actions/playlist_actions.js';
+import * as USER_ACTIONS from '../actions/user_actions.js';
+import UserIndexContainer from '../components/user/user_index_container.js';
 class AppRouter extends React.Component{
 
   constructor(props){
@@ -16,6 +18,8 @@ class AppRouter extends React.Component{
     this._redirectUnlessLoggedIn = this._redirectUnlessLoggedIn.bind(this);
     this.requestAllTracksOnEnter = this.requestAllTracksOnEnter.bind(this);
     this.requestAllPlaylistsOnEnter = this.requestAllPlaylistsOnEnter.bind(this);
+    this.requestAllUsersOnEnter = this.requestAllUsersOnEnter.bind(this);
+    this.requestFollowedUsersOnEnter = this.requestFollowedUsersOnEnter.bind(this);
     this.requestUserTracksOnEnter = this.requestUserTracksOnEnter.bind(this);
     this.requestPlaylistDetail = this.requestPlaylistDetail.bind(this);
 
@@ -34,6 +38,14 @@ class AppRouter extends React.Component{
                 component={ TracksIndexContainer }
                 onEnter={this.requestUserTracksOnEnter}
           />
+        <Route path='/users'
+                component={ UserIndexContainer }
+                onEnter={this.requestAllUsersOnEnter}
+          />
+        <Route path='/followed-users'
+                component={ UserIndexContainer }
+                onEnter={this.requestFollowedUsersOnEnter}
+          />
           <Route 	path="playlist/:playlistId"
   								component={PlaylistDetailContainer}
                   onEnter={this.requestPlaylistDetail} />
@@ -48,6 +60,15 @@ class AppRouter extends React.Component{
     } else{
       this.props.requestPlaylistDetail(nextState.params.playlistId);
     }
+  }
+
+  requestAllUsersOnEnter(){
+    this.props.requestFollowedUsers();
+    this.props.requestAllUsers();
+  }
+
+  requestFollowedUsersOnEnter(){
+    this.props.requestFollowedUsers();
   }
 
   _redirectUnlessLoggedIn(nextState, replace){
@@ -90,7 +111,9 @@ const mapDispatchToProps = dispatch => ({
   requestUserTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(true)),
   requestPlaylistDetail: id => dispatch(PLAYLIST_ACTIONS.fetchPlaylistDetail(id)),
   receivePlaylistDetail: playlist => dispatch(PLAYLIST_ACTIONS.receivePlaylistDetail(playlist)),
-  requestAllPlaylists: () => dispatch(PLAYLIST_ACTIONS.fetchAllPlaylists())
+  requestAllPlaylists: () => dispatch(PLAYLIST_ACTIONS.fetchAllPlaylists()),
+  requestAllUsers: () => dispatch(USER_ACTIONS.fetchAllUsers()),
+  requestFollowedUsers: () => dispatch(USER_ACTIONS.fetchFollowedUsers())
 });
 
 

@@ -4,6 +4,7 @@ json.id playlist.id
 json.user_id playlist.user_id
 json.title playlist.title
 json.description playlist.description
+
 json.track_count playlist.tracks.length
 
 json.username playlist.user.username

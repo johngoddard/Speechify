@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { playlistModalStyle } from '../../util/modal_styles.js';
 import PlaylistFormContainer from '../../components/playlist/playlist_form_container.js';
@@ -41,6 +41,14 @@ class Sidebar extends React.Component {
         li = document.querySelector('#browse-playlists');
         li.className='nav-item selected';
         break;
+      case '#/followed-users':
+        li = document.querySelector('#followed-users');
+        li.className='nav-item selected';
+        break;
+      case '#/users':
+        li = document.querySelector('#find-friends');
+        li.className='nav-item selected';
+        break;
       default:
         break;
     }
@@ -72,34 +80,6 @@ class Sidebar extends React.Component {
     }
     this.initializeSelected();
   }
-
-
-  // getCreatedPlaylists(){
-  //   const createdPlaylists = this.props.createdPlaylists;
-  //   return Object.keys(createdPlaylists).map((id, idx) => (
-  //     <Link to={`/playlist/${id}`} key={`${id}${idx}`}>
-  //       <li className='nav-item'
-  //           onClick={this.selectLink}
-  //           id={`playlist-${id}`}>
-  //         {createdPlaylists[id].title}
-  //       </li>
-  //     </Link>
-  //   ));
-  // }
-  //
-  // getFollowedPlaylists(){
-  //   const followedPlaylists = this.props.followedPlaylists;
-  //
-  //   return followedPlaylists.map((playlist, idx) => (
-  //     <Link to={`/playlist/${playlist.id}`} key={`${playlist.id}${idx}`}>
-  //       <li className='nav-item'
-  //           onClick={this.selectLink}
-  //           id={`playlist-${playlist.id}`}>
-  //         {playlist.title}
-  //       </li>
-  //     </Link>
-  //   ));
-  // }
 
   getPlaylists(){
     const createdPlaylists = Object.keys(this.props.createdPlaylists).map(id => {
@@ -142,8 +122,16 @@ class Sidebar extends React.Component {
         </li>
         <li className='sidebar-section'>
           <ul><span>CONNECT</span>
-            <li>You Follow</li>
-            <li>Find Friends</li>
+            <Link to={'/followed-users'}>
+              <li className='nav-item' id='followed-users' onClick={this.selectLink}>
+                You Follow
+              </li>
+            </Link>
+            <Link to={'/users'}>
+              <li className='nav-item' id='find-friends' onClick={this.selectLink}>
+                Find Friends
+              </li>
+            </Link>
           </ul>
         </li>
         <li className='sidebar-section'>
