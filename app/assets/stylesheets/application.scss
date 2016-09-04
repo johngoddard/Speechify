@@ -13,39 +13,5 @@
  *= require_self
  */
 
-@import 'base/base.scss';
+@import 'base/_base.scss';
 @import 'components/_components';
-
-
-
-.idx-rm-link{
-  position: absolute;
-  right: 20px;
-  color: #0077A9;
-  font-size: 13px;
-}
-
-.idx-rm-link:hover{
-  color: #005376;
-  cursor: pointer;
-}
-
-.follow-btn{
-  background-color:  #5cb85c;
-}
-
-.follow-btn:hover{
-  background-color: #449d44;
-}
-
-.playlist-follow-link {
-  font-size: 13px;
-  color: #0077A9;
-  float: right;
-  display: inline-block;
-  margin-top: 6px;
-}
-
-.playlist-follow-link:hover{
-  color: #005376
-}

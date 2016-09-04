@@ -18,7 +18,6 @@ class Api::PlaylistsController < ApplicationController
       @playlists = Playlist.where(user_id: params[:user_id].to_i).includes(:tracks).includes(:user)
       render 'api/playlists/index'
     elsif params[:followed] == 'true'
-      puts '------------------------------------------------------------------'
       @playlists = current_user.followed_playlists.includes(:playlist_follows);
       render 'api/playlists/follow_index'
     else
@@ -106,10 +105,10 @@ class Api::PlaylistsController < ApplicationController
 
   def unfollow
     playlist_follow = PlaylistFollow.find_by(user_id: current_user.id, playlist_id: params[:id])
-    if playlist_follow.destroy
+    if playlist_follow && playlist_follow.destroy
       render 'api/playlists/show'
     else
-      render json: ["Could unfollow playlist"], status: 422
+      render json: ["Could not unfollow playlist"], status: 422
     end
   end
 

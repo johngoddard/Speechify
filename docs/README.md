@@ -113,8 +113,8 @@ the API.
 
 **Objective:** Users can browse and follow other users.
 
-- [ ]`UserFollow` model
-- [ ] Create destroy API for follows (`UserFollowController`)
+- [x]`UserFollow` model
+- [ ] Create destroy API for follows (`UsersController`)
 - Related components
   - [ ] `UserIndex`
   - [ ] `UserDetail`

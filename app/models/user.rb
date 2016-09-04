@@ -22,8 +22,25 @@ class User < ActiveRecord::Base
   has_many :tracks, inverse_of: :user
   has_many :playlists, inverse_of: :user
 
-  has_many :playlist_follows
+  has_many :user_follows,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: :UserFollow
 
+  has_many :followees,
+    through: :user_follows,
+    source: :followee
+
+  has_many :user_followed_bys,
+    primary_key: :id,
+    foreign_key: :followee_id,
+    class_name: :UserFollow
+
+  has_many :followers,
+    through: :user_follows,
+    source: :follower
+
+  has_many :playlist_follows
   has_many :followed_playlists, through: :playlist_follows, source: :playlist
 
   attr_reader :password
