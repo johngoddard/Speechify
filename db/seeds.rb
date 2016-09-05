@@ -21,8 +21,19 @@ Track.create(title: 'RNC Keynote', artist: 'Donald Trump', user_id: 1, track_ima
 Track.create(title: 'Jon Stone Closing Argument', artist: 'John Turturro', user_id: 3, track_image_url: 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472780120/images/gcn44ngipleprv659aor.png')
 
 Playlist.create(user_id: 1, title: 'Politics', description: "Use playlists to make and share collections of your favorite speeches!")
-Playlist.create(user_id: 2, title: 'Empty playlist')
+Playlist.create(user_id: 2, title: 'Sports', description: "Use playlists to make and share collections of your favorite speeches!")
+Playlist.create(user_id: 1, title: 'Empty playlist')
 
 PlaylistTrack.create(playlist_id: 1, track_id: 1)
 PlaylistTrack.create(playlist_id: 1, track_id: 2)
 PlaylistTrack.create(playlist_id: 1, track_id: 6)
+
+PlaylistTrack.create(playlist_id: 2, track_id: 3)
+PlaylistTrack.create(playlist_id: 2, track_id: 4)
+PlaylistTrack.create(playlist_id: 2, track_id: 5)
+PlaylistTrack.create(playlist_id: 2, track_id: 6)
+
+PlaylistFollow.create(user_id: 1, playlist_id: 2)
+
+UserFollow.create(follower_id: 1, followee_id: 2)
+UserFollow.create(follower_id: 1, followee_id: 3)
