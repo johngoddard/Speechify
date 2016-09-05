@@ -21,7 +21,7 @@
 }
 
 .playlist-idx-container:hover{
-
+  background: $hover-color;
 }
 
 
@@ -49,7 +49,8 @@
 .track-count {
   font-size: 12px;
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  color: #999;
 }
 
 .add-playlist-btn{
@@ -170,4 +171,8 @@
   color: #555;
   font: $body-font;
   font-weight: bold;
+}
+
+.playlist-desc-idx{
+  font-size: 14px;
 }

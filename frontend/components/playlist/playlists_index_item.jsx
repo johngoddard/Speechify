@@ -44,7 +44,7 @@ class PlaylistsIndexItem extends React.Component{
             </h4>
           </Link>
           <p className='track-count'>{this.props.playlist.username} | {this.props.playlist.track_count} speeches</p>
-          <p>{this.props.playlist.description}</p>
+          <p className='playlist-desc-idx'>{this.props.playlist.description}</p>
         </div>
       </div>
     );
