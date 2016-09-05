@@ -65,9 +65,6 @@ class Account extends React.Component {
             {this.getBioContent()}
           </div>
 
-          <div className='info-container'>
-            <h5>Playlists</h5>
-          </div>
         </section>
       </div>
     );

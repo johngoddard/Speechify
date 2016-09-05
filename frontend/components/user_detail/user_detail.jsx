@@ -47,7 +47,7 @@ class UserDetail extends React.Component {
   render() {
     const image = this.props.userDetail.profile_image_url ? this.props.userDetail.profile_image_url : DEFAULT_IMAGE
     let playlists;
-    if(this.props.userDetail.playlists){
+    if(this.props.userDetail.playlists && this.props.userDetail.playlists.length > 0){
       playlists =   (<div className='info-container'>
           <h5>Playlists</h5>
           <UserPlaylistIndex playlists={this.props.userDetail.playlists} />
