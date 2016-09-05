@@ -96,7 +96,7 @@ class Sidebar extends React.Component {
         <li className='nav-item'
             onClick={this.selectLink}
             id={`playlist-${playlist.id}`}>
-          {playlist.title}
+          <div className='sidebar-item'><span className='glyphicon glyphicon-th-list'></span>{playlist.title}</div>
         </li>
       </Link>
     ));
@@ -110,12 +110,12 @@ class Sidebar extends React.Component {
           <ul><span>DISCOVER</span>
             <Link to={'/'}>
               <li className='nav-item' id='speeches' onClick={this.selectLink}>
-                Speeches
+                <div className='sidebar-item'><span className='glyphicon glyphicon-th'></span>Speeches</div>
               </li>
             </Link>
             <Link to={'/playlists'}>
               <li id='browse-playlists' className='nav-item' onClick={this.selectLink}>
-                Playlists
+                <div className='sidebar-item'><span className='glyphicon glyphicon-align-justify'></span>Playlists</div>
               </li>
             </Link>
           </ul>
@@ -124,12 +124,12 @@ class Sidebar extends React.Component {
           <ul><span>CONNECT</span>
             <Link to={'/followed-users'}>
               <li className='nav-item' id='followed-users' onClick={this.selectLink}>
-                You Follow
+                <div className='sidebar-item'><span className='glyphicon glyphicon-heart'></span>You Follow</div>
               </li>
             </Link>
             <Link to={'/users'}>
               <li className='nav-item' id='find-friends' onClick={this.selectLink}>
-                Find Friends
+                <div className='sidebar-item'><span className='glyphicon glyphicon-user'></span>Find Friends</div>
               </li>
             </Link>
           </ul>
@@ -138,7 +138,7 @@ class Sidebar extends React.Component {
           <ul><span>YOUR AUDIO</span>
             <Link to={'/your-speeches'}>
               <li className='nav-item' id='your-speeches' onClick={this.selectLink}>
-                Your Speeches
+                <div className='sidebar-item'><span className='glyphicon glyphicon-headphones'></span>Your Speeches</div>
               </li>
             </Link>
           </ul>

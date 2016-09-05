@@ -50,6 +50,8 @@
 
 .add-track-button:hover{
   background-color: #0086b4;
+  color: white;
+  text-decoration: none;
 }
 
 .index-page{
@@ -84,6 +86,7 @@
   width: 150px;
   border: 1px $border solid;
   margin: 0 auto;
+  position: relative;
 }
 
 .track-image img{
@@ -137,6 +140,8 @@ input[type='file']{
 
 .upload-btn:hover{
   background-color: #333;
+  color: white;
+  text-decoration: none;
 }
 
 .playlist-desc{
@@ -194,4 +199,40 @@ input[type='file']{
 
 .track-info{
   margin-left: 30px;
+}
+
+.add-playlist-btn{
+  position: relative;
+  bottom: 30px;
+  left: 28px;
+  display: none;
+}
+
+
+.track-image:hover .add-playlist-btn{
+  display: inline-block;
+}
+
+.track-play-btn {
+  position: fixed;
+  color: #0099cd;
+  padding: 5px 10px;
+  border-radius: 3px;
+  display: none;
+  position: relative;
+  bottom: 144px;
+  left: 40px;
+}
+
+
+.track-image:hover .track-play-btn{
+  display: inline-block;
+}
+
+.track-play-btn > span {
+  font-size: 3em;
+}
+
+.track-play-btn > span:hover {
+  color: #0086b4;
 }

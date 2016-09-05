@@ -43,7 +43,8 @@
 .selected {
   background-color: $selected-color;
   border-right: $header-border 3px solid;
-  font-weight: bold;
+  color: #666;
+  text-decoration: none;
 }
 
 .sidebar-section li{
@@ -70,6 +71,8 @@
 
 .sidebar-section li:hover{
   background-color:  $hover-color;
+  color: #666;
+  text-decoration: none;
 }
 
 .sidebar-buttons a{
@@ -78,4 +81,19 @@
   color: white;
   display: inline-block;
   margin: 20px auto 0 auto;
+}
+
+.sidebar-buttons a:hover {
+  text-decoration: none;
+}
+
+.playlist-icon{
+  display: inline-block;
+  font-family: $body-font;
+}
+
+.sidebar-item > span {
+  margin-left: -20px;
+  margin-right: 10px;
+  display: inline-block;
 }

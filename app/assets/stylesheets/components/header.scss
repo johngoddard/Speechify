@@ -18,3 +18,8 @@
   display: inline-block;
   color: white;
 }
+
+.account-link > a:hover{
+  color: #ccc;
+  text-decoration: none;
+}

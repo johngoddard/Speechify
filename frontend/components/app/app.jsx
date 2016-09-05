@@ -4,6 +4,7 @@ import HeaderContainer from '../header//header_container.js';
 import Modal from 'react-modal';
 import {authModalStyle} from '../../util/modal_styles.js';
 import SessionFormContainer from '../session_form/session_form_container.js';
+import AudioPlayerContainer from '../audio/audio_player_container.js';
 import {withRouter} from 'react-router';
 
 
@@ -97,6 +98,7 @@ class App extends React.Component {
         <section className='content-area'>
           {this.props.children}
         </section>
+        <AudioPlayerContainer />
       </main>
     );
   };

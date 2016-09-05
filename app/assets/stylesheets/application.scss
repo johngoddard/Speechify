@@ -13,5 +13,8 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 @import 'base/_base.scss';
 @import 'components/_components';

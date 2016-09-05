@@ -8,6 +8,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
+    // alias: { soundmanager2: 'soundmanager2/script/soundmanager2-nodebug-jsmin.js' }
   },
   module: {
     loaders: [

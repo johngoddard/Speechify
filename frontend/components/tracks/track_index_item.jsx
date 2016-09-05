@@ -27,8 +27,13 @@ class TrackIndexItem extends React.Component {
            onClick={this.props.openPlaylistModal}>
            Add to Playlist
         </a>
-      )
+      );
     }
+  }
+
+  playTrack(){
+    this.props.setTrack(this.props.track);
+    this.props.startPlaying();
   }
 
   render(){
@@ -47,6 +52,9 @@ class TrackIndexItem extends React.Component {
         <div className='track-image'>
           <img src={imageSource}/>
           {this.getAddButton()}
+          <div className='track-play-btn'>
+            <span className="glyphicon glyphicon-play-circle" onClick={this.playTrack.bind(this)}></span>
+          </div>
         </div>
         <span className='track-artist'>{this.getShortened(this.props.track.artist)}</span>
         <span className='track-title'>{this.getShortened(this.props.track.title)}</span>
