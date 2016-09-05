@@ -9,7 +9,7 @@
 User.create(username: 'DemoUser', password: 'password', description: "Welcome to Speechify! Use your Bio to tell a little bit about yourself, and connect with other users who have similar interests!" )
 User.create(username: 'KyloRen', password: 'password', description: "Kylo Ren is a fictional character in the Star Wars franchise. Introduced in the 2015 film Star Wars: The Force Awakens, he is portrayed by Adam Driver. Kylo Ren is the nom de guerre of Ben Solo,[1][2] the son of original Star Wars trilogy characters Han Solo and Leia Organa. Though trained by his uncle Luke Skywalker as a Jedi, he has been seduced to the dark side of the Force by Supreme Leader Snoke, and aspires to be as powerful as his grandfather, Darth Vader." )
 User.create(username: 'Darth Vader', password: 'password', description: "I joined Speechify to get inspired for my speeches in front for the empire. Looking to connect with fellow toast masters!" )
-User.create(username: 'me', password: 'pass', description: "Welcome to Speechify! Use your Bio to tell a little bit about yourself, and connect with other users who have similar interests!" )
+User.create(username: 'nauticaljack', password: 'pass', description: "Welcome to Speechify! Use your Bio to tell a little bit about yourself, and connect with other users who have similar interests!" )
 
 
 Track.create(title: 'State of the Union 2016', artist: 'Barack Obama', user_id: 1, track_image_url: 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472754941/images/mhyygpltataoowiifnoz.png', audio_url: 'http://res.cloudinary.com/dwf6beu4e/video/upload/v1472756934/mzhayn9tvcxy7pqee36i.mp3')
