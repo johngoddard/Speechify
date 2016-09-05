@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import React from 'react';
 
 const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472753244/images/ikpgc0g6ecz8fdz1lrda.png';
@@ -52,7 +53,9 @@ class UserIndexItem extends React.Component {
         {this.getFollowLink()}
         <div className='user-idx-item'>
           <div className='user-idx-header'>
-            <span className='user-idx-name'>{this.props.user.username}</span>
+            <Link to={`/user/${this.props.user.id}`}>
+              <span className='user-idx-name'>{this.props.user.username}</span>
+            </Link>
             <div className='user-stats'>
               Tracks: {this.props.user.track_count} | Playlists: {this.props.user.playlist_count} | Followers: {this.props.user.followers}
             </div>

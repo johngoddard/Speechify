@@ -112,7 +112,7 @@ a:hover{
 }
 
 .profile-info{
-  width: 540px;
+  width: 640px;
 }
 
 .group:after{
@@ -177,5 +177,10 @@ textarea:focus, input:focus {
 h6 {
   font-weight: bold;
   display: block;
-  margin-top: 5px;
+  margin-top: 15px;
+}
+
+h6:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

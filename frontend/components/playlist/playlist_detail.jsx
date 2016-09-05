@@ -30,6 +30,10 @@ class PlaylistDetail extends React.Component {
     }
   }
 
+  redirectToUser(){
+    this.props.router.push(`/user/${this.props.playlistDetail.user_id}`);
+  }
+
   getInfoContent(){
     if(this.state.edit){
       return (
@@ -43,7 +47,9 @@ class PlaylistDetail extends React.Component {
         <div className='info-container'>
           <h4>{this.props.playlistDetail.title}</h4>
           {this.props.currentUser.id === this.props.playlistDetail.user_id ? '' :
-          <h6>{this.props.playlistDetail.username}</h6>}
+            <h6 onClick={this.redirectToUser.bind(this)}>
+              {this.props.playlistDetail.username}
+            </h6>}
           <div className='playlist-desc'>
             <p>{this.props.playlistDetail.description}</p>
           </div>

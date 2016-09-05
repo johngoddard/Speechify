@@ -42,8 +42,8 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id]).with(:playlists)
-    rener 'api/users/show_detail'
+    @user = User.where(id: params[:id]).includes(:playlists)[0]
+    render 'api/users/show_detail'
   end
 
   def follow

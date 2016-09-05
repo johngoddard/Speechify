@@ -34,6 +34,11 @@
   margin-left: 20px;
 }
 
+.user-idx-name:hover{
+  color: #0099cd;
+  text-decoration: underline;
+}
+
 .user-stats{
   display: block;
   font-size: 13px;
@@ -72,4 +77,49 @@
 
 .user-follow-link:hover{
   color: $link-hover;
+}
+
+.left-area-profile{
+  text-align: center;
+}
+
+.playlist-thumb-user{
+  height: 80px;
+  width: 80px;
+  display: inline-block;
+}
+
+.user-play-li{
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-top: 1px solid $border;
+  position: relative;
+}
+
+.user-play-li:hover{
+  background-color: $hover-color;
+  cursor: pointer;
+}
+
+.user-play-info{
+  margin-left: 20px;
+}
+
+.user-play-title{
+  color: $title-blue;
+  size: 16px;
+  font: $title-font;
+}
+
+.user-track-count{
+  position: absolute;
+  right: 20px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.user-playlists {
+  margin-top: 10px;
+  border-bottom: 1px solid $border;
 }

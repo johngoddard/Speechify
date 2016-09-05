@@ -9,11 +9,11 @@ const _default = {
 const UserDetailReducer = (state = _default, action) => {
   switch (action.type) {
     case UserConstants.RECEIVE_USER_DETAIL:
-      return Object.assign({}, state, {userDetail: action.user});
+      return Object.assign({}, action.user);
     case UserConstants.TOGGLE_USER_DETAIL_FOLLOW:
       let newUserDetail = merge({}, state);
       newUserDetail.follows = action.status;
-      return Object.assign({}, state, {userDetail: newUserDetail});
+      return Object.assign({}, newUserDetail);
     default:
       return state;
   }

@@ -11,7 +11,7 @@ end
 
 json.playlists do
   json.array! user.playlists do |playlist|
-    json.partial! 'api/playlists/_playlist_detail', playlist: playlist
+    json.partial! 'api/playlists/playlist_detail', playlist: playlist
   end
 end
 

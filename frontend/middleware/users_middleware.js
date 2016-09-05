@@ -17,11 +17,9 @@ const UsersMiddleware = ({getState, dispatch}) => next => action => {
       UTIL.fetchFollowedUsers(success, error);
       return next(action);
     case UserConstants.FOLLOW_USER:
-      success = console.log('Followed User');
       UTIL.followUser(action.userId);
       return next(action);
     case UserConstants.UNFOLLOW_USER:
-      success = console.log('Unfollowed User');
       UTIL.unfollowUser(action.userId);
       return next(action);
     default:

@@ -3,6 +3,7 @@ import {Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 import AppContainer from './app/app_container.js';
 import SessionFormContainer from './session_form/session_form_container.js';
 import Account from './account/account.jsx';
+import UserDetailContainer from './user_detail/user_detail_container.js';
 import { connect } from 'react-redux';
 import TracksIndexContainer from './tracks/tracks_index_container.js';
 import PlaylistsIndexContainer from './playlist/playlists_index_container.js';
@@ -22,6 +23,7 @@ class AppRouter extends React.Component{
     this.requestFollowedUsersOnEnter = this.requestFollowedUsersOnEnter.bind(this);
     this.requestUserTracksOnEnter = this.requestUserTracksOnEnter.bind(this);
     this.requestPlaylistDetail = this.requestPlaylistDetail.bind(this);
+    this.requestUserDetailOnEnter = this.requestUserDetailOnEnter.bind(this);
 
     this.routes =  (<Router history={ hashHistory }>
         <Route path='/' component={ AppContainer } >
@@ -49,8 +51,15 @@ class AppRouter extends React.Component{
           <Route 	path="playlist/:playlistId"
   								component={PlaylistDetailContainer}
                   onEnter={this.requestPlaylistDetail} />
+          <Route 	path="user/:userId"
+						component={UserDetailContainer}
+            onEnter={this.requestUserDetailOnEnter} />
         </Route>
       </Router>);
+  }
+
+  requestUserDetailOnEnter(nextState){
+    this.props.requestUserDetail(nextState.params.userId);
   }
 
 
@@ -113,7 +122,8 @@ const mapDispatchToProps = dispatch => ({
   receivePlaylistDetail: playlist => dispatch(PLAYLIST_ACTIONS.receivePlaylistDetail(playlist)),
   requestAllPlaylists: () => dispatch(PLAYLIST_ACTIONS.fetchAllPlaylists()),
   requestAllUsers: () => dispatch(USER_ACTIONS.fetchAllUsers()),
-  requestFollowedUsers: () => dispatch(USER_ACTIONS.fetchFollowedUsers())
+  requestFollowedUsers: () => dispatch(USER_ACTIONS.fetchFollowedUsers()),
+  requestUserDetail: userId => dispatch(USER_ACTIONS.fetchUserDetail(userId))
 });
 
 

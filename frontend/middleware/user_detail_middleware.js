@@ -10,7 +10,7 @@ const UserDetailMiddleware = ({getState, dispatch}) => next => action => {
   switch (action.type) {
     case UserConstants.FETCH_USER_DETAIL:
       success = user => dispatch(ACTIONS.receiveUserDetail(user));
-      UTIL.fetchAllUsers(success, error);
+      UTIL.fetchUserDetail(action.userId, success, error);
       return next(action);
     default:
       return next(action);

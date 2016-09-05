@@ -161,3 +161,13 @@
 .playlist-follow-link:hover{
   color: $link-hover
 }
+
+.playlist-desc{
+  font-size: 14px;
+}
+
+.username{
+  color: #555;
+  font: $body-font;
+  font-weight: bold;
+}
