@@ -19,6 +19,7 @@ Track.create(title: 'Prom Speech', artist: 'Cady Heron', user_id: 4, track_image
 Track.create(title: 'Any Given Sunday', artist: 'Al Pacino', user_id: 2, track_image_url: 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472779871/images/mn8gcpwg75l97p2oje0b.png', audio_url: 'http://res.cloudinary.com/dwf6beu4e/video/upload/v1472756934/mzhayn9tvcxy7pqee36i.mp3')
 Track.create(title: 'RNC Keynote', artist: 'Donald Trump', user_id: 1, track_image_url: 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472779972/images/fiwheba3gfdo6sjio9ox.png')
 Track.create(title: 'Jon Stone Closing Argument', artist: 'John Turturro', user_id: 3, track_image_url: 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472780120/images/gcn44ngipleprv659aor.png')
+Track.create(title: 'We go to the Moon', artist: 'John F. Kennedy', user_id: 3, track_image_url: 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1473109710/images/gvjo2efmut0flsyvavkg.png', audio_url: 'http://res.cloudinary.com/dwf6beu4e/video/upload/v1473109702/lrm94k7dcq06cjf3hk3e.mp3')
 
 Playlist.create(user_id: 1, title: 'Politics', description: "Use playlists to make and share collections of your favorite speeches!")
 Playlist.create(user_id: 2, title: 'Sports', description: "Use playlists to make and share collections of your favorite speeches!")

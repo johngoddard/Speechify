@@ -1,13 +1,18 @@
 import React from 'react';
 import Sound from 'react-sound';
 import AudioDisplay from './audio_display.jsx';
+import ProgressBar from './progress_bar.jsx';
 
 class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playStatus: Sound.status.STOPPED
+      playStatus: Sound.status.STOPPED,
+      position: 0,
+      duration: 0
     };
+
+    this.getCurrTrackDisplay = this.getCurrTrackDisplay.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -15,6 +20,12 @@ class AudioPlayer extends React.Component {
       this.playTrack();
     } else {
       this.pauseTrack();
+    }
+
+    let track = this.props.currentTrack.track;
+
+    if(track && track.id && nextProps.currentTrack.track.id !== track.id){
+      this.setState({position: 0});
     }
   }
 
@@ -24,6 +35,10 @@ class AudioPlayer extends React.Component {
 
   pauseTrack(){
     this.setState({playStatus: Sound.status.PAUSED});
+  }
+
+  updatePosition(position){
+    this.setState({position: position});
   }
 
   getPlayButton(){
@@ -38,6 +53,11 @@ class AudioPlayer extends React.Component {
     }
   }
 
+  playAudio(playInfo){
+    this.setState({position: playInfo.position});
+    this.setState({duration: playInfo.duration});
+  };
+
   getSound(){
     if(this.props.currentTrack.track.audio_url &&
       (this.state.playStatus === Sound.status.PLAYING || this.state.playStatus === Sound.status.PAUSED)){
@@ -46,6 +66,8 @@ class AudioPlayer extends React.Component {
         <Sound
           url={this.props.currentTrack.track.audio_url}
           playStatus={this.state.playStatus}
+          position={this.state.position}
+          onPlaying={this.playAudio.bind(this)}
         />
     );
     }
@@ -64,6 +86,13 @@ class AudioPlayer extends React.Component {
       <section className={`audio-player ${hiddenClass}`}>
         <div className='display-wrapper'>
           {this.getCurrTrackDisplay()}
+        </div>
+        <div className='audio-progress-bar'>
+          <ProgressBar
+            position={this.state.position}
+            duration={this.state.duration}
+            updatePosition={this.updatePosition.bind(this)}
+          />
         </div>
         <div className='audio-controls'>
           {this.getPlayButton()}
