@@ -9,10 +9,10 @@ class PlaylistsIndexItem extends React.Component{
 
   getFollowLink(){
     let view = this;
-    let ids = this.props.followedPlaylists.map(p => p.id)
+    let ids = this.props.followedPlaylists.map(p => p.id);
 
-    if(this.props.playlist.user_id !== this.props.currentUser.id){
-      if(ids.includes(view.props.playlist.id)){
+    if(this.props.currentUser && this.props.playlist.user_id !== this.props.currentUser.id){
+      if(view.props.playlist && ids.includes(view.props.playlist.id)){
         return (
           <a className='playlist-follow-link'
              onClick={this.props.unfollowPlaylist.bind(this, this.props.playlist.id)}>
