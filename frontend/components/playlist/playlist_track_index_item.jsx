@@ -16,8 +16,9 @@ class PlaylistTracksIndexItem extends React.Component {
   }
 
   play(e){
-    console.log(e.target);
-    this.props.playPlaylistFrom(this.props.playlist, this.props.order);
+    if(e.target.className !== "idx-rm-link"){
+      this.props.playPlaylistFrom(this.props.playlist, this.props.order);
+    }
   }
 
 
