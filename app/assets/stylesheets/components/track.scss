@@ -205,12 +205,13 @@ input[type='file']{
   position: relative;
   bottom: 30px;
   left: 28px;
-  display: none;
+  opacity: 0.0;
 }
 
 
 .track-image:hover .add-playlist-btn{
-  display: inline-block;
+  opacity: 1.0;
+  transition: all 0.25s ease-in-out;
 }
 
 .track-play-btn {
