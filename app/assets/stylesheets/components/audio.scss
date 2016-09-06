@@ -19,7 +19,7 @@
 
 .audio-btn{
   font-size: 1.75em;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 
@@ -93,12 +93,14 @@
   position: absolute;
   right: 31px;
   bottom: 51px;
-  display: none;
   color: #ccc;
+  opacity: 0.0;
 }
 
 .audio-player:hover .progress-time{
-  display: inline-block;
+  opacity: 1.0;
+  transition: all 0.25s ease-in-out;
+
 }
 
 
