@@ -1,4 +1,5 @@
 import React from 'react';
+import {reduceString} from '../../util/string_utils.js';
 const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
 
 const AudioDisplay = ({track}) => (
@@ -8,7 +9,7 @@ const AudioDisplay = ({track}) => (
     </div>
     <div className='track-dis-info'>
       <span className='track-artist'>{track.artist}</span>
-      <span className='curr-track-title'>{track.title}</span>
+      <span className='curr-track-title'>{reduceString(track.title, 30)}</span>
     </div>
   </section>
 );
