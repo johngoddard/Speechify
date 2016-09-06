@@ -144,7 +144,7 @@ class Sidebar extends React.Component {
           </ul>
         </li>
         <li className='sidebar-section'>
-          <ul><span>YOUR PLAYLISTS</span>
+          <ul><span>PLAYLISTS</span>
             {this.getPlaylists()}
           </ul>
           <div className='sidebar-buttons'>
