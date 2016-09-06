@@ -1,5 +1,6 @@
 .search-cont input {
   width: 350px;
+  padding-left: 30px;
 }
 
 .search-results{
@@ -22,7 +23,7 @@
 }
 
 .search-cont{
-  overflow: auto;
+  position: relative;
 }
 
 .search-item{
@@ -49,4 +50,12 @@
 
 .playlist-search-item:hover{
   color: inherit;
+}
+
+.search-icon{
+  position: absolute;
+  top: 7px;
+  left: 8px;
+  color: #777;
+  font-size: 0.9em;
 }

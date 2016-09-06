@@ -69,6 +69,7 @@ class AudioPlayer extends React.Component {
           playStatus={this.state.playStatus}
           position={this.state.position}
           onPlaying={this.playAudio.bind(this)}
+          onFinishedPlaying={this.goForward.bind(this)}
         />
     );
     }

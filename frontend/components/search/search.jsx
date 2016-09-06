@@ -34,6 +34,7 @@ class Search extends React.Component {
   render(){
     return (
       <section className='search-cont' >
+        <div className='glyphicon glyphicon-search search-icon'></div>
         <input type='text'
                value={this.state.query}
                onChange={this.updateQuery.bind(this)}

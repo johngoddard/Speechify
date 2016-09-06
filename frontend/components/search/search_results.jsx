@@ -8,7 +8,6 @@ class SearchResults extends React.Component {
   }
 
   closeSearch(e){
-    console.log(e);
     this.props.closeSearch();
   }
 
