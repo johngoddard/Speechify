@@ -159,12 +159,12 @@ class Sidebar extends React.Component {
             <ul><span>DISCOVER</span>
               <Link to={'/'}>
                 <li className='nav-item' id='speeches' onClick={this.selectLink}>
-                  Speeches
+                  <div className='sidebar-item'><span className='glyphicon glyphicon-th'></span>Speeches</div>
                 </li>
               </Link>
               <Link to={'/playlists'}>
-                <li className='nav-item' id='browse-playlists' onClick={this.selectLink}>
-                  Playlists
+                <li id='browse-playlists' className='nav-item' onClick={this.selectLink}>
+                  <div className='sidebar-item'><span className='glyphicon glyphicon-align-justify'></span>Playlists</div>
                 </li>
               </Link>
             </ul>
