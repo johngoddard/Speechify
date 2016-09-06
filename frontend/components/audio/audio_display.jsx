@@ -9,7 +9,7 @@ const AudioDisplay = ({track}) => (
     </div>
     <div className='track-dis-info'>
       <span className='track-artist'>{track.artist}</span>
-      <span className='curr-track-title'>{reduceString(track.title, 30)}</span>
+      <span className='curr-track-title'>{reduceString(track.title, 100)}</span>
     </div>
   </section>
 );

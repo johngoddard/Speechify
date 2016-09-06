@@ -2,6 +2,7 @@ import React from 'react';
 import Sound from 'react-sound';
 import AudioDisplay from './audio_display.jsx';
 import ProgressBar from './progress_bar.jsx';
+import { formatTime } from '../../util/string_utils.js';
 
 class AudioPlayer extends React.Component {
   constructor(props) {
@@ -44,11 +45,11 @@ class AudioPlayer extends React.Component {
   getPlayButton(){
     if(this.state.playStatus === Sound.status.PLAYING ){
       return (
-        <a className='play-button glyphicon glyphicon-pause' onClick={this.pauseTrack.bind(this)}></a>
+        <a className='pause-btn glyphicon glyphicon-pause audio-btn' onClick={this.pauseTrack.bind(this)}></a>
       );
     } else {
       return (
-        <a className='play-button glyphicon glyphicon-play' onClick={this.playTrack.bind(this)}></a>
+        <a className='play-btn glyphicon glyphicon-play audio-btn' onClick={this.playTrack.bind(this)}></a>
       );
     }
   }
@@ -87,6 +88,9 @@ class AudioPlayer extends React.Component {
         <div className='display-wrapper'>
           {this.getCurrTrackDisplay()}
         </div>
+        <div className='progress-time'>
+          {formatTime(this.state.position)} / {formatTime(this.state.duration)}
+        </div>
         <div className='audio-progress-bar'>
           <ProgressBar
             position={this.state.position}
@@ -95,7 +99,9 @@ class AudioPlayer extends React.Component {
           />
         </div>
         <div className='audio-controls'>
+          <a className='glyphicon glyphicon-backward audio-btn' onClick={this.playTrack.bind(this)}></a>
           {this.getPlayButton()}
+          <a className='glyphicon glyphicon-forward audio-btn' onClick={this.playTrack.bind(this)}></a>
         </div>
         {this.getSound()}
     </section>

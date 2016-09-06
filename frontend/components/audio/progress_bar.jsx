@@ -1,7 +1,6 @@
 import React from 'react';
 import { formatTime } from '../../util/string_utils.js';
 
-const EL_WIDTH = 350;
 
 class ProgressBar extends React.Component {
 
@@ -11,8 +10,8 @@ class ProgressBar extends React.Component {
 
   handleClick(e){
 
-    const start = document.getElementsByClassName('progress-bar')[0].getBoundingClientRect().left;
-    const position = Math.floor(this.props.duration*(e.clientX - start)/EL_WIDTH);
+    const end = document.documentElement.clientWidth;
+    const position = Math.floor(this.props.duration*(e.clientX)/end);
 
 
     this.props.updatePosition(position);
@@ -26,14 +25,13 @@ class ProgressBar extends React.Component {
       <div>
         <div className='progress-bar' onClick={this.handleClick.bind(this)}>
           <div className='audio-progress'
-               style={{width: `${EL_WIDTH*(position/duration)}px`}}></div>
+               style={{width: `${document.documentElement.clientWidth*(position/duration)}px`}}></div>
         </div>
-        <span className='progress-time'>
-          {formatTime(position)} / {formatTime(duration)}
-        </span>
+
       </div>
     );
   }
 }
+
 
 export default ProgressBar;
