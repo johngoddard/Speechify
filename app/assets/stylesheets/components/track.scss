@@ -184,7 +184,8 @@ input[type='file']{
 }
 
 .play-track-idx-item:hover{
-  background-color:  #e6f9ff
+  background-color:  $hover-color;
+  cursor: pointer;
 }
 
 .play-track-idx-item:last-child{

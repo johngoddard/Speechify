@@ -73,7 +73,9 @@ class PlaylistDetail extends React.Component {
       return (
         <div className='info-container playist-track-idx'>
           <PlaylistTracksIndex tracks={this.props.playlistDetail.tracks}
-                               editable={this.props.playlistDetail.user_id === this.props.currentUser.id} />
+                               editable={this.props.playlistDetail.user_id === this.props.currentUser.id}
+                               playlist={this.props.playlistDetail}
+          />
         </div>
       );
     }

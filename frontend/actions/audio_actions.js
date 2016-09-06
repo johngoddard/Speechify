@@ -34,7 +34,8 @@ export const goForward = () => ({
   type: AudioConstants.GO_FORWARD
 });
 
-export const playPlaylist = playlist => ({
+export const playPlaylist = (playlist, startIdx) => ({
   type: AudioConstants.PLAY_PLAYLIST,
-  playlist
+  playlist,
+  startIdx
 });

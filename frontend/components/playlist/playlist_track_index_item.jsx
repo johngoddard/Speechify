@@ -7,6 +7,7 @@ class PlaylistTracksIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.removeTrack = this.removeTrack.bind(this);
+    this.play = this.play.bind(this);
   }
 
   removeTrack(){
@@ -14,11 +15,15 @@ class PlaylistTracksIndexItem extends React.Component {
     this.props.updatePlaylist(this.props.track.id);
   }
 
+  play(){
+    this.props.playPlaylistFrom(this.props.playlist, this.props.order);
+  }
+
 
   render(){
-    const trackImage = this.props.track.track_image_url ? this.props.track.track_image_url : DEFAULT_IMAGE
+    const trackImage = this.props.track.track_image_url ? this.props.track.track_image_url : DEFAULT_IMAGE;
     return (
-      <div className='play-track-idx-item'>
+      <div className='play-track-idx-item' onClick={this.play.bind(this)}>
         <div className='track-img-thumb'>
           <img src={trackImage} />
         </div>

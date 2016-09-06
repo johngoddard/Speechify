@@ -1,7 +1,7 @@
 import React from 'react';
 import PlaylistTracksIndexItemContainer from './playlist_track_index_item_container.js';
 
-const PlaylistTracksIndex = ({tracks, editable}) => (
+const PlaylistTracksIndex = ({tracks, editable, playlist}) => (
   <section className='playlist-tracks-index'>
     <h5 id='tracks-header'>Track Listing</h5>
     {tracks.map((track, idx) => (
@@ -9,10 +9,11 @@ const PlaylistTracksIndex = ({tracks, editable}) => (
                                track={track}
                                key={`${track.title}${track.id}`}
                                order={idx}
-                               editable={editable} />
+                               editable={editable}
+                               playlist={playlist}/>
       )
     )}
   </section>
-)
+);
 
 export default PlaylistTracksIndex;
