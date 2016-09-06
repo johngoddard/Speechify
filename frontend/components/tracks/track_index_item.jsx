@@ -53,7 +53,7 @@ class TrackIndexItem extends React.Component {
           <img src={imageSource}/>
           {this.getAddButton()}
           <div className='track-play-btn'>
-            <span className="glyphicon glyphicon-play-circle" onClick={this.playTrack.bind(this)}></span>
+            <span className="glyphicon glyphicon-play" onClick={this.playTrack.bind(this)}></span>
           </div>
         </div>
         <span className='track-artist'>{this.getShortened(this.props.track.artist)}</span>

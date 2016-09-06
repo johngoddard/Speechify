@@ -177,12 +177,13 @@
 
 .playlist-play-btn {
   position: absolute;
-  color: #0099cd;
-  padding: 5px 10px;
-  border-radius: 3px;
+  color: $header-border;
+  padding: 10px;
+  background: black;
+  border-radius: 50%;
   opacity: 0.0;
-  bottom: 65px;
-  left: 57px;
+  bottom: 70px;
+  left: 69px;
   cursor: pointer
 }
 
@@ -196,11 +197,14 @@
 }
 
 .playlist-play-btn > span {
-  font-size: 4em;
+  position: relative;
+  left: 2px;
+  bottom: 1px;
+  font-size: 2.5em;
 }
 
 .playlist-play-btn > span:hover {
-  color: #0086b4;
+  color: $title-blue;
 }
 
 .playist-track-idx{

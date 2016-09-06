@@ -131,7 +131,7 @@ class PlaylistDetail extends React.Component {
     if(this.props.playlistDetail.tracks && this.props.playlistDetail.tracks.length > 0){
       return (
         <div className='playlist-play-btn'>
-          <span className="glyphicon glyphicon-play-circle" onClick={this.playPlaylist.bind(this)}></span>
+          <span className="glyphicon glyphicon-play" onClick={this.playPlaylist.bind(this)}></span>
         </div>
       )
     }
