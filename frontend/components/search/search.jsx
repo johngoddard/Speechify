@@ -9,6 +9,15 @@ class Search extends React.Component {
     };
 
     this.updateQuery = this.updateQuery.bind(this);
+
+    $(document).mouseup(e => {
+      let container = $('.search-cont');
+
+      if (!container.is(e.target)
+         && container.has(e.target).length === 0) {
+        this.closeSearch();
+      }
+    });
   }
 
   closeSearch(e){
