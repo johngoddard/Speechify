@@ -71,7 +71,7 @@ class PlaylistDetail extends React.Component {
   trackRendering(){
     if(this.props.playlistDetail.tracks){
       return (
-        <div className='info-container'>
+        <div className='info-container playist-track-idx'>
           <PlaylistTracksIndex tracks={this.props.playlistDetail.tracks}
                                editable={this.props.playlistDetail.user_id === this.props.currentUser.id} />
         </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
+import { reduceString } from '../../util/string_utils.js';
+
 
 class PlaylistTracksIndexItem extends React.Component {
   constructor(props) {

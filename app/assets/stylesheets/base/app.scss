@@ -25,6 +25,10 @@ a:hover{
   text-decoration: none;
 }
 
+a:focus{
+  color: inherit;
+}
+
 .header .button-bar{
   margin: auto 0;
   margin-right: 35px;
@@ -61,6 +65,7 @@ a:hover{
   display: flex;
   margin-top: 30px;
 }
+
 
 .detail-info-container .profile-picture {
   height: 200px;

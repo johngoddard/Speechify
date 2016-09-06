@@ -91,6 +91,10 @@
   text-align: center;
 }
 
+.track-btn:hover{
+  color: white;
+}
+
 .add{
   background-color: $green-btn;
 }
@@ -119,6 +123,10 @@
   display: inline-block;
   margin: 15px auto;
   font-size: 13px;
+}
+
+.playlist-control-btn:hover{
+  color: white;
 }
 
 .idx-rm-link{
@@ -177,6 +185,9 @@
   left: 57px;
 }
 
+.playlist-index-page > ul {
+  margin-bottom: 100px;
+}
 
 .playlist-picture:hover .playlist-play-btn{
   opacity: 1.0;
@@ -189,4 +200,8 @@
 
 .playlist-play-btn > span:hover {
   color: #0086b4;
+}
+
+.playist-track-idx{
+  margin-bottom: 100px;
 }
