@@ -46,7 +46,7 @@ class PlaylistDetail extends React.Component {
       return (
         <div className='info-container'>
           <h4>{this.props.playlistDetail.title}</h4>
-          {this.props.currentUser.id === this.props.playlistDetail.user_id ? '' :
+          {(this.props.currentUser && this.props.currentUser.id === this.props.playlistDetail.user_id) ? '' :
             <h6 onClick={this.redirectToUser.bind(this)}>
               {this.props.playlistDetail.username}
             </h6>}
@@ -73,7 +73,7 @@ class PlaylistDetail extends React.Component {
       return (
         <div className='info-container playist-track-idx'>
           <PlaylistTracksIndex tracks={this.props.playlistDetail.tracks}
-                               editable={this.props.playlistDetail.user_id === this.props.currentUser.id}
+                               editable={(this.props.currentUser && this.props.playlistDetail.user_id === this.props.currentUser.id)}
                                playlist={this.props.playlistDetail}
           />
         </div>
@@ -82,7 +82,7 @@ class PlaylistDetail extends React.Component {
   }
 
   getEditLink(){
-    if(this.props.playlistDetail.user_id === this.props.currentUser.id){
+    if(this.props.currentUser && this.props.playlistDetail.user_id === this.props.currentUser.id){
       return (
         <a onClick={this.toggleEdit}>
           {this.state.edit ? 'Cancel' : 'Edit info'}
@@ -108,7 +108,7 @@ class PlaylistDetail extends React.Component {
 
   getControlButton(){
     let playlistDetail = this.props.playlistDetail;
-    if(playlistDetail.user_id === this.props.currentUser.id){
+    if(this.props.currentUser && playlistDetail.user_id === this.props.currentUser.id){
       return(
         <a className='playlist-control-btn delete-btn' onClick={this.deletePlaylist.bind(this)}>
           Delete Playlist
@@ -120,7 +120,7 @@ class PlaylistDetail extends React.Component {
           Unfollow Playlist
         </a>
       );
-    } else if(playlistDetail.user_id !== this.props.currentUser.id) {
+    } else if(this.props.currentUser && playlistDetail.user_id !== this.props.currentUser.id) {
       return (
         <a className='playlist-control-btn follow-btn' onClick={this.followPlaylist.bind(this)}>
           Follow Playlist
