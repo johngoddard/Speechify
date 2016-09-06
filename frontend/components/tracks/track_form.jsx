@@ -59,7 +59,7 @@ class TrackForm extends React.Component {
         if(err.split(" ").includes("Title")){
           errorsObj['title'] = "Event can not be blank";
         } else if(err.split(" ").includes("Artist")){
-          errorsObj['artist'] = "Speaker can not be blank";
+          errorsObj['artist'] = ["Speaker"].concat(err.split(" ").slice(1)).join(' ');
         }
       });
     }

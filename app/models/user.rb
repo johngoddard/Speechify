@@ -17,6 +17,7 @@
 class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :username, :session_token, uniqueness: true
+  validates :username, length: {maximum: 40}
   validates :password, length: { minimum: 4, allow_nil: true }
 
   has_many :tracks, inverse_of: :user

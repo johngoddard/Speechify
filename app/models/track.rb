@@ -17,6 +17,7 @@
 
 class Track < ActiveRecord::Base
   validates :title, :artist, :user, presence: true
+  validates :artist, length: {maximum: 80}
 
   belongs_to :user, inverse_of: :tracks
   has_many :playlist_tracks, dependent: :destroy

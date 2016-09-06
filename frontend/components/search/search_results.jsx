@@ -7,6 +7,7 @@ class SearchResults extends React.Component {
     super(props);
   }
 
+
   closeSearch(e){
     this.props.closeSearch();
   }
