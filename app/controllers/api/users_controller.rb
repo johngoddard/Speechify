@@ -56,7 +56,6 @@ class Api::UsersController < ApplicationController
 
   def unfollow
     user_follow = UserFollow.find_by(follower_id: current_user.id, followee_id: params[:id])
-    puts '---------------------------------------------------------------'
     if user_follow && user_follow.destroy
       render 'api/users/show'
     else
