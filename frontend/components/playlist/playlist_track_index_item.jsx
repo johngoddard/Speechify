@@ -29,7 +29,12 @@ class PlaylistTracksIndexItem extends React.Component {
         <div className='track-img-thumb'>
           <img src={trackImage} />
         </div>
-        <div className='track-info'>{`${this.props.order + 1}.  ${this.props.track.title}`}</div>
+        <div className='track-info'>
+          <span className='artist'>
+            {`${this.props.order + 1}. ${this.props.track.artist}`}:
+          </span>
+          {this.props.track.title}
+        </div>
         {this.props.editable ? (<div className='idx-rm-link' onClick={this.removeTrack.bind(this)}>Remove track</div>) : ''}
       </div>
     );
