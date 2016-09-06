@@ -222,15 +222,16 @@ input[type='file']{
   color: #0099cd;
   padding: 9px;
   border-radius: 50%;
-  display: none;
+  opacity: 0.0;
   bottom: 65px;
-  left: 50px;
+  left: 51px;
   cursor: pointer;
 }
 
 
 .track-image:hover .track-play-btn{
-  display: inline-block;
+  opacity: 1.0;
+  transition: all 0.25s ease-in-out;
 }
 
 .track-play-btn > span {

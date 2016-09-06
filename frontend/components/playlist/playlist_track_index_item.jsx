@@ -15,7 +15,8 @@ class PlaylistTracksIndexItem extends React.Component {
     this.props.updatePlaylist(this.props.track.id);
   }
 
-  play(){
+  play(e){
+    console.log(e.target);
     this.props.playPlaylistFrom(this.props.playlist, this.props.order);
   }
 

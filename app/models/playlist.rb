@@ -22,7 +22,7 @@ class Playlist < ActiveRecord::Base
   has_many :followers, through: :playlist_follows, source: :user
 
   def max_track
-    if self.playlist_tracks.length > 0
+    if self.playlist_tracks && self.playlist_tracks.length > 0
       self.playlist_tracks.max_by{|el| el.order}.order
     else
       0
