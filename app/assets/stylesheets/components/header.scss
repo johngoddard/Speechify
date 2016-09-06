@@ -4,6 +4,7 @@
   height: 55px;
   background: white;
   border-bottom: $header-border 3px solid;
+  min-width: 860px;
   background: $header-color;
   display: flex;
   align-items: center;
@@ -22,4 +23,9 @@
 .account-link > a:hover{
   color: #ccc;
   text-decoration: none;
+}
+
+.empty-results{
+  padding: 20px;
+  font-style: italic;
 }

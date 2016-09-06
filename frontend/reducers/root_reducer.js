@@ -6,6 +6,7 @@ import PlaylistDetailReducer from './playlist_detail_reducer.js';
 import UserDetailReducer from './user_detail_reducer.js';
 import UsersReducer from './users_reducer.js';
 import AudioReducer from './audio_reducer.js';
+import SearchReducer from './search_reducer.js';
 import { combineReducers } from 'redux';
 
 const RootReducer = combineReducers({
@@ -16,7 +17,8 @@ const RootReducer = combineReducers({
   playlistDetail: PlaylistDetailReducer,
   users: UsersReducer,
   userDetail: UserDetailReducer,
-  currentTrack: AudioReducer
+  currentTrack: AudioReducer,
+  search: SearchReducer
 });
 
 export default RootReducer;

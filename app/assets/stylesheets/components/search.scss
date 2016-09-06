@@ -1,0 +1,52 @@
+.search-cont input {
+  width: 350px;
+}
+
+.search-results{
+  background: white;
+  font-size: 13px;
+  border: 1px solid $border;
+  border-top: none;
+  position: absolute;
+  width: 350px;
+  z-index: 10;
+}
+
+.search-header {
+  color: $title-blue;
+  font: $title-font;
+  padding: 10px 0;
+  margin: 0 10px;
+  display: block;
+  border-bottom: 1px solid $border;
+}
+
+.search-cont{
+  overflow: auto;
+}
+
+.search-item{
+  padding: 10px 20px;
+  display: block;
+}
+
+.search-item:last-child{
+
+}
+
+.search-item:hover{
+  background: $hover-color;
+  cursor: pointer;
+}
+
+.search-artist{
+  font-weight: bold;
+}
+
+.search-playlist-name{
+  font-weight: bold;
+}
+
+.playlist-search-item:hover{
+  color: inherit;
+}

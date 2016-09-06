@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { withRouter, Link} from 'react-router';
+import SearchContainer from '../../components/search/search_container.js';
 
 
 class Header extends React.Component {
@@ -47,6 +48,7 @@ class Header extends React.Component {
     return (
       <header className='header'>
         <h3>Speechify</h3>
+        <SearchContainer />
         {rightContent}
       </header>
     );

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
         delete 'unfollow'
       end
     end
+
+    resources :search, only: [:index]
   end
 
   root to: 'static_pages#root'
