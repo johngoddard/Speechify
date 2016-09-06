@@ -176,7 +176,7 @@ class Sidebar extends React.Component {
             </div>
             <div className='marketing-text-content'>
               Learn how you can create playlists, upload audio, connect with friends, and more!
-              <div className='sidebar-buttons'>
+              <div className='sidebar-buttons signed-out'>
                 <a className='nav-bar-btn'
                    onClick={this.props.openDemoModal}>Demo Account</a>
               </div>
