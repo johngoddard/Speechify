@@ -80,8 +80,26 @@ class AudioPlayer extends React.Component {
     }
   }
 
+  goBack(){
+    if(this.state.position < 3000 && this.props.currentTrack.playedTracks.length > 0){
+      this.props.goBack();
+    } else if(this.state.position < 3000){
+      this.setState({position: 0});
+      this.pauseTrack();
+    } else{
+      this.setState({position: 0});
+    }
+  }
+
+  goForward(){
+    if(this.props.currentTrack.playQueue.length > 0){
+      this.props.goForward();
+    }
+  }
+
   render(){
     const hiddenClass = (this.state.playStatus === Sound.status.STOPPED) ? 'hidden' : 'visible';
+    const forwardable = this.props.currentTrack.playQueue.length > 0;
 
     return(
       <section className={`audio-player ${hiddenClass}`}>
@@ -99,9 +117,11 @@ class AudioPlayer extends React.Component {
           />
         </div>
         <div className='audio-controls'>
-          <a className='glyphicon glyphicon-backward audio-btn' onClick={this.playTrack.bind(this)}></a>
+          <a className='glyphicon glyphicon-backward audio-btn'
+            onClick={this.goBack.bind(this)}></a>
           {this.getPlayButton()}
-          <a className='glyphicon glyphicon-forward audio-btn' onClick={this.playTrack.bind(this)}></a>
+          <a className={`glyphicon glyphicon-forward audio-btn${forwardable ? '' : ' disabled'}`}
+             onClick={this.goForward.bind(this)}></a>
         </div>
         {this.getSound()}
     </section>

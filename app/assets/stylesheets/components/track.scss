@@ -214,14 +214,13 @@ input[type='file']{
 }
 
 .track-play-btn {
-  position: fixed;
+  position: absolute;
   color: #0099cd;
   padding: 5px 10px;
   border-radius: 3px;
   display: none;
-  position: relative;
-  bottom: 144px;
-  left: 40px;
+  bottom: 65px;
+  left: 42px;
 }
 
 
@@ -235,4 +234,12 @@ input[type='file']{
 
 .track-play-btn > span:hover {
   color: #0086b4;
+}
+
+.disabled{
+  color: #555;
+}
+
+.audio-controls > .disabled:hover{
+  color: #555;
 }

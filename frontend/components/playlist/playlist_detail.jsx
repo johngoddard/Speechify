@@ -127,11 +127,26 @@ class PlaylistDetail extends React.Component {
     }
   }
 
+  getPlayButton(){
+    if(this.props.playlistDetail.tracks && this.props.playlistDetail.tracks.length > 0){
+      return (
+        <div className='playlist-play-btn'>
+          <span className="glyphicon glyphicon-play-circle" onClick={this.playPlaylist.bind(this)}></span>
+        </div>
+      )
+    }
+  }
+
+  playPlaylist(){
+    this.props.playPlaylist(this.props.playlistDetail);
+  }
+
   render(){
     return (
       <div className='detail-info-container'>
         <section className='left-info'>
           <div className='playlist-picture profile-picture'>
+            {this.getPlayButton()}
             <img src={this.getPlaylistImage()} />
             {this.getControlButton()}
           </div>

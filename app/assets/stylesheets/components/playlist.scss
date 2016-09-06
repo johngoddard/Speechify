@@ -166,3 +166,27 @@
 .playlist-desc-idx{
   font-size: 14px;
 }
+
+.playlist-play-btn {
+  position: absolute;
+  color: #0099cd;
+  padding: 5px 10px;
+  border-radius: 3px;
+  opacity: 0.0;
+  bottom: 65px;
+  left: 57px;
+}
+
+
+.playlist-picture:hover .playlist-play-btn{
+  opacity: 1.0;
+  transition: all 0.25s ease-in-out;
+}
+
+.playlist-play-btn > span {
+  font-size: 4em;
+}
+
+.playlist-play-btn > span:hover {
+  color: #0086b4;
+}
