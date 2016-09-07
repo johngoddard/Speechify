@@ -13,7 +13,7 @@ const HeroVideo = () => {
           <Link to={'/app'}><div className='explore-btn splash-btn'>Start Exploring</div></Link>
         </div>
          <video autoPlay loop preload className="hero">
-           <source src='http://res.cloudinary.com/dwf6beu4e/video/upload/v1473209275/speechmov-250_hko4mw.mp4' />
+           <source src='http://res.cloudinary.com/dwf6beu4e/video/upload/v1473219374/vol-edit-200_tohbmf.mp4' />
            Your browser does not support the <code>video</code> tag.
          </video>
      </section>
