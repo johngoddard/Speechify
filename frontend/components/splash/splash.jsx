@@ -50,6 +50,14 @@ class Splash extends React.Component {
     }
   }
 
+  handleCreate(){
+    if(this.props.currentUser && this.props.currentUser.id){
+      this.props.router.push('/app/account');
+    } else{
+      this.openModal('signup', false);
+    }
+  }
+
   render(){
     return (
       <main>
@@ -66,7 +74,7 @@ class Splash extends React.Component {
             <p>Create and share content with our rapidly-growing community.</p>
             <p>Connect with friends and rhetorical enthusiasts from around the world.</p>
           </div>
-          <div className='create-btn' onClick={this.openModal.bind(this, 'signup', false)}>Create Account</div>
+          <div className='create-btn' onClick={this.handleCreate.bind(this)}>Create Account</div>
 
         </section>
         <footer>

@@ -9,7 +9,7 @@ const SplashHeader = ({user, openLoginModal, openDemoModal}) => (
       <h3>Speechify</h3>
     </div>
     <div className='button-bar'>
-      {user && user.id ? "" :
+      {user && user.id ? <div className='splash-welcome'>Welcome, {user.username}!</div> :
       <ul className='header-links'>
         <li className='sign-in-link' onClick={openLoginModal}>Sign In</li>
         <li className='splash-demo-btn splash-btn' onClick={openDemoModal}>Demo</li>

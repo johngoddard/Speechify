@@ -33,6 +33,25 @@ class UserIndex extends React.Component {
     }
   }
 
+  getUsersContent(){
+    let users = this.getUsers();
+    if (users.length > 0){
+      return  (
+        <ul>
+          {users.map(user => (
+            <UserIndexItemContainer user={user}  key={`${user.id}${user.username}}`} />
+          ))}
+        </ul>
+      );
+    } else {
+      return (
+        <div className='no-users'>
+          Start following users so you can keep track of their new playlists and content!
+        </div>
+      );
+    }
+  }
+
   getPageTitle(){
     let location = window.location.hash;
     location = location.split('?')[0];
@@ -44,12 +63,7 @@ class UserIndex extends React.Component {
       <section className='tracks-index-page index-page'>
         <h3>{this.getPageTitle()}</h3>
         <div className='info-container users-list'>
-          <ul>
-            {this.getUsers().map(user => (
-              <UserIndexItemContainer user={user}  key={`${user.id}${user.username}}`} />
-              )
-            )}
-          </ul>
+          {this.getUsersContent()}
         </div>
       </section>
     );
