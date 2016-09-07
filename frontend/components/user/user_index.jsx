@@ -11,7 +11,7 @@ class UserIndex extends React.Component {
   getUsers(){
     let location = window.location.hash;
     location = location.split('?')[0];
-    if(location == '#/users'){
+    if(location == '#/app/users'){
       let followMap = {};
 
       this.props.followedUsers.forEach(user => {
@@ -36,7 +36,7 @@ class UserIndex extends React.Component {
   getPageTitle(){
     let location = window.location.hash;
     location = location.split('?')[0];
-    return (location === '#/users') ? 'Find Friends' : 'Users You Follow';
+    return (location === '#/app/users') ? 'Find Friends' : 'Users You Follow';
   }
 
   render(){

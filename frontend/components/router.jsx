@@ -5,7 +5,7 @@ import SessionFormContainer from './session_form/session_form_container.js';
 import Account from './account/account.jsx';
 import UserDetailContainer from './user_detail/user_detail_container.js';
 import { connect } from 'react-redux';
-import Splash from '../components/splash/splash.jsx';
+import SplashContainer from '../components/splash/splash_container.js';
 import TracksIndexContainer from './tracks/tracks_index_container.js';
 import PlaylistsIndexContainer from './playlist/playlists_index_container.js';
 import PlaylistDetailContainer from './playlist/playlist_detail_container.js';
@@ -27,7 +27,7 @@ class AppRouter extends React.Component{
     this.requestUserDetailOnEnter = this.requestUserDetailOnEnter.bind(this);
 
     this.routes =  (<Router history={ hashHistory }>
-        <Route path ='/' component={ Splash } />
+        <Route path ='/' component={ SplashContainer } />
         <Route path='/app' component={ AppContainer } >
           <IndexRoute component={ TracksIndexContainer }
                       onEnter={this.requestAllTracksOnEnter}

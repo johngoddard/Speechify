@@ -46,31 +46,35 @@ class TracksIndex extends React.Component {
     this.props.clearTrackErrors();
   }
 
+  getModal(){
+    if(this.state.trackModal){
+      return (
+        <Modal isOpen={true}
+               onRequestClose={this.closeModal.bind(this)}
+               style={trackModalStyle}>
+          <TrackFormContainer type={this.state.formType}
+                              track={this.state.toEdit}
+                              closeModal={this.closeModal.bind(this)}
+          />
+        </Modal>);
+    } else if (this.state.playlistModal){
+      return (
+        <Modal isOpen={true}
+               onRequestClose={this.closeModal.bind(this)}
+               style={addTrackModalStyle}>
+          <PlaylistTrackFormContainer type={this.state.formType}
+                                      track={this.state.toEdit}
+                                      closeModal={this.closeModal.bind(this)}
+          />
+        </Modal>
+      );
+    }
+  }
+
   render(){
     let location = window.location.hash.split('?')[0];
-    let userTracks = (location === '#/your-speeches') ? true : false;
-    let pageTitle = (location === '#/your-speeches') ? "Your Speeches" : "Browse Speeches";
-    let modal;
-
-    if(this.state.trackModal){
-      modal = (<Modal isOpen={true}
-                      onRequestClose={this.closeModal.bind(this)}
-                      style={trackModalStyle}>
-                <TrackFormContainer type={this.state.formType}
-                                    track={this.state.toEdit}
-                                    closeModal={this.closeModal.bind(this)}
-                />
-            </Modal>);
-    } else if (this.state.playlistModal){
-      modal = (<Modal isOpen={true}
-                      onRequestClose={this.closeModal.bind(this)}
-                      style={addTrackModalStyle}>
-                <PlaylistTrackFormContainer type={this.state.formType}
-                                    track={this.state.toEdit}
-                                    closeModal={this.closeModal.bind(this)}
-                />
-              </Modal>);
-    }
+    let userTracks = (location === '#/app/your-speeches') ? true : false;
+    let pageTitle = (location === '#/app/your-speeches') ? "Your Speeches" : "Browse Speeches";
 
 
     const tracks = this.props.tracks;
@@ -78,7 +82,7 @@ class TracksIndex extends React.Component {
       <TrackIndexItemContainer key={`${tracks[id]}${idx}`}
                                track={tracks[id]}
                                className='track-index-item'
-                               editable={location === '#/your-speeches' &&
+                               editable={location === '#/app/your-speeches' &&
                                          this.props.currentUser &&
                                          this.props.currentUser.id === tracks[id].user_id}
                                openEditModal={this.openEditModal.bind(this, tracks[id])}
@@ -89,7 +93,7 @@ class TracksIndex extends React.Component {
 
     return (
       <section className='tracks-index-page index-page'>
-        {modal}
+        {this.getModal()}
         <h3>{pageTitle}</h3>
         {userTracks ? (<a className='add-track-button' onClick={this.openNewModal}>+ Add Speech</a>) : ''}
         <div className='tracks-index-cont'>

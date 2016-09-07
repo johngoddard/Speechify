@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { playlistModalStyle } from '../../util/modal_styles.js';
 import PlaylistFormContainer from '../../components/playlist/playlist_form_container.js';
@@ -12,7 +12,7 @@ class Sidebar extends React.Component {
       playlistModel: false
     };
 
-    this.getRightContent = this.getRightContent.bind(this);
+    this.signedInContent = this.signedInContent.bind(this);
     this.selectLink = this.selectLink.bind(this);
     this.resetSelected = this.resetSelected.bind(this);
     this.initializeSelected = this.initializeSelected.bind(this);
@@ -106,87 +106,58 @@ class Sidebar extends React.Component {
     ));
   }
 
-  getRightContent(){
+  signedInContent(){
     if(this.props.currentUser){
       return (
-      <ul className='nav-list'>
-        <li className='sidebar-section'>
-          <ul><span>DISCOVER</span>
-            <Link to={'/app/speeches'}>
-              <li className='nav-item' id='speeches' onClick={this.selectLink}>
-                <div className='sidebar-item'><span className='glyphicon glyphicon-th'></span>Speeches</div>
-              </li>
-            </Link>
-            <Link to={'/app/playlists'}>
-              <li id='browse-playlists' className='nav-item' onClick={this.selectLink}>
-                <div className='sidebar-item'><span className='glyphicon glyphicon-align-justify'></span>Playlists</div>
-              </li>
-            </Link>
-          </ul>
-        </li>
-        <li className='sidebar-section'>
-          <ul><span>CONNECT</span>
-            <Link to={'/app/followed-users'}>
-              <li className='nav-item' id='followed-users' onClick={this.selectLink}>
-                <div className='sidebar-item'><span className='glyphicon glyphicon-heart'></span>You Follow</div>
-              </li>
-            </Link>
-            <Link to={'/app/users'}>
-              <li className='nav-item' id='find-friends' onClick={this.selectLink}>
-                <div className='sidebar-item'><span className='glyphicon glyphicon-user'></span>Find Friends</div>
-              </li>
-            </Link>
-          </ul>
-        </li>
-        <li className='sidebar-section'>
-          <ul><span>YOUR AUDIO</span>
-            <Link to={'/app/your-speeches'}>
-              <li className='nav-item' id='your-speeches' onClick={this.selectLink}>
-                <div className='sidebar-item'><span className='glyphicon glyphicon-headphones'></span>Your Speeches</div>
-              </li>
-            </Link>
-          </ul>
-        </li>
-        <li className='sidebar-section'>
-          <ul><span>PLAYLISTS</span>
-            {this.getPlaylists()}
-          </ul>
-          <div className='sidebar-buttons'>
-            <a className='nav-bar-btn' onClick={this.openPlaylistModal.bind(this)}>+ Add Playlist</a>
-          </div>
-        </li>
-      </ul>);
-    } else {
-      return (
-        <ul className='nav-list'>
+        <div>
           <li className='sidebar-section'>
-            <ul><span>DISCOVER</span>
-              <Link to={'/app/speeches'}>
-                <li className='nav-item' id='speeches' onClick={this.selectLink}>
-                  <div className='sidebar-item'><span className='glyphicon glyphicon-th'></span>Speeches</div>
+            <ul><span>CONNECT</span>
+              <Link to={'/app/followed-users'}>
+                <li className='nav-item' id='followed-users' onClick={this.selectLink}>
+                  <div className='sidebar-item'><span className='glyphicon glyphicon-heart'></span>You Follow</div>
                 </li>
               </Link>
-              <Link to={'/app/playlists'}>
-                <li id='browse-playlists' className='nav-item' onClick={this.selectLink}>
-                  <div className='sidebar-item'><span className='glyphicon glyphicon-align-justify'></span>Playlists</div>
+              <Link to={'/app/users'}>
+                <li className='nav-item' id='find-friends' onClick={this.selectLink}>
+                  <div className='sidebar-item'><span className='glyphicon glyphicon-user'></span>Find Friends</div>
                 </li>
               </Link>
             </ul>
           </li>
-
-          <div className='signed-out-marketing'>
-            <div className='marketing-text-header'>
-              NEW TO SPEECHIFY?
+          <li className='sidebar-section'>
+            <ul><span>YOUR AUDIO</span>
+              <Link to={'/app/your-speeches'}>
+                <li className='nav-item' id='your-speeches' onClick={this.selectLink}>
+                  <div className='sidebar-item'><span className='glyphicon glyphicon-headphones'></span>Your Speeches</div>
+                </li>
+              </Link>
+            </ul>
+          </li>
+          <li className='sidebar-section'>
+            <ul><span>PLAYLISTS</span>
+              {this.getPlaylists()}
+            </ul>
+            <div className='sidebar-buttons'>
+              <a className='nav-bar-btn' onClick={this.openPlaylistModal.bind(this)}>+ Add Playlist</a>
             </div>
-            <div className='marketing-text-content'>
-              Learn how you can create playlists, upload audio, connect with friends, and more!
-              <div className='sidebar-buttons signed-out'>
-                <a className='nav-bar-btn'
-                   onClick={this.props.openDemoModal}>Demo Account</a>
-              </div>
+          </li>
+        </div>
+      );
+    } else {
+      return (
+        <div className='signed-out-marketing'>
+          <div className='marketing-text-header'>
+            NEW TO SPEECHIFY?
+          </div>
+          <div className='marketing-text-content'>
+            Learn how you can create playlists, upload audio, connect with friends, and more!
+            <div className='sidebar-buttons signed-out'>
+              <a className='nav-bar-btn'
+                 onClick={this.props.openDemoModal}>Demo Account</a>
             </div>
           </div>
-        </ul>);
+        </div>
+      );
     }
   }
 
@@ -196,21 +167,31 @@ class Sidebar extends React.Component {
   }
 
   render(){
-    const content = this.getRightContent();
-    let modal;
-    if(this.state.playlistModal){
-      modal = (<Modal
-         isOpen={true}
-         onRequestClose={this.closeModal.bind(this)}
-         style={playlistModalStyle}>
-         <PlaylistFormContainer type='new' />
-       </Modal>)
-    }
-
     return (
       <section className='sidebar'>
-        {modal}
-        {content}
+        <Modal
+           isOpen={this.state.playlistModal}
+           onRequestClose={this.closeModal.bind(this)}
+           style={playlistModalStyle}>
+           <PlaylistFormContainer type='new' />
+         </Modal>
+         <ul className='nav-list'>
+           <li className='sidebar-section'>
+             <ul><span>DISCOVER</span>
+               <Link to={'/app/speeches'}>
+                 <li className='nav-item' id='speeches' onClick={this.selectLink}>
+                   <div className='sidebar-item'><span className='glyphicon glyphicon-th'></span>Speeches</div>
+                 </li>
+               </Link>
+               <Link to={'/app/playlists'}>
+                 <li id='browse-playlists' className='nav-item' onClick={this.selectLink}>
+                   <div className='sidebar-item'><span className='glyphicon glyphicon-align-justify'></span>Playlists</div>
+                 </li>
+               </Link>
+             </ul>
+           </li>
+           {this.signedInContent()}
+         </ul>
       </section>
     );
   }

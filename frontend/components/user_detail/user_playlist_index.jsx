@@ -11,7 +11,7 @@ const UserPlaylistIndex = ({playlists}) => {
   }
 
   return (
-    <Link to={`/playlist/${playlist.id}`} key={`${idx}${playlist.title}`}>
+    <Link to={`/app/playlist/${playlist.id}`} key={`${idx}${playlist.title}`}>
       <li className='user-play-li'>
         <div className='playlist-thumb-user'>
           <img src={image} />

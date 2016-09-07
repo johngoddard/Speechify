@@ -14,17 +14,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 class App extends React.Component {
+
   constructor(props){
     super(props);
+
     this.state = {
-      authModel: false,
+      authModal: false,
       formType: '',
       inSidebar: true
     };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.openDemoModal = this.openDemoModal.bind(this);
     this.exitSidebar = this.exitSidebar.bind(this);
     this.enterSidebar = this.enterSidebar.bind(this);
   }
@@ -44,17 +45,13 @@ class App extends React.Component {
     this.setState({inSidebar: true});
   }
 
-  openModal(type){
-    this.setState({authModel: true, formType: type, demo: false});
-  }
-
-  openDemoModal(){
-    this.setState({authModel: true, formType: 'login', demo: true});
+  openModal(type, demo){
+    this.setState({authModal: true, formType: type, demo: demo});
   }
 
   closeModal(){
-    this.props.clearSessionErrors()
-    this.setState({authModel: false, demo: false});
+    this.props.clearSessionErrors();
+    this.setState({authModal: false, demo: false});
   }
 
   toggleForm(){
@@ -66,35 +63,30 @@ class App extends React.Component {
   }
 
   render(){
-    let modal;
-    if(this.state.authModel){
-      modal = (<Modal
-         isOpen={true}
-         onRequestClose={this.closeModal.bind(this)}
-         style={authModalStyle}>
-
-         <SessionFormContainer
-            formType={this.state.formType}
-            closeModal={this.closeModal.bind(this)}
-            toggleForm={this.toggleForm.bind(this)}
-            demo={this.state.demo}
-          />
-       </Modal>)
-    }
-
     return (
       <main className='App group'>
         <HeaderContainer
-          openLoginModal={this.openModal.bind(this, 'login')}
-          openSignupModal={this.openModal.bind(this, 'signup')}
+          openLoginModal={this.openModal.bind(this, 'login', false)}
+          openSignupModal={this.openModal.bind(this, 'signup', false)}
           exitSidebar={this.exitSidebar.bind(this)}
         />
 
-        <SidebarContainer openDemoModal={this.openDemoModal.bind(this)}
+      <SidebarContainer openDemoModal={this.openModal.bind(this, 'login', true)}
                           inSidebar={this.state.inSidebar}
                           enterSidebar={this.enterSidebar.bind(this)}
           />
-        {modal}
+          <Modal
+             isOpen={this.state.authModal}
+             onRequestClose={this.closeModal.bind(this)}
+             style={authModalStyle}>
+
+             <SessionFormContainer
+                formType={this.state.formType}
+                closeModal={this.closeModal.bind(this)}
+                toggleForm={this.toggleForm.bind(this)}
+                demo={this.state.demo}
+              />
+           </Modal>
         <section className='content-area'>
           {this.props.children}
         </section>
