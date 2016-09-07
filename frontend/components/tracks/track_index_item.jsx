@@ -23,7 +23,7 @@ class TrackIndexItem extends React.Component {
   getAddButton(){
     if(this.props.currentUser && Object.keys(this.props.playlists).length > 0){
       return(
-        <a className='add-playlist-btn upload-btn'
+        <a className='add-playlist-btn track-add-btn'
            onClick={this.props.openPlaylistModal}>
            Add to Playlist
         </a>
@@ -61,7 +61,13 @@ class TrackIndexItem extends React.Component {
       <div className='track-item-container info-container'>
         <div className='track-image'>
           <img src={imageSource}/>
-          {this.getAddButton()}
+          <div className='track-btns'>
+            {this.getAddButton()}
+            <a className='queue-btn track-add-btn'
+               onClick={this.props.addToQueue.bind(null, this.props.track)}>
+               Add to Queue
+            </a>
+          </div>
           {this.getPlayButton()}
         </div>
         <span className='track-artist'>{this.getShortened(this.props.track.artist)}</span>

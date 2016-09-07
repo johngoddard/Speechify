@@ -66,9 +66,9 @@
 }
 
 .track-item-container {
-  flex: 0 0 190px;
+  flex: 0 0 210px;
   margin: 0px 20px 40px 20px;
-  padding: 20px;
+  padding: 15px;
 
   &:empty {
     height: 0;
@@ -82,8 +82,8 @@
 }
 
 .track-image{
-  height: 150px;
-  width: 150px;
+  height: 177px;
+  width: 177px;
   border: 1px $border solid;
   margin: 0 auto;
   position: relative;
@@ -207,15 +207,36 @@ input[type='file']{
 }
 
 .add-playlist-btn{
-  position: relative;
-  bottom: 30px;
-  left: 28px;
-  opacity: 0.0;
 }
 
+.track-btns{
+  display: flex;
+  width: 192px;
+  position: relative;
+  bottom: 28px;
+  right: 9px;
+  justify-content: space-between;
+  opacity: 0;
+}
 
-.track-image:hover .add-playlist-btn{
-  opacity: .95;
+.track-add-btn{
+  font-size: 12px;
+  margin: 0 auto;
+  display: inline-block;
+  color: white;
+  background-color: #444;
+  padding: 8px 8px;
+  border-radius: 3px;
+}
+
+.track-add-btn:hover{
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+}
+
+.track-image:hover .track-btns{
+  opacity: 0.92;
   transition: all 0.25s ease-in-out;
 }
 
@@ -226,8 +247,8 @@ input[type='file']{
   padding: 9px;
   border-radius: 50%;
   opacity: 0.0;
-  bottom: 65px;
-  left: 51px;
+  bottom: 70px;
+  left: 63px;
   cursor: pointer;
 }
 

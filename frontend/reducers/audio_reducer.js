@@ -21,7 +21,7 @@ const AudioReducer = (state = _default, action) => {
       return Object.assign({}, state, {playing: false});
     case AudioConstants.SET_CURRENT_TRACK:
       if(state.track.id){
-        const newPlayed = [...state.playedTracks, state.track];
+        newPlayed = [...state.playedTracks, state.track];
         return Object.assign({}, state, { track: action.track, playedTracks: newPlayed });
       } else{
         return Object.assign({}, state, { track: action.track });
@@ -29,12 +29,12 @@ const AudioReducer = (state = _default, action) => {
     case AudioConstants.ADD_TO_QUEUE:
       newQueue = [...state.playQueue, action.track];
       return Object.assign({}, state, {playQueue: newQueue});
+
     case AudioConstants.GO_BACK:
-      let newQueue;
       if(state.playedTracks.length > 0 && state.track.id){
         newPlayed = state.playedTracks.slice(0,-1);
         newTrack = state.playedTracks.slice(-1)[0];
-        newQueue = [state.track, ...state.playQueue];
+        newQueue = [state.track, ...state.playQueue ];
         return Object.assign({}, state, {playQueue: newQueue, track: newTrack, playedTracks: newPlayed});
       } else{
         return state;
@@ -51,7 +51,7 @@ const AudioReducer = (state = _default, action) => {
     case AudioConstants.PLAY_PLAYLIST:
       let start = action.startIdx || 0;
       newTrack = action.playlist.tracks.slice(start,start+1)[0];
-      newQueue = action.playlist.tracks.slice(start+1);
+      newQueue = [...state.playQueue, ...action.playlist.tracks.slice(start+1)];
       newPlayed = state.track.id ? [...state.playedTracks, state.track] : [];
       return Object.assign({}, state, {playQueue: newQueue, track: newTrack, playedTracks: newPlayed, playing: true});
     default:
