@@ -38,7 +38,7 @@ class PlaylistsIndexItem extends React.Component{
         </div>
         <div className='playlist-idx-info'>
           {this.getFollowLink()}
-          <Link to={`/playlist/${this.props.playlist.id}`} >
+          <Link to={`/app/playlist/${this.props.playlist.id}`} >
             <h4 className='playlist-title'>
               {this.props.playlist.title}
             </h4>

@@ -29,23 +29,27 @@ class Sidebar extends React.Component {
     let li;
     location = location.split('?')[0];
     switch (location) {
-      case '#/':
+      case '#/app':
         li = document.querySelector('#speeches');
         li.className='nav-item selected';
         break;
-      case '#/your-speeches':
+      case '#/app/speeches':
+        li = document.querySelector('#speeches');
+        li.className='nav-item selected';
+        break;
+      case '#/app/your-speeches':
         li = document.querySelector('#your-speeches');
         li.className='nav-item selected';
         break;
-      case '#/playlists':
+      case '#/app/playlists':
         li = document.querySelector('#browse-playlists');
         li.className='nav-item selected';
         break;
-      case '#/followed-users':
+      case '#/app/followed-users':
         li = document.querySelector('#followed-users');
         li.className='nav-item selected';
         break;
-      case '#/users':
+      case '#/app/users':
         li = document.querySelector('#find-friends');
         li.className='nav-item selected';
         break;
@@ -92,7 +96,7 @@ class Sidebar extends React.Component {
 
 
     return sorted.map((playlist, idx) => (
-      <Link to={`/playlist/${playlist.id}`} key={`${playlist.id}${idx}`}>
+      <Link to={`/app/playlist/${playlist.id}`} key={`${playlist.id}${idx}`}>
         <li className='nav-item'
             onClick={this.selectLink}
             id={`playlist-${playlist.id}`}>
@@ -108,12 +112,12 @@ class Sidebar extends React.Component {
       <ul className='nav-list'>
         <li className='sidebar-section'>
           <ul><span>DISCOVER</span>
-            <Link to={'/'}>
+            <Link to={'/app/speeches'}>
               <li className='nav-item' id='speeches' onClick={this.selectLink}>
                 <div className='sidebar-item'><span className='glyphicon glyphicon-th'></span>Speeches</div>
               </li>
             </Link>
-            <Link to={'/playlists'}>
+            <Link to={'/app/playlists'}>
               <li id='browse-playlists' className='nav-item' onClick={this.selectLink}>
                 <div className='sidebar-item'><span className='glyphicon glyphicon-align-justify'></span>Playlists</div>
               </li>
@@ -122,12 +126,12 @@ class Sidebar extends React.Component {
         </li>
         <li className='sidebar-section'>
           <ul><span>CONNECT</span>
-            <Link to={'/followed-users'}>
+            <Link to={'/app/followed-users'}>
               <li className='nav-item' id='followed-users' onClick={this.selectLink}>
                 <div className='sidebar-item'><span className='glyphicon glyphicon-heart'></span>You Follow</div>
               </li>
             </Link>
-            <Link to={'/users'}>
+            <Link to={'/app/users'}>
               <li className='nav-item' id='find-friends' onClick={this.selectLink}>
                 <div className='sidebar-item'><span className='glyphicon glyphicon-user'></span>Find Friends</div>
               </li>
@@ -136,7 +140,7 @@ class Sidebar extends React.Component {
         </li>
         <li className='sidebar-section'>
           <ul><span>YOUR AUDIO</span>
-            <Link to={'/your-speeches'}>
+            <Link to={'/app/your-speeches'}>
               <li className='nav-item' id='your-speeches' onClick={this.selectLink}>
                 <div className='sidebar-item'><span className='glyphicon glyphicon-headphones'></span>Your Speeches</div>
               </li>
@@ -157,12 +161,12 @@ class Sidebar extends React.Component {
         <ul className='nav-list'>
           <li className='sidebar-section'>
             <ul><span>DISCOVER</span>
-              <Link to={'/'}>
+              <Link to={'/app/speeches'}>
                 <li className='nav-item' id='speeches' onClick={this.selectLink}>
                   <div className='sidebar-item'><span className='glyphicon glyphicon-th'></span>Speeches</div>
                 </li>
               </Link>
-              <Link to={'/playlists'}>
+              <Link to={'/app/playlists'}>
                 <li id='browse-playlists' className='nav-item' onClick={this.selectLink}>
                   <div className='sidebar-item'><span className='glyphicon glyphicon-align-justify'></span>Playlists</div>
                 </li>

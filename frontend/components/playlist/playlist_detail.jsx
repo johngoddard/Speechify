@@ -31,7 +31,8 @@ class PlaylistDetail extends React.Component {
   }
 
   redirectToUser(){
-    this.props.router.push(`/user/${this.props.playlistDetail.user_id}`);
+    console.log('here');
+    this.props.router.push(`/app/user/${this.props.playlistDetail.user_id}`);
   }
 
   getInfoContent(){

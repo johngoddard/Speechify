@@ -5,6 +5,7 @@ import SessionFormContainer from './session_form/session_form_container.js';
 import Account from './account/account.jsx';
 import UserDetailContainer from './user_detail/user_detail_container.js';
 import { connect } from 'react-redux';
+import Splash from '../components/splash/splash.jsx';
 import TracksIndexContainer from './tracks/tracks_index_container.js';
 import PlaylistsIndexContainer from './playlist/playlists_index_container.js';
 import PlaylistDetailContainer from './playlist/playlist_detail_container.js';
@@ -26,32 +27,36 @@ class AppRouter extends React.Component{
     this.requestUserDetailOnEnter = this.requestUserDetailOnEnter.bind(this);
 
     this.routes =  (<Router history={ hashHistory }>
-        <Route path='/' component={ AppContainer } >
+        <Route path ='/' component={ Splash } />
+        <Route path='/app' component={ AppContainer } >
           <IndexRoute component={ TracksIndexContainer }
                       onEnter={this.requestAllTracksOnEnter}
           />
-        <Route path='/playlists'
+        <Route path='/app/speeches'
+                   component={ TracksIndexContainer }
+                   onEnter={this.requestAllTracksOnEnter}/>
+                 <Route path='/app/playlists'
                  component={ PlaylistsIndexContainer }
                  onEnter={this.requestAllPlaylistsOnEnter}/>
-          <Route path='/account'
+               <Route path='/app/account'
                  component={ Account }
                  onEnter={this._redirectUnlessLoggedIn}/>
-          <Route path='/your-speeches'
+               <Route path='/app/your-speeches'
                 component={ TracksIndexContainer }
                 onEnter={this.requestUserTracksOnEnter}
           />
-        <Route path='/users'
+        <Route path='/app/users'
                 component={ UserIndexContainer }
                 onEnter={this.requestAllUsersOnEnter}
           />
-        <Route path='/followed-users'
+        <Route path='/app/followed-users'
                 component={ UserIndexContainer }
                 onEnter={this.requestFollowedUsersOnEnter}
           />
-          <Route 	path="playlist/:playlistId"
+        <Route 	path="/app/playlist/:playlistId"
   								component={PlaylistDetailContainer}
                   onEnter={this.requestPlaylistDetail} />
-          <Route 	path="user/:userId"
+                <Route 	path="/app/user/:userId"
 						component={UserDetailContainer}
             onEnter={this.requestUserDetailOnEnter} />
         </Route>

@@ -1,0 +1,160 @@
+.video-container{
+  width: 100%;
+  position: relative;
+}
+
+.hero{
+  width: 100%;
+}
+
+.video-container h1{
+  font-size: 70px;
+  font-family: $body-font;
+  position: relative;
+  display: inline-block;
+  margin: 10px auto;
+  color: white;
+}
+
+.video-container h2{
+  font-size: 28px;
+  font-family: $body-font;
+  display: block;
+  margin: 10px auto;
+  color: white;
+}
+
+.hero-message{
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 20%;
+  margin-top: 20%;
+  text-align: center;
+}
+
+.overlay{
+  background: rgba(0,0,0, 0.4);
+  position: absolute;
+  width: 100%;
+  height: auto;
+  height: 100%;
+}
+
+.splash-btn{
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgba(51, 204, 255, .5);
+  font-family: $body-font;
+  color: white;
+  border-radius: 5px;
+}
+
+.splash-btn:hover{
+  cursor: pointer;
+  color: white;
+  background: rgba(0, 97, 129, .75);
+}
+
+.explore-btn{
+  padding: 12px 24px;
+  font-size: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.splash-demo-btn{
+  padding: 8px 16px;
+  background: rgba(51, 204, 255, .5);
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.splash-demo-btn:hover{
+  color: white;
+}
+
+.splash-header{
+  font-family: inherit;
+  position: absolute;
+  top: 0;
+  background: rgba(0,0,0, .5);
+  border: none;
+  height: 60px;
+  z-index: 5;
+  border-bottom: 3px solid rgba(51, 204, 255, .5);
+}
+.splash-header .sign-in-link{
+  padding: 8px;
+}
+
+.marketing-content{
+  width: 100%;
+  background: white;
+  text-align: center;
+  display: block;
+}
+
+.marketing-header{
+  font-family: $title-font;
+  font-size: 32px;
+  color: $title-blue;
+  display: block;
+  padding: 50px 0 0 0;
+  font-weight: 300;
+}
+
+.marketing-body{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.marketing-body > p {
+  font-family: $body-font;
+  font-size: 20px;
+  color: #555;
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+footer{
+  width: 100%;
+  background: #222;
+  border-top: 3px solid $header-border;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ccc;
+  font-size: 14px;
+  padding: 0 30px;
+}
+
+.create-btn{
+  border-radius: 5px;
+  padding: 11px 22px;
+  display: inline-block;
+  font-size: 18px;
+  font-family: $body-font;
+  color: white;
+  background: $blue-btn;
+  margin-bottom: 40px;
+}
+
+.create-btn:hover{
+  cursor: pointer;
+  color: white;
+  background: $blue-btn-hover;
+}
+
+
+footer li{
+  float: left;
+  padding: 15px 10px;
+}
+
+footer li:hover{
+  color: white;
+  cursor: pointer;
+}

@@ -24,7 +24,7 @@ class UserIndexItem extends React.Component {
   componentDidMount(){
     let location = window.location.hash;
     location = location.split('?')[0];
-    const followed = (location === '#/followed-users');
+    const followed = (location === '#/app/followed-users');
     this.setState({followed: followed});
   }
 
@@ -53,7 +53,7 @@ class UserIndexItem extends React.Component {
         {this.getFollowLink()}
         <div className='user-idx-item'>
           <div className='user-idx-header'>
-            <Link to={`/user/${this.props.user.id}`}>
+            <Link to={`/app/user/${this.props.user.id}`}>
               <span className='user-idx-name'>{this.props.user.username}</span>
             </Link>
             <div className='user-stats'>

@@ -12,12 +12,12 @@ class Header extends React.Component {
   }
 
   handleLogout(){
-    this.props.router.push('/');
+    this.props.router.push('/app');
     this.props.logout();
   }
 
   goToAccount(){
-    this.props.router.push('/account');
+    this.props.router.push('/app/account');
   }
 
   getRightContent(){
@@ -26,7 +26,7 @@ class Header extends React.Component {
         <div className='welcome-area'>
           <div className='welcome-message'>Welcome, {this.props.currentUser.username}!</div>
             <ul className='header-links'>
-              <li className='account-link' onClick={this.props.exitSidebar}><Link to={'/account'}>Account</Link></li>
+              <li className='account-link' onClick={this.props.exitSidebar}><Link to={'/app/account'}>Account</Link></li>
               <li className='sign-out-link' onClick={this.handleLogout}>Sign Out</li>
             </ul>
         </div>

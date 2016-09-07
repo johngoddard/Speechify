@@ -58,7 +58,7 @@ class SearchResults extends React.Component {
     if(results.playlists.length > 0){
       let playlists = results.playlists.map((playlist, idx) =>{
         return (
-          <Link to={`/playlist/${playlist.id}`}
+          <Link to={`/app/playlist/${playlist.id}`}
                 onClick={this.closeSearch.bind(this)}
                 key={`${idx}${playlist.title}`}
                 className='playlist-search-item search-item'>
