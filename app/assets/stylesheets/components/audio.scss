@@ -22,7 +22,6 @@
   margin-left: 15px;
 }
 
-
 .audio-display{
   height: 100%;
 }
@@ -108,6 +107,7 @@
 
 .audio-progress-bar{
   position: fixed;
+  left: 0;
   width: 100%;
   bottom: 68px;
 }
