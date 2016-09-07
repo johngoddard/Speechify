@@ -9,7 +9,9 @@ class Search extends React.Component {
     };
 
     this.updateQuery = this.updateQuery.bind(this);
+  }
 
+  componentDidMount(){
     $(document).mouseup(e => {
       let container = $('.search-cont');
 
@@ -18,6 +20,10 @@ class Search extends React.Component {
         this.closeSearch();
       }
     });
+  }
+
+  componentWillUnmount(){
+    $(document).off('mouseup');
   }
 
   closeSearch(e){
