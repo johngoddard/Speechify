@@ -1,6 +1,14 @@
 .search-cont input {
   width: 350px;
-  padding-left: 30px;
+  padding: 8px 0 8px 35px;
+  border: none;
+  background: rgba(255,255,255, .1);
+  border: 1px solid rgba(255,255,255, 0);
+  color: #ddd;
+}
+
+.search-cont input:focus{
+  border: 1px solid $header-border;
 }
 
 .search-results{
@@ -58,8 +66,8 @@
 
 .search-icon{
   position: absolute;
-  top: 7px;
-  left: 8px;
-  color: #777;
+  top: 10px;
+  left: 10px;
+  color: #aaa;
   font-size: 0.9em;
 }

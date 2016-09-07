@@ -79,14 +79,15 @@ class TracksIndex extends React.Component {
 
     const tracks = this.props.tracks;
     const trackItems = Object.keys(tracks).map((id, idx) => (
-      <TrackIndexItemContainer key={`${tracks[id]}${idx}`}
-                               track={tracks[id]}
-                               className='track-index-item'
-                               editable={location === '#/app/your-speeches' &&
-                                         this.props.currentUser &&
-                                         this.props.currentUser.id === tracks[id].user_id}
-                               openEditModal={this.openEditModal.bind(this, tracks[id])}
-                               openPlaylistModal={this.openPlaylistModal.bind(this, tracks[id])}
+      <TrackIndexItemContainer
+        key={`${tracks[id]}${idx}`}
+        track={tracks[id]}
+        className='track-index-item'
+        editable={location === '#/app/your-speeches' &&
+                  this.props.currentUser &&
+                  this.props.currentUser.id === tracks[id].user_id}
+        openEditModal={this.openEditModal.bind(this, tracks[id])}
+        openPlaylistModal={this.openPlaylistModal.bind(this, tracks[id])}
       />
     )
     );
