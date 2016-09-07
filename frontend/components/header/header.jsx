@@ -49,7 +49,7 @@ class Header extends React.Component {
       <header className='header'>
         <div className='logo'>
           <div className='logo-thumb'>
-            <img src='http://res.cloudinary.com/dwf6beu4e/image/upload/v1473200830/images/m9lnkeha9yiaxxyj68z4.png' />
+            <img src='https://res.cloudinary.com/dwf6beu4e/image/upload/v1473200830/images/m9lnkeha9yiaxxyj68z4.png' />
           </div>
           <h3>Speechify</h3>
         </div>
