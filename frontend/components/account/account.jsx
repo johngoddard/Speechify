@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import UserForm from './user_form.jsx';
 import UploadImageButton from '../buttons/upload_image_button.jsx';
-import {updateCurrentUser} from '../../actions/session_actions.js'
+import {updateCurrentUser} from '../../actions/session_actions.js';
 
-const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472753244/images/ikpgc0g6ecz8fdz1lrda.png';
+const DEFAULT_IMAGE = 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1472753244/images/ikpgc0g6ecz8fdz1lrda.png';
 
 
 class Account extends React.Component {
@@ -12,7 +12,7 @@ class Account extends React.Component {
     super(props);
     this.state = {
       edit: false
-    }
+    };
 
     this.toggleEdit = this.toggleEdit.bind(this);
     this.updateImage = this.updateImage.bind(this);
@@ -25,7 +25,7 @@ class Account extends React.Component {
           <h5>User Bio</h5><a onClick={this.toggleEdit}>cancel</a>
           <UserForm toggleForm={this.toggleEdit}/>
         </div>
-      )
+      );
     } else {
       return (
         <div className='bio-area'>
@@ -33,7 +33,7 @@ class Account extends React.Component {
           <a onClick={this.toggleEdit}>edit</a>
           <div className='user-desc'>{this.props.currentUser.description}</div>
         </div>
-      )
+      );
     }
   }
 

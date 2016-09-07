@@ -3,7 +3,7 @@ import PlaylistTracksIndex from './playlist_tracks_index.jsx';
 import PlaylistFormContainer from './playlist_form_container.js';
 import { withRouter, browserHistory} from 'react-router';
 
-const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
+const DEFAULT_IMAGE = 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
 
 class PlaylistDetail extends React.Component {
   constructor(props) {
