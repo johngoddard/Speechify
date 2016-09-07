@@ -103,7 +103,7 @@ class AppRouter extends React.Component{
 
   requestUserTracksOnEnter(nextState, replace){
     if(!this._redirectUnlessLoggedIn(nextState, replace)){
-      this.props.requestUserTracks();
+      this.props.requestAllTracks({curr_user: 'true'});
     }
   }
 
@@ -121,8 +121,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestAllTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(false)),
-  requestUserTracks: () => dispatch(TRACK_ACTIONS.fetchAllTracks(true)),
+  requestAllTracks: filter => dispatch(TRACK_ACTIONS.fetchAllTracks(filter)),
   requestPlaylistDetail: id => dispatch(PLAYLIST_ACTIONS.fetchPlaylistDetail(id)),
   receivePlaylistDetail: playlist => dispatch(PLAYLIST_ACTIONS.receivePlaylistDetail(playlist)),
   requestAllPlaylists: () => dispatch(PLAYLIST_ACTIONS.fetchAllPlaylists()),

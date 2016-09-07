@@ -8,9 +8,9 @@ export const TrackConstants = {
   REMOVE_TRACK: "REMOVE_TRACK"
 };
 
-export const fetchAllTracks = currUser => ({
+export const fetchAllTracks = filter => ({
   type: TrackConstants.FETCH_ALL_TRACKS,
-  currUser
+  filter
 });
 
 export const createTrack = track => ({

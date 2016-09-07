@@ -112,7 +112,7 @@ class TrackForm extends React.Component {
               <select value={this.state.category} onChange={this.update('category')} className='category-select form-control'>
                 <option value="">Select a category</option>
                 <option value="politics">Politics</option>
-                <option value="history">Historical</option>
+                <option value="history">History</option>
                 <option value="sports">Sports</option>
                 <option value="entertainment">Entertainment</option>
                 <option value="other">Other</option>

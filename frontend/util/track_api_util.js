@@ -1,8 +1,8 @@
-export const fetchAllTracks = (data, success, error) => {
+export const fetchAllTracks = (filter, success, error) => {
   $.ajax({
     method: "GET",
     url: "/api/tracks",
-    data: {user: data},
+    data: filter,
     success,
     error
   });

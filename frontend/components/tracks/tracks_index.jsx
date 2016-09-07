@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import {trackModalStyle} from '../../util/modal_styles.js';
 import TrackFormContainer from './track_form_container.js';
 import PlaylistTrackFormContainer from '../playlist_tracks/playlist_track_form_cotainer.js';
+import TrackIndexHeader from './track_index_header.jsx';
 import {addTrackModalStyle} from '../../util/modal_styles.js';
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -71,10 +72,31 @@ class TracksIndex extends React.Component {
     }
   }
 
+  filterTracks(category){
+    if(category){
+      this.props.fetchTracks({category: category});
+    } else {
+      this.props.fetchTracks();
+    }
+  }
+
+  getHeader(){
+    let location = window.location.hash.split('?')[0];
+    if(location === '#/app/your-speeches'){
+      return (<h3>Your Speeches</h3>);
+    } else {
+      return (
+        <header>
+          <TrackIndexHeader filterTracks={this.filterTracks.bind(this)}/>
+          <h3>Browse Speeches</h3>
+        </header>
+      );
+    }
+  }
+
   render(){
     let location = window.location.hash.split('?')[0];
     let userTracks = (location === '#/app/your-speeches') ? true : false;
-    let pageTitle = (location === '#/app/your-speeches') ? "Your Speeches" : "Browse Speeches";
 
 
     const tracks = this.props.tracks;
@@ -95,7 +117,7 @@ class TracksIndex extends React.Component {
     return (
       <section className='tracks-index-page index-page'>
         {this.getModal()}
-        <h3>{pageTitle}</h3>
+        {this.getHeader()}
         {userTracks ? (<a className='add-track-button' onClick={this.openNewModal}>+ Add Speech</a>) : ''}
         <div className='tracks-index-cont'>
           {trackItems}

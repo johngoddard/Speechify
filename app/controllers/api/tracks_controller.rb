@@ -15,7 +15,7 @@ class Api::TracksController < ApplicationController
   before_action :find_track, only: [:update, :destroy]
 
   def index
-    if params[:user] == 'true'
+    if params[:curr_user] == 'true'
       if !current_user
         render json: ["You must be signed in to view these tracks"], status: 401
       else

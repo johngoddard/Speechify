@@ -11,7 +11,7 @@ const TrackMiddleWare = ({getState, dispatch}) => next => action => {
     case TrackConstants.FETCH_ALL_TRACKS:
       success = tracks => dispatch(ACTIONS.receiveAllTracks(tracks));
       const filter = action.currUser ? 'true' : '';
-      UTIL.fetchAllTracks(filter, success, error);
+      UTIL.fetchAllTracks(action.filter, success, error);
       return next(action);
     case TrackConstants.CREATE_TRACK:
       UTIL.createTrack(action.track, success, error);

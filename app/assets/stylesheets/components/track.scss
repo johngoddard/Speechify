@@ -102,9 +102,7 @@ input[type='file']{
   width: 200px;
 }
 
-select{
-  
-}
+
 
 .curr-image{
   height: 200px;
@@ -257,4 +255,36 @@ select{
 
 .audio-controls > .disabled:hover{
   color: #555;
+}
+
+.category-header{
+  display: flex;
+  width: 100%;
+}
+
+.category-header ul{
+  float: left;
+  width: 100%;
+  padding-left: 28px;
+  font-size: 16px;
+  background: #ddd;
+  color: #222;
+  opacity: .85;
+  min-width: 475px;
+}
+
+.category-header li{
+  float: left;
+  padding: 12px 15px;
+  font-size: 15px;
+  font-family: $title-font;
+}
+
+.selected-cat{
+  color: $title-blue;
+  border-bottom: 2px solid $header-border;
+}
+
+.category-header li:hover{
+  cursor: pointer;
 }
