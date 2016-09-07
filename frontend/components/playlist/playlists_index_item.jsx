@@ -1,5 +1,5 @@
 import React from 'react';
-const DEFAULT_IMAGE = 'http://res.cloudinary.com/dwf6beu4e/video/upload/v1473219374/vol-edit-200_tohbmf.mp4';
+const DEFAULT_IMAGE = 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
 import { Link } from 'react-router';
 
 class PlaylistsIndexItem extends React.Component{
