@@ -12,22 +12,25 @@
 }
 
 .search-results{
-  background: white;
   font-size: 13px;
-  border: 1px solid $border;
   border-top: none;
   position: absolute;
   width: 350px;
   z-index: 10;
+  background: #333;
+  color: #ccc;
+  opacity: .98;
+  padding-bottom: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .search-header {
   color: $title-blue;
   font: $title-font;
-  padding: 10px 0;
+  padding: 20px 0 0 0;
   margin: 0 10px;
   display: block;
-  border-bottom: 1px solid $border;
 }
 
 .search-cont{
@@ -48,7 +51,7 @@
 }
 
 .search-item:hover{
-  background: $hover-color;
+  background: #555;
   cursor: pointer;
 }
 
@@ -70,4 +73,8 @@
   left: 10px;
   color: #aaa;
   font-size: 0.9em;
+}
+
+.empty-results{
+  pading: 20px 20px 10px 20px;
 }
