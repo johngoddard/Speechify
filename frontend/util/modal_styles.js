@@ -56,7 +56,7 @@ export const trackModalStyle = {
    position        : 'fixed',
    top             : '80px',
    width           : '580px',
-   height          : '420px',
+   height          : '470px',
    borderRadius    : '20px',
    padding         : 0,
    margin          : '0 auto',

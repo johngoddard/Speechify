@@ -13,7 +13,8 @@ class TrackForm extends React.Component {
       id: null,
       track_image_url: '',
       audio_url: '',
-      track_file_name: ''
+      track_file_name: '',
+      category: ''
     };
     this.update = this.update.bind(this);
     this.getErrors = this.getErrors.bind(this);
@@ -27,7 +28,8 @@ class TrackForm extends React.Component {
         id: this.props.track.id,
         track_image_url: this.props.track.track_image_url,
         audio_url: this.props.track.audio_url,
-        track_file_name: this.props.track.track_file_name
+        track_file_name: this.props.track.track_file_name,
+        category: this.props.track.category
       });
     }
   }
@@ -68,7 +70,9 @@ class TrackForm extends React.Component {
 
 
   update(key){
-    return (e) => {this.setState({[key]: e.target.value});};
+    return (e) => {
+      this.setState({[key]: e.target.value});
+    };
   }
 
   render(){
@@ -103,6 +107,17 @@ class TrackForm extends React.Component {
                       value={this.state.title}
                       onChange={this.update('title')} />
               {errors['title'] ? (<div className='error'>{errors['title']}</div>) : ''}
+
+              <label htmlFor='category'>Category</label>
+              <select value={this.state.category} onChange={this.update('category')} className='category-select form-control'>
+                <option value="">Select a category</option>
+                <option value="politics">Politics</option>
+                <option value="history">Historical</option>
+                <option value="sports">Sports</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="other">Other</option>
+              </select>
+
               <label htmlFor='title'>Speech Audio</label>
               <UploadAudioButton uploadAudio={this.updateTrack.bind(this)}
                                  track={this.props.track}

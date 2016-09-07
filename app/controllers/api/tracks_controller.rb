@@ -8,7 +8,8 @@ class Api::TracksController < ApplicationController
     :image_file_type,
     :image_file_size,
     :audio_url,
-    :track_file_name
+    :track_file_name,
+    :category
   ]
 
   before_action :find_track, only: [:update, :destroy]
@@ -21,6 +22,9 @@ class Api::TracksController < ApplicationController
         @tracks = current_user.tracks
         render 'api/tracks/index'
       end
+    elsif params[:category]
+      @tracks = Track.where(category: params[:category])
+      render 'api/tracks/index'
     else
       @tracks = Track.all
       render 'api/tracks/index'

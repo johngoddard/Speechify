@@ -36,6 +36,16 @@ class TrackIndexItem extends React.Component {
     this.props.startPlaying();
   }
 
+  getPlayButton(){
+    if(this.props.track.audio_url){
+      return (
+        <div className='track-play-btn'>
+          <span className="glyphicon glyphicon-play" onClick={this.playTrack.bind(this)}></span>
+        </div>
+      )
+    }
+  }
+
   render(){
     const editContent = (
       <div className='track-idx-button'>
@@ -52,9 +62,7 @@ class TrackIndexItem extends React.Component {
         <div className='track-image'>
           <img src={imageSource}/>
           {this.getAddButton()}
-          <div className='track-play-btn'>
-            <span className="glyphicon glyphicon-play" onClick={this.playTrack.bind(this)}></span>
-          </div>
+          {this.getPlayButton()}
         </div>
         <span className='track-artist'>{this.getShortened(this.props.track.artist)}</span>
         <span className='track-title'>{this.getShortened(this.props.track.title)}</span>

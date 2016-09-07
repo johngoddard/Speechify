@@ -27,6 +27,17 @@
   line-height: 20px;
 }
 
+.modal-form select{
+  line-height: 20px;
+  width: 100%;
+  padding: 15px 20px;
+}
+
+.modal-form select:focus{
+  border: 1px solid $title-blue;
+  box-shadow: none;
+}
+
 .modal-form input:focus{
   border: 1px solid $title-blue;
 }
