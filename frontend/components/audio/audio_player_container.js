@@ -8,7 +8,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   goBack: () => dispatch(ACTIONS.goBack()),
-  goForward: () => dispatch(ACTIONS.goForward())
+  goForward: () => dispatch(ACTIONS.goForward()),
+  play: () => dispatch(ACTIONS.playTrack()),
+  pause: () => dispatch(ACTIONS.pauseTrack())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AudioPlayer);

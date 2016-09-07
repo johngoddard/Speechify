@@ -35,7 +35,9 @@ class AudioPlayer extends React.Component {
   }
 
   pauseTrack(){
-    this.setState({playStatus: Sound.status.PAUSED});
+    if(this.state.playStatus !== Sound.status.STOPPED){
+      this.setState({playStatus: Sound.status.PAUSED});
+    }
   }
 
   updatePosition(position){
@@ -45,11 +47,11 @@ class AudioPlayer extends React.Component {
   getPlayButton(){
     if(this.state.playStatus === Sound.status.PLAYING ){
       return (
-        <a className='pause-btn glyphicon glyphicon-pause audio-btn' onClick={this.pauseTrack.bind(this)}></a>
+        <a className='pause-btn glyphicon glyphicon-pause audio-btn' onClick={this.props.pause}></a>
       );
     } else {
       return (
-        <a className='play-btn glyphicon glyphicon-play audio-btn' onClick={this.playTrack.bind(this)}></a>
+        <a className='play-btn glyphicon glyphicon-play audio-btn' onClick={this.props.play}></a>
       );
     }
   }
@@ -57,7 +59,7 @@ class AudioPlayer extends React.Component {
   playAudio(playInfo){
     this.setState({position: playInfo.position});
     this.setState({duration: playInfo.duration});
-  };
+  }
 
   getSound(){
     if(this.props.currentTrack.track.audio_url &&
