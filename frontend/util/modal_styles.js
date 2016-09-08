@@ -6,7 +6,7 @@ export const authModalStyle = {
    right           : 0,
    bottom          : 0,
    backgroundColor : 'rgba(255, 255, 255, 0.75)',
-   zIndex          : 10
+   zIndex          : 50
  },
  content : {
    position        : 'fixed',
@@ -16,7 +16,7 @@ export const authModalStyle = {
    borderRadius    : '20px',
    padding         : 0,
    margin          : '0 auto',
-   zIndex          : 11
+   zIndex          : 51
  }
 };
 
@@ -28,7 +28,7 @@ export const playlistModalStyle = {
    right           : 0,
    bottom          : 0,
    backgroundColor : 'rgba(255, 255, 255, 0.75)',
-   zIndex          : 10
+   zIndex          : 50
  },
  content : {
    position        : 'fixed',
@@ -38,7 +38,7 @@ export const playlistModalStyle = {
    borderRadius    : '20px',
    padding         : 0,
    margin          : '0 auto',
-   zIndex          : 11
+   zIndex          : 51
  }
 };
 
@@ -50,7 +50,7 @@ export const trackModalStyle = {
    right           : 0,
    bottom          : 0,
    backgroundColor : 'rgba(255, 255, 255, 0.75)',
-   zIndex          : 10
+   zIndex          : 50
  },
  content : {
    position        : 'fixed',
@@ -60,7 +60,7 @@ export const trackModalStyle = {
    borderRadius    : '20px',
    padding         : 0,
    margin          : '0 auto',
-   zIndex          : 11
+   zIndex          : 51
  }
 };
 
@@ -72,7 +72,7 @@ export const addTrackModalStyle = {
    right           : 0,
    bottom          : 0,
    backgroundColor : 'rgba(255, 255, 255, 0.75)',
-   zIndex          : 10
+   zIndex          : 50
  },
  content : {
    position        : 'fixed',
@@ -82,6 +82,6 @@ export const addTrackModalStyle = {
    borderRadius    : '20px',
    padding         : 0,
    margin          : '0 auto',
-   zIndex          : 11
+   zIndex          : 51
  }
 };
