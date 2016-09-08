@@ -37,12 +37,12 @@
 
 .header-links li {
   float: left;
-  color: white;
+  color: #ddd;
   margin-left: 20px;
 }
 
 .header-links li:hover{
-  color: $border;
+  color: #bbb;
 }
 
 .selected {
@@ -62,7 +62,7 @@
   padding: 30px 20px;
   font-size: 14px;
   text-align: center;
-  background: #e9f3f6;
+  background: #ebf5f8;
 }
 
 .marketing-text-header{

@@ -2,13 +2,35 @@ import React from 'react';
 import Modal from 'react-modal';
 import { withRouter, Link} from 'react-router';
 import SearchContainer from '../../components/search/search_container.js';
+import HeaderDrop from './account_drop.jsx';
+
+const DEFAULT_IMAGE = 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1472753244/images/ikpgc0g6ecz8fdz1lrda.png';
 
 
 class Header extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      accountDrop: false
+    }
+
     this.handleLogout = this.handleLogout.bind(this);
     this.goToAccount = this.goToAccount.bind(this);
+  }
+
+  componentDidMount(){
+    $(document).mouseup(e => {
+      let container = $('.welcome-area');
+
+      if (!container.is(e.target)
+         && container.has(e.target).length === 0) {
+        this.closeDrop();
+      }
+    });
+  }
+
+  componentWillUnmount(){
+    $(document).off('mouseup');
   }
 
   handleLogout(){
@@ -20,15 +42,44 @@ class Header extends React.Component {
     this.props.router.push('/app/account');
   }
 
+  openDrop(){
+    this.setState({accountDrop: true});
+    let thumb = document.querySelector(".header-thumb");
+    if(thumb){
+      thumb.className = 'header-thumb thumb-select';
+    }
+  }
+
+  closeDrop(){
+    this.setState({accountDrop: false});
+    let thumb = document.querySelector(".header-thumb");
+    if(thumb){
+      thumb.className = 'header-thumb';
+    }
+  }
+
+  closeAndExit(){
+    this.closeDrop();
+    this.props.exitSidebar();
+  }
+
   getRightContent(){
     if(this.props.currentUser){
+      let user = this.props.currentUser;
+      const image = user.profile_image_url ? user.profile_image_url : DEFAULT_IMAGE;
+
       return (
         <div className='welcome-area'>
-          <div className='welcome-message'>Welcome, {this.props.currentUser.username}!</div>
-            <ul className='header-links'>
-              <li className='account-link' onClick={this.props.exitSidebar}><Link to={'/app/account'}>Account</Link></li>
-              <li className='sign-out-link' onClick={this.handleLogout}>Sign Out</li>
-            </ul>
+          <div className='welcome-message' onClick={this.openDrop.bind(this)}>
+            {this.props.currentUser.username}
+
+            <div className='header-thumb'>
+              <img src={image} />
+            </div>
+
+          </div>
+          {this.state.accountDrop ?
+          <HeaderDrop exitSidebar={this.closeAndExit.bind(this)} handleLogout={this.handleLogout.bind(this)}/> : ''}
         </div>
       )
     } else {
@@ -45,6 +96,7 @@ class Header extends React.Component {
 
   render(){
     const rightContent = this.getRightContent();
+
     return (
       <header className='header'>
         <div className='logo'>

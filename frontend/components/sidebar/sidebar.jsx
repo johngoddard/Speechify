@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { playlistModalStyle } from '../../util/modal_styles.js';
 import PlaylistFormContainer from '../../components/playlist/playlist_form_container.js';
