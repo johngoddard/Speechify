@@ -7,13 +7,14 @@ const mapStateToProps = (state, ownProps) => ({
   track: ownProps.track,
   editable: ownProps.editable,
   playlists: state.playlists.createdPlaylists,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  currentTrack: state.currentTrack
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   deleteTrack: () => dispatch(ACTIONS.destroyTrack(ownProps.track)),
   startPlaying: () => dispatch(AUDIO_ACTIONS.playTrack()),
-  setTrack: track => dispatch(AUDIO_ACTIONS.setCurrentTrack(track)), 
+  setTrack: track => dispatch(AUDIO_ACTIONS.setCurrentTrack(track)),
   addToQueue: track => dispatch(AUDIO_ACTIONS.addToQueue(track))
 });
 

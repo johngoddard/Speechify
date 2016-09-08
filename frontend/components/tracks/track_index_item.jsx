@@ -7,6 +7,7 @@ class TrackIndexItem extends React.Component {
 
     this.getShortened = this.getShortened.bind(this);
     this.getAddButton = this.getAddButton.bind(this);
+    this.getPlayingAnimation = this.getPlayingAnimation.bind(this);
   }
 
   getShortened(text){
@@ -37,12 +38,29 @@ class TrackIndexItem extends React.Component {
   }
 
   getPlayButton(){
-    if(this.props.track.audio_url){
+    if(this.props.track.audio_url &&
+    !(this.props.currentTrack.track && this.props.currentTrack.track.id === this.props.track.id && this.props.currentTrack.playing)){
       return (
         <div className='track-play-btn'>
           <span className="glyphicon glyphicon-play" onClick={this.playTrack.bind(this)}></span>
         </div>
       )
+    }
+  }
+
+  getPlayingAnimation(){
+    if(this.props.currentTrack.track && this.props.currentTrack.track.id === this.props.track.id && this.props.currentTrack.playing){
+      return(
+        <div className = 'playing-animation-container'>
+          <div className="playing-spinner">
+            <div className="rect1"></div>
+            <div className="rect2"></div>
+            <div className="rect3"></div>
+            <div className="rect4"></div>
+            <div className="rect5"></div>
+          </div>
+        </div>
+      );
     }
   }
 
@@ -60,6 +78,7 @@ class TrackIndexItem extends React.Component {
     return(
       <div className='track-item-container info-container'>
         <div className='track-image'>
+          {this.getPlayingAnimation()}
           <img src={imageSource}/>
           <div className='track-btns'>
             {this.getAddButton()}
