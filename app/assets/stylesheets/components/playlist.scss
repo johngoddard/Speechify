@@ -214,3 +214,15 @@
   display: inline-block;
   margin-right: 5px;
 }
+
+.playlist-image-grid{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.playlist-image-grid img{
+  height: 50%;
+  width: 50%;
+}

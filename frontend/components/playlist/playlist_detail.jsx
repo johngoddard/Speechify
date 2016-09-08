@@ -8,7 +8,7 @@ const DEFAULT_IMAGE = 'https://res.cloudinary.com/dwf6beu4e/image/upload/v147275
 class PlaylistDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.getPlaylistImage = this.getPlaylistImage.bind(this);
+    this.getPlaylistCover = this.getPlaylistCover.bind(this);
     this.trackRendering = this.trackRendering.bind(this);
 
     this.state = {
@@ -59,13 +59,34 @@ class PlaylistDetail extends React.Component {
     }
   }
 
-  getPlaylistImage(){
+  getCoverGrid(tracks){
+    return(
+      <div className='playlist-image-grid' >
+        <img src={tracks[0].track_image_url} />
+        <img src={tracks[1].track_image_url} />
+        <img src={tracks[2].track_image_url} />
+        <img src={tracks[3].track_image_url} />
+      </div>
+    );
+  }
+
+  getPlaylistCover(){
     let playlistDetail = this.props.playlistDetail;
 
     if(playlistDetail && playlistDetail.tracks && playlistDetail.tracks[0] && playlistDetail.tracks[0].track_image_url){
-      return playlistDetail.tracks[0].track_image_url;
+      let tracks = this.props.playlistDetail.tracks;
+      let withImage = tracks.filter(track => track.track_image_url);
+
+      if(withImage.length > 3){
+        return this.getCoverGrid(withImage);
+      } else if(withImage.length > 0){
+        return (<img src={withImage[0].track_image_url}/>);
+      } else{
+        return (<img src={DEFAULT_IMAGE}/>);
+      }
+
     } else {
-      return DEFAULT_IMAGE;
+      return (<img src={DEFAULT_IMAGE}/>);
     }
   }
 
@@ -150,7 +171,7 @@ class PlaylistDetail extends React.Component {
         <section className='left-info'>
           <div className='playlist-picture profile-picture'>
             {this.getPlayButton()}
-            <img src={this.getPlaylistImage()} />
+            {this.getPlaylistCover()}
             {this.getControlButton()}
           </div>
         </section>
