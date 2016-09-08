@@ -8,8 +8,7 @@ class SplashHeader extends React.Component {
   }
 
   render(){
-    const image = this.props.user.profile_image_url ? this.props.user.profile_image_url : DEFAULT_IMAGE;
-
+    const image = (this.props.user && this.props.user.profile_image_url) ? this.props.user.profile_image_url : DEFAULT_IMAGE;
 
     return(
       <header className='splash-header header'>
