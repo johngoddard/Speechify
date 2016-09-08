@@ -25,7 +25,11 @@ class ProgressBar extends React.Component {
       <div>
         <div className='progress-bar' onClick={this.handleClick.bind(this)}>
           <div className='audio-progress'
-               style={{width: `${document.documentElement.clientWidth*(position/duration)}px`}}></div>
+               style={{width: `${document.documentElement.clientWidth*(position/duration)}px`}}>
+          </div>
+          <div className='progress-circle'
+               style={{left: `${document.documentElement.clientWidth*(position/duration) - 8}px`}}>
+          </div>
         </div>
 
       </div>

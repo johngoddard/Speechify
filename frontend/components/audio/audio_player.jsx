@@ -97,6 +97,9 @@ class AudioPlayer extends React.Component {
   goForward(){
     if(this.props.currentTrack.playQueue.length > 0){
       this.props.goForward();
+    } else{
+      this.pauseTrack();
+      this.props.pause();
     }
   }
 

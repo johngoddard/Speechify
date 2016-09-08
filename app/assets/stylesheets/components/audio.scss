@@ -102,7 +102,6 @@
 .audio-player:hover .progress-time{
   opacity: 1.0;
   transition: all 0.25s ease-in-out;
-
 }
 
 
@@ -112,4 +111,20 @@
   left: 0;
   width: 100%;
   bottom: 68px;
+}
+
+.progress-circle{
+  background: $title-blue;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.audio-progress-bar:hover .progress-circle{
+  opacity: 1.0;
+  transition: opacity 0.25s ease-in-out;
 }
