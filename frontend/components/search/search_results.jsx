@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 class SearchResults extends React.Component {
   constructor(props) {
     super(props);
+    this.getContent = this.getContent.bind(this);
+    this.getResults = this.getResults.bind(this);
   }
 
 
@@ -76,15 +78,26 @@ class SearchResults extends React.Component {
             {playlists}
           </ul>
         </div>
-      )
+      );
     }
   }
 
+  getContent(){
+    if(!this.props.loading){
+      return this.getResults();
+    } else {
+      return (
+        <div className='search-loading-cont'>
+          <div className="search-spinner"></div>
+        </div>
+      );
+    }
+  }
 
   render(){
     return(
       <section className='search-results'>
-        {this.getResults()}
+        {this.getContent()}
       </section>
     );
   }

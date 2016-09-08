@@ -5,7 +5,6 @@ import * as UTIL from '../util/session_api_util.js';
 
 const SessionMiddleware = ({getState, dispatch}) => next => action => {
 
-  console.log(action);
   const success = user => dispatch(SESSION_ACTIONS.receiveCurrentUser(user));
   const error = errors => dispatch(FORM_ACTIONS.receiveSessionErrors(errors));
 

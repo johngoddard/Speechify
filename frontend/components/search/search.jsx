@@ -47,7 +47,9 @@ class Search extends React.Component {
                placeholder='Search for tracks and playlists'
                />
              {this.state.query.length > 0 ?
-              <SearchResultsContainer closeSearch={this.closeSearch.bind(this)}/> : ''}
+              <SearchResultsContainer
+                closeSearch={this.closeSearch.bind(this)}
+                loading={this.props.loading}/> : ''}
       </section>
     );
   }

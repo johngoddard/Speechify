@@ -5,7 +5,7 @@ import * as PLAYLIST_ACTIONS from '../../actions/playlist_actions.js';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  loading: state.loading
+  loading: state.loading.loading
 });
 
 const mapDispatchToProps = dispatch => ({
