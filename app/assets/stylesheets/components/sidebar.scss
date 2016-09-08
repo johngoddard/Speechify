@@ -4,7 +4,7 @@
   height: calc(100% - 54px);
   color: #666;
   background: white;
-  border-right: 1px solid $border;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   float: left;
   overflow: scroll;
 }
