@@ -98,21 +98,22 @@ class TracksIndex extends React.Component {
     let location = window.location.hash.split('?')[0];
     let userTracks = (location === '#/app/your-speeches') ? true : false;
 
+    let tracks = Object.keys(this.props.tracks).map(id => this.props.tracks[id]);
+    let sorted = tracks.sort((t1, t2) => Date.parse(t2.created_at) - Date.parse(t1.created_at));
 
-    const tracks = this.props.tracks;
-    const trackItems = Object.keys(tracks).map((id, idx) => (
+    let trackItems = sorted.map((track, idx) => (
       <TrackIndexItemContainer
-        key={`${tracks[id]}${idx}`}
-        track={tracks[id]}
+        key={`${track.id}${idx}`}
+        track={track}
         className='track-index-item'
         editable={location === '#/app/your-speeches' &&
                   this.props.currentUser &&
-                  this.props.currentUser.id === tracks[id].user_id}
-        openEditModal={this.openEditModal.bind(this, tracks[id])}
-        openPlaylistModal={this.openPlaylistModal.bind(this, tracks[id])}
+                  this.props.currentUser.id === track.user_id}
+        openEditModal={this.openEditModal.bind(this, track)}
+        openPlaylistModal={this.openPlaylistModal.bind(this, track)}
       />
     )
-    );
+  );
 
     return (
       <section className='tracks-index-page index-page'>

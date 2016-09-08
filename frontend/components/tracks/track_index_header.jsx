@@ -6,6 +6,14 @@ class TrackIndexHeader extends React.Component {
     super(props);
   }
 
+  componentDidMount(){
+    let selected = document.querySelector('.selected-cat');
+    if(selected && selected.innerHTML !== 'All'){
+      let category = selected.innerHTML.towLowerCase();
+      this.props.filterTracks(category);
+    }
+  }
+
   handleClick(category){
     this.setSelected(category);
     this.props.filterTracks(category);
