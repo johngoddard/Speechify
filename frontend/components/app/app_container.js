@@ -4,7 +4,8 @@ import { clearSessionErrors } from "../../actions/form_actions.js";
 import * as PLAYLIST_ACTIONS from '../../actions/playlist_actions.js';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  loading: state.loading
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,0 +1,86 @@
+.loading-cont{
+  text-align: center;
+  font-size: 10px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  left: 201px;
+  bottom: 0;
+  background: #eee;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin-bottom: 20%;
+  -webkit-animation: delay .5s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: delay .5s; /* Firefox < 16 */
+   -ms-animation: delay .5s; /* Internet Explorer */
+  animation: delay .5s;
+}
+
+@keyframes delay {
+  0% { opacity: 0; }
+  99% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes delay {
+    0% { opacity: 0; }
+    99% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes delay {
+  0% { opacity: 0; }
+  99% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes delay {
+  0% { opacity: 0; }
+  99% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.double-bounce1, .double-bounce2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: $title-blue;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
