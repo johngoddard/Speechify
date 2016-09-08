@@ -15,3 +15,12 @@ export const formatTime = string => {
 
   return `${minutes}:${seconds}`;
 };
+
+export const capitalize = string => {
+  let words = string.split(' ');
+  let capWords = words.map(word => {
+    return word.slice(0,1)[0].toUpperCase() + word.slice(1);
+  });
+
+  return capWords.join(' ');
+};

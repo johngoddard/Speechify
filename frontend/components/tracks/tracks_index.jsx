@@ -88,7 +88,7 @@ class TracksIndex extends React.Component {
       return (
         <header>
           <TrackIndexHeader filterTracks={this.filterTracks.bind(this)}/>
-          <h3>Browse Speeches</h3>
+          <h3 className='track-idx-title'>Browse All Speeches</h3>
         </header>
       );
     }

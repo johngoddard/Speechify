@@ -1,13 +1,26 @@
 import React from 'react';
+import { capitalize } from '../../util/string_utils.js';
 
 class TrackIndexHeader extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   handleClick(category){
     this.setSelected(category);
     this.props.filterTracks(category);
+    this.setHeader(category);
+  }
+
+  setHeader(category){
+    let title = document.querySelector('.track-idx-title');
+
+    if (title && category){
+      let categoryName = capitalize(category);
+      title.innerHTML = `Browse ${categoryName} Speeches`;
+    } else{
+      title.innerHTML = 'Browse All Speeches';
+    }
   }
 
   setSelected(category){

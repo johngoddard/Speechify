@@ -72,7 +72,7 @@ class Splash extends React.Component {
           <div className='marketing-body'>
             <p>Explore classic and current speeches from politics, sports, movies and more.</p>
             <p>Create and share content with our rapidly-growing community.</p>
-            <p>Connect with friends and rhetorical enthusiasts from around the world.</p>
+            <p>Connect with friends and rhetoric enthusiasts from around the world.</p>
           </div>
           <div className='create-btn' onClick={this.handleCreate.bind(this)}>Create Account</div>
 
