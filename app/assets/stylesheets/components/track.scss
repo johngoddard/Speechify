@@ -217,6 +217,7 @@ input[type='file']{
   right: 9px;
   justify-content: space-between;
   opacity: 0;
+  transition: opacity 0.25s ease-in-out;
 }
 
 .track-add-btn{
@@ -250,6 +251,7 @@ input[type='file']{
   bottom: 70px;
   left: 59px;
   cursor: pointer;
+  transition: opacity 0.25s ease-in-out;
 }
 
 
@@ -333,6 +335,10 @@ input[type='file']{
   background: rgba(0,0,0, .8);
   z-index: 11;
   margin-bottom: 25px;
+}
+
+.playing-spinner:hover{
+  cursor: pointer;
 }
 
 .playing-spinner > div {

@@ -37,6 +37,10 @@ class TrackIndexItem extends React.Component {
     this.props.startPlaying();
   }
 
+  pauseTrack(){
+    this.props.pause();
+  }
+
   getPlayButton(){
     if(this.props.track.audio_url &&
     !(this.props.currentTrack.track && this.props.currentTrack.track.id === this.props.track.id && this.props.currentTrack.playing)){
@@ -44,7 +48,7 @@ class TrackIndexItem extends React.Component {
         <div className='track-play-btn'>
           <span className="glyphicon glyphicon-play" onClick={this.playTrack.bind(this)}></span>
         </div>
-      )
+      );
     }
   }
 
@@ -52,7 +56,7 @@ class TrackIndexItem extends React.Component {
     if(this.props.currentTrack.track && this.props.currentTrack.track.id === this.props.track.id && this.props.currentTrack.playing){
       return(
         <div className = 'playing-animation-container'>
-          <div className="playing-spinner">
+          <div className="playing-spinner" onClick={this.pauseTrack.bind(this)}>
             <div className="rect1"></div>
             <div className="rect2"></div>
             <div className="rect3"></div>
