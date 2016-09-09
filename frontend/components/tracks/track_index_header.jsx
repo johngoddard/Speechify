@@ -8,7 +8,8 @@ class TrackIndexHeader extends React.Component {
 
   componentDidMount(){
     let selected = document.querySelector('.selected-cat');
-    if(selected && selected.innerHTML !== 'All'){
+
+    if(selected && selected.innerHTML !== 'All' && selected.innerHTML !=='Recent'){
       let category = selected.innerHTML.towLowerCase();
       this.props.filterTracks(category);
     }
@@ -22,12 +23,12 @@ class TrackIndexHeader extends React.Component {
 
   setHeader(category){
     let title = document.querySelector('.track-idx-title');
-
     if (title && category){
       let categoryName = capitalize(category);
-      title.innerHTML = `Browse ${categoryName} Speeches`;
+      let display = category === 'recent' ? "Recently Added" : categoryName;
+      title.innerHTML = `Browse ${display} Speeches`;
     } else{
-      title.innerHTML = 'Browse All Speeches';
+      title.innerHTML = 'Browse Recently Added Speeches';
     }
   }
 
@@ -48,9 +49,9 @@ class TrackIndexHeader extends React.Component {
       <div className='category-header'>
         <ul className='category-list'>
           <li className='selected-cat'
-              onClick={this.handleClick.bind(this, "")}
-              id='all-opt'>
-              All
+              onClick={this.handleClick.bind(this, "recent")}
+              id='recent-opt'>
+              Recent
           </li>
           <li onClick={this.handleClick.bind(this, "politics")}
               id='politics-opt'>

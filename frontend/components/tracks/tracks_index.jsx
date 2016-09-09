@@ -73,10 +73,12 @@ class TracksIndex extends React.Component {
   }
 
   filterTracks(category){
-    if(category){
-      this.props.fetchTracks({category: category});
-    } else {
+    if(!category){
       this.props.fetchTracks();
+    } else if(category === 'recent'){
+      this.props.fetchTracks({limit: 10});
+    } else{
+      this.props.fetchTracks({category: category});
     }
   }
 
@@ -88,7 +90,7 @@ class TracksIndex extends React.Component {
       return (
         <header>
           <TrackIndexHeader filterTracks={this.filterTracks.bind(this)}/>
-          <h3 className='track-idx-title'>Browse All Speeches</h3>
+          <h3 className='track-idx-title'>Browse Recently Added Speeches</h3>
         </header>
       );
     }

@@ -25,6 +25,9 @@ class Api::TracksController < ApplicationController
     elsif params[:category]
       @tracks = Track.where(category: params[:category])
       render 'api/tracks/index'
+    elsif params[:limit]
+      @tracks = Track.all.order(created_at: :desc).limit(params[:limit].to_i)
+      render 'api/tracks/index'
     else
       @tracks = Track.all
       render 'api/tracks/index'

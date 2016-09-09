@@ -94,7 +94,7 @@ class AppRouter extends React.Component{
   }
 
   requestAllTracksOnEnter(){
-    this.props.requestAllTracks();
+    this.props.requestAllTracks({limit: 10});
   }
 
   requestAllPlaylistsOnEnter(){
