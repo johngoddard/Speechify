@@ -52,7 +52,9 @@ Users can search for tracks and playlists by using the search bar in the header.
 
 ###User Experience
 
-One of the primary goals of this project was to create a smooth, desktop-app like user experience in the browser. This was largely accomplished via the React/Redux architectural pattern, which made full page refreshes completely unnecessary. Further, when a user signs in, some key information -- like created playlists and their corresponding tracks -- is pre-fetched and loaded into the application's store. Because of this, AJAX requests are not needed when users perform certain common actions, like opening a playlist that they created, making those actions near instantaneous. 
+One of the primary goals of this project was to create a smooth, desktop-app like user experience in the browser. This was largely accomplished via the React/Redux architectural pattern, which made full page refreshes completely unnecessary. 
+
+Further, when a user signs in, some key information -- like created playlists and their corresponding tracks -- is pre-fetched and loaded into the application's store. Because of this, AJAX requests are not needed when users perform certain common actions, like opening a playlist that they created, making those actions near instantaneous.
 
 Some user testing was also completed to fine-tune application layout and interactions.
 
