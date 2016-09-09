@@ -2,7 +2,7 @@ import React from 'react';
 import UploadImageButton from '../buttons/upload_image_button.jsx';
 import UploadAudioButton from '../buttons/upload_audio_button.jsx';
 
-const DEFAULT_IMAGE = 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
+const DEFAULT_IMAGE = 'assets/default_image.png';
 
 class TrackForm extends React.Component {
   constructor(props) {

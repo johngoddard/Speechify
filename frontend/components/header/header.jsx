@@ -4,8 +4,7 @@ import { withRouter, Link} from 'react-router';
 import SearchContainer from '../../components/search/search_container.js';
 import HeaderDrop from './account_drop.jsx';
 
-const DEFAULT_IMAGE = 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1472753244/images/ikpgc0g6ecz8fdz1lrda.png';
-
+const DEFAULT_IMAGE = 'assets/default_profile.png';
 
 class Header extends React.Component {
   constructor(props){

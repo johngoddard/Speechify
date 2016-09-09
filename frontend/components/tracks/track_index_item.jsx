@@ -1,5 +1,5 @@
 import React from 'react';
-const DEFAULT_IMAGE = 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1472750331/images/vgv7zdei4rllspn9ngio.jpg';
+const DEFAULT_IMAGE = 'assets/default_image.png';
 
 class TrackIndexItem extends React.Component {
   constructor(props) {
