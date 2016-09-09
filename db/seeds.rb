@@ -53,7 +53,7 @@ Track.create(title: 'Braveheart Freedom Speech', category: 'entertainment', arti
 Track.create(title: 'I Have a Dream', category: 'history', artist: 'Martin Luther King', user_id: 1, audio_url: 'https://res.cloudinary.com/dwf6beu4e/video/upload/v1473372033/Martin_Luther_King_Jr._I_Have_A_Dream_Speech_qdfaai.mp3', track_image_url: 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1473371988/images/jagjzcaotbxfwhjazqxd.png')
 
 Track.create(title: 'Finest Hour', category: 'history', artist: 'Winston Churchill', user_id: 2, audio_url: 'https://res.cloudinary.com/dwf6beu4e/video/upload/v1473372252/Winston_Churchill_finest_hour_best_version_ivq2f3.mp3', track_image_url: 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1473372144/images/zxnlipgxwkjlwvgbdm7s.png')
-Track.create(title: 'Miracle on Ice Speech', artist: 'Herb Brooks', category: 'sports', user_id: 4, track_image_url: "https://res.cloudinary.com/dwf6beu4e/image/upload/v1472757301/images/k1pdcy3zlrsbyvmfccsx.png", audio_url: 'https://res.cloudinary.com/dwf6beu4e/video/upload/v1473126993/xku9cjgzv3muutlbsd7l.mp3')
+Track.create(title: 'Miracle on Ice Speech', artist: 'Herb Brooks', category: 'sports', user_id: 4, track_image_url: "https://res.cloudinary.com/dwf6beu4e/image/upload/v1473391092/images/nahbocx6udpvmckyt1rl.png", audio_url: 'https://res.cloudinary.com/dwf6beu4e/video/upload/v1473126993/xku9cjgzv3muutlbsd7l.mp3')
 
 Playlist.create(user_id: 1, title: 'Historical', description: "This is a playlist with my favorite historical speeches! Use playlists to make and share collections of your favorite speeches.")
 

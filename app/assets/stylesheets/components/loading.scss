@@ -19,10 +19,10 @@
   height: 100px;
   position: relative;
   margin-bottom: 20%;
-  -webkit-animation: delay .5s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: delay .5s; /* Firefox < 16 */
-   -ms-animation: delay .5s; /* Internet Explorer */
-  animation: delay .5s;
+  -webkit-animation: delay .25s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: delay .25s; /* Firefox < 16 */
+   -ms-animation: delay .25s; /* Internet Explorer */
+  animation: delay .25s;
 }
 
 @keyframes delay {
