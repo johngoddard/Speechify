@@ -12,7 +12,7 @@ class Header extends React.Component {
     super(props);
     this.state = {
       accountDrop: false
-    }
+    };
 
     this.handleLogout = this.handleLogout.bind(this);
     this.goToAccount = this.goToAccount.bind(this);
@@ -81,7 +81,7 @@ class Header extends React.Component {
           {this.state.accountDrop ?
           <HeaderDrop exitSidebar={this.closeAndExit.bind(this)} handleLogout={this.handleLogout.bind(this)}/> : ''}
         </div>
-      )
+      );
     } else {
       return (
         <div className='button-bar'>
@@ -90,7 +90,7 @@ class Header extends React.Component {
             <li className='sign-up-link' onClick={this.props.openSignupModal}>Sign Up</li>
           </ul>
         </div>
-      )
+      );
     }
   }
 
@@ -101,7 +101,7 @@ class Header extends React.Component {
       <header className='header'>
         <div className='logo'>
           <div className='logo-thumb'>
-            <img src='https://res.cloudinary.com/dwf6beu4e/image/upload/v1473200830/images/m9lnkeha9yiaxxyj68z4.png' />
+            <img src='assets/mic_blue.png' />
           </div>
           <h3>Speechify</h3>
         </div>
