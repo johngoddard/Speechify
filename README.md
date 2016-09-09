@@ -54,7 +54,7 @@ Users can search for tracks and playlists by using the search bar in the header.
 
 One of the primary goals of this project was to create a smooth, desktop-app like user experience in the browser. This was largely accomplished via the React/Redux architectural pattern, which made full page refreshes completely unnecessary.
 
-Further, when a user signs in, some key information -- like created playlists and their corresponding tracks -- is pre-fetched and loaded into the application's state. Because of this, AJAX requests are not needed when users perform certain common actions -- like opening a playlist that they created -- making those actions near instantaneous.
+Further, when a user signs in, some key information &mdash; like created playlists and their corresponding tracks &mdash; is pre-fetched and loaded into the application's state. Because of this, AJAX requests are not needed when users perform certain common actions &mdash; like opening a playlist that they created &mdash; making those actions near instantaneous.
 
 Some user testing was also completed to fine-tune application layout and interactions.
 
@@ -77,7 +77,7 @@ I'd like to expand Speechify's track categorization system to be a more robust t
 
 ###Location and time based track exploration
 
-Eventually, I'd like to draw on the Google maps API to allow users to browse tracks by location and time period. Adding this functionality could expand Speechify's potential as an educational tool -- e.g. a student could use the app to browse speeches made in different countries between 1939 and 1945 to get an immersive feel for worldwide sentiments during World War II.
+Eventually, I'd like to draw on the Google maps API to allow users to browse tracks by location and time period. Adding this functionality could expand Speechify's potential as an educational tool &mdash; e.g. a student could use the app to browse speeches made in different countries between 1939 and 1945 to get an immersive feel for worldwide sentiments during World War II.
 
 This would of course require storing additional information, like speech location and speech date in the tracks table.
 
