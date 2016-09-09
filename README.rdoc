@@ -1,4 +1,4 @@
-# FresherNote
+# Speechify
 
 [Speechify live][prodlink]
 
