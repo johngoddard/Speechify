@@ -11,8 +11,8 @@ Speechify is an audio-streaming web application inspired by Spotify and built us
 - [x] Audio track creation, deletion, and updating
 - [x] Playlist creation, deletion, and updating
 - [x] Following playlists
-- [ ] Continuous audio streaming while navigating the site
-- [ ] Following other users
+- [x] Continuous audio streaming while navigating the site
+- [x] Following other users
 - [ ] Production README
 
 ## Design Docs
@@ -91,7 +91,7 @@ the API.
   - [x] `PlaylistDetail `
   - [x] `AddTrackToPlaylist form `
 - [x] Style playlist components
-- [ ] Seed playlists
+- [x] Seed playlists
 - [x] `PlaylistFollow` model
 - [x] Seed database with a small amount of test data
 - [x] Create destroy API for playlists (`PlaylistsController`)
@@ -100,32 +100,33 @@ the API.
 ### Phase 4: Streaming audio (2 days)
 
 **Objective:** Audio can be streamed Continuously while navigating the site
-- [ ] Research streaming Audio
-- [ ] Current track Redux cycles and reducer
-- [ ] Current track components
-  - [ ] `PlayBar`
-  - [ ] `CurrentTrackDisplay`
-  - [ ] `CurrentTrackControlsContainer`
-  - [ ] `CurrentTrackProgressBar`
-- [ ] Styling for audio components
+- [x] Research streaming Audio
+- [x] Current track Redux cycles and reducer
+- [x] Current track components
+  - [x] `PlayBar`
+  - [x] `CurrentTrackDisplay`
+  - [x] `CurrentTrackControlsContainer`
+  - [x] `CurrentTrackProgressBar`
+- [x] Styling for audio components
 
 ### Phase 5: Follow Users / updating current user (1 day)
 
 **Objective:** Users can browse and follow other users.
 
 - [x]`UserFollow` model
-- [ ] Create destroy API for follows (`UsersController`)
+- [x] Create destroy API for follows (`UsersController`)
 - Related components
-  - [ ] `UserIndex`
-  - [ ] `UserDetail`
+  - [x] `UserIndex`
+  - [x] `UserDetail`
   - [x] `UserForm`
 - Styling for components
 
 
 ### Bonus Features (TBD)
-- [ ] Splash screen
-- [ ] Search for songs and playlists on search tab
+- [x] Splash screen
+- [x] Search for songs and playlists on search tab
+- [x] Track categorization
+- [x] Play Queue
 - [ ] Mobile responsive
-- [ ] Playlist and/or track categorization
 - [ ] Multiple sessions
 - [ ] Browse tracks by location
