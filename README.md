@@ -12,6 +12,10 @@ Speechify is a full-stack web application that let's users upload, stream, and s
 
 Users can Continuously stream audio as the navigate around the site. This is largely due to Speechify's frontend architecture; it is a single-page web app that dynamically renders React components. The audio player, as well as the sound itself, are simply React components that persist as users navigate throughout the site.
 
+Audio playback is controlled on the frontend via an `AudioPlayer` React component, which allows for standard audio control options, like playing and pausing, going back and forward, changing track position via a progress bar. Users can also play or pause a track by clicking a play button in the `TrackIndexItem`.
+
+The currently playing track, the play status (playing, paused, etc), and upcoming / recently played tracks are stored in the Redux store.
+
 ![Speechify tracks page: http://www.speechify.stream/#/app/][tracks audio]
 
 ###Track uploading and editing
@@ -48,7 +52,7 @@ Users can search for tracks and playlists by using the search bar in the header.
 
 ###User Experience
 
-One of the primary goals of this project was to create a smooth, desktop-app like user experience in the browser. This was largely accomplished via the Redux architectural pattern, which made full page refreshes largely unnecessary. Further, when a user signs in, some key information -- like created playlists and their corresponding tracks -- is pre-fetched and loaded into the application's store. Because of this, AJAX requests are not needed when users perform certain common actions, like opening a playlist that they created.
+One of the primary goals of this project was to create a smooth, desktop-app like user experience in the browser. This was largely accomplished via the React/Redux architectural pattern, which made full page refreshes completely unnecessary. Further, when a user signs in, some key information -- like created playlists and their corresponding tracks -- is pre-fetched and loaded into the application's store. Because of this, AJAX requests are not needed when users perform certain common actions, like opening a playlist that they created, making those actions near instantaneous. 
 
 Some user testing was also completed to fine-tune application layout and interactions.
 
