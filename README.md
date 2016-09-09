@@ -75,7 +75,7 @@ I'd like users to be able to reorder playlists by dragging and dropping `Playlis
 
 I'd like to expand Speechify's track categorization system to be a more robust tagging system that would apply to both tracks and playlists. I'd accomplish this through a Tags table and a polymorphic Taggings joins table, which would take in a `taggable_id` which could apply to either a track or playlist, as well as `taggable_type`. These taggings could be used to improve the site's search functionality.
 
-###Location and time based track exploration
+###Location and time-based track exploration
 
 Eventually, I'd like to draw on the Google maps API to allow users to browse tracks by location and time period. Adding this functionality could expand Speechify's potential as an educational tool &mdash; e.g. a student could use the app to browse speeches made in different countries between 1939 and 1945 to get an immersive feel for worldwide sentiments during World War II.
 
