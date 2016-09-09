@@ -141,6 +141,8 @@ textarea, input {
 
 textarea:focus, input:focus {
   border: 1px solid $title-blue;
+  box-shadow: 0 0 4px rgba(51, 204, 255, .2);
+  transition: all 0.25s ease-in-out;
 }
 
 .user-desc{
