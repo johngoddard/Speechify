@@ -12,7 +12,7 @@ User.create(username: 'MrHistory', password: 'pass', description: "History buff 
 User.create(username: 'TheChamp', password: 'pass', description: "1997 and 1999 NCAA debate national champion. I have tremendous admiration for great speakers, past and present, and I'm here to try and join their ranks. ", profile_image_url: 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1473381210/images/nsdyvqddgksslclh7xh8.png')
 User.create(username: 'stevejackson', password: 'pass', description: "Longtime toastmaster and lover of great speeches. I'm here to brush up on the art of rhetoric.", profile_image_url: 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1473378466/images/om4gmsymoknsgu8e8s1a.png')
 
-User.create(username: 'Yoda', password: 'pass', description: "\"Do. Or do not. There is no try.\" That's the motto that I live by.", profile_image_url: 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1473381261/images/ahjs7fj6vcazzlxhpiob.png')
+User.create(username: 'Yoda', password: 'pass', description: "\"Do. Or do not. There is no try.\" The motto that I live by, that is.", profile_image_url: 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1473381261/images/ahjs7fj6vcazzlxhpiob.png')
 User.create(username: 'lindaS', password: 'pass', description: "Fortune 500 exectutive. The brains of the operation. I joined Speechify to learn from the best.", profile_image_url: 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1473378957/images/rnorwav1q2ih5yac0uzy.png')
 User.create(username: 'nauticaljack', password: 'pass', description: "Argh, I be here to work on my oration in front of my maties!", profile_image_url: 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1473129386/images/evyfztglpkaku5i3piv9.png')
 
