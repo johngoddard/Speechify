@@ -24,6 +24,14 @@
   text-decoration: none;
 }
 
+.account-link:hover{
+  color: #ccc;
+  background: #555;
+}
+
+.account-link{
+  padding: 10px 0;
+}
 .empty-results{
   padding: 20px;
   font-style: italic;
