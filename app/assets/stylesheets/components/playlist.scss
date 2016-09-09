@@ -185,7 +185,8 @@
   opacity: 0.0;
   bottom: 70px;
   left: 69px;
-  cursor: pointer
+  cursor: pointer;
+  transition: opacity 0.25s ease-in-out;
 }
 
 .playlist-index-page > ul {
@@ -225,4 +226,31 @@
 .playlist-image-grid img{
   height: 50%;
   width: 50%;
+}
+
+.small-play-btn{
+  opacity: .85;
+  background: black;
+  position: absolute;
+  color: #0099cd;
+  border-radius: 50%;
+  padding: 6px 7px;
+  top: 10px;
+  left: 11px;
+  opacity: 0.0;
+  transition: opacity .25s;
+}
+
+.small-play-btn span{
+  font-size: 1.5em;
+  left: 2px;
+}
+
+.track-img-thumb{
+  position: relative;
+}
+
+.play-track-idx-item:hover .small-play-btn{
+  opacity: .85;
+  transition: opacity .25s;
 }

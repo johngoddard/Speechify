@@ -28,6 +28,9 @@ class PlaylistTracksIndexItem extends React.Component {
       <div className='play-track-idx-item' onClick={this.play.bind(this)}>
         <div className='track-img-thumb'>
           <img src={trackImage} />
+          <div className='small-play-btn'>
+            <span className="glyphicon glyphicon-play"></span>
+          </div>
         </div>
         <div className='track-info'>
           <span className='artist'>
