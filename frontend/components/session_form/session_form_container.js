@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps)=> {
 
   return {
     processForm: user => dispatch(processForm(user)),
+    loginUser: user => dispatch(SESSION_ACTIONS.login(user)),
     closeModal: () => ownProps.closeModal(),
     toggleForm: () => ownProps.toggleForm(),
     fetchCurrentUserPlaylists: user => dispatch(PLAYLIST_ACTIONS.fetchCurrentUserPlaylists(user)),

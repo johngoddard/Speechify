@@ -20,7 +20,13 @@ class SessionForm extends React.Component {
     }
   }
 
+  clearFields(){
+    this.setState({username: '', password:''});
+  }
+
   startUsernameAnimation(){
+    this.clearFields();
+
     const demoName = 'DemoUser';
     let usernameID = setInterval(() => {
       document.getElementById('username').focus();
@@ -45,7 +51,7 @@ class SessionForm extends React.Component {
         this.setState({password: this.state.password + demoPassword.slice(currLength, currLength + 1)});
       } else{
         clearInterval(passwordID);
-        this.props.processForm(this.state);
+        this.props.loginUser(this.state);
       }
     }, 100);
   }
@@ -77,11 +83,11 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'login'){
       return (<div className='other-pop-text'>Dont have an account?
                 <a onClick={this.toggle}>Sign up</a>
-              </div>)
+              </div>);
     } else {
       return (<div className='other-pop-text'>Already have an account?
                 <a onClick={this.toggle}>Sign in</a>
-              </div>)
+              </div>);
     }
   }
 
@@ -129,11 +135,18 @@ class SessionForm extends React.Component {
                  onChange={this.update('password')} />
 
           {errors['password'] ? (<div className='error'>{errors['password']}</div>) : ''}
+             <div className = 'form-btn-bar'>
                <input type="submit"
                       className='form-button'
                       onClick={this.handleSubmit.bind(this)}
                       value='Submit' />
-          {this.getAltText()}
+                <input type="button"
+                  className='form-button'
+                  id="demo-form-btn"
+                  onClick={this.startUsernameAnimation.bind(this)}
+                  value='Demo Login' />
+            </div>
+            {this.getAltText()}
         </form>
 
       </div>

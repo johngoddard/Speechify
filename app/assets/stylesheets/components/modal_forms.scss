@@ -67,7 +67,7 @@
   font-family: $body-font;
   margin-top: 15px;
   background: $title-blue;
-  display: block;
+  display: inline-block;
   color: white;
   font-size: 16px;
   line-height: 20px;
@@ -75,6 +75,7 @@
   border-radius: 5px;
   text-align: center;
   border-style: none;
+  width: 48%;
 }
 
 .error{
@@ -86,4 +87,17 @@
 .form-button:hover{
   background: $blue-btn;
   color: white;
+}
+
+#demo-form-btn{
+  background: #0086b4;
+}
+
+#demo-form-btn:hover{
+  background: #00739b;
+}
+
+.form-btn-bar{
+  display: flex;
+  justify-content: space-between;
 }
