@@ -140,11 +140,11 @@ class SessionForm extends React.Component {
                       className='form-button'
                       onClick={this.handleSubmit.bind(this)}
                       value='Submit' />
-                <input type="button"
+                <a
                   className='form-button'
                   id="demo-form-btn"
                   onClick={this.startUsernameAnimation.bind(this)}
-                  value='Demo Login' />
+                  >Demo Account</a>
             </div>
             {this.getAltText()}
         </form>
