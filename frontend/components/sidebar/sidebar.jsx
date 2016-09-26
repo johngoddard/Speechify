@@ -79,7 +79,7 @@ class Sidebar extends React.Component {
 
   componentWillReceiveProps(nextProps){
     this.closeModal();
-    if(!nextProps.inSidebar || !nextProps.currentUser){
+    if(!nextProps.inSidebar || (!nextProps.currentUser && this.props.currentUser)){
       this.resetSelected();
     }
     this.initializeSelected();

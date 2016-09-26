@@ -4,7 +4,7 @@ import SplashHeader from './splash_header.jsx';
 import Modal from 'react-modal';
 import {authModalStyle} from '../../util/modal_styles.js';
 import SessionFormContainer from '../session_form/session_form_container.js';
-import {withRouter} from 'react-router';
+import {withRouter, Link} from 'react-router';
 
 document.addEventListener("DOMContentLoaded", function(){
   Modal.setAppElement(document.body);
@@ -83,8 +83,12 @@ class Splash extends React.Component {
           </div>
 
           <ul>
-            <li>About</li>
-            <li>Contact</li>
+            <a href='https://github.com/johngoddard/Speechify' target="_blank">
+              <li>About</li>
+            </a>
+            <a href='http://johngoddard.me' target="_blank">
+              <li>Contact</li>
+            </a>
             <li>Terms of Service</li>
           </ul>
         </footer>

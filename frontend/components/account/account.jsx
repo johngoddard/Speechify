@@ -4,7 +4,7 @@ import UserForm from './user_form.jsx';
 import UploadImageButton from '../buttons/upload_image_button.jsx';
 import {updateCurrentUser} from '../../actions/session_actions.js';
 
-const DEFAULT_IMAGE = 'https://res.cloudinary.com/dwf6beu4e/image/upload/v1472753244/images/ikpgc0g6ecz8fdz1lrda.png';
+const DEFAULT_IMAGE = 'assets/default_profile.png';
 
 
 class Account extends React.Component {

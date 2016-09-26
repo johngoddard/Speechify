@@ -62,6 +62,15 @@ class Header extends React.Component {
     this.props.exitSidebar();
   }
 
+  goToHome(){
+    let li = document.querySelector('.selected');
+    if(li){
+      li.classList.remove('selected');
+    }
+
+    this.props.router.push('/app');
+  }
+
   getRightContent(){
     if(this.props.currentUser){
       let user = this.props.currentUser;
@@ -98,7 +107,7 @@ class Header extends React.Component {
 
     return (
       <header className='header'>
-        <div className='logo'>
+        <div className='logo' onClick={this.goToHome.bind(this)}>
           <div className='logo-thumb'>
             <img src='assets/mic_blue.png' />
           </div>
