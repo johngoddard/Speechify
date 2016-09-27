@@ -128,3 +128,14 @@
   opacity: 1.0;
   transition: opacity 0.25s ease-in-out;
 }
+.audio-queue-btn{
+  margin-right: 10px;
+}
+
+.queue-btn-cont{
+  margin-right: 20px;
+  font-size: 14px;
+}
+.queue-btn-cont:hover{
+  cursor: pointer;
+}

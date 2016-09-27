@@ -48,6 +48,10 @@ const AudioReducer = (state = _default, action) => {
       } else {
         return state;
       }
+    case AudioConstants.SET_QUEUE_POSITION:
+      newQueue = state.playQueue.slice(action.pos + 1);
+      newPlayed = [...state.playedTracks, state.playQueue.slice(0, action.pos)];
+      return Object.assign({}, state, {playQueue: newQueue, playedTracks: newPlayed});
     case AudioConstants.PLAY_PLAYLIST:
       let start = action.startIdx || 0;
       newTrack = action.playlist.tracks.slice(start,start+1)[0];

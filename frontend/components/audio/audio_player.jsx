@@ -3,6 +3,7 @@ import Sound from 'react-sound';
 import AudioDisplay from './audio_display.jsx';
 import ProgressBar from './progress_bar.jsx';
 import { formatTime } from '../../util/string_utils.js';
+import QueueControl from './queue_control.jsx';
 
 class AudioPlayer extends React.Component {
   constructor(props) {
@@ -129,6 +130,7 @@ class AudioPlayer extends React.Component {
           <a className={`glyphicon glyphicon-forward audio-btn${forwardable ? '' : ' disabled'}`}
              onClick={this.goForward.bind(this)}></a>
         </div>
+        <QueueControl />
         {this.getSound()}
     </section>
   );

@@ -5,8 +5,10 @@ export const AudioConstants = {
   ADD_TO_QUEUE: "ADD_TO_QUEUE",
   GO_FORWARD: "GO_FORWARD",
   GO_BACK: "GO_BACK",
-  PLAY_PLAYLIST: "PLAY_PLAYLIST"
+  PLAY_PLAYLIST: "PLAY_PLAYLIST",
+  SET_QUEUE_POSITION: "SET_QUEUE_POSITION"
 };
+
 
 export const setCurrentTrack = track => ({
   type: AudioConstants.SET_CURRENT_TRACK,
@@ -38,4 +40,9 @@ export const playPlaylist = (playlist, startIdx) => ({
   type: AudioConstants.PLAY_PLAYLIST,
   playlist,
   startIdx
+});
+
+export const setQueuePosition = pos => ({
+  type: AudioConstants.SET_QUEUE_POSITION,
+  pos
 });
