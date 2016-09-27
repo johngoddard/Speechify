@@ -130,7 +130,7 @@ class AudioPlayer extends React.Component {
           <a className={`glyphicon glyphicon-forward audio-btn${forwardable ? '' : ' disabled'}`}
              onClick={this.goForward.bind(this)}></a>
         </div>
-        <QueueControl />
+        <QueueControl active={this.props.currentTrack.playQueue.length} />
         {this.getSound()}
     </section>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import QueueIndexItemContainer from './queue_index_item_container.js';
 
 class QueueIndex extends React.Component {
   constructor(props) {
@@ -7,21 +8,18 @@ class QueueIndex extends React.Component {
 
   getQueueTracks(){
     const currentAudio = this.props.currentAudio;
-    console.log(currentAudio);
-    const tracks = currentAudio.playedTracks.concat([currentAudio.track], currentAudio.playQueue);
-    const trackDisplay = tracks.map((track, idx) => (
-      <li className='queue-idx-item' key={`${track ? track.title : 'no-name'}-${idx}`}>
-        <span className='queue-artist'>{track ? track.artist : ''}</span>
-        <span className='queue-artist'>{track ? track.title : ''}</span>
-      </li>
-    ));
-
+    const trackDisplay = currentAudio.playQueue.map((track, idx) => {
+      return (<QueueIndexItemContainer
+                key={`${track ? track.title : 'no-name'}-${idx}`}
+                track={track}
+                pos={idx}/>);
+    });
     return trackDisplay;
   }
 
   render(){
     return (
-      <ul className="QueueList">
+      <ul className="queue-list">
         {this.getQueueTracks()}
       </ul>
     );

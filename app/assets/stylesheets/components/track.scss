@@ -280,6 +280,10 @@ input[type='file']{
   color: #555;
 }
 
+.disabled:hover{
+  cursor: default !important;
+}
+
 .category-header{
   display: flex;
   width: 100%;

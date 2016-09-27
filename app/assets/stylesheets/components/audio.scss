@@ -65,7 +65,6 @@
 }
 
 .audio-controls{
-  margin-right: 30px;
   margin-top: 3px;
 }
 
@@ -137,5 +136,34 @@
   font-size: 14px;
 }
 .queue-btn-cont:hover{
+  cursor: pointer;
+}
+
+.queue-list{
+  position: absolute;
+  z-index: 2;
+  color: #ccc;
+  opacity: .98;
+  background: #333;
+  font-size: 13px;
+  bottom: 68px;
+  right: 0px;
+  width: 260px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px 0px;
+}
+
+.queue-artist{
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.queue-list > li{
+  padding: 10px 20px;
+}
+
+.queue-list > li:hover{
+  background-color: #555;
   cursor: pointer;
 }

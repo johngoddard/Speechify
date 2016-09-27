@@ -8,17 +8,26 @@ class QueueControl extends React.Component {
       view: false
     };
   }
+
+  componentWillReceiveProps(nextProps){
+    if(!nextProps.active){
+      this.setState({view: false});
+    }
+  }
+
   handleClick(){
-    let newView = this.state.view ? false : true;
-    this.setState({view: newView});
+    if(this.props.active){
+      let newView = this.state.view ? false : true;
+      this.setState({view: newView});
+    }
   }
 
   render(){
     return (
-      <div className="queue-btn-cont" onClick={this.handleClick.bind(this)}>
+      <div className={`queue-btn-cont${this.props.active ? "" : " disabled"}`} onClick={this.handleClick.bind(this)}>
         <span className='glyphicon glyphicon-th-list audio-queue-btn'></span>
-        Play Queue
-        <QueueIndexContainer />
+        Up Next
+        {this.state.view ? <QueueIndexContainer /> : ''}
       </div>
     );
   }
