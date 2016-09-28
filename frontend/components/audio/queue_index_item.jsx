@@ -13,8 +13,8 @@ class QueueIndexItem extends React.Component {
   render(){
     return (
       <li className='queue-idx-item' onClick={this.handleClick.bind(this)}>
-        <span className='queue-artist'>{this.props.track ? this.props.track.artist : ''}:</span>
-        <span className='queue-title'>{this.props.track ? this.props.track.title : ''}</span>
+        <span className='queue-artist'>{`${this.props.pos + 1}.  ${this.props.track.artist}` }:</span>
+        <span className='queue-title'>{this.props.track.title}</span>
       </li>
     );
   }
