@@ -75,9 +75,11 @@
   border-radius: 5px;
   text-align: center;
   border-style: none;
+  width: 100%;
+}
+.form-btn-bar > .form-button{
   width: 48%;
 }
-
 .error{
   color: red;
   font-size: 12px;
