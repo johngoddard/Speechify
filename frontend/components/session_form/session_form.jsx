@@ -21,11 +21,14 @@ class SessionForm extends React.Component {
   }
 
   clearFields(){
+    console.log('here');
     this.setState({username: '', password:''});
   }
 
   startUsernameAnimation(){
-    this.clearFields();
+    if(this.state.username.length > 0 || this.state.password.length > 0){
+      this.clearFields();
+    }
 
     const demoName = 'DemoUser';
     let usernameID = setInterval(() => {
